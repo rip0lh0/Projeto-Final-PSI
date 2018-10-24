@@ -1,0 +1,142 @@
+-- ****************** SqlDBM: MySQL ******************;
+-- ***************************************************;
+
+DROP TABLE `Raça`;
+
+
+DROP TABLE `Dados_veterinarios`;
+
+
+DROP TABLE `Adoptar`;
+
+
+DROP TABLE `Canil`;
+
+
+DROP TABLE `Animal`;
+
+
+DROP TABLE `Adotante`;
+
+
+
+-- ************************************** `Animal`
+
+CREATE TABLE `Animal`
+(
+ `Id`      INT NOT NULL ,
+ `Nome`    VARCHAR(45) NOT NULL ,
+ `Raça`    VARCHAR(45) NOT NULL ,
+ `Genero`  CHAR NOT NULL ,
+ `Tamanho` FLOAT NOT NULL ,
+ `Idade`   INT NOT NULL ,
+
+PRIMARY KEY (`Id`)
+);
+
+
+
+
+
+
+-- ************************************** `Adotante`
+
+CREATE TABLE `Adotante`
+(
+ `Id`            INT NOT NULL ,
+ `NIF`           DOUBLE NOT NULL ,
+ `Nome`          VARCHAR(45) NOT NULL ,
+ `Morada`        VARCHAR(45) NOT NULL ,
+ `Localidade`    VARCHAR(45) NOT NULL ,
+ `Nacionalidade` VARCHAR(45) NOT NULL ,
+ `Contacto`      DOUBLE NOT NULL ,
+
+PRIMARY KEY (`Id`, `NIF`)
+);
+
+
+
+
+
+
+-- ************************************** `Raça`
+
+CREATE TABLE `Raça`
+(
+ `Id`    NOT NULL ,
+ `Id_1` INT NOT NULL ,
+ `Raça` VARCHAR(45) NOT NULL ,
+ `Desc` VARCHAR(45) NOT NULL ,
+
+PRIMARY KEY (`Id`, `Id_1`),
+KEY `fkIdx_64` (`Id_1`),
+CONSTRAINT `FK_64` FOREIGN KEY `fkIdx_64` (`Id_1`) REFERENCES `Animal` (`Id`)
+);
+
+
+
+
+
+
+-- ************************************** `Dados_veterinarios`
+
+CREATE TABLE `Dados_veterinarios`
+(
+ `Id`         NOT NULL ,
+ `Id_1`      INT NOT NULL ,
+ `Vacinação` VARCHAR(45) NOT NULL ,
+ `Doenças`   VARCHAR(45) NOT NULL ,
+ `Chip`      CHAR NOT NULL ,
+
+PRIMARY KEY (`Id`, `Id_1`),
+KEY `fkIdx_37` (`Id_1`),
+CONSTRAINT `FK_37` FOREIGN KEY `fkIdx_37` (`Id_1`) REFERENCES `Animal` (`Id`)
+);
+
+
+
+
+
+
+-- ************************************** `Adoptar`
+
+CREATE TABLE `Adoptar`
+(
+ `Id`           INT NOT NULL ,
+ `NIF`          DOUBLE NOT NULL ,
+ `Id_1`         INT NOT NULL ,
+ `Data_Adopção` DATETIME NOT NULL ,
+
+PRIMARY KEY (`Id`, `NIF`, `Id_1`),
+KEY `fkIdx_52` (`Id`, `NIF`),
+CONSTRAINT `FK_52` FOREIGN KEY `fkIdx_52` (`Id`, `NIF`) REFERENCES `Adotante` (`Id`, `NIF`),
+KEY `fkIdx_58` (`Id_1`),
+CONSTRAINT `FK_58` FOREIGN KEY `fkIdx_58` (`Id_1`) REFERENCES `Animal` (`Id`)
+);
+
+
+
+
+
+
+-- ************************************** `Canil`
+
+CREATE TABLE `Canil`
+(
+ `Id`         INT NOT NULL ,
+ `Nome`       VARCHAR(45) NOT NULL ,
+ `Id_1`       INT NOT NULL ,
+ `Morada`     VARCHAR(45) NOT NULL ,
+ `Localidade` VARCHAR(45) NOT NULL ,
+ `Contacto`   DOUBLE NOT NULL ,
+ `Email`      VARCHAR(45) NOT NULL ,
+
+PRIMARY KEY (`Id`, `Nome`, `Id_1`),
+KEY `fkIdx_33` (`Id_1`),
+CONSTRAINT `FK_33` FOREIGN KEY `fkIdx_33` (`Id_1`) REFERENCES `Animal` (`Id`)
+);
+
+
+
+
+
