@@ -1,0 +1,21 @@
+
+body{
+    background-image: linear-gradient(to right, #37474F, #607D8B);
+}
+
+
+.panel-login{
+    border: none!important;
+    background-color: #E3F2FD!important;
+}
+
+.panel-login-heading {
+    background-color: #1565C0;
+    padding: 10px 30px;
+}
+
+.panel-login-heading > h3 {
+    color: #fafafa;
+    font-size: 26px;
+    font-weight: bold;
+}
