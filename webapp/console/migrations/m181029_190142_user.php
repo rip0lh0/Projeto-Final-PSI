@@ -15,9 +15,9 @@ class m181029_190142_user extends Migration
         $this->createTable('user', [
             'id' => $this->primaryKey(),
             'username' => $this->string()->notNull(),
-            'password_hash' => $this->string(),
+            'password_hash' => $this->string()->notNull(),
             'password_reset_token' => $this->string(),
-            'email' => $this->string(),
+            'email' => $this->string()->notNull(),
             'auth_key' => $this->string(),
             'status' => $this->integer(),
             'created_at' => $this->integer(),
