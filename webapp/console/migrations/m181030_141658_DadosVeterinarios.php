@@ -12,7 +12,12 @@ class m181030_141658_DadosVeterinarios extends Migration
      */
     public function safeUp()
     {
-
+        $this->createTable('dados_veterinarios', [
+            'id' => $this->primaryKey(),
+            'vacinacao' => $this->string()->notNull(),
+            'doencas' => $this->string()->notNull(),
+            'chip' => $this->integer()->notNull()
+        ]);
     }
 
     /**
@@ -20,9 +25,7 @@ class m181030_141658_DadosVeterinarios extends Migration
      */
     public function safeDown()
     {
-        echo "m181030_141658_DadosVeterinarios cannot be reverted.\n";
-
-        return false;
+        $this->dropTable('dados_veterinarios');
     }
 
     /*
@@ -38,5 +41,5 @@ class m181030_141658_DadosVeterinarios extends Migration
 
         return false;
     }
-    */
+     */
 }

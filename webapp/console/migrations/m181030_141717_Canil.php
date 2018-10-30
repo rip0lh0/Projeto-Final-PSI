@@ -12,7 +12,14 @@ class m181030_141717_Canil extends Migration
      */
     public function safeUp()
     {
-
+        $this->createTable('canil', [
+            'id' => $this->primaryKey(),
+            'nome' => $this->string()->notNull(),
+            'morada' => $this->string()->notNull(),
+            'localidade' => $this->string()->notNull(),
+            'contacto' => $this->string()->notNull(),
+            'email' => $this->string()->notNull()
+        ]);
     }
 
     /**
@@ -20,9 +27,8 @@ class m181030_141717_Canil extends Migration
      */
     public function safeDown()
     {
-        echo "m181030_141717_Canil cannot be reverted.\n";
-
-        return false;
+        // Drops Table 'canil'
+        $this->dropTable('canil');
     }
 
     /*
@@ -38,5 +44,5 @@ class m181030_141717_Canil extends Migration
 
         return false;
     }
-    */
+     */
 }

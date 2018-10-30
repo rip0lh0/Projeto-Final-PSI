@@ -12,7 +12,43 @@ class m181030_141710_Adoptar extends Migration
      */
     public function safeUp()
     {
+        $this->createTable('adotar', [
+            'id' => $this->primaryKey(),
+            'id_adotante' => $this->integer()->notNull(),
+            'id_animal' => $this->integer()->notNull(),
+            'data_adocao' => $this->datetime()->notNull(),
+        ]);
 
+        // Creates Index For Column `id_adotante`
+        $this->createIndex(
+            'idx-adotar-id_adotante',
+            'adotar',
+            'id_adotante'
+        );
+        // Add Foreign Key For Table `Adotante`
+        $this->addForeignKey(
+            'fk-adotar-id_animal',
+            'adotar',
+            'id_adotante',
+            'adotante',
+            'id',
+            'CASCADE'
+        );
+        // Creates Index For Column `id_raca`
+        $this->createIndex(
+            'idx-adotar-id_animal',
+            'adotar',
+            'id_adotante'
+        );
+        // Add Foreign Key For Table `raca`
+        $this->addForeignKey(
+            'fk-adotar-id_animal',
+            'adotar',
+            'id_animal',
+            'animal',
+            'id',
+            'CASCADE'
+        );
     }
 
     /**
@@ -38,5 +74,5 @@ class m181030_141710_Adoptar extends Migration
 
         return false;
     }
-    */
+     */
 }

@@ -21,25 +21,56 @@ class m181030_141615_Animal extends Migration
         $this->createTable('animal', [
             'id' => $this->primaryKey(),
             'id_raca' => $this->integer()->notNull(),
+            'id_dados_veterinarios' => $this->integer()->notNull(),
+            'id_canil' => $this->integer(),
             'nome' => $this->string()->notNull(),
             'genero' => $this->string(),
             'tamanho' => $this->float(),
             'idade' => $this->integer()
         ]);
 
-        // Creates Index For Column `id_animal`
+        // Creates Index For Column `id_raca`
         $this->createIndex(
             'idx-raca-id_raca',
             'animal',
             'id_raca'
         );
-
-        // Add Foreign Key For Table `animal`
+        // Add Foreign Key For Table `raca`
         $this->addForeignKey(
             'fk-raca-id_raca',
             'animal',
             'id_raca',
             'raca',
+            'id',
+            'CASCADE'
+        );
+        // Creates Index For Column 'id_dados_veterinarios'
+        $this->createIndex(
+            'idx-raca-id_dados_veterinarios',
+            'animal',
+            'id_dados_veterinarios'
+        );
+        // Add Foreign Key For Table `dados_veterinarios`
+        $this->addForeignKey(
+            'fk-raca-id_dados_veterinarios',
+            'animal',
+            'id_dados_veterinarios',
+            'dados_veterianrios',
+            'id',
+            'CASCADE'
+        );
+        // Creates Index For Column 'id_canil'
+        $this->createIndex(
+            'idx-raca-id_canil',
+            'animal',
+            'id_canil'
+        );
+        // Add Foreign Key For Table `canil`
+        $this->addForeignKey(
+            'fk-raca-id_canil',
+            'animal',
+            'id_canil',
+            'canil',
             'id',
             'CASCADE'
         );
