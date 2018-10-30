@@ -3,14 +3,13 @@ body{
     background-image: linear-gradient(to right, #37474F, #607D8B);
 }
 
-
 .panel-login{
     border: none!important;
     background-color: #E3F2FD!important;
 }
 
 .panel-login-heading {
-    background-color: #1565C0;
+    background-color: #0277BD;
     padding: 10px 30px;
 }
 
@@ -18,4 +17,11 @@ body{
     color: #fafafa;
     font-size: 26px;
     font-weight: bold;
+}
+
+.btn-default{
+    font-weight: bold!important;
+    color: #fafafa!important;
+    background-color: #0288D1!important;
+    border-color: #0277BD!important;
 }
