@@ -118,3 +118,10 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+
+/* Footer */
+.main-footer{
+    background-color: #fafafa;
+    padding: 10px 30px;
+}
+

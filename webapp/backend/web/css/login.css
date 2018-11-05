@@ -1,27 +1,86 @@
+/*body#LoginForm{ 
+  background-image:url("https://hdwallsource.com/img/2014/9/blur-26347-27038-hd-wallpapers.jpg"); 
+  background-repeat:no-repeat; 
+  background-position:center; 
+  background-size:cover; 
+  padding:10px;
+}*/
 
 body{
-    background-image: linear-gradient(to right, #37474F, #607D8B);
+  background-color: #2196F3!important;
 }
 
-.panel-login{
-    border: none!important;
-    background-color: #E3F2FD!important;
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
-.panel-login-heading {
-    background-color: #0277BD;
-    padding: 10px 30px;
+.form-heading { 
+  color:#fff; 
+  font-size:23px;
 }
 
-.panel-login-heading > h3 {
-    color: #fafafa;
-    font-size: 26px;
-    font-weight: bold;
+.panel h2{ 
+  color:#444444; 
+  font-size:24px; 
+  margin:0 0 8px 0;
 }
 
-.btn-default{
-    font-weight: bold!important;
-    color: #fafafa!important;
-    background-color: #0288D1!important;
-    border-color: #0277BD!important;
+.panel p { 
+  color:#777777; 
+  font-size:14px; 
+  line-height:24px;
 }
+
+.login-form .form-control {
+  background: #f7f7f7 none repeat scroll 0 0;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  font-size: 14px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.main-div {
+  background: #ffffff none repeat scroll 0 0;
+  border-radius: 10px;
+  margin: 10px auto 30px;
+  max-width: 38%;
+  padding: 40px 40px 40px 40px;
+}
+
+.login-form .form-group {
+  margin-bottom:20px;
+}
+
+.login-form{ text-align:center;}
+.forgot a {
+  color: #777777;
+  font-size: 14px;
+  text-decoration: underline;
+}
+
+.login-form  .btn.btn-primary {
+  background: #FFA726 none repeat scroll 0 0;
+  border-color: #f0ad4e;
+  color: #ffffff;
+  font-size: 18px;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  padding: 0;
+}
+
+.help-block{
+  text-align: left;
+}
+
+.forgot {
+  text-align: left; margin-bottom:30px;
+}
+
+.login-form .btn.btn-primary.reset {
+  background: #ff9900 none repeat scroll 0 0;
+}
+

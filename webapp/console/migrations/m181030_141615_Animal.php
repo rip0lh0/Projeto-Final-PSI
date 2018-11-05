@@ -11,7 +11,7 @@ use yii\db\Migration;
  * `Tamanho` FLOAT NOT NULL ,
  * `Idade`   INT NOT NULL ,
  */
-class m181030_141615_Animal extends Migration
+class m181030_141615_animal extends Migration
 {
     /**
      * {@inheritdoc}

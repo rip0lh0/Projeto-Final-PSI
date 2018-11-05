@@ -14,7 +14,7 @@ use yii\db\Migration;
  * CONSTRAINT `FK_64` FOREIGN KEY `fkIdx_64` (`Id_1`) REFERENCES `Animal` (`Id`)
  * 
  */
-class m181030_141602_Raca extends Migration
+class m181030_141602_raca extends Migration
 {
     /**
      * {@inheritdoc}

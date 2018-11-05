@@ -5,10 +5,9 @@
 
 use backend\assets\AppAsset;
 use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use common\widgets\Alert;
+use dmstr\helpers\AdminLteHelper;
 
 AppAsset::register($this);
 ?>
@@ -22,28 +21,21 @@ AppAsset::register($this);
         <?= Html::csrfMetaTags() ?>
         <title><?= Html::encode($this->title) ?></title>
         <?php $this->head() ?>
+
     </head>
-    <body>
+    <body class="<?= AdminLteHelper::skinClass() ?>">
     <?php $this->beginBody() ?>
-
-    <div class="wrap">
-        <div class="container">
-            <!-- Breadcrumbs::widget(['links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],]) ?> -->
-            <?= Alert::widget() ?>
-            <?= $content ?>
-        </div>
-    </div>
-
-    <?php /* Only Show When Login Is Done */
-    if (!Yii::$app->user->isGuest) { ?>
-        <footer class="footer">
-            <div class="container">
-                <p class="pull-left">&copy; <?= Html::encode(Yii::$app->name) ?> <?= date(' Y ') ?> </p>
-                <p class="pull-right"><?= Yii::powered() ?></p>
-            </div>
-        </footer>
-        <?php 
+    
+    <?php if (!Yii::$app->user->isGuest) {
+        echo $this->render("@backend/views/layouts/header");
+        echo $this->render("@backend/views/layouts/sidebar");
     } ?>
+
+    <?= Alert::widget() ?>
+    <?= $content ?>
+    
+    <?= $this->render("@backend/views/layouts/footer"); ?>
+
     <?php $this->endBody() ?>
     </body>
 </html>

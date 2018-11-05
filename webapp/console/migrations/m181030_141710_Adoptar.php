@@ -5,7 +5,7 @@ use yii\db\Migration;
 /**
  * Class m181030_141710_Adoptar
  */
-class m181030_141710_Adoptar extends Migration
+class m181030_141710_adoptar extends Migration
 {
     /**
      * {@inheritdoc}
@@ -56,9 +56,7 @@ class m181030_141710_Adoptar extends Migration
      */
     public function safeDown()
     {
-        echo "m181030_141710_Adoptar cannot be reverted.\n";
-
-        return false;
+        $this->dropTable('adotar');
     }
 
     /*

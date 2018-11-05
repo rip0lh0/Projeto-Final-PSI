@@ -5,7 +5,7 @@ use yii\db\Migration;
 /**
  * Class m181030_141658_DadosVeterinarios
  */
-class m181030_141658_DadosVeterinarios extends Migration
+class m181030_141658_dados_veterinarios extends Migration
 {
     /**
      * {@inheritdoc}
