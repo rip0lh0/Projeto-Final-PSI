@@ -98,6 +98,24 @@ class SiteController extends Controller
         }
     }
 
+    public function actionFaq(){
+        return $this->render('faq');
+    }
+    public function actionCanil(){
+        return $this->render('canil');
+    }
+
+    public function actionAnimalmagazine(){
+        return $this->render('animalMagazine');
+    }
+    public function actionUserprofile(){
+        return $this->render('userProfile');
+    }
+    public function actionAnimalsearch(){
+        return $this->render('animalSearch');
+    }
+
+
     /**
      * Logs out the current user.
      *
