@@ -3,13 +3,16 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
-use backend\assets\AppAsset;
+use common\models\User;
 use yii\helpers\Html;
 use yii\widgets\Breadcrumbs;
 use common\widgets\Alert;
-use dmstr\helpers\AdminLteHelper;
 
-AppAsset::register($this);
+use backend\assets\AppAsset;
+use dmstr\helpers\AdminLteHelper;
+use dmstr\web\AdminLteAsset;
+
+AdminLteAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -19,24 +22,36 @@ AppAsset::register($this);
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <?= Html::csrfMetaTags() ?>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
         <title><?= Html::encode($this->title) ?></title>
         <?php $this->head() ?>
-
     </head>
-    <body class="<?= AdminLteHelper::skinClass() ?>">
-    <?php $this->beginBody() ?>
-    
-    <?php if (!Yii::$app->user->isGuest) {
-        echo $this->render("@backend/views/layouts/header");
-        echo $this->render("@backend/views/layouts/sidebar");
-    } ?>
+    <body class="<?= AdminLteHelper::skinClass() ?> <?= (User::isKennel()) ? '' : 'sidebar-collapse' ?>">
+        <?php $this->beginBody() ?>
 
-    <?= Alert::widget() ?>
-    <?= $content ?>
-    
-    <?= $this->render("@backend/views/layouts/footer"); ?>
+        <?php if (User::isKennel()) {
+            echo $this->render("@backend/views/layouts/header");
+            echo $this->render("@backend/views/layouts/sidebar");
+        } ?>
 
-    <?php $this->endBody() ?>
+        <div class="content-wrapper">
+        <?php if (User::isKennel()) { ?>
+            <section class="content-header">
+                <h1><?= $this->title ?></h1>
+                <?= Breadcrumbs::widget([
+                    'tag' => 'ol',
+                    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                ]); ?>
+            </section>
+            <?php 
+        } ?>
+            <?= Alert::widget() ?>
+            <?= $content ?>
+        </div>
+
+        <?= $this->render("@backend/views/layouts/footer"); ?>
+
+        <?php $this->endBody() ?>
     </body>
 </html>
 <?php $this->endPage() ?>

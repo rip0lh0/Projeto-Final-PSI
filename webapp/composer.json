@@ -24,7 +24,9 @@
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0",
         "rmrevin/yii2-fontawesome": "2.10.*",
-        "dmstr/yii2-adminlte-asset": "^2.1"
+        "dmstr/yii2-adminlte-asset": "^2.1",
+        "almasaeed2010/adminlte": "^2.4",
+        "bizley/migration": "~3.0.0"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

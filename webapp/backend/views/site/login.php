@@ -16,8 +16,8 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="main-div">
             <div class="panel">
                 <h2 ><?= $this->title ?></h2>
-                    <p>Please enter your Username and Password</p>
-                </div>
+                <p>Please enter your Username and Password</p>
+            </div>
             <?php $form = ActiveForm::begin([
                 'id' => 'login-form',
                 'type' => ActiveForm::TYPE_VERTICAL
@@ -39,7 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'class' => 'form-group'
             ])->label(false); ?>
             <!-- Submit Button -->
-            <?= Html::submitButton('Login', ['class' => 'btn btn-primary btn-lg btn-block', 'name' => 'login-button']) ?>
+            <?= Html::submitButton('Login', ['class' => 'btn btn-warning btn-lg btn-block', 'name' => 'login-button']) ?>
             <?php ActiveForm::end(); ?>
         </div>
     </div>

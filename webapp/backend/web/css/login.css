@@ -16,6 +16,11 @@ footer {
     width: 100%;
 }
 
+.content-wrapper{
+  background-color: transparent!important;
+  margin: 0!important;
+}
+
 .form-heading { 
   color:#fff; 
   font-size:23px;
@@ -82,5 +87,9 @@ footer {
 
 .login-form .btn.btn-primary.reset {
   background: #ff9900 none repeat scroll 0 0;
+}
+
+.main-footer{
+  margin: 0!important;
 }
 

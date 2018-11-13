@@ -3,6 +3,7 @@ namespace frontend\models;
 
 use yii\base\Model;
 use common\models\User;
+use app\models\TipoPerfil;
 
 /**
  * Signup form
@@ -43,16 +44,21 @@ class SignupForm extends Model
      */
     public function signup()
     {
-        if (!$this->validate()) {
-            return null;
+        if ($this->validate()) {
+            $user = new User();
+            $user->username = $this->username;
+            $user->email = $this->email;
+            $user->setPassword($this->password);
+            $user->generateAuthKey();
+            if ($user->save() == null) return null;
+
+            // $auth = \Yii::$app->authManager;
+            // $kennelRole = $auth->getRole('kennel');
+            // $auth->assign($kennelRole, $user->getId());
+
+            return $user;
         }
-        
-        $user = new User();
-        $user->username = $this->username;
-        $user->email = $this->email;
-        $user->setPassword($this->password);
-        $user->generateAuthKey();
-        
-        return $user->save() ? $user : null;
+
+        return null;
     }
 }

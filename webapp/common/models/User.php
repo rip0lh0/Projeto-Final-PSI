@@ -134,6 +134,11 @@ class User extends ActiveRecord implements IdentityInterface
         return $this->auth_key;
     }
 
+    public static function isKennel()
+    {
+        return (key(Yii::$app->authManager->getRolesByUser(Yii::$app->user->getId())) == 'kennel') ? true : false;
+    }
+
     /**
      * {@inheritdoc}
      */

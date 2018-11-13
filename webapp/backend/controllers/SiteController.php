@@ -26,9 +26,14 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index'],
+                        'actions' => ['index'],
                         'allow' => true,
-                        'roles' => ['@'],
+                        'roles' => ['kennel'],
+                    ],
+                    [
+                        'actions' => ['logout'],
+                        'allow' => true,
+                        'roles' => ['@']
                     ],
                 ],
             ],
@@ -47,10 +52,30 @@ class SiteController extends Controller
     public function actions()
     {
         return [
-            'error' => [
-                'class' => 'yii\web\ErrorAction',
-            ],
+            // 'error' => [
+            //     'class' => 'yii\web\ErrorAction',
+            // ],
         ];
+    }
+
+    public function actionError()
+    {
+        $exception = Yii::$app->errorHandler->exception;
+
+        if ($exception !== null) {
+            $statusCode = $exception->statusCode;
+            $name = $exception->getName();
+            $message = $exception->getMessage();
+
+
+            return $this->render('error', [
+                'exception' => $exception,
+                'statusCode' => $statusCode,
+                'name' => $name,
+                'message' => $message,
+                'preurl' => Yii::$app->request->referrer
+            ]);
+        }
     }
 
     /**
@@ -75,6 +100,7 @@ class SiteController extends Controller
         /* Initalize Login Form */
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
+
             return $this->goBack();
         } else {
             $model->password = '';
@@ -96,4 +122,5 @@ class SiteController extends Controller
 
         return $this->goHome();
     }
+
 }
