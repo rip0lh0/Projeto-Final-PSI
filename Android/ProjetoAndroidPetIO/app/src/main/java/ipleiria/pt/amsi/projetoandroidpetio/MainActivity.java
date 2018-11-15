@@ -32,11 +32,12 @@ public class MainActivity extends AppCompatActivity {
     TextView txtProfile;
 
 
-    protected void onCreate(Bundle savedInstanceState,View currentView) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(currentView);
+        setContentView(R.layout.activity_main);
         setAssets();
         loadAnimations();
+        setbtnTextMargins();
     }
 
     public void buttonView(View view) {
@@ -69,26 +70,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
 
             public void onAnimationEnd(Animation animation) {
-                ViewGroup.MarginLayoutParams marginParamsbtn = (ViewGroup.MarginLayoutParams) btnMagazine.getLayoutParams();
-                ViewGroup.MarginLayoutParams marginParamstxtMagazine = (ViewGroup.MarginLayoutParams) txtMagazine.getLayoutParams();
-                ViewGroup.MarginLayoutParams marginParamstxtSearch = (ViewGroup.MarginLayoutParams) txtSearch.getLayoutParams();
-                ViewGroup.MarginLayoutParams marginParamstxtProfile = (ViewGroup.MarginLayoutParams) txtProfile.getLayoutParams();
-                marginParamsbtn.setMargins(0,120,0,0);
-                marginParamstxtMagazine.setMargins(+57,360,0,0);
-                marginParamstxtSearch.setMargins(+53,360,0,0);
-                marginParamstxtProfile.setMargins(+75,360,0,0);
-
-
-                btnMagazine.setVisibility(View.VISIBLE);
-                btnProfile.setVisibility(View.VISIBLE);
-                btnSearch.setVisibility(View.VISIBLE);
-                btnSearch.setEnabled(true);
-                btnProfile.setEnabled(true);
-                btnMagazine.setEnabled(true);
-                txtMagazine.setVisibility(View.VISIBLE);
-                txtSearch.setVisibility(View.VISIBLE);
-                txtProfile.setVisibility(View.VISIBLE);
-
+                showbuttons();
             }
 
             @Override
@@ -119,14 +101,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                btnProfile.setVisibility(View.GONE);
-                btnProfile.setEnabled(false);
-                btnSearch.setVisibility(View.GONE);
-                btnSearch.setEnabled(false);
-                btnMagazine.setVisibility(View.GONE);
-                btnMagazine.setEnabled(false);
-
-
+                hidebuttons();
             }
 
             @Override
@@ -135,11 +110,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //region button visibility and enabled gone/false
 
-        //endregion
 
     }
+    //region LOADING Assets
     public void setAssets(){
         btnProfile = findViewById(R.id.buttonProfile);
         btnMagazine = findViewById(R.id.buttonMagazine);
@@ -157,6 +131,39 @@ public class MainActivity extends AppCompatActivity {
         ((AnimationSet) visibleTrue).addAnimation(down);
         ((AnimationSet) visibleFalse).addAnimation(fadeout);
         ((AnimationSet) visibleFalse).addAnimation(up);
+    }
+
+
+    public void setbtnTextMargins() {
+        ViewGroup.MarginLayoutParams marginParamsbtn = (ViewGroup.MarginLayoutParams) btnMagazine.getLayoutParams();
+        ViewGroup.MarginLayoutParams marginParamstxtMagazine = (ViewGroup.MarginLayoutParams) txtMagazine.getLayoutParams();
+        ViewGroup.MarginLayoutParams marginParamstxtSearch = (ViewGroup.MarginLayoutParams) txtSearch.getLayoutParams();
+        ViewGroup.MarginLayoutParams marginParamstxtProfile = (ViewGroup.MarginLayoutParams) txtProfile.getLayoutParams();
+        marginParamsbtn.setMargins(0,120,0,0);
+        marginParamstxtMagazine.setMargins(+57,360,0,0);
+        marginParamstxtSearch.setMargins(+53,360,0,0);
+        marginParamstxtProfile.setMargins(+75,360,0,0);
+    }
+    //endregion
+
+    public void showbuttons() {
+        btnMagazine.setVisibility(View.VISIBLE);
+        btnProfile.setVisibility(View.VISIBLE);
+        btnSearch.setVisibility(View.VISIBLE);
+        btnSearch.setEnabled(true);
+        btnProfile.setEnabled(true);
+        btnMagazine.setEnabled(true);
+        txtMagazine.setVisibility(View.VISIBLE);
+        txtSearch.setVisibility(View.VISIBLE);
+        txtProfile.setVisibility(View.VISIBLE);
+    }
+    public void hidebuttons() {
+        btnProfile.setVisibility(View.GONE);
+        btnProfile.setEnabled(false);
+        btnSearch.setVisibility(View.GONE);
+        btnSearch.setEnabled(false);
+        btnMagazine.setVisibility(View.GONE);
+        btnMagazine.setEnabled(false);
     }
 
     public void buttonTopMenu(View view) {
