@@ -6,7 +6,6 @@ use yii\helpers\ArrayHelper;
 use dmstr\widgets\Menu;
 
 AppAsset::register($this);
-
 ?>
 
 <aside class="main-sidebar">
@@ -15,14 +14,14 @@ AppAsset::register($this);
         /* Animals Menu Items*/
         $animalMenuItems = [];
         $animalMenuItems[] = [
-            'url' => ['#'],
+            'url' => ['animal/index'],
             'icon' => 'paw',
             'label' => 'Animals',
         ];
         $animalMenuItems[] = [
             'url' => ['#'],
-            'icon' => 'book',
-            'label' => 'Adoptions',
+            'icon' => 'heart',
+            'label' => 'Medical',
         ];
         /* End Animals Menu Items */
 
