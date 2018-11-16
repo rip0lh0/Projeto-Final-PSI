@@ -1,6 +1,6 @@
 <?php
 
-namespace app\models;
+namespace common\models;
 
 use Yii;
 
@@ -8,6 +8,7 @@ use Yii;
  * This is the model class for table "raca".
  *
  * @property int $id
+ * @property string $nome
  * @property string $descricao
  */
 class Raca extends \yii\db\ActiveRecord
@@ -26,8 +27,8 @@ class Raca extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['descricao'], 'required'],
-            [['descricao'], 'string', 'max' => 255],
+            [['nome', 'descricao'], 'required'],
+            [['nome', 'descricao'], 'string', 'max' => 255],
         ];
     }
 
@@ -38,6 +39,7 @@ class Raca extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
+            'nome' => 'Nome',
             'descricao' => 'Descricao',
         ];
     }

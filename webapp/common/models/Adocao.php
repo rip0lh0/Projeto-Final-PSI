@@ -1,11 +1,11 @@
 <?php
 
-namespace app\models;
+namespace common\models;
 
 use Yii;
 
 /**
- * This is the model class for table "adotar".
+ * This is the model class for table "adocao".
  *
  * @property int $id
  * @property int $id_Adotante
@@ -14,14 +14,14 @@ use Yii;
  * @property string $descricao
  * @property int $state
  */
-class Adotar extends \yii\db\ActiveRecord
+class Adocao extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return 'adotar';
+        return 'adocao';
     }
 
     /**
@@ -30,7 +30,7 @@ class Adotar extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_Adotante', 'id_canil_animal', 'data_adocao', 'descricao', 'state'], 'required'],
+            [['id_Adotante', 'id_canil_animal', 'data_adocao', 'state'], 'required'],
             [['id_Adotante', 'id_canil_animal', 'state'], 'integer'],
             [['data_adocao'], 'safe'],
             [['descricao'], 'string', 'max' => 255],

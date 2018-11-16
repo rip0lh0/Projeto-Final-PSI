@@ -1,6 +1,6 @@
 <?php
 
-namespace app\models;
+namespace common\models;
 
 use Yii;
 
@@ -8,10 +8,10 @@ use Yii;
  * This is the model class for table "canil_animal".
  *
  * @property int $id
- * @property string $discricao
- * @property string $data_entrada
  * @property int $id_Animal
  * @property int $id_Canil
+ * @property string $discricao
+ * @property string $created_at
  */
 class CanilAnimal extends \yii\db\ActiveRecord
 {
@@ -29,9 +29,9 @@ class CanilAnimal extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['discricao', 'data_entrada', 'id_Animal', 'id_Canil'], 'required'],
-            [['data_entrada'], 'safe'],
+            [['id_Animal', 'id_Canil', 'discricao', 'created_at'], 'required'],
             [['id_Animal', 'id_Canil'], 'integer'],
+            [['created_at'], 'safe'],
             [['discricao'], 'string', 'max' => 255],
         ];
     }
@@ -43,10 +43,20 @@ class CanilAnimal extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'discricao' => 'Discricao',
-            'data_entrada' => 'Data Entrada',
             'id_Animal' => 'Id  Animal',
             'id_Canil' => 'Id  Canil',
+            'discricao' => 'Discricao',
+            'created_at' => 'Created At',
         ];
     }
+    /**
+     *    Devolve Todos os ID's Dos Animais Pertencentes Ao Canil
+     */
+    public static function getCanilAnimals($canilID)
+    {
+        return static::find()
+            ->where(['id_Canil' => $canilID])
+            ->all();
+    }
+
 }

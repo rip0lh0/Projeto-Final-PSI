@@ -1,0 +1,29 @@
+<?php
+
+use yii\helpers\Html;
+use yii\grid\GridView;
+
+/* @var $this yii\web\View */
+/* @var $searchModel app\models\AnimalSearch */
+/* @var $dataProvider yii\data\ActiveDataProvider */
+
+$this->title = 'Animals';
+$this->params['breadcrumbs'][] = $this->title;
+?>
+    <p>
+        <?= Html::a('Create Animal', ['create'], ['class' => 'btn btn-success']) ?>
+    </p>
+    <?= print_r($canilAnimals); ?>
+    <?= GridView::widget([
+        'dataProvider' => $dataProvider,
+        'filterModel' => $searchModel,
+        'columns' => [
+            ['class' => 'yii\grid\SerialColumn'],
+
+            'id',
+            'nome',
+            'descricao',
+
+            ['class' => 'yii\grid\ActionColumn'],
+        ],
+    ]); ?>

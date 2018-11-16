@@ -1,6 +1,6 @@
 <?php
 
-namespace app\models;
+namespace common\models;
 
 use Yii;
 
@@ -57,16 +57,4 @@ class Perfil extends \yii\db\ActiveRecord
             'contacto' => 'Contacto',
         ];
     }
-
-
-    public function findById($id)
-    {
-        return static::findOne(['id' => $id]);
-    }
-
-    public function findAdminById($id)
-    {
-        return static::findOne(['id' => $id, 'id_tipo' => 1]);
-    }
-
 }
