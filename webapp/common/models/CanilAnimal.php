@@ -12,6 +12,10 @@ use Yii;
  * @property int $id_Canil
  * @property string $discricao
  * @property string $created_at
+ *
+ * @property Adocao[] $adocaos
+ * @property Animal $animal
+ * @property Perfil $canil
  */
 class CanilAnimal extends \yii\db\ActiveRecord
 {
@@ -33,6 +37,8 @@ class CanilAnimal extends \yii\db\ActiveRecord
             [['id_Animal', 'id_Canil'], 'integer'],
             [['created_at'], 'safe'],
             [['discricao'], 'string', 'max' => 255],
+            [['id_Animal'], 'exist', 'skipOnError' => true, 'targetClass' => Animal::className(), 'targetAttribute' => ['id_Animal' => 'id']],
+            [['id_Canil'], 'exist', 'skipOnError' => true, 'targetClass' => Perfil::className(), 'targetAttribute' => ['id_Canil' => 'id']],
         ];
     }
 
@@ -49,14 +55,28 @@ class CanilAnimal extends \yii\db\ActiveRecord
             'created_at' => 'Created At',
         ];
     }
+
     /**
-     *    Devolve Todos os ID's Dos Animais Pertencentes Ao Canil
+     * @return \yii\db\ActiveQuery
      */
-    public static function getCanilAnimals($canilID)
+    public function getAdocaos()
     {
-        return static::find()
-            ->where(['id_Canil' => $canilID])
-            ->all();
+        return $this->hasMany(Adocao::className(), ['id_canil_animal' => 'id']);
     }
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getAnimal()
+    {
+        return $this->hasOne(Animal::className(), ['id' => 'id_Animal']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCanil()
+    {
+        return $this->hasOne(Perfil::className(), ['id' => 'id_Canil']);
+    }
 }

@@ -22,11 +22,35 @@ class m181114_201755_create_table_ficha_medica extends Migration
             'updated_at' => $this->integer(),
         ], $tableOptions);
 
-        $this->createIndex('fkIdx_216', '{{%ficha_medica}}', 'id_animal');
+        $this->createIndex(
+            'idx-ficha_medica-id_Animal',
+            '{{%ficha_medica}}',
+            'id_Animal'
+        );
+
+        $this->addForeignKey(
+            'fk-ficha_medica-id_Animal',
+            '{{%ficha_medica}}',
+            'id_Animal',
+            '{{%animal}}',
+            'id',
+            'CASCADE'
+        );
     }
 
     public function down()
     {
+        $this->dropForeignKey(
+            'fk-ficha_medica-id_Animal',
+            '{{%ficha_medica}}'
+        );
+
+        $this->dropIndex(
+            'idx-ficha_medica-id_Animal',
+            '{{%ficha_medica}}'
+        );
+
+
         $this->dropTable('{{%ficha_medica}}');
     }
 }

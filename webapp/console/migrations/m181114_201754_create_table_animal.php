@@ -18,11 +18,34 @@ class m181114_201754_create_table_animal extends Migration
             'descricao' => $this->string()->notNull(),
         ], $tableOptions);
 
-        $this->createIndex('fkIdx_87', '{{%animal}}', 'id_raca');
+        $this->createIndex(
+            'idx-animal-id_raca',
+            '{{%animal}}',
+            'id_raca'
+        );
+
+        $this->addForeignKey(
+            'fk-animal-id_raca',
+            '{{%animal}}',
+            'id_raca',
+            '{{%raca}}',
+            'id',
+            'CASCADE'
+        );
     }
 
     public function down()
     {
+        $this->dropForeignKey(
+            'fk-animal-id_raca',
+            '{{%animal}}'
+        );
+
+        $this->dropIndex(
+            'idx-animal-id_raca',
+            '{{%animal}}'
+        );
+
         $this->dropTable('{{%animal}}');
     }
 }

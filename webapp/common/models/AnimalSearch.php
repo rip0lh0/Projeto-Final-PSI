@@ -1,16 +1,16 @@
 <?php
 
-namespace backend\models;
+namespace common\models;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\animal;
+use common\models\Animal;
 
 /**
- * AnimalSearch represents the model behind the search form of `common\models\animal`.
+ * AnimalSearch represents the model behind the search form of `common\models\Animal`.
  */
-class AnimalSearch extends animal
+class AnimalSearch extends Animal
 {
     /**
      * {@inheritdoc}
@@ -41,7 +41,7 @@ class AnimalSearch extends animal
      */
     public function search($params)
     {
-        $query = animal::find();
+        $query = Animal::find();
 
         // add conditions that should always apply here
 

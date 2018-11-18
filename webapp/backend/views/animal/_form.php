@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\animal */
+/* @var $model common\models\Animal */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -14,15 +14,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id_raca')->textInput() ?>
 
-    <?= $form->field($model, 'chip')->textInput() ?>
-
     <?= $form->field($model, 'nome')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'genero')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'tamanho')->textInput() ?>
-
-    <?= $form->field($model, 'idade')->textInput() ?>
 
     <?= $form->field($model, 'descricao')->textInput(['maxlength' => true]) ?>
 

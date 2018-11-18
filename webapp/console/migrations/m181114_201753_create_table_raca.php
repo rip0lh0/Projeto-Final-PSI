@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m181114_201755_create_table_raca extends Migration
+class m181114_201753_create_table_raca extends Migration
 {
     public function up()
     {

@@ -13,6 +13,9 @@ use Yii;
  * @property string $data_adocao
  * @property string $descricao
  * @property int $state
+ *
+ * @property Perfil $adotante
+ * @property CanilAnimal $canilAnimal
  */
 class Adocao extends \yii\db\ActiveRecord
 {
@@ -34,6 +37,8 @@ class Adocao extends \yii\db\ActiveRecord
             [['id_Adotante', 'id_canil_animal', 'state'], 'integer'],
             [['data_adocao'], 'safe'],
             [['descricao'], 'string', 'max' => 255],
+            [['id_Adotante'], 'exist', 'skipOnError' => true, 'targetClass' => Perfil::className(), 'targetAttribute' => ['id_Adotante' => 'id']],
+            [['id_canil_animal'], 'exist', 'skipOnError' => true, 'targetClass' => CanilAnimal::className(), 'targetAttribute' => ['id_canil_animal' => 'id']],
         ];
     }
 
@@ -50,5 +55,21 @@ class Adocao extends \yii\db\ActiveRecord
             'descricao' => 'Descricao',
             'state' => 'State',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getAdotante()
+    {
+        return $this->hasOne(Perfil::className(), ['id' => 'id_Adotante']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCanilAnimal()
+    {
+        return $this->hasOne(CanilAnimal::className(), ['id' => 'id_canil_animal']);
     }
 }

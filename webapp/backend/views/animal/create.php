@@ -4,7 +4,7 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model common\models\animal */
+/* @var $model common\models\Animal */
 
 $this->title = 'Create Animal';
 $this->params['breadcrumbs'][] = ['label' => 'Animals', 'url' => ['index']];

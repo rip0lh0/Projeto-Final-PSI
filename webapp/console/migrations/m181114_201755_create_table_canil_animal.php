@@ -19,12 +19,60 @@ class m181114_201755_create_table_canil_animal extends Migration
             'created_at' => $this->dateTime()->notNull(),
         ], $tableOptions);
 
-        $this->createIndex('fkIdx_150', '{{%canil_animal}}', 'id_Canil');
-        $this->createIndex('fkIdx_147', '{{%canil_animal}}', 'id_Animal');
+        $this->createIndex(
+            'idx-canil_animal-id_Animal',
+            '{{%canil_animal}}',
+            'id_Animal'
+        );
+
+        $this->addForeignKey(
+            'fk-canil_animal-id_Animal',
+            '{{%canil_animal}}',
+            'id_Animal',
+            '{{%animal}}',
+            'id',
+            'CASCADE'
+        );
+
+        $this->createIndex(
+            'idx-canil_animal-id_Canil',
+            '{{%canil_animal}}',
+            'id_Canil'
+        );
+
+        $this->addForeignKey(
+            'fk-canil_animal-id_Canil',
+            '{{%canil_animal}}',
+            'id_Canil',
+            '{{%perfil}}',
+            'id',
+            'CASCADE'
+        );
     }
 
     public function down()
     {
+        $this->dropForeignKey(
+            'fk-canil_animal-id_Animal',
+            '{{%canil_animal}}'
+        );
+
+        $this->dropIndex(
+            'idx-canil_animal-id_Animal',
+            '{{%canil_animal}}'
+        );
+
+        $this->dropForeignKey(
+            'fk-canil_animal-id_Canil',
+            '{{%canil_animal}}'
+        );
+
+        $this->dropIndex(
+            'idx-canil_animal-id_Canil',
+            '{{%canil_animal}}'
+        );
+
+
         $this->dropTable('{{%canil_animal}}');
     }
 }

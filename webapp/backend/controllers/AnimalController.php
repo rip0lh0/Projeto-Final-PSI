@@ -1,15 +1,14 @@
 <?php
 
-namespace backend\controllers;
+namespace backend\Controllers;
 
 use Yii;
+use common\models\Animal;
+use common\models\AnimalSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
-use common\models\CanilAnimal;
-use common\models\Animal;
-use backend\models\AnimalSearch;
 
 /**
  * AnimalController implements the CRUD actions for Animal model.
@@ -48,8 +47,8 @@ class AnimalController extends Controller
     {
         $searchModel = new AnimalSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
         return $this->render('index', [
-            'canilAnimals' => CanilAnimal::getCanilAnimals(Yii::$app->user->id),
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);

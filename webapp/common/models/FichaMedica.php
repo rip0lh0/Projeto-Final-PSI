@@ -15,6 +15,9 @@ use Yii;
  * @property int $idate
  * @property int $created_at
  * @property int $updated_at
+ *
+ * @property Animal $animal
+ * @property Tratamento[] $tratamentos
  */
 class FichaMedica extends \yii\db\ActiveRecord
 {
@@ -36,6 +39,7 @@ class FichaMedica extends \yii\db\ActiveRecord
             [['id_animal', 'chip', 'idate', 'created_at', 'updated_at'], 'integer'],
             [['tamanho'], 'number'],
             [['genero'], 'string', 'max' => 1],
+            [['id_animal'], 'exist', 'skipOnError' => true, 'targetClass' => Animal::className(), 'targetAttribute' => ['id_animal' => 'id']],
         ];
     }
 
@@ -54,5 +58,21 @@ class FichaMedica extends \yii\db\ActiveRecord
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getAnimal()
+    {
+        return $this->hasOne(Animal::className(), ['id' => 'id_animal']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTratamentos()
+    {
+        return $this->hasMany(Tratamento::className(), ['id_ficha_medica' => 'id']);
     }
 }

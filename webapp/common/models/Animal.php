@@ -11,6 +11,10 @@ use Yii;
  * @property int $id_raca
  * @property string $nome
  * @property string $descricao
+ *
+ * @property Raca $raca
+ * @property CanilAnimal[] $canilAnimals
+ * @property FichaMedica[] $fichaMedicas
  */
 class Animal extends \yii\db\ActiveRecord
 {
@@ -31,6 +35,7 @@ class Animal extends \yii\db\ActiveRecord
             [['id_raca', 'nome', 'descricao'], 'required'],
             [['id_raca'], 'integer'],
             [['nome', 'descricao'], 'string', 'max' => 255],
+            [['id_raca'], 'exist', 'skipOnError' => true, 'targetClass' => Raca::className(), 'targetAttribute' => ['id_raca' => 'id']],
         ];
     }
 
@@ -47,16 +52,27 @@ class Animal extends \yii\db\ActiveRecord
         ];
     }
 
-    public static function getAll()
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getRaca()
     {
-        return static::find()->all();
+        return $this->hasOne(Raca::className(), ['id' => 'id_raca']);
     }
 
-    public static function getTodosAnimais($kennelID)
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCanilAnimals()
     {
-        $id_Animais = CanilAnimal::getCanilAnimals($kennelID); 
-        // TODO:: BUSCAR INFORMAÇÃO DOS ANIMAIS
-        return $canilAnimals;
+        return $this->hasMany(CanilAnimal::className(), ['id_Animal' => 'id']);
     }
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getFichaMedicas()
+    {
+        return $this->hasMany(FichaMedica::className(), ['id_animal' => 'id']);
+    }
 }

@@ -11,6 +11,8 @@ use Yii;
  * @property int $id_tratamento
  * @property string $vacina
  * @property string $data
+ *
+ * @property Tratamento $tratamento
  */
 class Vacina extends \yii\db\ActiveRecord
 {
@@ -31,6 +33,7 @@ class Vacina extends \yii\db\ActiveRecord
             [['id_tratamento', 'vacina', 'data'], 'required'],
             [['id_tratamento'], 'integer'],
             [['vacina', 'data'], 'string', 'max' => 255],
+            [['id_tratamento'], 'exist', 'skipOnError' => true, 'targetClass' => Tratamento::className(), 'targetAttribute' => ['id_tratamento' => 'id']],
         ];
     }
 
@@ -45,5 +48,13 @@ class Vacina extends \yii\db\ActiveRecord
             'vacina' => 'Vacina',
             'data' => 'Data',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTratamento()
+    {
+        return $this->hasOne(Tratamento::className(), ['id' => 'id_tratamento']);
     }
 }

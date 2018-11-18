@@ -10,6 +10,8 @@ use Yii;
  * @property int $id
  * @property string $nome
  * @property string $descricao
+ *
+ * @property Animal[] $animals
  */
 class Raca extends \yii\db\ActiveRecord
 {
@@ -42,5 +44,13 @@ class Raca extends \yii\db\ActiveRecord
             'nome' => 'Nome',
             'descricao' => 'Descricao',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getAnimals()
+    {
+        return $this->hasMany(Animal::className(), ['id_raca' => 'id']);
     }
 }
