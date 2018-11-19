@@ -20,39 +20,86 @@
     <RelativeLayout
         android:id="@+id/navbarActionBtns"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/navbar_btn"
+        android:layout_height="wrap_content"
         android:layout_below="@id/btnDropDown"
         android:layout_marginTop="@dimen/navbar_btn_margin"
-        android:visibility="gone">
+        android:visibility="visible">
 
-        <ImageButton
-            android:id="@+id/btnMagazine"
-            android:layout_width="@dimen/navbar_btn"
-            android:layout_height="@dimen/navbar_btn"
-            android:layout_toStartOf="@id/btnSearch"
-            android:background="@drawable/btn_circle"
-            android:contentDescription="@string/navbar_articles"
-            android:src="@drawable/ic_action_book" />
+        <LinearLayout
+            android:id="@+id/layoutMagazine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@id/layoutSearch"
+            android:gravity="center"
+            android:orientation="vertical">
 
-        <ImageButton
-            android:id="@+id/btnSearch"
-            android:layout_width="@dimen/navbar_btn"
-            android:layout_height="@dimen/navbar_btn"
+            <ImageButton
+                android:id="@+id/btnMagazine"
+                android:layout_width="@dimen/navbar_btn"
+                android:layout_height="@dimen/navbar_btn"
+                android:background="@drawable/btn_circle"
+                android:contentDescription="@string/navbar_articles"
+                android:src="@drawable/ic_action_book" />
+
+            <TextView
+                android:id="@+id/textViewmagazine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/navbar_articles"
+                android:textColor="@color/color_Primary_Light_Text"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginLeft="@dimen/navbar_btn_margin"
-            android:layout_marginRight="@dimen/navbar_btn_margin"
-            android:background="@drawable/btn_circle"
-            android:contentDescription="@string/navbar_search"
-            android:src="@drawable/ic_action_search" />
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
 
-        <ImageButton
-            android:id="@+id/btnProfile"
-            android:layout_width="@dimen/navbar_btn"
-            android:layout_height="@dimen/navbar_btn"
-            android:layout_toEndOf="@id/btnSearch"
-            android:background="@drawable/btn_circle"
-            android:contentDescription="@string/navbar_profile"
-            android:src="@drawable/ic_action_user" />
+            <ImageButton
+                android:id="@+id/btnSearch"
+                android:layout_width="@dimen/navbar_btn"
+                android:layout_height="@dimen/navbar_btn"
+                android:layout_marginLeft="@dimen/navbar_btn_margin"
+                android:layout_marginRight="@dimen/navbar_btn_margin"
+                android:background="@drawable/btn_circle"
+                android:contentDescription="@string/navbar_search"
+                android:src="@drawable/ic_action_search" />
+
+            <TextView
+                android:id="@+id/textViewsearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/navbar_search"
+                android:textColor="@color/color_Primary_Light_Text"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_toEndOf="@id/layoutSearch"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/btnProfile"
+                android:layout_width="@dimen/navbar_btn"
+                android:layout_height="@dimen/navbar_btn"
+                android:background="@drawable/btn_circle"
+                android:contentDescription="@string/navbar_profile"
+                android:src="@drawable/ic_action_user" />
+
+            <TextView
+                android:id="@+id/textViewprofile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/navbar_profile"
+                android:textColor="@color/color_Primary_Light_Text"/>
+
+        </LinearLayout>
 
     </RelativeLayout>
 

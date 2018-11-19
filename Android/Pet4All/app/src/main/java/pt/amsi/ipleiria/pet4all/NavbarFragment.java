@@ -11,12 +11,14 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 /* Controls All Navbar Actions And Animations */
 
 public class NavbarFragment extends Fragment {
     Boolean navbarState = false; // True = Open : False = Close
     ImageButton btnDropDown, btnProfile, btnSearch, btnMagazine;
+    TextView textViewMagazine,textViewSearch,textViewProfile;
     RelativeLayout navbarActionBtns, navbarFragment;
 
     @Nullable
@@ -29,7 +31,7 @@ public class NavbarFragment extends Fragment {
         navbarFragment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(navbarState) toogleDropDown(view);
+                if(navbarState) toggleDropDown(view);
             }
         });
 
@@ -40,14 +42,14 @@ public class NavbarFragment extends Fragment {
         btnDropDown.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toogleDropDown(view);
+                toggleDropDown(view);
             }
         });
 
         return view;
     }
 
-    public void toogleDropDown(View view) {
+    public void toggleDropDown(View view) {
         navbarState = !navbarState;
         /* Change Layout Params For Closing Action */
         ViewGroup.LayoutParams params = navbarFragment.getLayoutParams();
@@ -72,8 +74,5 @@ public class NavbarFragment extends Fragment {
             @Override
             public void onAnimationRepeat(Animation animation) {}
         });
-
-
     }
-
 }

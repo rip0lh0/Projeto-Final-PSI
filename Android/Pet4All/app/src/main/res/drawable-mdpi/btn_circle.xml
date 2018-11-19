@@ -8,9 +8,9 @@
     </item>
     <item android:state_pressed="true">
         <shape android:shape="oval">
-            <solid android:color="@color/color_Btn_Default_Pressed"/>
+            <solid android:color="@color/color_Btn_Navbar_Pressed"/>
             <corners android:radius="3dp" />
-            <stroke android:width="5px" android:color="@color/color_Btn_Navbar_Pressed" />
+            <stroke android:width="5px" android:color="@color/color_Btn_Navbar_Stroke" />
         </shape>
     </item>
 </selector>
