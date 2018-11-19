@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/navbarFragment"
+    android:gravity="top">
+
+    <ImageButton
+        android:id="@+id/btnDropDown"
+        android:layout_width="@dimen/navbar_btn_dropdown"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/btn_semi_circle"
+        android:contentDescription="@string/navbar_dropdown"
+        android:paddingBottom="5dp"
+        app:srcCompat="@drawable/ic_action_drop_down" />
+
+    <RelativeLayout
+        android:id="@+id/navbarActionBtns"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/navbar_btn"
+        android:layout_below="@id/btnDropDown"
+        android:layout_marginTop="@dimen/navbar_btn_margin"
+        android:visibility="gone">
+
+        <ImageButton
+            android:id="@+id/btnMagazine"
+            android:layout_width="@dimen/navbar_btn"
+            android:layout_height="@dimen/navbar_btn"
+            android:layout_toStartOf="@id/btnSearch"
+            android:background="@drawable/btn_circle"
+            android:contentDescription="@string/navbar_articles"
+            android:src="@drawable/ic_action_book" />
+
+        <ImageButton
+            android:id="@+id/btnSearch"
+            android:layout_width="@dimen/navbar_btn"
+            android:layout_height="@dimen/navbar_btn"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="@dimen/navbar_btn_margin"
+            android:layout_marginRight="@dimen/navbar_btn_margin"
+            android:background="@drawable/btn_circle"
+            android:contentDescription="@string/navbar_search"
+            android:src="@drawable/ic_action_search" />
+
+        <ImageButton
+            android:id="@+id/btnProfile"
+            android:layout_width="@dimen/navbar_btn"
+            android:layout_height="@dimen/navbar_btn"
+            android:layout_toEndOf="@id/btnSearch"
+            android:background="@drawable/btn_circle"
+            android:contentDescription="@string/navbar_profile"
+            android:src="@drawable/ic_action_user" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -2,9 +2,9 @@
 
 use backend\assets\AppAsset;
 use yii\helpers\Html;
+use common\models\User;
 
 $UserName = Yii::$app->user->identity->username;
-
 
 AppAsset::register($this);
 ?>

@@ -1,14 +1,14 @@
 <?php
 
-namespace backend\Controllers;
+namespace backend\controllers;
 
 use Yii;
 use common\models\Animal;
-use common\models\AnimalSearch;
+use common\models\User;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
+use common\models\Perfil;
 
 /**
  * AnimalController implements the CRUD actions for Animal model.
@@ -21,15 +21,6 @@ class AnimalController extends Controller
     public function behaviors()
     {
         return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'rules' => [
-                    [
-                        'allow' => true,
-                        'roles' => ['kennel'],
-                    ]
-                ],
-            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -45,13 +36,12 @@ class AnimalController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new AnimalSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+        $perfil = Perfil::getProfileById(Yii::$app->user->id);
+
+        $animals = $perfil->getAnimalsInKennel();
+
+        return $this->render('index', ['animais' => $animals]);
     }
 
     /**

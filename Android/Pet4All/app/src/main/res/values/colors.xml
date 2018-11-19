@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ECEFF0</color>
+    <color name="colorPrimaryDark">#365363</color>
+    <color name="colorAccent">#d81b60</color>
+
+    <color name="color_Primary_Text">#424242</color>
+    <color name="color_Primary_Light_Text">#FAFAFA</color>
+
+    <!-- Nav Bar Colors-->
+    <color name="color_Btn_Navbar">#75B5D8</color>
+    <color name="color_Btn_Navbar_Pressed">#6492b2</color>
+    <color name="color_Btn_Navbar_Stroke">#FAFAFA</color>
+    <!-- Default Button Colors -->
+    <color name="color_Btn_Default">#365363</color>
+    <color name="color_Btn_Default_Stroke">#3D5E70</color>
+    <color name="color_Btn_Default_Pressed">#5E2246</color>
+</resources>

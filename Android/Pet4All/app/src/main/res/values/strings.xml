@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Pet4All</string>
+    <!-- String Related To NavBar -->
+    <string name="navbar_profile">Perfil</string>
+    <string name="navbar_search">Procurar</string>
+    <string name="navbar_articles">Artigos</string>
+    <string name="navbar_dropdown">Dropdown</string>
+    <!-- Strings related to login -->
+    <string name="login_info">No account yet? Create one</string>
+
+    <string name="title_activity_login_profile">Sign in</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
+    <string name="title_activity_login">Sign in</string>
+</resources>

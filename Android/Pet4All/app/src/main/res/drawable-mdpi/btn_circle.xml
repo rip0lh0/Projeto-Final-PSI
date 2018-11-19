@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="false" >
+        <shape android:shape="oval">
+            <solid android:color="@color/color_Btn_Navbar"/>
+            <stroke android:width="5px" android:color="@color/color_Btn_Navbar_Stroke" />
+        </shape>
+    </item>
+    <item android:state_pressed="true">
+        <shape android:shape="oval">
+            <solid android:color="@color/color_Btn_Default_Pressed"/>
+            <corners android:radius="3dp" />
+            <stroke android:width="5px" android:color="@color/color_Btn_Navbar_Pressed" />
+        </shape>
+    </item>
+</selector>

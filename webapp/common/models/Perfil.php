@@ -64,7 +64,7 @@ class Perfil extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getAdocaos()
+    public function getAdocaos() // USED FOR THE ADOPTER
     {
         return $this->hasMany(Adocao::className(), ['id_Adotante' => 'id']);
     }
@@ -76,7 +76,6 @@ class Perfil extends \yii\db\ActiveRecord
     {
         return $this->hasMany(CanilAnimal::className(), ['id_Canil' => 'id']);
     }
-
     /**
      * @return \yii\db\ActiveQuery
      */
@@ -84,4 +83,20 @@ class Perfil extends \yii\db\ActiveRecord
     {
         return $this->hasOne(User::className(), ['id' => 'id_user']);
     }
+
+    public static function getProfileById($id)
+    {
+        return Perfil::find()->where(['id_user' => $id])->one();
+    }
+
+    public function getAnimalsInKennel()
+    {
+        if (!User::isKennel(Yii::$app->user->id)) return null;
+
+        return $this->hasMany(Animal::className(), ['id' => 'id_animal'])
+            ->via('canil_animal', 'getCanilAnimals');
+
+    }
+
+
 }

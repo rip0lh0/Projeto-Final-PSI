@@ -19,18 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Create Animal', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+    <?= $animais->id ?>
 
-            'id',
-            'id_raca',
-            'nome',
-            'descricao',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
+    
 </div>

@@ -53,4 +53,10 @@ class Raca extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Animal::className(), ['id_raca' => 'id']);
     }
+
+    public static function getRacaById()
+    {
+
+    }
+
 }
