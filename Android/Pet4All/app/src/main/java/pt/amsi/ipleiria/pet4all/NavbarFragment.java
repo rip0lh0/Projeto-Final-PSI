@@ -1,5 +1,6 @@
 package pt.amsi.ipleiria.pet4all;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -45,6 +46,17 @@ public class NavbarFragment extends Fragment {
                 toggleDropDown(view);
             }
         });
+        btnProfile = (ImageButton)view.findViewById(R.id.btnProfile);
+        btnProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                toggleDropDown(view);
+                Intent intent= new Intent(getActivity(),ProfileActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
 
         return view;
     }
