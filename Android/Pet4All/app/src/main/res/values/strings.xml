@@ -26,4 +26,7 @@
     <string name="user_location">Localidade Placeholder , Pais Placeholder</string>
     <string name="user_about">Sobre mim…</string>
     <string name="user_name">Nome Placeholder</string>
+    <string name="button_send_message">Enviar Mensagem</string>
+    <string name="button_edit_profile">Editar Perfil</string>
+    <string name="button_report_abuse">Reportar Abuso</string>
 </resources>
