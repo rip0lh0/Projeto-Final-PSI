@@ -19,4 +19,11 @@
     <string name="error_field_required">This field is required</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
     <string name="title_activity_login">Sign in</string>
+    <string name="user_since_profile">Utilizador desde</string>
+    <string name="user_last_login">Ultima vez online</string>
+    <string name="date_user_creation">Data de criação</string>
+    <string name="date_last_login">Ultima data de login</string>
+    <string name="user_location">Localidade Placeholder , Pais Placeholder</string>
+    <string name="user_about">Sobre mim…</string>
+    <string name="user_name">Nome Placeholder</string>
 </resources>
