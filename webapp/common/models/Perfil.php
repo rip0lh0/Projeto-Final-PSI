@@ -11,6 +11,7 @@ use Yii;
  * @property int $id_user
  * @property double $nif
  * @property string $nome
+ * @property string $descricao
  * @property string $morada
  * @property string $localidade
  * @property string $nacionalidade
@@ -39,7 +40,7 @@ class Perfil extends \yii\db\ActiveRecord
             [['id_user', 'nif', 'nome', 'contacto'], 'required'],
             [['id_user'], 'integer'],
             [['nif', 'contacto'], 'number'],
-            [['nome', 'morada', 'localidade', 'nacionalidade'], 'string', 'max' => 255],
+            [['nome', 'descricao', 'morada', 'localidade', 'nacionalidade'], 'string', 'max' => 255],
             [['id_user'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['id_user' => 'id']],
         ];
     }
@@ -54,6 +55,7 @@ class Perfil extends \yii\db\ActiveRecord
             'id_user' => 'Id User',
             'nif' => 'Nif',
             'nome' => 'Nome',
+            'descricao' => 'Descricao',
             'morada' => 'Morada',
             'localidade' => 'Localidade',
             'nacionalidade' => 'Nacionalidade',
@@ -64,7 +66,7 @@ class Perfil extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getAdocaos() // USED FOR THE ADOPTER
+    public function getAdocaos() // Used For The Adopters
     {
         return $this->hasMany(Adocao::className(), ['id_Adotante' => 'id']);
     }
@@ -76,6 +78,7 @@ class Perfil extends \yii\db\ActiveRecord
     {
         return $this->hasMany(CanilAnimal::className(), ['id_Canil' => 'id']);
     }
+
     /**
      * @return \yii\db\ActiveQuery
      */
@@ -84,19 +87,18 @@ class Perfil extends \yii\db\ActiveRecord
         return $this->hasOne(User::className(), ['id' => 'id_user']);
     }
 
-    public static function getProfileById($id)
-    {
-        return Perfil::find()->where(['id_user' => $id])->one();
-    }
-
     public function getAnimalsInKennel()
     {
         if (!User::isKennel(Yii::$app->user->id)) return null;
 
-        return $this->hasMany(Animal::className(), ['id' => 'id_animal'])
-            ->via('canil_animal', 'getCanilAnimals');
+        $cAnimals = $this->canilAnimals;
 
+        $kennelAnimals = [];
+
+        foreach ($cAnimals as $cAnimal) {
+            $kennelAnimals[] = $cAnimal->animal;
+        }
+
+        return $kennelAnimals;
     }
-
-
 }

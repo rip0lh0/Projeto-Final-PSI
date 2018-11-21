@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\Animal */
+/* @var $model common\models\animal */
 
 $this->title = $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Animals', 'url' => ['index']];
@@ -29,7 +29,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'id_raca',
             'nome',
             'descricao',
         ],

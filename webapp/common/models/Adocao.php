@@ -10,8 +10,9 @@ use Yii;
  * @property int $id
  * @property int $id_Adotante
  * @property int $id_canil_animal
- * @property string $data_adocao
  * @property string $descricao
+ * @property string $created_at
+ * @property string $updated_at
  * @property int $state
  *
  * @property Perfil $adotante
@@ -33,9 +34,9 @@ class Adocao extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_Adotante', 'id_canil_animal', 'data_adocao', 'state'], 'required'],
+            [['id_Adotante', 'id_canil_animal', 'created_at', 'updated_at', 'state'], 'required'],
             [['id_Adotante', 'id_canil_animal', 'state'], 'integer'],
-            [['data_adocao'], 'safe'],
+            [['created_at', 'updated_at'], 'safe'],
             [['descricao'], 'string', 'max' => 255],
             [['id_Adotante'], 'exist', 'skipOnError' => true, 'targetClass' => Perfil::className(), 'targetAttribute' => ['id_Adotante' => 'id']],
             [['id_canil_animal'], 'exist', 'skipOnError' => true, 'targetClass' => CanilAnimal::className(), 'targetAttribute' => ['id_canil_animal' => 'id']],
@@ -51,8 +52,9 @@ class Adocao extends \yii\db\ActiveRecord
             'id' => 'ID',
             'id_Adotante' => 'Id  Adotante',
             'id_canil_animal' => 'Id Canil Animal',
-            'data_adocao' => 'Data Adocao',
             'descricao' => 'Descricao',
+            'created_at' => 'Created At',
+            'updated_at' => 'Updated At',
             'state' => 'State',
         ];
     }

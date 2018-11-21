@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m181114_201753_create_table_raca extends Migration
+class m181115_201753_raca extends Migration
 {
     public function up()
     {
@@ -14,7 +14,7 @@ class m181114_201753_create_table_raca extends Migration
         $this->createTable('{{%raca}}', [
             'id' => $this->primaryKey(),
             'nome' => $this->string()->notNull(),
-            'descricao' => $this->string()->notNull(),
+            'tipo' => $this->string()->notNull(),
         ], $tableOptions);
 
     }
