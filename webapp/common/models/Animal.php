@@ -8,13 +8,14 @@ use Yii;
  * This is the model class for table "animal".
  *
  * @property int $id
- * @property int $id_raca
+ * @property int $id_ficha
+ * @property int $id_tipo
  * @property string $nome
  * @property string $descricao
  *
- * @property Raca $raca
+ * @property Ficha $ficha
+ * @property TypeAnimal $tipo0
  * @property CanilAnimal[] $canilAnimals
- * @property FichaMedica[] $fichaMedicas
  */
 class Animal extends \yii\db\ActiveRecord
 {
@@ -32,10 +33,11 @@ class Animal extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_raca', 'nome', 'descricao'], 'required'],
-            [['id_raca'], 'integer'],
+            [['id_ficha', 'id_tipo', 'tipo', 'descricao'], 'required'],
+            [['id_ficha', 'id_tipo'], 'integer'],
             [['nome', 'descricao'], 'string', 'max' => 255],
-            [['id_raca'], 'exist', 'skipOnError' => true, 'targetClass' => Raca::className(), 'targetAttribute' => ['id_raca' => 'id']],
+            [['id_ficha'], 'exist', 'skipOnError' => true, 'targetClass' => Ficha::className(), 'targetAttribute' => ['id_ficha' => 'id']],
+            [['id_tipo'], 'exist', 'skipOnError' => true, 'targetClass' => TypeAnimal::className(), 'targetAttribute' => ['id_tipo' => 'id']],
         ];
     }
 
@@ -46,8 +48,9 @@ class Animal extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'id_raca' => 'Id Raca',
-            'nome' => 'Nome',
+            'id_ficha' => 'Ficha Medica',
+            'id_tipo' => 'Tipo de Animal',
+            'nome' => 'Nome do Animal',
             'descricao' => 'Descricao',
         ];
     }
@@ -55,9 +58,17 @@ class Animal extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getRaca()
+    public function getFicha()
     {
-        return $this->hasOne(Raca::className(), ['id' => 'id_raca']);
+        return $this->hasOne(Ficha::className(), ['id' => 'id_ficha']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTipo()
+    {
+        return $this->hasOne(TypeAnimal::className(), ['id' => 'id_tipo']);
     }
 
     /**
@@ -66,13 +77,5 @@ class Animal extends \yii\db\ActiveRecord
     public function getCanilAnimals()
     {
         return $this->hasMany(CanilAnimal::className(), ['id_Animal' => 'id']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getFichaMedicas()
-    {
-        return $this->hasMany(FichaMedica::className(), ['id_animal' => 'id']);
     }
 }

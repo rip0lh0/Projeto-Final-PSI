@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m181114_201754_create_table_perfil extends Migration
+class m181115_201754_perfil extends Migration
 {
     public function up()
     {
@@ -16,6 +16,7 @@ class m181114_201754_create_table_perfil extends Migration
             'id_user' => $this->integer()->notNull(),
             'nif' => $this->double()->notNull(),
             'nome' => $this->string()->notNull(),
+            'descricao' => $this->string(),
             'morada' => $this->string(),
             'localidade' => $this->string(),
             'nacionalidade' => $this->string(),

@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m181114_201757_create_table_vacina extends Migration
+class m181115_201757_vacina extends Migration
 {
     public function up()
     {
@@ -15,7 +15,7 @@ class m181114_201757_create_table_vacina extends Migration
             'id' => $this->primaryKey(),
             'id_tratamento' => $this->integer()->notNull(),
             'vacina' => $this->string()->notNull(),
-            'data' => $this->string()->notNull(),
+            'data' => $this->dateTime()->notNull(),
         ], $tableOptions);
 
         $this->createIndex(

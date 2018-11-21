@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m181114_201755_create_table_canil_animal extends Migration
+class m181115_201755_canil_animal extends Migration
 {
     public function up()
     {
@@ -15,8 +15,9 @@ class m181114_201755_create_table_canil_animal extends Migration
             'id' => $this->primaryKey(),
             'id_Animal' => $this->integer()->notNull(),
             'id_Canil' => $this->integer()->notNull(),
-            'discricao' => $this->string()->notNull(),
+            'descricao' => $this->string()->notNull(),
             'created_at' => $this->dateTime()->notNull(),
+            'updated_at' => $this->dateTime()->notNull(),
         ], $tableOptions);
 
         $this->createIndex(

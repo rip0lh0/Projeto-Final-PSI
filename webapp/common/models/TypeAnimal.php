@@ -5,22 +5,21 @@ namespace common\models;
 use Yii;
 
 /**
- * This is the model class for table "raca".
+ * This is the model class for table "type_animal".
  *
  * @property int $id
- * @property string $nome
  * @property string $tipo
  *
- * @property Ficha[] $fichas
+ * @property Animal[] $animals
  */
-class Raca extends \yii\db\ActiveRecord
+class TypeAnimal extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return 'raca';
+        return 'type_animal';
     }
 
     /**
@@ -29,8 +28,8 @@ class Raca extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nome', 'tipo'], 'required'],
-            [['nome', 'tipo'], 'string', 'max' => 255],
+            [['tipo'], 'required'],
+            [['tipo'], 'string', 'max' => 255],
         ];
     }
 
@@ -41,16 +40,15 @@ class Raca extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'nome' => 'Raca',
-            'tipo' => 'Descrição da Raca',
+            'tipo' => 'Tipo',
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getFichas()
+    public function getAnimals()
     {
-        return $this->hasMany(Ficha::className(), ['id_raca' => 'id']);
+        return $this->hasMany(Animal::className(), ['id_tipo' => 'id']);
     }
 }

@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m181114_201757_create_table_tratamento extends Migration
+class m181115_201757_tratamento extends Migration
 {
     public function up()
     {
@@ -14,24 +14,25 @@ class m181114_201757_create_table_tratamento extends Migration
 
         $this->createTable('{{%tratamento}}', [
             'id' => $this->primaryKey(),
-            'id_ficha_medica' => $this->integer()->notNull(),
-            'created_at' => $this->date()->notNull(),
+            'id_ficha' => $this->integer()->notNull(),
             'duracao' => $this->integer()->notNull(),
             'descricao' => $this->string(),
-            'estado' => $this->string(),
+            'created_at' => $this->dateTime()->notNull(),
+            'updated_at' => $this->dateTime()->notNull(),
+            'estado' => $this->string()->notNull(),
         ], $tableOptions);
 
         $this->createIndex(
-            'idx-tratamento-id_ficha_medica',
+            'idx-tratamento-id_ficha',
             '{{%tratamento}}',
-            'id_ficha_medica'
+            'id_ficha'
         );
 
         $this->addForeignKey(
-            'fk-tratamento-id_ficha_medica',
+            'fk-tratamento-id_ficha',
             '{{%tratamento}}',
-            'id_ficha_medica',
-            '{{%ficha_medica}}',
+            'id_ficha',
+            '{{%ficha}}',
             'id',
             'CASCADE'
         );
@@ -41,12 +42,12 @@ class m181114_201757_create_table_tratamento extends Migration
     public function down()
     {
         $this->dropForeignKey(
-            'fk-tratamento-id_ficha_medica',
+            'fk-tratamento-id_ficha',
             '{{%tratamento}}'
         );
 
         $this->dropIndex(
-            'idx-tratamento-id_ficha_medica',
+            'idx-tratamento-id_ficha',
             '{{%tratamento}}'
         );
 

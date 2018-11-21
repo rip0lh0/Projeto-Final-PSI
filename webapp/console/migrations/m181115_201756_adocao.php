@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m181114_201756_create_table_adocao extends Migration
+class m181115_201756_adocao extends Migration
 {
     public function up()
     {
@@ -15,8 +15,9 @@ class m181114_201756_create_table_adocao extends Migration
             'id' => $this->primaryKey(),
             'id_Adotante' => $this->integer()->notNull(),
             'id_canil_animal' => $this->integer()->notNull(),
-            'data_adocao' => $this->dateTime()->notNull(),
             'descricao' => $this->string(),
+            'created_at' => $this->dateTime()->notNull(),
+            'updated_at' => $this->dateTime()->notNull(),
             'state' => $this->integer()->notNull(),
         ], $tableOptions);
 

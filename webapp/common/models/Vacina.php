@@ -32,7 +32,8 @@ class Vacina extends \yii\db\ActiveRecord
         return [
             [['id_tratamento', 'vacina', 'data'], 'required'],
             [['id_tratamento'], 'integer'],
-            [['vacina', 'data'], 'string', 'max' => 255],
+            [['data'], 'safe'],
+            [['vacina'], 'string', 'max' => 255],
             [['id_tratamento'], 'exist', 'skipOnError' => true, 'targetClass' => Tratamento::className(), 'targetAttribute' => ['id_tratamento' => 'id']],
         ];
     }

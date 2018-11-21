@@ -1,11 +1,12 @@
 :root {
     --background-color: #fafafa;
-    --primary-color: #2E4351;
+    --primary-color: #2e4351;
 }
 
 
 html,
 body {
+    background-color: #222d32 !important;
     height: 100%;
 }
 
