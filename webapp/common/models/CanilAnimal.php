@@ -11,6 +11,7 @@ use Yii;
  * @property int $id_Animal
  * @property int $id_Canil
  * @property string $descricao
+ * @property int $estado
  * @property string $created_at
  * @property string $updated_at
  *
@@ -18,6 +19,20 @@ use Yii;
  * @property Animal $animal
  * @property Perfil $canil
  */
+
+abstract class AnimalState
+{
+    const ParaAdocao = 0;
+
+    public static function getKey($value)
+    {
+        switch ($value) {
+            case AnimalState::ParaAdocao:
+                return "Para Adocao";
+        }
+    }
+}
+
 class CanilAnimal extends \yii\db\ActiveRecord
 {
     /**
@@ -35,7 +50,7 @@ class CanilAnimal extends \yii\db\ActiveRecord
     {
         return [
             [['id_Animal', 'id_Canil', 'created_at', 'updated_at'], 'required'],
-            [['id_Animal', 'id_Canil'], 'integer'],
+            [['id_Animal', 'id_Canil', 'estado'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
             [['descricao'], 'string', 'max' => 255],
             [['id_Animal'], 'exist', 'skipOnError' => true, 'targetClass' => Animal::className(), 'targetAttribute' => ['id_Animal' => 'id']],
@@ -52,7 +67,8 @@ class CanilAnimal extends \yii\db\ActiveRecord
             'id' => 'ID',
             'id_Animal' => 'Id  Animal',
             'id_Canil' => 'Id  Canil',
-            'descricao' => 'Informação extra sobre o animal',
+            'descricao' => 'Descricao',
+            'estado' => 'Estado',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];

@@ -15,7 +15,8 @@ class m181115_201755_canil_animal extends Migration
             'id' => $this->primaryKey(),
             'id_Animal' => $this->integer()->notNull(),
             'id_Canil' => $this->integer()->notNull(),
-            'descricao' => $this->string()->notNull(),
+            'descricao' => $this->string(),
+            'estado' => $this->integer()->defaultValue(0),
             'created_at' => $this->dateTime()->notNull(),
             'updated_at' => $this->dateTime()->notNull(),
         ], $tableOptions);

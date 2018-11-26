@@ -26,6 +26,11 @@ class User extends ActiveRecord implements IdentityInterface
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
 
+    //Define public variable
+    public $old_password;
+    public $new_password;
+    public $repeat_password;
+
 
     /**
      * {@inheritdoc}
@@ -53,7 +58,19 @@ class User extends ActiveRecord implements IdentityInterface
         return [
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
+
+            ['old_password, new_password, repeat_password', 'required'],
+            [['old_password'], 'validateCurrPassword'],
+
+            [['old_password', 'findPasswords'], 'string', 'min' => 6],
+            ['repeat_password', 'compare', 'compareAttribute' => 'new_password'],
         ];
+    }
+
+    //matching the old password with your existing password.
+    public function validateCurrPassword()
+    {
+        if (!$this->validatePassword()) $this->addError('old_password', 'Old password is incorrect.');
     }
 
     /**
@@ -134,11 +151,6 @@ class User extends ActiveRecord implements IdentityInterface
         return $this->auth_key;
     }
 
-    public static function isKennel()
-    {
-        return (key(Yii::$app->authManager->getRolesByUser(Yii::$app->user->getId())) == 'kennel') ? true : false;
-    }
-
     /**
      * {@inheritdoc}
      */
@@ -192,8 +204,19 @@ class User extends ActiveRecord implements IdentityInterface
         $this->password_reset_token = null;
     }
 
+
+
+
     public function getProfile()
     {
         return $this->hasOne(Perfil::className(), ['id_user' => 'id']);
+    }
+
+    public static function isKennel()
+    {
+        $user = User::findIdentity(Yii::$app->user->id);
+        $isKennel = key(Yii::$app->authManager->getRolesByUser(Yii::$app->user->getId())) == 'kennel';
+
+        return ($isKennel && $user->profile != null) ? true : false;
     }
 }

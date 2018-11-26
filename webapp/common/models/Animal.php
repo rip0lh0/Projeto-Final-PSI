@@ -14,7 +14,7 @@ use Yii;
  * @property string $descricao
  *
  * @property Ficha $ficha
- * @property TypeAnimal $tipo0
+ * @property TypeAnimal $tipo
  * @property CanilAnimal[] $canilAnimals
  */
 class Animal extends \yii\db\ActiveRecord

@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\gii\TypeAheadAsset;
 
 /**
  * This is the model class for table "perfil".
@@ -87,18 +88,12 @@ class Perfil extends \yii\db\ActiveRecord
         return $this->hasOne(User::className(), ['id' => 'id_user']);
     }
 
-    public function getAnimalsInKennel()
+
+    public function getCanilAnimalsInBatch($limit)
     {
-        if (!User::isKennel(Yii::$app->user->id)) return null;
-
-        $cAnimals = $this->canilAnimals;
-
-        $kennelAnimals = [];
-
-        foreach ($cAnimals as $cAnimal) {
-            $kennelAnimals[] = $cAnimal->animal;
-        }
-
-        return $kennelAnimals;
+        return CanilAnimal::find()
+            ->where(['id_Canil' => 'id'])
+            ->limit($limit)
+            ->all();
     }
 }

@@ -4,12 +4,13 @@ use backend\assets\AppAsset;
 use yii\helpers\Html;
 use common\models\User;
 
-$UserName = Yii::$app->user->identity->username;
+$userName = Yii::$app->user->identity->username;
+$location = Yii::$app->user->identity->profile->localidade;
 
 AppAsset::register($this);
 ?>
 <header class="main-header">
-    <?= Html::a('<span class="logo-mini">ADM</span><span class="logo-lg">' . Yii::$app->name . '</span>', Yii::$app->homeUrl, ['class' => 'logo']) ?>
+    <?= Html::a('<span class="logo-mini">P4A</span><span class="logo-lg">' . Yii::$app->name . '</span>', Yii::$app->homeUrl, ['class' => 'logo']) ?>
     <nav class="navbar navbar-static-top" role="navigation">
         <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
             <span class="sr-only">Toggle navigation</span>
@@ -20,22 +21,27 @@ AppAsset::register($this);
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="https://dummyimage.com/160x160/000/fff" class="user-image" alt="User Image"/>
-                        <span class="hidden-xs"><?= $UserName ?></span>
+                        <span class="hidden-xs">
+                            <?= $userName ?>
+                        </span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
                             <img src="https://dummyimage.com/160x160/000/fff" class="img-circle"
                                  alt="User Image"/>
-                            <p><?= $UserName ?></p>
+                            <p>
+                                <?= $userName ?>
+                                <small><?= $location ?></small>
+                            </p>
                         </li>
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                <?= Html::a('Profile', ['site/profile'], ['class' => 'btn btn-primary']) ?>
                             </div>
                             <div class="pull-right">
-                                <?= Html::a('Sign out', ['/site/logout'], ['data-method' => 'post', 'class' => 'btn btn-default btn-flat']) ?>
+                                <?= Html::a('Sign out', ['site/logout'], ['data-method' => 'post', 'class' => 'btn btn-default']) ?>
                             </div>
                         </li>
                     </ul>

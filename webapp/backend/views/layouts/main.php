@@ -13,6 +13,9 @@ use dmstr\helpers\AdminLteHelper;
 use dmstr\web\AdminLteAsset;
 
 AdminLteAsset::register($this);
+
+$isKennel = User::isKennel();
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -26,16 +29,16 @@ AdminLteAsset::register($this);
         <title><?= Html::encode($this->title) ?></title>
         <?php $this->head() ?>
     </head>
-    <body class="<?= AdminLteHelper::skinClass() ?> <?= (User::isKennel()) ? '' : 'sidebar-collapse' ?>">
+    <body class="<?= AdminLteHelper::skinClass() ?>">
         <?php $this->beginBody() ?>
+        <?= ($isKennel) ? '<div class="wrapper" style="height: auto; min-height: 100%;">' : ''; /* Start wrapper */ ?>
+        <?= ($isKennel) ? $this->render("@backend/views/layouts/header") : ''; ?>
+        <?= ($isKennel) ? $this->render("@backend/views/layouts/sidebar") : ''; ?>
+        
 
-        <?php if (User::isKennel()) {
-            echo $this->render("@backend/views/layouts/header");
-            echo $this->render("@backend/views/layouts/sidebar");
-        } ?>
+        <?= ($isKennel) ? '<div class="content-wrapper" style="min-height: 1170px;">' : '';/* Start content-wrapper */ ?>
 
-        <div class="content-wrapper">
-        <?php if (User::isKennel()) { ?>
+        <?php if ($isKennel) { ?>
             <section class="content-header">
                 <h1><?= $this->title ?></h1>
             </section>
@@ -43,10 +46,10 @@ AdminLteAsset::register($this);
         } ?>
             <?= Alert::widget() ?>
             <?= $content ?>
-        </div>
 
+        <?= ($isKennel) ? '</div>' : ''; /*End Content-wrapper*/ ?>
         <?= $this->render("@backend/views/layouts/footer"); ?>
-
+        <?= ($isKennel) ? '</div>' : '' /* End wrapper */ ?>
         <?php $this->endBody() ?>
     </body>
 </html>

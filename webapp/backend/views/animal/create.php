@@ -2,8 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use \kato\DropZone;
-
+use dosamigos\fileupload\FileUploadUI;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\animal */
@@ -68,10 +67,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <!-- Breed Name -->
                         <?= $form->field($canilAnimalModel, 'descricao')->textarea(['rows' => '8']) ?>
                         <!-- Imagens -->
-                        <?= $form->field($uploadModel, 'imageFiles[]')->fileInput(['multiple' => true]) ?>
-
-                        
-
+                        <?= $form->field($uploadModel, 'imageFiles[]')->fileInput(['multiple' => true, 'accept' => 'image/*']) ?>
                     </div>
 
                     <div class="box-footer">

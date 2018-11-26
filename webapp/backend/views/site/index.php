@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use common\models\AnimalState;
 
 $this->title = 'Home';
 $this->params['breadcrumbs'][] = $this->title;
@@ -50,10 +51,11 @@ $this->params['breadcrumbs'][] = $this->title;
                         <table class="table no-margin">
                             <thead>
                                 <tr>
-                                    <th>ID Adoção</th>
                                     <th>Tipo Animal</th>
-                                    <th>Animal</th>
-                                    <th>Status</th>
+                                    <th>Raca</th>
+                                    <th>Data Entrada <small>(Animal)</small></th>
+                                    <th>Data Pedido</th>
+                                    <th>Estado</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -84,23 +86,26 @@ $this->params['breadcrumbs'][] = $this->title;
                         <table class="table no-margin">
                             <thead>
                                 <tr>
-                                    <th>ID Animal</th>
                                     <th>Tipo Animal</th>
-                                    <th>Animal</th>
+                                    <th>Raca</th>
+                                    <th>Estado</th>
                                 </tr>
                             </thead>
                             <tbody>
+                            <?php foreach ($canilAnimals as $canilAnimal) { ?>
                                 <tr>
-                                    <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                                    <td>Cão</td>
-                                    <td>Elias</td>
+                                    <td><?= $canilAnimal->animal->tipo->tipo ?></td>
+                                    <td><?= $canilAnimal->animal->ficha->raca->nome ?></td>
+                                    <td><span class="label label-danger"><?= AnimalState::getKey($canilAnimal->estado) ?></span></td>
                                 </tr>
+                                <?php 
+                            } ?>
                             </tbody>
                         </table>
                     </div>
                 </div>
                 <div class="box-footer clearfix">
-                    <a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat pull-right">Ver Todos</a>
+                    <?= Html::a('Ver Todas', ['/animal/index'], ['class' => 'btn btn-sm btn-info btn-flat pull-right']) ?>
                 </div>
             </div>
         </div>

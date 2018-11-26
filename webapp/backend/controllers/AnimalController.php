@@ -15,6 +15,10 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use yii\web\UploadedFile;
+
+use phpDocumentor\Reflection\Types\Integer;
+use backend\models\CanilAnimalSearch;
 
 
 /**
@@ -54,9 +58,12 @@ class AnimalController extends Controller
     {
         $perfil = User::findIdentity(Yii::$app->user->id)->profile;
 
-        $animals = $perfil->animalsInKennel;
+        $canilAnimals = $perfil->canilAnimals;
 
-        return $this->render('index', ['animais' => $animals]);
+        $searchModel = new CanilAnimalSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams, $perfil);
+
+        return $this->render('index', ['canilAnimals' => $canilAnimals, 'dataProvider' => $dataProvider, 'searchModel' => $searchModel]);
     }
 
     /**
@@ -67,8 +74,10 @@ class AnimalController extends Controller
      */
     public function actionView($id)
     {
+        $model = CanilAnimal::find()->where(['id' => $id])->one();
+
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $model,
         ]);
     }
 
@@ -108,10 +117,14 @@ class AnimalController extends Controller
                         $canilAnimal->id_Animal = $animalModel->id; // Get Id From Saved Animal
                         $canilAnimal->id_Canil = Yii::$app->user->id;
                         $canilAnimal->created_at = date('Y-m-d H:i:s');
-                        $canilAnimal->updated_at = date('Y-m-d H:i:s');;
+                        $canilAnimal->updated_at = date('Y-m-d H:i:s');
 
                         if ($canilAnimal->validate() && $canilAnimal->save()) {
-                            return $this->redirect(['view', 'id' => $animalModel->id]);
+                            $uploadModel->imageFiles = UploadedFile::getInstances($uploadModel, 'imageFiles');
+                            if ($uploadModel->upload()) {
+                            // file is uploaded successfully
+                                return $this->redirect(['view', 'id' => $animalModel->id]);
+                            }
                         }
                     }
                 }
