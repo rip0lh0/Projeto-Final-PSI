@@ -14,13 +14,13 @@ class m181115_201754_perfil extends Migration
         $this->createTable('{{%perfil}}', [
             'id' => $this->primaryKey(),
             'id_user' => $this->integer()->notNull(),
-            'nif' => $this->double()->notNull(),
+            'id_localidade' => $this->integer()->notNull(),
+            'nif' => $this->double(),
             'nome' => $this->string()->notNull(),
-            'descricao' => $this->string(),
             'morada' => $this->string(),
-            'localidade' => $this->string(),
             'nacionalidade' => $this->string(),
             'contacto' => $this->double()->notNull(),
+            'descricao' => $this->string(),
         ], $tableOptions);
 
         $this->createIndex(

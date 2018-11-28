@@ -13,6 +13,7 @@ class m181115_201754_ficha extends Migration
 
         $this->createTable('{{%ficha}}', [
             'id' => $this->primaryKey(),
+            'id_animal' => $this->integer()->notNull(),
             'id_raca' => $this->integer()->notNull(),
             'chip' => $this->tinyInteger()->notNull(),
             'genero' => $this->char()->notNull(),

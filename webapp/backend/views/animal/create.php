@@ -3,11 +3,13 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use dosamigos\fileupload\FileUploadUI;
+use kartik\date\DatePicker;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\animal */
 
 $this->title = 'Novo Animal';
+
 $this->params['breadcrumbs'][] = ['label' => 'Animals', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -67,7 +69,17 @@ $this->params['breadcrumbs'][] = $this->title;
                         <!-- Breed Name -->
                         <?= $form->field($canilAnimalModel, 'descricao')->textarea(['rows' => '8']) ?>
                         <!-- Imagens -->
-                        <?= $form->field($uploadModel, 'imageFiles[]')->fileInput(['multiple' => true, 'accept' => 'image/*']) ?>
+                        <?= $form->field($uploadModel, 'imageFiles[]')->fileInput(['multiple' => true, 'accept' => 'image/*']); ?>
+
+                        <?= DatePicker::widget([
+                            'name' => 'teste',
+                            'value' => date('d-M-Y', strtotime('+2 days')),
+                            'options' => ['placeholder' => 'Select issue date ...'],
+                            'pluginOptions' => [
+                                'format' => 'dd-M-yyyy',
+                                'todayHighlight' => true
+                            ]
+                        ]); ?>
                     </div>
 
                     <div class="box-footer">

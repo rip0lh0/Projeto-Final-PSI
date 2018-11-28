@@ -23,12 +23,12 @@ class SiteController extends Controller
                 'rules' => [
                     [
                         'actions' => ['login', 'error'],
-                        'allow' => true,
+                        'allow' => true
                     ],
                     [
                         'actions' => ['index', 'profile'],
                         'allow' => true,
-                        'roles' => ['kennel'],
+                        'roles' => ['kennel']
                     ],
                     [
                         'actions' => ['logout'],

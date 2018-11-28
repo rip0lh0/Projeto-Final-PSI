@@ -59,11 +59,11 @@ class User extends ActiveRecord implements IdentityInterface
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
 
-            ['old_password, new_password, repeat_password', 'required'],
-            [['old_password'], 'validateCurrPassword'],
+            // ['old_password, new_password, repeat_password', 'required'],
+            // [['old_password'], 'validateCurrPassword'],
 
-            [['old_password', 'findPasswords'], 'string', 'min' => 6],
-            ['repeat_password', 'compare', 'compareAttribute' => 'new_password'],
+            // [['old_password', 'findPasswords'], 'string', 'min' => 6],
+            // ['repeat_password', 'compare', 'compareAttribute' => 'new_password'],
         ];
     }
 

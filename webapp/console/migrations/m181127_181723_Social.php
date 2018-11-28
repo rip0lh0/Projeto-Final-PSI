@@ -2,7 +2,10 @@
 
 use yii\db\Migration;
 
-class m181115_201753_raca extends Migration
+/**
+ * Class m181127_181859_Social
+ */
+class m181127_181723_Social extends Migration
 {
     public function up()
     {
@@ -11,16 +14,17 @@ class m181115_201753_raca extends Migration
             $tableOptions = 'CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE=InnoDB';
         }
 
-        $this->createTable('{{%raca}}', [
+        $this->createTable('{{%social}}', [
             'id' => $this->primaryKey(),
-            'nome' => $this->string()->notNull(),
-            'tipo' => $this->string()->notNull(),
+            'facebook' => $this->string(),
+            'instagram' => $this->string(),
+            'youtube' => $this->string(),
         ], $tableOptions);
 
     }
 
     public function down()
     {
-        $this->dropTable('{{%raca}}');
+        $this->dropTable('{{%social}}');
     }
 }

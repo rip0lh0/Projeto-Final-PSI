@@ -62,7 +62,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             ],
                             [
                                 'label' => 'Ações',
-                                'format' => 'Html',
+                                'format' => 'html',
                                 'value' => function ($data) {
                                     return Html::a('Ver', ['animal/view', 'id' => $data->id], ['class' => 'btn btn-primary btn-sm']);
                                 },

@@ -16,7 +16,7 @@ AppAsset::register($this);
         $animalMenuItems[] = [
             'url' => ['animal/index'],
             'icon' => 'paw',
-            'label' => 'Animals',
+            'label' => 'Animais',
         ];
         $animalMenuItems[] = [
             'url' => ['#'],
@@ -33,7 +33,7 @@ AppAsset::register($this);
         ];
         $menuItems[] = [
             'icon' => 'paw',
-            'label' => 'Animals',
+            'label' => 'Animais',
             'items' => $animalMenuItems,
         ];
 

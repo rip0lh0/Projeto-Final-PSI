@@ -37,7 +37,7 @@
         "codeception/verify": "~0.3.1",
         "kartik-v/yii2-widget-activeform": "@dev",
         "kartik-v/yii2-popover-x": "dev-master",
-        "kartik-v/yii2-widget-datetimepicker": "*"
+        "kartik-v/yii2-widget-datepicker": "@dev"
     },
     "config": {
         "process-timeout": 1800,
