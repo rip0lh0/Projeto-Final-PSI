@@ -53,14 +53,14 @@ class SignupForm extends Model
             if ($user->save() == null) return null;
 
             /* Creates Kennel */
-            // $auth = \Yii::$app->authManager;
-            // $kennelRole = $auth->getRole('kennel');
-            // $auth->assign($kennelRole, $user->getId());
+            $auth = \Yii::$app->authManager;
+            $kennelRole = $auth->getRole('kennel');
+            $auth->assign($kennelRole, $user->getId());
 
             /* Creates Adopters */
-            $auth = \Yii::$app->authManager;
-            $adopterRole = $auth->getRole('adopter');
-            $auth->assign($adopterRole, $user->getId());
+            // $auth = \Yii::$app->authManager;
+            // $adopterRole = $auth->getRole('adopter');
+            // $auth->assign($adopterRole, $user->getId());
 
             return $user;
         }

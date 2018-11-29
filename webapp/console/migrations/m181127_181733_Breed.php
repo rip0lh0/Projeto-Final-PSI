@@ -19,6 +19,8 @@ class m181127_181733_Breed extends Migration
             'id_parent' => $this->integer()->notNull(),
             'name' => $this->string()->notNull(),
             'description' => $this->string(),
+            'origin' => $this->string(),
+            'lifespan' => $this->string(),
         ], $tableOptions);
 
         $this->createIndex(

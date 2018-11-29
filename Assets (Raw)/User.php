@@ -1,5 +1,4 @@
 <?php
-
 namespace common\models;
 
 use Yii;
@@ -9,26 +8,24 @@ use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
 
 /**
- * This is the model class for table "user".
+ * User model
  *
- * @property int $id
- * @property int $id_local
+ * @property integer $id
  * @property string $username
  * @property string $password_hash
  * @property string $password_reset_token
  * @property string $email
  * @property string $auth_key
- * @property int $status
- * @property int $created_at
- * @property int $updated_at
- *
- * @property Kennel[] $kennels
- * @property Local $local
+ * @property integer $status
+ * @property integer $created_at
+ * @property integer $updated_at
+ * @property string $password write-only password
  */
 class User extends ActiveRecord implements IdentityInterface
 {
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
+
     /**
      * {@inheritdoc}
      */
@@ -55,17 +52,6 @@ class User extends ActiveRecord implements IdentityInterface
         return [
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
-            [['id_local'], 'exist', 'skipOnError' => true, 'targetClass' => Local::className(), 'targetAttribute' => ['id_local' => 'id']],
-        ];
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function attributeLabels()
-    {
-        return [
-            'id_local' => 'Local',
         ];
     }
     /**
@@ -199,11 +185,19 @@ class User extends ActiveRecord implements IdentityInterface
         $this->password_reset_token = null;
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getLocal()
+
+
+
+    public function getProfile()
     {
-        return $this->hasOne(Local::className(), ['id' => 'id_local']);
+        return $this->hasOne(Perfil::className(), ['id_user' => 'id']);
+    }
+
+    public static function isKennel()
+    {
+        $user = User::findIdentity(Yii::$app->user->id);
+        $isKennel = key(Yii::$app->authManager->getRolesByUser(Yii::$app->user->getId())) == 'kennel';
+
+        return ($isKennel && $user->profile != null) ? true : false;
     }
 }

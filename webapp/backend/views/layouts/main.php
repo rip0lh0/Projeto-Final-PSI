@@ -14,7 +14,7 @@ use dmstr\web\AdminLteAsset;
 
 AdminLteAsset::register($this);
 
-$isKennel = User::isKennel();
+$isKennel = false;
 
 ?>
 <?php $this->beginPage() ?>

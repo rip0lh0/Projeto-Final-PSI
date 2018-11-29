@@ -16,7 +16,7 @@ class m181127_181758_User extends Migration
 
         $this->createTable('{{%user}}', [
             'id' => $this->primaryKey(),
-            'id_local' => $this->integer()->notNull(),
+            'id_local' => $this->integer(),
             'username' => $this->string()->notNull(),
             'password_hash' => $this->string()->notNull(),
             'password_reset_token' => $this->string(),

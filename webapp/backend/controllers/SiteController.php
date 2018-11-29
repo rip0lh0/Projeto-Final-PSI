@@ -26,16 +26,14 @@ class SiteController extends Controller
                         'allow' => true
                     ],
                     [
-                        'actions' => ['index', 'profile'],
+                        'actions' => ['index', 'profile', 'logout'],
                         'allow' => true,
                         'roles' => ['kennel']
                     ],
-                    [
-                        'actions' => ['logout'],
-                        'allow' => true,
-                        'roles' => ['@']
-                    ],
                 ],
+                'denyCallback' => function ($rule, $action) {
+                    Yii::$app->response->redirect(['site/login']);
+                },
             ],
             'verbs' => [
                 'class' => VerbFilter::className(),
