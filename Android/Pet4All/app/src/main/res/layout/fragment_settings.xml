@@ -8,41 +8,49 @@
 
     <LinearLayout
         android:id="@+id/buttons"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
         android:layout_marginTop="60dp"
         android:gravity="end"
         android:orientation="horizontal"
         android:visibility="visible">
 
-        <ImageButton
-            android:id="@+id/buttonEditProfile"
+        <LinearLayout
+            android:id="@+id/settingsActionBtns"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/btn_circle_profile_options"
-            android:minWidth="45dp"
-            android:minHeight="45dp"
-            android:padding="5dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_action_edit_profile"
-            android:text="Button"
-            android:visibility="gone" />
+            android:orientation="horizontal">
 
-        <ImageButton
-            android:id="@+id/buttonReportAbuse"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginRight="15dp"
-            android:background="@drawable/btn_circle_profile_options"
-            android:minWidth="45dp"
-            android:minHeight="45dp"
-            android:padding="5dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_action_report_abuse"
-            android:text="@string/button_report_abuse"
-            android:visibility="gone" />
+            <ImageButton
+                android:id="@+id/buttonEditProfile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/btn_circle_profile_options"
+                android:minWidth="45dp"
+                android:minHeight="45dp"
+                android:padding="5dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_action_edit_profile"
+                android:text="Button"
+                android:visibility="visible" />
+
+            <ImageButton
+                android:id="@+id/buttonReportAbuse"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/btn_circle_profile_options"
+                android:minWidth="45dp"
+                android:minHeight="45dp"
+                android:padding="5dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_action_report_abuse"
+                android:text="@string/button_report_abuse"
+                android:visibility="visible" />
+        </LinearLayout>
 
         <ImageButton
             android:id="@+id/buttonSettings"

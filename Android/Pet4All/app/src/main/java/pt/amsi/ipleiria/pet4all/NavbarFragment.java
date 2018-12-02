@@ -28,7 +28,6 @@ public class NavbarFragment extends Fragment {
         View view = inflater.inflate(R.layout.navbar_fragment, container, false);
         view.bringToFront();
         navbarFragment = (RelativeLayout) view.findViewById(R.id.navbarFragment);
-
         navbarFragment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

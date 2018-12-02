@@ -1648,16 +1648,16 @@
         },
         {
             "name": "kartik-v/yii2-krajee-base",
-            "version": "v2.0.2",
+            "version": "v2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/yii2-krajee-base.git",
-                "reference": "e23b914399c77df45123d1ac848cf129f0d3d740"
+                "reference": "11896b44c3d70666b057c9153f2f77aeeb078ff6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-krajee-base/zipball/e23b914399c77df45123d1ac848cf129f0d3d740",
-                "reference": "e23b914399c77df45123d1ac848cf129f0d3d740",
+                "url": "https://api.github.com/repos/kartik-v/yii2-krajee-base/zipball/11896b44c3d70666b057c9153f2f77aeeb078ff6",
+                "reference": "11896b44c3d70666b057c9153f2f77aeeb078ff6",
                 "shasum": ""
             },
             "suggest": {
@@ -1696,7 +1696,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2018-11-26T06:13:21+00:00"
+            "time": "2018-11-27T03:22:26+00:00"
         },
         {
             "name": "kartik-v/yii2-popover-x",
