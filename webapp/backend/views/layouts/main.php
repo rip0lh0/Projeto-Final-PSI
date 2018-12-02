@@ -14,7 +14,7 @@ use dmstr\web\AdminLteAsset;
 
 AdminLteAsset::register($this);
 
-$isKennel = false;
+$isKennel = (Yii::$app->user->identity != null) ? (Yii::$app->user->identity->kennel != null) ? true : false : false;
 
 ?>
 <?php $this->beginPage() ?>
@@ -46,11 +46,18 @@ $isKennel = false;
         } ?>
             <?= Alert::widget() ?>
             <?= $content ?>
-
         <?= ($isKennel) ? '</div>' : ''; /*End Content-wrapper*/ ?>
         <?= $this->render("@backend/views/layouts/footer"); ?>
         <?= ($isKennel) ? '</div>' : '' /* End wrapper */ ?>
         <?php $this->endBody() ?>
+
+
+        <script>
+        $(function () {
+            //bootstrap WYSIHTML5 - text editor
+            $('.textarea').wysihtml5()
+        })
+        </script>
     </body>
 </html>
 <?php $this->endPage() ?>

@@ -5,11 +5,6 @@ namespace backend\controllers;
 use Yii;
 use common\models\Animal;
 use common\models\User;
-use common\models\Perfil;
-use common\models\CanilAnimal;
-use common\models\Ficha;
-use common\models\Raca;
-use common\models\TypeAnimal;
 use backend\models\UploadForm;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -18,7 +13,7 @@ use yii\filters\AccessControl;
 use yii\web\UploadedFile;
 
 use phpDocumentor\Reflection\Types\Integer;
-use backend\models\CanilAnimalSearch;
+use backend\models\KennelAnimalSearch;
 
 
 /**
@@ -56,14 +51,14 @@ class AnimalController extends Controller
      */
     public function actionIndex()
     {
-        $perfil = User::findIdentity(Yii::$app->user->id)->profile;
+        $profileKennel = User::findIdentity(Yii::$app->user->id)->kennel;
 
-        $canilAnimals = $perfil->canilAnimals;
+        $kennelAnimals = $profileKennel->kennelAnimals;
 
-        $searchModel = new CanilAnimalSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams, $perfil);
+        $searchModel = new KennelAnimalSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams, $profileKennel);
 
-        return $this->render('index', ['canilAnimals' => $canilAnimals, 'dataProvider' => $dataProvider, 'searchModel' => $searchModel]);
+        return $this->render('index', ['kennelAnimals' => $kennelAnimals, 'dataProvider' => $dataProvider, 'searchModel' => $searchModel]);
     }
 
     /**
@@ -122,7 +117,7 @@ class AnimalController extends Controller
                         if ($canilAnimal->validate() && $canilAnimal->save()) {
                             $uploadModel->imageFiles = UploadedFile::getInstances($uploadModel, 'imageFiles');
                             if ($uploadModel->upload()) {
-                            // file is uploaded successfully
+                                // file is uploaded successfully
                                 return $this->redirect(['view', 'id' => $animalModel->id]);
                             }
                         }
