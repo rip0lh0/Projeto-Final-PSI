@@ -4,9 +4,9 @@ use backend\assets\AppAsset;
 use yii\helpers\Html;
 use common\models\User;
 
-$userName = Yii::$app->user->identity->username;
-$location = Yii::$app->user->identity->profile->localidade;
 
+$userName = Yii::$app->user->identity->username;
+$local = Yii::$app->user->identity->local;
 AppAsset::register($this);
 ?>
 <header class="main-header">
@@ -32,13 +32,13 @@ AppAsset::register($this);
                                  alt="User Image"/>
                             <p>
                                 <?= $userName ?>
-                                <small><?= $location ?></small>
+                                <small><?= ($local->parent != null) ? $local->parent->name . ', ' : ''; ?><?= $local->name ?></small>
                             </p>
                         </li>
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <?= Html::a('Profile', ['site/profile'], ['class' => 'btn btn-primary']) ?>
+                                <?= Html::a('Perfil', ['site/profile'], ['class' => 'btn btn-primary']) ?>
                             </div>
                             <div class="pull-right">
                                 <?= Html::a('Sign out', ['site/logout'], ['data-method' => 'post', 'class' => 'btn btn-default']) ?>

@@ -5,13 +5,13 @@ namespace backend\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\CanilAnimal;
+use common\models\KennelAnimal;
 use common\models\Animal;
 
 /**
  * CanilAnimalSearch represents the model behind the search form of `common\models\CanilAnimal`.
  */
-class CanilAnimalSearch extends CanilAnimal
+class KennelAnimalSearch extends KennelAnimal
 {
     /**
      * {@inheritdoc}

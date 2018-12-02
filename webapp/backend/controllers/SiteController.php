@@ -7,6 +7,13 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
 use common\models\User;
+use common\models\Energy;
+use common\models\Coat;
+use common\models\Size;
+use common\models\Breed;
+use common\models\BreedEnergy;
+use common\models\BreedCoat;
+use common\models\BreedSize;
 /**
  * Site controller
  */
@@ -26,14 +33,24 @@ class SiteController extends Controller
                         'allow' => true
                     ],
                     [
-                        'actions' => ['index', 'profile', 'logout'],
+                        'actions' => ['index', 'profile', 'breed'],
                         'allow' => true,
                         'roles' => ['kennel']
                     ],
+                    [
+                        'actions' => ['logout'],
+                        'allow' => true
+                    ],
                 ],
-                'denyCallback' => function ($rule, $action) {
-                    Yii::$app->response->redirect(['site/login']);
-                },
+                // 'denyCallback' => function ($rule, $action) {
+                //     throw new \Exception('You are not allowed to access this page');
+                // },
+                // 'denyCallback' => function ($rule, $action) {
+                //     var_dump($action);
+                //     throw new \Exception('Error');
+                //     //Yii::$app->user->logout();
+                //     //Yii::$app->response->redirect(['site/login']);
+                // },
             ],
             'verbs' => [
                 'class' => VerbFilter::className(),
@@ -71,12 +88,14 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $perfil = User::findIdentity(Yii::$app->user->id)->profile;
+        $profileKennel = User::findIdentity(Yii::$app->user->id)->kennel;
 
-        $canilAnimals = array_slice($perfil->canilAnimals, 0, 10);
+        $kennelAnimals = array_slice($profileKennel->kennelAnimals, 0, 10);
+
+        //$this->layout = 'blank';
 
         return $this->render('index', [
-            'canilAnimals' => $canilAnimals
+            'kennelAnimals' => $kennelAnimals
         ]);
     }
 
@@ -105,10 +124,10 @@ class SiteController extends Controller
 
     public function actionProfile()
     {
-        $profile = Yii::$app->user->identity->profile;
-        $nAnimais = count($profile->canilAnimals);
-        $nAdocoes = count($profile->adocaos);
         $user = Yii::$app->user->identity;
+        $profile = $user->kennel;
+        $nAnimais = count($profile->kennelAnimals);
+        $nAdocoes = 0;
 
         return $this->render('profile', [
             'profileInfo' => $profile,
@@ -133,6 +152,69 @@ class SiteController extends Controller
         } else $this->redirect(['profile']);
 
     }
+
+    public function actionBreed()
+    {
+        $msg = '';
+        $energy = Energy::find()->asArray()->all();
+        $coat = Coat::find()->asArray()->all();
+        $size = Size::find()->asArray()->all();
+        $breed = Breed::find()->asArray()->all();
+
+        $modelBreed = new Breed();
+        $modelBreedEnergy = new BreedEnergy();
+        $modelBreedCoat = new BreedCoat();
+        $modelBreedSize = new BreedSize();
+
+        //var_dump(Yii::$app->request->post());
+
+        if ($modelBreed->load(Yii::$app->request->post()) && $modelBreed->save()) {
+            $id_breed = $modelBreed->id;
+
+            $valid = true;
+
+            foreach (Yii::$app->request->post('BreedEnergy')['id_energy'] as $id_energy) {
+                $breedEnergy = new BreedEnergy();
+                $breedEnergy->id_energy = $id_energy;
+                $breedEnergy->id_breed = $id_breed;
+
+                $valid = $breedEnergy->save() && $valid;
+            }
+
+            foreach (Yii::$app->request->post('BreedCoat')['id_coat'] as $id_coat) {
+                $breedCoat = new BreedCoat();
+                $breedCoat->id_coat = $id_coat;
+                $breedCoat->id_breed = $id_breed;
+
+                $valid = $breedCoat->save() && $valid;
+            }
+
+            foreach (Yii::$app->request->post('BreedSize')['id_size'] as $id_size) {
+                $breedSize = new BreedSize();
+                $breedSize->id_size = $id_size;
+                $breedSize->id_breed = $id_breed;
+
+                $valid = $breedSize->save() && $valid;
+            }
+
+            if ($valid) {
+                $msg = 'Breed Inserted with Success';
+            }
+        }
+
+        return $this->render('breed', [
+            'msg' => $msg,
+            'energy' => $energy,
+            'coat' => $coat,
+            'size' => $size,
+            'breed' => $breed,
+            'modelBreed' => $modelBreed,
+            'modelEnergy' => $modelBreedEnergy,
+            'modelCoat' => $modelBreedCoat,
+            'modelSize' => $modelBreedSize
+        ]);
+    }
+
 
 
     /**

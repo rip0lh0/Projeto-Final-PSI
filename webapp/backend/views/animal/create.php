@@ -71,15 +71,6 @@ $this->params['breadcrumbs'][] = $this->title;
                         <!-- Imagens -->
                         <?= $form->field($uploadModel, 'imageFiles[]')->fileInput(['multiple' => true, 'accept' => 'image/*']); ?>
 
-                        <?= DatePicker::widget([
-                            'name' => 'teste',
-                            'value' => date('d-M-Y', strtotime('+2 days')),
-                            'options' => ['placeholder' => 'Select issue date ...'],
-                            'pluginOptions' => [
-                                'format' => 'dd-M-yyyy',
-                                'todayHighlight' => true
-                            ]
-                        ]); ?>
                     </div>
 
                     <div class="box-footer">

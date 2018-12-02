@@ -206,4 +206,15 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return $this->hasOne(Local::className(), ['id' => 'id_local']);
     }
+
+    public function getKennel()
+    {
+        return $this->hasOne(Kennel::className(), ['id_user' => 'id']);
+    }
+
+    public function getAdopter()
+    {
+        return $this->hasOne(Adopter::className(), ['id_user' => 'id']);
+    }
+
 }

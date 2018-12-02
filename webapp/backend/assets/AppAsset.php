@@ -14,8 +14,11 @@ class AppAsset extends AssetBundle
     public $css = [
         'css/site.css',
         'css/error.css',
+        'css/texteditor.css',
     ];
-    public $js = [];
+    public $js = [
+        'js/texteditor.js',
+    ];
     public $depends = [
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',

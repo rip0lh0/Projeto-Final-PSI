@@ -27,7 +27,8 @@
         "dmstr/yii2-adminlte-asset": "^2.1",
         "almasaeed2010/adminlte": "^2.4",
         "bizley/migration": "~3.0.0",
-        "fedemotta/yii2-widget-datatables": "^1.3"
+        "fedemotta/yii2-widget-datatables": "^1.3",
+        "vitalik74/yii2-bootstrap-wysihtml5-widget": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
@@ -37,7 +38,8 @@
         "codeception/verify": "~0.3.1",
         "kartik-v/yii2-widget-activeform": "@dev",
         "kartik-v/yii2-popover-x": "dev-master",
-        "kartik-v/yii2-widget-datepicker": "@dev"
+        "kartik-v/yii2-widget-datepicker": "@dev",
+        "kartik-v/yii2-widget-select2": "@dev"
     },
     "config": {
         "process-timeout": 1800,

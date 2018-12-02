@@ -20,7 +20,7 @@ $this->title = $name;
 
             <p calss="error">The above error occurred while the Web server was processing your request.</p>
             <?php 
-            if (User::isKennel())
+            if (false)
                 echo Html::a('Go Back!!', $preurl, ['class' => 'btn btn-warning btn-flat']);
             else
                 echo Html::a('Go Back!!', ['/site/logout'], ['data-method' => 'post', 'class' => 'btn btn-warning btn-flat']);

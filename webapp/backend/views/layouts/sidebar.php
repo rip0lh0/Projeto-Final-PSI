@@ -19,9 +19,9 @@ AppAsset::register($this);
             'label' => 'Animais',
         ];
         $animalMenuItems[] = [
-            'url' => ['#'],
-            'icon' => 'heart',
-            'label' => 'Medical',
+            'url' => ['site/breed'],
+            'icon' => 'cubes',
+            'label' => 'Raças',
         ];
         /* End Animals Menu Items */
 
