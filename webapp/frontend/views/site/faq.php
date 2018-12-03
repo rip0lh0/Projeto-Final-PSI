@@ -8,7 +8,7 @@ $this->title = 'FAQ';
 
 ?>
 <div class="site-faq">
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1 align="center"><?= Html::encode($this->title) ?></h1>
 
     <p>FAQ. :</p>
 

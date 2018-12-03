@@ -8,7 +8,7 @@ $this->title = 'Find Your Best Friend here';
 
 ?>
 <div class="site-search">
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1 align="center"><?= Html::encode($this->title) ?></h1>
 
     <p>List of all adoptable animals:</p>
 

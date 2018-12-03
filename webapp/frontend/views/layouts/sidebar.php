@@ -2,8 +2,6 @@
 use yii\helpers\HTML;
 ?>
 
-
-
 <div id="wrapper">
         <div class="overlay"></div>
         <!-- Sidebar -->
@@ -11,9 +9,7 @@ use yii\helpers\HTML;
             <ul class="nav sidebar-nav">
                 <li class="sidebar-brand">
                 </li>
-                <li>
-                    <a href="/GitHub/Projeto-Final-PSI/webapp/frontend/web/index.php"><i class="fa fa-fw fa-home"></i> Home</a>
-                </li>
+                
                 <li>
                     <?=Html::a('User Profile', ['site/userprofile'])?>
                 </li>
@@ -25,12 +21,12 @@ use yii\helpers\HTML;
                     <?=Html::a('Animal Magazine', ['site/animalmagazine'])?>
                 </li>
                 <li>
-                <?=Html::a('Animal Search', ['site/animalsearch'])?>
+                    <?=Html::a('Animal Search', ['site/animalsearch'])?>
                 </li>
                 <li>
                     <a href="#"><i class="twitter"></i> Last page</a>
                 </li>
-                <li class="dropdown">
+                    <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-plus"></i> Help <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
                     <li class="dropdown-header">Dropdown heading</li>
