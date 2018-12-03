@@ -3,27 +3,6 @@
 use yii\helpers\Html;
 use common\models\AnimalState;
 use fedemotta\datatables\DataTables;
-/* @var $this yii\web\View */
-/* @var $searchModel common\models\AnimalSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
-
-
-/*
-<?= GridView::widget([
-    'rowOptions'   => function ($model, $key, $index, $grid) {
-        return ['data-id' => $model->id];
-    },
-]); ?>
-
-<?php
-$this->registerJs("
-    $('td').click(function (e) {
-        var id = $(this).closest('tr').data('id');
-        if(e.target == this) location.href = '" . Url::to(['accountinfo/update']) . "?id=' + id;
-    });
-"); 
- */
-
 
 $this->title = 'Animals';
 $this->params['breadcrumbs'][] = $this->title;

@@ -1,3 +1,10 @@
+SET FOREIGN_KEY_CHECKS = 0; 
+TRUNCATE TABLE `local`;
+SET FOREIGN_KEY_CHECKS = 1;
+TRUNCATE TABLE `energy`;
+TRUNCATE TABLE `coat`;
+TRUNCATE TABLE `size`;
+
 INSERT INTO local(id, name, id_parent) 
 VALUES
 (null, 'Aveiro', null),
@@ -299,4 +306,23 @@ VALUES
 (null, 'Tondela', 18),
 (null, 'Vila Nova de Paiva', 18),
 (null, 'Viseu', 18),
-(null, 'Vouzela', 18)
+(null, 'Vouzela', 18);
+
+INSERT INTO energy(energy)
+VALUES 
+('Baixa'),
+('Média'),
+('Alta');
+
+INSERT INTO coat(coat_size)
+VALUES 
+('Curta'),
+('Comprida');
+
+INSERT INTO size(size)
+VALUES 
+('Muito Pequeno'),
+('Pequeno'),
+('Médio'),
+('Grande'),
+('Muito Grande');
