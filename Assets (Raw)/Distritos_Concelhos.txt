@@ -17,7 +17,10 @@ VALUES
 (null, 'Setúbal', null),
 (null, 'Viana do Castelo', null),
 (null, 'Vila Real', null),
-(null, 'Viseu', null),
+(null, 'Viseu', null);
+
+INSERT INTO local(id, name, id_parent) 
+VALUES
 (null, 'Águeda', 1),
 (null, 'Albergaria-a-Velha', 1),
 (null, 'Anadia', 1),
