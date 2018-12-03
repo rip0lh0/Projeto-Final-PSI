@@ -11,6 +11,8 @@ use Yii;
  * @property int $id_parent
  * @property string $name
  * @property string $description
+ * @property string $origin
+ * @property string $lifespan
  *
  * @property AnimalFile[] $animalFiles
  * @property Breed $parent
@@ -35,9 +37,9 @@ class Breed extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name'], 'required'],
             [['id_parent'], 'integer'],
-            [['name', 'description'], 'string', 'max' => 255],
+            [['name'], 'required'],
+            [['name', 'description', 'origin', 'lifespan'], 'string', 'max' => 255],
             [['id_parent'], 'exist', 'skipOnError' => true, 'targetClass' => Breed::className(), 'targetAttribute' => ['id_parent' => 'id']],
         ];
     }
@@ -49,9 +51,11 @@ class Breed extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'id_parent' => 'Parent',
+            'id_parent' => 'Id Parent',
             'name' => 'Name',
             'description' => 'Description',
+            'origin' => 'Origin',
+            'lifespan' => 'Lifespan',
         ];
     }
 

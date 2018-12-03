@@ -29,7 +29,6 @@ class BreedSize extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_size', 'id_breed'], 'required'],
             [['id_size', 'id_breed'], 'integer'],
             [['id_breed'], 'exist', 'skipOnError' => true, 'targetClass' => Breed::className(), 'targetAttribute' => ['id_breed' => 'id']],
             [['id_size'], 'exist', 'skipOnError' => true, 'targetClass' => Energy::className(), 'targetAttribute' => ['id_size' => 'id']],

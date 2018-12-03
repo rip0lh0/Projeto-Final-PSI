@@ -36,6 +36,8 @@ AppAsset::register($this);
                     } ?>
 
                     <?= $form->field($modelBreed, 'name')->textInput(); ?>
+                    <?= $form->field($modelBreed, 'lifespan')->textInput(); ?>
+                    <?= $form->field($modelBreed, 'origin')->textInput(); ?>
                     <?= $form->field($modelBreed, 'description')->textarea(['class' => 'textarea', 'style' => 'width: 100%;']); ?>
                     <?= $form->field($modelBreed, 'id_parent')->widget(Select2::classname(), [
                         'value' => 'id',
