@@ -16,8 +16,8 @@ class m181127_181748_Animal extends Migration
 
         $this->createTable('{{%animal}}', [
             'id' => $this->primaryKey(),
-            'name' => $this->string()->notNull(),
-            'description' => $this->string()->notNull(),
+            'name' => $this->string(),
+            'description' => $this->string(),
         ], $tableOptions);
 
     }

@@ -17,8 +17,8 @@ class m181127_181810_Animal_File extends Migration
         $this->createTable('{{%animal_file}}', [
             'id' => $this->primaryKey(),
             'id_animal' => $this->integer()->notNull(),
-            'id_breed' => $this->integer()->notNull(),
-            'chip' => $this->tinyInteger()->notNull(),
+            'id_breed' => $this->integer(),
+            'chip' => $this->string()->unique(),
             'neutered' => $this->tinyInteger()->notNull(),
             'gender' => $this->char()->notNull(),
             'weight' => $this->float(),

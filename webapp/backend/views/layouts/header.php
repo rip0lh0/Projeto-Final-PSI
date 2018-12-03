@@ -32,7 +32,7 @@ AppAsset::register($this);
                                  alt="User Image"/>
                             <p>
                                 <?= $userName ?>
-                                <small><?= ($local->parent != null) ? $local->parent->name . ', ' : ''; ?><?= $local->name ?></small>
+                                <small><?= ($local != null && $local->parent != null) ? $local->parent->name . ', ' : ''; ?><?= ($local != null) ? $local->name : ''; ?></small>
                             </p>
                         </li>
                         <!-- Menu Footer-->

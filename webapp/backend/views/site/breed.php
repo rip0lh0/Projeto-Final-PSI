@@ -21,7 +21,7 @@ AppAsset::register($this);
         <div class="col-md-12">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Rças</h3>
+                    <h3 class="box-title">Raças</h3>
                 </div>
                 
                 <?php $form = ActiveForm::begin(['id' => 'breed-form']); ?>

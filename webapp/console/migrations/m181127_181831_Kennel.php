@@ -17,8 +17,8 @@ class m181127_181831_Kennel extends Migration
         $this->createTable('{{%kennel}}', [
             'id' => $this->primaryKey(),
             'id_user' => $this->integer()->notNull(),
-            'id_contact' => $this->integer()->notNull(),
-            'id_social' => $this->integer()->notNull(),
+            'id_contact' => $this->integer(),
+            'id_social' => $this->integer(),
             'name' => $this->string()->notNull(),
             'nif' => $this->double()->notNull(),
             'address' => $this->string()->notNull(),

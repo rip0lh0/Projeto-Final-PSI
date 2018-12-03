@@ -16,7 +16,7 @@ class m181127_181733_Breed extends Migration
 
         $this->createTable('{{%breed}}', [
             'id' => $this->primaryKey(),
-            'id_parent' => $this->integer()->notNull(),
+            'id_parent' => $this->integer(),
             'name' => $this->string()->notNull(),
             'description' => $this->string(),
             'origin' => $this->string(),
