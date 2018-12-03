@@ -166,39 +166,45 @@ class SiteController extends Controller
         $modelBreedCoat = new BreedCoat();
         $modelBreedSize = new BreedSize();
 
-        //var_dump(Yii::$app->request->post());
 
-        if ($modelBreed->load(Yii::$app->request->post()) && $modelBreed->save()) {
-            $id_breed = $modelBreed->id;
+        if (Yii::$app->request->post() != null) {
+            if ($modelBreed->load(Yii::$app->request->post())) {
+                $modelBreed->id_parent = Yii::$app->request->post('Breed')['id_parent'][0];
+                $valid = $modelBreed->save();
 
-            $valid = true;
+                $id_breed = $modelBreed->id;
 
-            foreach (Yii::$app->request->post('BreedEnergy')['id_energy'] as $id_energy) {
-                $breedEnergy = new BreedEnergy();
-                $breedEnergy->id_energy = $id_energy;
-                $breedEnergy->id_breed = $id_breed;
 
-                $valid = $breedEnergy->save() && $valid;
-            }
 
-            foreach (Yii::$app->request->post('BreedCoat')['id_coat'] as $id_coat) {
-                $breedCoat = new BreedCoat();
-                $breedCoat->id_coat = $id_coat;
-                $breedCoat->id_breed = $id_breed;
+                if ($valid) {
+                    foreach (Yii::$app->request->post('BreedEnergy')['id_energy'] as $id_energy) {
+                        $breedEnergy = new BreedEnergy();
+                        $breedEnergy->id_energy = $id_energy;
+                        $breedEnergy->id_breed = $id_breed;
 
-                $valid = $breedCoat->save() && $valid;
-            }
+                        $valid = $breedEnergy->save() && $valid;
+                    }
 
-            foreach (Yii::$app->request->post('BreedSize')['id_size'] as $id_size) {
-                $breedSize = new BreedSize();
-                $breedSize->id_size = $id_size;
-                $breedSize->id_breed = $id_breed;
+                    foreach (Yii::$app->request->post('BreedCoat')['id_coat'] as $id_coat) {
+                        $breedCoat = new BreedCoat();
+                        $breedCoat->id_coat = $id_coat;
+                        $breedCoat->id_breed = $id_breed;
 
-                $valid = $breedSize->save() && $valid;
-            }
+                        $valid = $breedCoat->save() && $valid;
+                    }
 
-            if ($valid) {
-                $msg = 'Breed Inserted with Success';
+                    foreach (Yii::$app->request->post('BreedSize')['id_size'] as $id_size) {
+                        $breedSize = new BreedSize();
+                        $breedSize->id_size = $id_size;
+                        $breedSize->id_breed = $id_breed;
+
+                        $valid = $breedSize->save() && $valid;
+                    }
+
+                    if ($valid) {
+                        $msg = 'Breed Inserted with Success';
+                    }
+                }
             }
         }
 

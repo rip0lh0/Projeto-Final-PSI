@@ -44,7 +44,7 @@ AppAsset::register($this);
                         'attribute' => 'parent',
                         'value' => 'id',
                         'data' => ArrayHelper::map($breed, 'id', 'name'),
-                        'options' => ['multiple' => true, 'search' => true, 'placeholder' => 'Select Breed Energy...'],
+                        'options' => ['search' => true, 'placeholder' => 'Select Breed Energy...'],
                     ]); ?>
                     <?= $form->field($modelEnergy, 'id_energy')->widget(Select2::classname(), [
                         'value' => 'id',
