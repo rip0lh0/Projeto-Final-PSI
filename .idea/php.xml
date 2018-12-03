@@ -70,6 +70,17 @@
       <path value="$PROJECT_DIR$/webapp/vendor/rmrevin/yii2-fontawesome" />
       <path value="$PROJECT_DIR$/webapp/vendor/kartik-v/yii2-widget-activeform" />
       <path value="$PROJECT_DIR$/webapp/vendor/kartik-v/yii2-krajee-base" />
+      <path value="$PROJECT_DIR$/webapp/vendor/bower-asset/datatables-tabletools" />
+      <path value="$PROJECT_DIR$/webapp/vendor/almasaeed2010/adminlte" />
+      <path value="$PROJECT_DIR$/webapp/vendor/cebe/yii2-gravatar" />
+      <path value="$PROJECT_DIR$/webapp/vendor/dmstr/yii2-adminlte-asset" />
+      <path value="$PROJECT_DIR$/webapp/vendor/bizley/migration" />
+      <path value="$PROJECT_DIR$/webapp/vendor/kartik-v/yii2-popover-x" />
+      <path value="$PROJECT_DIR$/webapp/vendor/kartik-v/bootstrap-popover-x" />
+      <path value="$PROJECT_DIR$/webapp/vendor/kartik-v/yii2-widget-datepicker" />
+      <path value="$PROJECT_DIR$/webapp/vendor/fedemotta/yii2-widget-datatables" />
+      <path value="$PROJECT_DIR$/webapp/vendor/bower-asset/datatables-bootstrap3" />
+      <path value="$PROJECT_DIR$/webapp/vendor/bower-asset/datatables" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="5.4.0" />
