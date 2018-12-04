@@ -150,7 +150,7 @@ class SiteController extends Controller
         $energy = Energy::find()->asArray()->all();
         $coat = Coat::find()->asArray()->all();
         $size = Size::find()->asArray()->all();
-        $breed = Breed::find()->asArray()->all();
+        $breed = Breed::find()->where(['id_parent' => null])->asArray()->all();
 
         $modelBreed = new Breed();
         $modelBreedEnergy = new BreedEnergy();
@@ -195,7 +195,7 @@ class SiteController extends Controller
                     }
 
                     if ($valid) {
-                        $msg = 'Breed Inserted with Success';
+                        $msg = $breed.' Inserted with Success';
                     }
                 }
             }
