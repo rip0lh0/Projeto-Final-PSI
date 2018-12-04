@@ -4,21 +4,28 @@ namespace frontend\models;
 use yii\base\Model;
 use common\models\User;
 use app\models\TipoPerfil;
+use common\models\Kennel;
 
 /**
  * Signup form
  */
 class SignupForm extends Model
 {
+    /* User */
     public $username;
     public $email;
     public $password;
-    public $nome;
+
+    /* Common Information */
+    public $name;
+
+    /* Kennel Infromation */
     public $nif;
-    public $morada;
-    public $localidade;
-    public $nacionalidade;
-    public $contacto;
+    public $local;
+    public $address;
+
+    /* Adopter Infromation */
+    public $cellphone;
 
     /**
      * {@inheritdoc}
@@ -40,24 +47,43 @@ class SignupForm extends Model
             ['password', 'required'],
             ['password', 'string', 'min' => 6],
 
-            ['nome', 'required'],
-
-            ['nif', 'required'],
-            ['nif', 'string', 'min' => 9, 'max' => 9],
-            ['nif', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This nif is already being used.'],
-
-            ['morada', 'required'],
-
-            ['localidade', 'required'],
-
-            ['nacionalidade', 'required'],
-
-            ['contacto', 'required'],
-            ['contacto', 'string', 'min' => 9, 'max' => 9],
-            ['contacto', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This contact is already being used.'],
+            [['name'], 'required'],
+            ['name', 'string', 'max' => 255],
 
         ];
     }
+
+
+    public function signupAdopter($user)
+    {
+
+
+        
+        /* Creates Adopters */
+        $auth = \Yii::$app->authManager;
+        $adopterRole = $auth->getRole('adopter');
+        $auth->assign($adopterRole, $user->getId());
+
+
+    }
+
+    public function signupKennel($user)
+    {
+        $kennel = new Kennel();
+
+        $kennel->id_user = $user->id;
+        $kennel->name = $this->name;
+        $kennel->nif = $this->nif;
+        $kennel->address = $this->address;
+
+        if ($kennel->save() == null) return null;
+
+
+        $auth = \Yii::$app->authManager;
+        $kennelRole = $auth->getRole('kennel');
+        $auth->assign($kennelRole, $user->getId());
+    }
+
 
     /**
      * Signs user up.
@@ -67,33 +93,15 @@ class SignupForm extends Model
     public function signup()
     {
         if ($this->validate()) {
-            
-
             $user = new User();
+
             $user->username = $this->username;
             $user->email = $this->email;
+            $user->local = $this->local;
             $user->setPassword($this->password);
             $user->generateAuthKey();
+
             if ($user->save() == null) return null;
-            var_dump($this);
-            $perfil = new Perfil(); // teste
-            $perfil->nome = $this->nome;    
-            $perfil->nif = $this->nif;
-            $perfil->morada = $this->morada;
-            $perfil->localidade = $this->localidade;
-            $perfil->nacionalidade = $this->nacionalidade;
-            $perfil->contacto = $this->contacto;
-            if ($perfil->save() == null) return null;
-
-            /* Creates Kennel */
-            $auth = \Yii::$app->authManager;
-            $kennelRole = $auth->getRole('kennel');
-            $auth->assign($kennelRole, $user->getId());
-
-            /* Creates Adopters */
-            // $auth = \Yii::$app->authManager;
-            // $adopterRole = $auth->getRole('adopter');
-            // $auth->assign($adopterRole, $user->getId());
 
             return $user;
         }

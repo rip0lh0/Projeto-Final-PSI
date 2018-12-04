@@ -27,15 +27,9 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout', 'signup'],
+                'only' => ['logout'],
                 'rules' => [
                     [
-                        'actions' => ['signup'],
-                        'allow' => true,
-                        'roles' => ['?'],
-                    ],
-                    [
-                        'actions' => ['logout'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -84,14 +78,12 @@ class SiteController extends Controller
     public function actionLogin()
     {
         if (!Yii::$app->user->isGuest) {
-               return $this->goHome(); 
+            return $this->goHome();
         }
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
-
-           
         } else {
             $model->password = '';
 
@@ -100,29 +92,6 @@ class SiteController extends Controller
             ]);
         }
     }
-
-    public function actionFaq(){
-        return $this->render('faq');
-    }
-    public function actionCanil(){
-        return $this->render('canil');
-    }
-
-    public function actionAnimalmagazine(){
-        return $this->render('animalMagazine');
-    }
-    public function actionUserprofile()
-    {
-        if (!Yii::$app->user->isGuest) {
-        return $this->render('userProfile');
-        }else{
-            return $this->render('error'); 
-        }
-    }
-    public function actionAnimalsearch(){
-        return $this->render('animalSearch');
-    }
-
 
     /**
      * Logs out the current user.
@@ -189,25 +158,14 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
- /**
+    /**
      * Signs user up.
      * 
      * @return mixed
      */
-    public function actionSignupMenu()
+    public function actionMenu()
     {
-        $model = new SignupForm();
-        if ($model->load(Yii::$app->request->post())) {
-            if ($user = $model->signup()) {
-                if (Yii::$app->getUser()->login($user)) {
-                    return $this->goHome();
-                }
-            }
-        }
-
-        return $this->render('signupMenu', [
-            'model' => $model,
-        ]);
+        return $this->render('signupMenu');
     }
 
     /**
