@@ -9,8 +9,7 @@ use Yii;
  *
  * @property int $id
  * @property int $id_animal
- * @property int $id_breed
- * @property int $chip
+ * @property string $chip
  * @property int $neutered
  * @property string $gender
  * @property double $weight
@@ -19,7 +18,7 @@ use Yii;
  * @property string $updated_at
  *
  * @property Animal $animal
- * @property Breed $breed
+ * @property FileBreed[] $fileBreeds
  * @property Treatment[] $treatments
  */
 class AnimalFile extends \yii\db\ActiveRecord
@@ -38,13 +37,14 @@ class AnimalFile extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_animal', 'id_breed', 'chip', 'neutered', 'gender', 'created_at', 'updated_at'], 'required'],
-            [['id_animal', 'id_breed', 'chip', 'neutered', 'age'], 'integer'],
+            [['id_animal', 'neutered', 'gender', 'created_at', 'updated_at'], 'required'],
+            [['id_animal', 'neutered', 'age'], 'integer'],
             [['weight'], 'number'],
             [['created_at', 'updated_at'], 'safe'],
+            [['chip'], 'string', 'max' => 255],
             [['gender'], 'string', 'max' => 1],
+            [['chip'], 'unique'],
             [['id_animal'], 'exist', 'skipOnError' => true, 'targetClass' => Animal::className(), 'targetAttribute' => ['id_animal' => 'id']],
-            [['id_breed'], 'exist', 'skipOnError' => true, 'targetClass' => Breed::className(), 'targetAttribute' => ['id_breed' => 'id']],
         ];
     }
 
@@ -56,7 +56,6 @@ class AnimalFile extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'id_animal' => 'Id Animal',
-            'id_breed' => 'Id Breed',
             'chip' => 'Chip',
             'neutered' => 'Neutered',
             'gender' => 'Gender',
@@ -78,9 +77,9 @@ class AnimalFile extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getBreed()
+    public function getFileBreeds()
     {
-        return $this->hasOne(Breed::className(), ['id' => 'id_breed']);
+        return $this->hasMany(FileBreed::className(), ['id_file' => 'id']);
     }
 
     /**

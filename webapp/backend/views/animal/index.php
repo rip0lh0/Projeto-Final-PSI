@@ -27,16 +27,16 @@ $this->params['breadcrumbs'][] = $this->title;
                         ],
                         'columns' => [
                             ['class' => 'yii\grid\SerialColumn'],
-                            'animal.tipo.tipo',
+                            'animal.animalFile.chip',
                             [
                                 'attribute' => 'created_at',
                                 'format' => ['date', 'php:d/m/Y']
                             ],
                             [
-                                'attribute' => 'estado',
+                                'attribute' => 'state',
                                 'format' => 'html',
                                 'value' => function ($data) {
-                                    return '<span class="label label-danger">' . AnimalState::getKey($data->estado) . '</span>';
+                                    return '<span class="label label-danger">' . $data->state . '</span>';
                                 },
                             ],
                             [

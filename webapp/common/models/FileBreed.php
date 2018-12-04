@@ -5,22 +5,22 @@ namespace common\models;
 use Yii;
 
 /**
- * This is the model class for table "breed_size".
+ * This is the model class for table "file_breed".
  *
- * @property int $id_size
+ * @property int $id_file
  * @property int $id_breed
  *
  * @property Breed $breed
- * @property Energy $size
+ * @property AnimalFile $file
  */
-class BreedSize extends \yii\db\ActiveRecord
+class FileBreed extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return 'breed_size';
+        return 'file_breed';
     }
 
     /**
@@ -29,10 +29,10 @@ class BreedSize extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_size', 'id_breed'], 'required'],
-            [['id_size', 'id_breed'], 'integer'],
+            [['id_file', 'id_breed'], 'required'],
+            [['id_file', 'id_breed'], 'integer'],
             [['id_breed'], 'exist', 'skipOnError' => true, 'targetClass' => Breed::className(), 'targetAttribute' => ['id_breed' => 'id']],
-            [['id_size'], 'exist', 'skipOnError' => true, 'targetClass' => Energy::className(), 'targetAttribute' => ['id_size' => 'id']],
+            [['id_file'], 'exist', 'skipOnError' => true, 'targetClass' => AnimalFile::className(), 'targetAttribute' => ['id_file' => 'id']],
         ];
     }
 
@@ -42,7 +42,7 @@ class BreedSize extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id_size' => 'Id Size',
+            'id_file' => 'Id File',
             'id_breed' => 'Id Breed',
         ];
     }
@@ -58,8 +58,8 @@ class BreedSize extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getSize()
+    public function getFile()
     {
-        return $this->hasOne(Energy::className(), ['id' => 'id_size']);
+        return $this->hasOne(AnimalFile::className(), ['id' => 'id_file']);
     }
 }

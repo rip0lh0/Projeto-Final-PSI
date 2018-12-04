@@ -30,7 +30,6 @@ class Animal extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'description'], 'required'],
             [['name', 'description'], 'string', 'max' => 255],
         ];
     }
@@ -50,9 +49,9 @@ class Animal extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getAnimalFiles()
+    public function getAnimalFile()
     {
-        return $this->hasMany(AnimalFile::className(), ['id_animal' => 'id']);
+        return $this->hasOne(AnimalFile::className(), ['id_animal' => 'id']);
     }
 
     /**

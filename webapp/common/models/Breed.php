@@ -14,12 +14,12 @@ use Yii;
  * @property string $origin
  * @property string $lifespan
  *
- * @property AnimalFile[] $animalFiles
  * @property Breed $parent
  * @property Breed[] $breeds
  * @property BreedCoat[] $breedCoats
  * @property BreedEnergy[] $breedEnergies
  * @property BreedSize[] $breedSizes
+ * @property FileBreed[] $fileBreeds
  */
 class Breed extends \yii\db\ActiveRecord
 {
@@ -62,14 +62,6 @@ class Breed extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getAnimalFiles()
-    {
-        return $this->hasMany(AnimalFile::className(), ['id_breed' => 'id']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
     public function getParent()
     {
         return $this->hasOne(Breed::className(), ['id' => 'id_parent']);
@@ -105,5 +97,13 @@ class Breed extends \yii\db\ActiveRecord
     public function getBreedSizes()
     {
         return $this->hasMany(BreedSize::className(), ['id_breed' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getFileBreeds()
+    {
+        return $this->hasMany(FileBreed::className(), ['id_breed' => 'id']);
     }
 }

@@ -29,6 +29,7 @@ class BreedEnergy extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['id_energy', 'id_breed'], 'required'],
             [['id_energy', 'id_breed'], 'integer'],
             [['id_breed'], 'exist', 'skipOnError' => true, 'targetClass' => Breed::className(), 'targetAttribute' => ['id_breed' => 'id']],
             [['id_energy'], 'exist', 'skipOnError' => true, 'targetClass' => Energy::className(), 'targetAttribute' => ['id_energy' => 'id']],
@@ -41,7 +42,7 @@ class BreedEnergy extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id_energy' => 'Energia',
+            'id_energy' => 'Id Energy',
             'id_breed' => 'Id Breed',
         ];
     }

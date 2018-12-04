@@ -3,19 +3,21 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\Animal;
-use common\models\User;
-use backend\models\UploadForm;
+
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\web\UploadedFile;
-
-use phpDocumentor\Reflection\Types\Integer;
-use backend\models\KennelAnimalSearch;
-
-
+/* Backend Models */
+use backend\models\UploadForm;
+use backend\models\AnimalForm;
+use backend\models\kennelAnimalSearch;
+/* Common Models */
+use common\models\Animal;
+use common\models\User;
+use common\models\Breed;
+use common\models\KennelAnimal;
 /**
  * AnimalController implements the CRUD actions for Animal model.
  */
@@ -51,12 +53,12 @@ class AnimalController extends Controller
      */
     public function actionIndex()
     {
-        $profileKennel = User::findIdentity(Yii::$app->user->id)->kennel;
+        $kennel = User::findIdentity(Yii::$app->user->id)->kennel;
 
-        $kennelAnimals = $profileKennel->kennelAnimals;
+        $kennelAnimals = $kennel->kennelAnimals;
 
         $searchModel = new KennelAnimalSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams, $profileKennel);
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams, $kennel);
 
         return $this->render('index', ['kennelAnimals' => $kennelAnimals, 'dataProvider' => $dataProvider, 'searchModel' => $searchModel]);
     }
@@ -69,7 +71,7 @@ class AnimalController extends Controller
      */
     public function actionView($id)
     {
-        $model = CanilAnimal::find()->where(['id' => $id])->one();
+        $model = KennelAnimal::find()->where(['id' => $id])->one();
 
         return $this->render('view', [
             'model' => $model,
@@ -83,56 +85,19 @@ class AnimalController extends Controller
      */
     public function actionCreate()
     {
-        $animalModel = new Animal();
-        $fichaModel = new Ficha();
-        $racaModel = new Raca();
-        $uploadModel = new UploadForm();
-        $canilAnimal = new CanilAnimal();
+        $model = new AnimalForm();
 
-        $tiposAnimaisRaw = TypeAnimal::find()->asArray()->all();
+        $breed = Breed::find()->asArray()->all();
 
-        foreach ($tiposAnimaisRaw as $value) {
-            $tiposAnimais[$value['id']] = $value['tipo'];
-        }
-
-        // Breed
-        if ($racaModel->load(Yii::$app->request->post())) {;
-            // Animal File
-            if ($fichaModel->load(Yii::$app->request->post()) && $racaModel->save()) {
-                $fichaModel->id_raca = $racaModel->id; // Get Id From Saved Breed
-                $fichaModel->created_at = date('Y-m-d H:i:s');
-                $fichaModel->updated_at = date('Y-m-d H:i:s');
-                // Animal Info
-                if ($animalModel->load(Yii::$app->request->post()) && $fichaModel->save()) {
-                    $animalModel->id_ficha = $fichaModel->id; // Get Id From Saved Animal File
-
-                    if ($animalModel->save()) {
-                        // Add Animal To Kennel
-                        $canilAnimal->load(Yii::$app->request->post());
-                        $canilAnimal->id_Animal = $animalModel->id; // Get Id From Saved Animal
-                        $canilAnimal->id_Canil = Yii::$app->user->id;
-                        $canilAnimal->created_at = date('Y-m-d H:i:s');
-                        $canilAnimal->updated_at = date('Y-m-d H:i:s');
-
-                        if ($canilAnimal->validate() && $canilAnimal->save()) {
-                            $uploadModel->imageFiles = UploadedFile::getInstances($uploadModel, 'imageFiles');
-                            if ($uploadModel->upload()) {
-                                // file is uploaded successfully
-                                return $this->redirect(['view', 'id' => $animalModel->id]);
-                            }
-                        }
-                    }
-                }
+        if ($model->load(Yii::$app->request->post())) {
+            if ($model->saveData()) {
+                return $this->redirect('index');
             }
         }
 
         return $this->render('create', [
-            'tiposAnimais' => $tiposAnimais,
-            'animalModel' => $animalModel,
-            'fichaModel' => $fichaModel,
-            'racaModel' => $racaModel,
-            'uploadModel' => $uploadModel,
-            'canilAnimalModel' => $canilAnimal
+            'breed' => $breed,
+            'model' => $model,
         ]);
     }
 

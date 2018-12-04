@@ -3,7 +3,8 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use dosamigos\fileupload\FileUploadUI;
-use kartik\date\DatePicker;
+use yii\helpers\ArrayHelper;
+use kartik\select2\Select2;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\animal */
@@ -22,12 +23,12 @@ $this->params['breadcrumbs'][] = $this->title;
                         <h3 class="box-title">Informação Básica</h3>
                     </div>
                     <div class="box-body">
-                        <!-- Info Name -->
-                        <?= $form->field($animalModel, 'nome') ?>
-                        <!-- Info Type Of Animal -->
-                         <?= $form->field($animalModel, 'id_tipo')->dropDownList($tiposAnimais); ?>
-                        <!-- Info Description -->
-                        <?= $form->field($animalModel, 'descricao') ?>
+                        <!-- Name -->
+                        <?= $form->field($model, 'name')->textInput(); ?>
+                        <!-- Description -->
+                        <?= $form->field($model, 'description')->textInput(); ?>
+                        <!-- Chip Number -->
+                        <?= $form->field($model, 'chip')->textInput(); ?>
                     </div>
                 </div>
                 <div class="box box-primary">
@@ -35,30 +36,24 @@ $this->params['breadcrumbs'][] = $this->title;
                         <h3 class="box-title">Ficha Do Animal</h3>
                     </div>
                     <div class="box-body">
-                        <!-- Breed Name -->
-                        <?= $form->field($racaModel, 'nome') ?>
-                        <!-- Breed Description -->
-                        <?= $form->field($racaModel, 'tipo')->dropDownList([
-                            'Indefinida' => 'Indefinida',
-                            'Pura' => 'Pura',
-                            'Cruzada' => 'Cruzada'
-                        ]); ?>
-                        <!-- Animal File Has Chip -->
-                        <?= $form->field($fichaModel, 'chip')->dropDownList([
-                            '0' => 'Não',
-                            '1' => 'Sim'
+                        <?= $form->field($model, 'id_breeds')->widget(Select2::classname(), [
+                            'data' => ArrayHelper::map($breed, 'id', 'name'),
+                            'options' => ['multiple' => true, 'search' => true, 'placeholder' => 'Select Breed Energy...'],
                         ]); ?>
                         <!-- Animal Gender -->
-                        <?= $form->field($fichaModel, 'genero')->dropDownList([
+                        <?= $form->field($model, 'gender')->dropDownList([
                             'M' => 'Masculino',
                             'F' => 'Feminino'
                         ]); ?>
                         <!-- Animal Size -->
-                        <?= $form->field($fichaModel, 'tamanho') ?>
+                        <?= $form->field($model, 'weight') ?>
                         <!-- Animal Age -->
-                        <?= $form->field($fichaModel, 'idade') ?>
+                        <?= $form->field($model, 'age') ?>
                         <!-- Animal Neutered -->
-                        <?= $form->field($fichaModel, 'castrado') ?>
+                        <?= $form->field($model, 'neutered')->dropDownList([
+                            '0' => 'Sim',
+                            '1' => 'Não'
+                        ]); ?>
                     </div>
                 </div>
                 <div class="box box-primary">
@@ -66,13 +61,8 @@ $this->params['breadcrumbs'][] = $this->title;
                         <h3 class="box-title">Extra</h3>
                     </div>
                     <div class="box-body">
-                        <!-- Breed Name -->
-                        <?= $form->field($canilAnimalModel, 'descricao')->textarea(['rows' => '8']) ?>
-                        <!-- Imagens -->
-                        <?= $form->field($uploadModel, 'imageFiles[]')->fileInput(['multiple' => true, 'accept' => 'image/*']); ?>
-
+                        
                     </div>
-
                     <div class="box-footer">
                         <!-- Submit Button -->
                         <?= Html::submitButton('Finalizar', ['class' => 'btn btn-info btn-lg pull-right', 'name' => 'submit-button']) ?>
