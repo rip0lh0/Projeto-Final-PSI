@@ -52,10 +52,10 @@ class Breed extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'id_parent' => 'Id Parent',
-            'name' => 'Name',
-            'description' => 'Description',
-            'origin' => 'Origin',
-            'lifespan' => 'Lifespan',
+            'name' => 'Nome',
+            'description' => 'Descrição',
+            'origin' => 'Origem',
+            'lifespan' => 'Tempo médio de vida',
         ];
     }
 

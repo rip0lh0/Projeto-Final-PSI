@@ -4,11 +4,10 @@
     <list default="true" id="3d139d08-1f37-4d82-a0e1-2f9254b7bc9e" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/Projeto-Final-PSI.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Projeto-Final-PSI.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Android/Pet4All/app/src/main/java/pt/amsi/ipleiria/pet4all/NavbarFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/Android/Pet4All/app/src/main/java/pt/amsi/ipleiria/pet4all/NavbarFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Android/Pet4All/app/src/main/java/pt/amsi/ipleiria/pet4all/SettingsFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/Android/Pet4All/app/src/main/java/pt/amsi/ipleiria/pet4all/SettingsFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Android/Pet4All/app/src/main/res/layout/fragment_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Android/Pet4All/app/src/main/res/layout/fragment_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/backend/views/site/breed.php" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/backend/views/site/breed.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/common/models/Breed.php" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/common/models/Breed.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/common/models/BreedCoat.php" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/common/models/BreedCoat.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/common/models/BreedSize.php" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/common/models/BreedSize.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,30 +22,31 @@
     <session id="386510699">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="php" value="1" />
+          <entry key="php" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="PHP" value="1" />
+          <entry key="PHP" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="php" value="7" />
+          <entry key="php" value="134" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PHP" value="7" />
+          <entry key="PHP" value="134" />
         </counts>
       </usages-collector>
     </session>
@@ -54,24 +54,60 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webapp/frontend/views/layouts/main.php">
+        <entry file="file://$PROJECT_DIR$/webapp/common/models/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="27" column="36" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
+            <state relative-caret-position="-1598">
+              <caret line="30" column="29" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/webapp/backend/views/site/breed.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="54" column="40" selection-start-line="54" selection-start-column="40" selection-end-line="54" selection-end-column="40" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webapp/common/config/main.php">
+        <entry file="file://$PROJECT_DIR$/webapp/common/models/Energy.php">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/webapp/common/models/User.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webapp/common/models/BreedSize.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="30" column="29" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
+            <state relative-caret-position="578">
+              <caret line="43" column="31" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webapp/common/models/BreedCoat.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="731">
+              <caret line="43" column="33" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webapp/common/models/BreedEnergy.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="731">
+              <caret line="43" column="35" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webapp/common/models/Breed.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="477">
+              <caret line="93" column="7" lean-forward="true" selection-start-line="93" selection-start-column="7" selection-end-line="93" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -121,6 +157,11 @@
         <option value="$PROJECT_DIR$/webapp/frontend/views/site/index.php" />
         <option value="$PROJECT_DIR$/webapp/frontend/views/layouts/main.php" />
         <option value="$PROJECT_DIR$/webapp/common/config/main-local.php" />
+        <option value="$PROJECT_DIR$/webapp/common/models/Breed.php" />
+        <option value="$PROJECT_DIR$/webapp/common/models/BreedSize.php" />
+        <option value="$PROJECT_DIR$/webapp/common/models/BreedCoat.php" />
+        <option value="$PROJECT_DIR$/webapp/common/models/BreedEnergy.php" />
+        <option value="$PROJECT_DIR$/webapp/backend/views/site/breed.php" />
       </list>
     </option>
   </component>
@@ -216,6 +257,9 @@
       <path value="$PROJECT_DIR$/webapp/vendor/fedemotta/yii2-widget-datatables" />
       <path value="$PROJECT_DIR$/webapp/vendor/bower-asset/datatables-bootstrap3" />
       <path value="$PROJECT_DIR$/webapp/vendor/bower-asset/datatables" />
+      <path value="$PROJECT_DIR$/webapp/vendor/kartik-v/yii2-widget-select2" />
+      <path value="$PROJECT_DIR$/webapp/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/webapp/vendor/symfony/contracts" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
@@ -234,18 +278,46 @@
           <expand>
             <path>
               <item name="Projeto-Final-PSI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Projeto-Final-PSI" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Projeto-Final-PSI" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Projeto-Final-PSI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Projeto-Final-PSI" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="webapp" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Projeto-Final-PSI" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Projeto-Final-PSI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Projeto-Final-PSI" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="webapp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Projeto-Final-PSI" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projeto-Final-PSI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projeto-Final-PSI" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projeto-Final-PSI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projeto-Final-PSI" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="site" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projeto-Final-PSI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projeto-Final-PSI" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projeto-Final-PSI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projeto-Final-PSI" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -283,16 +355,17 @@
       <workItem from="1540830183634" duration="11619000" />
       <workItem from="1543487004793" duration="1183000" />
       <workItem from="1543504202802" duration="1879000" />
+      <workItem from="1543855134579" duration="1020000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14681000" />
+    <option name="totallyTimeSpent" value="15701000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="953" y="0" width="974" height="1047" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26148796" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26695842" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -407,6 +480,9 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/common/config/main.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/webapp/common/config/main-local.php">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -428,13 +504,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/common/config/main.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/webapp/common/models/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
+        <state relative-caret-position="-1598">
           <caret line="30" column="29" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/common/models/Breed.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="477">
+          <caret line="93" column="7" lean-forward="true" selection-start-line="93" selection-start-column="7" selection-end-line="93" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/common/models/BreedSize.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="43" column="31" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/common/models/BreedCoat.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="43" column="33" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/common/models/BreedEnergy.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="43" column="35" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/common/models/Energy.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/backend/views/site/breed.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="54" column="40" selection-start-line="54" selection-start-column="40" selection-end-line="54" selection-end-column="40" />
         </state>
       </provider>
     </entry>

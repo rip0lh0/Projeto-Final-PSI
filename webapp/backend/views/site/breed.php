@@ -44,29 +44,24 @@ AppAsset::register($this);
                         'attribute' => 'parent',
                         'value' => 'id',
                         'data' => ArrayHelper::map($breed, 'id', 'name'),
-                        'options' => ['search' => true, 'placeholder' => 'Select Breed Energy...'],
-                    ]); ?>
-                    <?= $form->field($modelEnergy, 'id_energy')->widget(Select2::classname(), [
-                        'value' => 'id',
-                        'attribute' => 'energy',
-                        'value' => 'id',
-                        'data' => ArrayHelper::map($energy, 'id', 'energy'),
-                        'options' => ['multiple' => true, 'search' => true, 'placeholder' => 'Select Breed Energy...'],
-                    ]); ?>
-                    <?= $form->field($modelCoat, 'id_coat')->widget(Select2::classname(), [
-                        'value' => 'id',
-                        'attribute' => 'coat',
-                        'value' => 'id',
-                        'data' => ArrayHelper::map($coat, 'id', 'coat_size'),
-                        'options' => ['multiple' => true, 'search' => true, 'placeholder' => 'Select Breed Energy...'],
+                        'options' => ['search' => true, 'placeholder' => 'Tipo...'],
                     ]); ?>
                     <?= $form->field($modelSize, 'id_size')->widget(Select2::classname(), [
                         'value' => 'id',
-                        'attribute' => 'size',
-                        'value' => 'id',
                         'data' => ArrayHelper::map($size, 'id', 'size'),
-                        'options' => ['multiple' => true, 'search' => true, 'placeholder' => 'Select Breed Energy...'],
+                        'options' => ['multiple' => true, 'search' => true, 'placeholder' => 'Porte...'],
                     ]); ?>
+                    <?= $form->field($modelCoat, 'id_coat')->widget(Select2::classname(), [
+                        'value' => 'id',
+                        'data' => ArrayHelper::map($coat, 'id', 'coat_size'),
+                        'options' => ['multiple' => true, 'search' => true, 'placeholder' => 'Pelo...'],
+                    ]); ?>
+                    <?= $form->field($modelEnergy, 'id_energy')->widget(Select2::classname(), [
+                        'value' => 'id',
+                        'data' => ArrayHelper::map($energy, 'id', 'energy'),
+                        'options' => ['multiple' => true, 'search' => true, 'placeholder' => 'Energia...'],
+                    ]); ?>
+
                 </div>
                 <div class="box-footer">
                     <!-- Submit Button -->
