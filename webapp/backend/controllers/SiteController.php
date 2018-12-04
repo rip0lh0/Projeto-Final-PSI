@@ -42,15 +42,6 @@ class SiteController extends Controller
                         'allow' => true
                     ],
                 ],
-                // 'denyCallback' => function ($rule, $action) {
-                //     throw new \Exception('You are not allowed to access this page');
-                // },
-                // 'denyCallback' => function ($rule, $action) {
-                //     var_dump($action);
-                //     throw new \Exception('Error');
-                //     //Yii::$app->user->logout();
-                //     //Yii::$app->response->redirect(['site/login']);
-                // },
             ],
             'verbs' => [
                 'class' => VerbFilter::className(),
@@ -169,34 +160,38 @@ class SiteController extends Controller
 
         if (Yii::$app->request->post() != null) {
             if ($modelBreed->load(Yii::$app->request->post())) {
-                $modelBreed->id_parent = Yii::$app->request->post('Breed')['id_parent'][0];
+                $modelBreed->id_parent = (Yii::$app->request->post('Breed')['id_parent'] == null) ? null : Yii::$app->request->post('Breed')['id_parent'];
                 $valid = $modelBreed->save();
 
                 $id_breed = $modelBreed->id;
 
                 if ($valid) {
-                    foreach (Yii::$app->request->post('BreedEnergy')['id_energy'] as $id_energy) {
-                        $breedEnergy = new BreedEnergy();
-                        $breedEnergy->id_energy = $id_energy;
-                        $breedEnergy->id_breed = $id_breed;
+                    if (Yii::$app->request->post('BreedEnergy')['id_energy'] != null) {
+                        foreach (Yii::$app->request->post('BreedEnergy')['id_energy'] as $id_energy) {
+                            $breedEnergy = new BreedEnergy();
+                            $breedEnergy->id_energy = $id_energy;
+                            $breedEnergy->id_breed = $id_breed;
 
-                        $valid = $breedEnergy->save() && $valid;
+                            $valid = $breedEnergy->save() && $valid;
+                        }
                     }
+                    if (Yii::$app->request->post('BreedCoat')['id_coat'] != null) {
+                        foreach (Yii::$app->request->post('BreedCoat')['id_coat'] as $id_coat) {
+                            $breedCoat = new BreedCoat();
+                            $breedCoat->id_coat = $id_coat;
+                            $breedCoat->id_breed = $id_breed;
 
-                    foreach (Yii::$app->request->post('BreedCoat')['id_coat'] as $id_coat) {
-                        $breedCoat = new BreedCoat();
-                        $breedCoat->id_coat = $id_coat;
-                        $breedCoat->id_breed = $id_breed;
-
-                        $valid = $breedCoat->save() && $valid;
+                            $valid = $breedCoat->save() && $valid;
+                        }
                     }
+                    if (Yii::$app->request->post('BreedSize')['id_size'] != null) {
+                        foreach (Yii::$app->request->post('BreedSize')['id_size'] as $id_size) {
+                            $breedSize = new BreedSize();
+                            $breedSize->id_size = $id_size;
+                            $breedSize->id_breed = $id_breed;
 
-                    foreach (Yii::$app->request->post('BreedSize')['id_size'] as $id_size) {
-                        $breedSize = new BreedSize();
-                        $breedSize->id_size = $id_size;
-                        $breedSize->id_breed = $id_breed;
-
-                        $valid = $breedSize->save() && $valid;
+                            $valid = $breedSize->save() && $valid;
+                        }
                     }
 
                     if ($valid) {
