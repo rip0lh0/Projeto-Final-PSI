@@ -8,6 +8,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
+use common\models\Perfil;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
@@ -83,12 +84,14 @@ class SiteController extends Controller
     public function actionLogin()
     {
         if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
+               return $this->goHome(); 
         }
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
+
+           
         } else {
             $model->password = '';
 
@@ -108,8 +111,13 @@ class SiteController extends Controller
     public function actionAnimalmagazine(){
         return $this->render('animalMagazine');
     }
-    public function actionUserprofile(){
+    public function actionUserprofile()
+    {
+        if (!Yii::$app->user->isGuest) {
         return $this->render('userProfile');
+        }else{
+            return $this->render('error'); 
+        }
     }
     public function actionAnimalsearch(){
         return $this->render('animalSearch');
@@ -178,6 +186,26 @@ class SiteController extends Controller
         }
 
         return $this->render('signup', [
+            'model' => $model,
+        ]);
+    }
+ /**
+     * Signs user up.
+     * 
+     * @return mixed
+     */
+    public function actionSignupMenu()
+    {
+        $model = new SignupForm();
+        if ($model->load(Yii::$app->request->post())) {
+            if ($user = $model->signup()) {
+                if (Yii::$app->getUser()->login($user)) {
+                    return $this->goHome();
+                }
+            }
+        }
+
+        return $this->render('signupMenu', [
             'model' => $model,
         ]);
     }

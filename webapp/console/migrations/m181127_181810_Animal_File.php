@@ -17,7 +17,6 @@ class m181127_181810_Animal_File extends Migration
         $this->createTable('{{%animal_file}}', [
             'id' => $this->primaryKey(),
             'id_animal' => $this->integer()->notNull(),
-            'id_breed' => $this->integer(),
             'chip' => $this->string()->unique(),
             'neutered' => $this->tinyInteger()->notNull(),
             'gender' => $this->char()->notNull(),
@@ -41,21 +40,6 @@ class m181127_181810_Animal_File extends Migration
             'id',
             'CASCADE'
         );
-
-        $this->createIndex(
-            'idx-animal_file-id_breed',
-            '{{%animal_file}}',
-            'id_breed'
-        );
-
-        $this->addForeignKey(
-            'fk-animal_file-id_breed',
-            '{{%animal_file}}',
-            'id_breed',
-            '{{%breed}}',
-            'id',
-            'CASCADE'
-        );
     }
 
     public function down()
@@ -67,16 +51,6 @@ class m181127_181810_Animal_File extends Migration
 
         $this->dropIndex(
             'idx-animal_file-id_animal',
-            '{{%animal_file}}'
-        );
-
-        $this->dropForeignKey(
-            'fk-animal_file-id_breed',
-            '{{%animal_file}}'
-        );
-
-        $this->dropIndex(
-            'idx-animal_file-id_breed',
             '{{%animal_file}}'
         );
 

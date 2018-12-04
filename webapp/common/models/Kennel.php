@@ -37,7 +37,7 @@ class Kennel extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_user', 'id_contact', 'id_social', 'name', 'nif', 'address'], 'required'],
+            [['id_user', 'name', 'nif', 'address'], 'required'],
             [['id_user', 'id_contact', 'id_social'], 'integer'],
             [['nif'], 'number'],
             [['name', 'address'], 'string', 'max' => 255],

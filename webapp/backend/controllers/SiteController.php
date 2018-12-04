@@ -174,8 +174,6 @@ class SiteController extends Controller
 
                 $id_breed = $modelBreed->id;
 
-
-
                 if ($valid) {
                     foreach (Yii::$app->request->post('BreedEnergy')['id_energy'] as $id_energy) {
                         $breedEnergy = new BreedEnergy();

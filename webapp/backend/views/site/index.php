@@ -92,14 +92,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 </tr>
                             </thead>
                             <tbody>
-                            <?php foreach ($kennelAnimals as $kanimal) { ?>
-                                <tr>
-                                    <td><?= $kanimal->animal->tipo->tipo ?></td>
-                                    <td><?= $kanimal->animal->ficha->raca->nome ?></td>
-                                    <td><span class="label label-danger"><?= AnimalState::getKey($kanimal->estado) ?></span></td>
-                                </tr>
-                                <?php 
-                            } ?>
+                           
                             </tbody>
                         </table>
                     </div>
