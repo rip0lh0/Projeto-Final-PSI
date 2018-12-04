@@ -42,7 +42,7 @@ class BreedSize extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id_size' => 'Id Size',
+            'id_size' => 'Porte',
             'id_breed' => 'Id Breed',
         ];
     }

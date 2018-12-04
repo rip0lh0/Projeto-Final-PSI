@@ -42,7 +42,7 @@ class BreedCoat extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id_coat' => 'Id Coat',
+            'id_coat' => 'Pelugem',
             'id_breed' => 'Id Breed',
         ];
     }
