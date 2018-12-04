@@ -29,7 +29,7 @@ class BreedCoat extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_coat', 'id_breed'], 'required'],
+            // [['id_coat', 'id_breed'], 'required'],
             [['id_coat', 'id_breed'], 'integer'],
             [['id_breed'], 'exist', 'skipOnError' => true, 'targetClass' => Breed::className(), 'targetAttribute' => ['id_breed' => 'id']],
             [['id_coat'], 'exist', 'skipOnError' => true, 'targetClass' => Energy::className(), 'targetAttribute' => ['id_coat' => 'id']],
