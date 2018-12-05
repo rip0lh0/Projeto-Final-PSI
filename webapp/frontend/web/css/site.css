@@ -146,7 +146,8 @@ a.desc:after {
     padding: 1% 10% 10% 10%;
 }
 
-.mp-body button {
+.mp-body a,
+button {
     margin-top: 15%;
 }
 
