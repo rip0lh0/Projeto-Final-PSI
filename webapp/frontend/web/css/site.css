@@ -1,6 +1,10 @@
 html,
 body {
+    font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     height: 100%;
+    color: #444;
+    background-color: rgba(144, 164, 174, 1);
+    background-size: cover;
 }
 
 .wrap {
@@ -10,7 +14,7 @@ body {
     padding: 0 0 60px;
 }
 
-.wrap > .container {
+.wrap>.container {
     padding: 70px 15px 20px;
 }
 
@@ -37,7 +41,8 @@ body {
 }
 
 /* add sorting icons to gridview sort links */
-a.asc:after, a.desc:after {
+a.asc:after,
+a.desc:after {
     position: relative;
     top: 1px;
     display: inline-block;
@@ -96,25 +101,89 @@ a.desc:after {
 }
 
 /* align the logout "link" (button in form) of the navbar */
-.nav li > form > button.logout {
+.nav li>form>button.logout {
     padding: 15px;
     border: none;
 }
 
 @media(max-width:767px) {
-    .nav li > form > button.logout {
-        display:block;
+    .nav li>form>button.logout {
+        display: block;
         text-align: left;
         width: 100%;
         padding: 10px 15px;
     }
 }
 
-.nav > li > form > button.logout:focus,
-.nav > li > form > button.logout:hover {
+.nav>li>form>button.logout:focus,
+.nav>li>form>button.logout:hover {
     text-decoration: none;
 }
 
-.nav > li > form > button.logout:focus {
+.nav>li>form>button.logout:focus {
     outline: none;
+}
+
+/* Signup Menu */
+
+.menu-panel {
+    margin-top: 100px;
+    padding: 0;
+    border-radius: 20px;
+    background-color: rgba(238, 238, 238, 1);
+}
+
+.mp-header {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    text-align: center;
+    padding: 5%;
+    font-size: 150px;
+    color: rgba(238, 238, 238, 1);
+}
+
+.mp-body {
+    padding: 1% 10% 10% 10%;
+}
+
+.mp-body button {
+    margin-top: 15%;
+}
+
+.mp-body h1,
+h2,
+h3 {
+    text-align: center;
+}
+
+.btn-flat {
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 10px;
+    border-radius: 200px;
+    border: none;
+}
+
+.btn-purple {
+    background-color: rgba(126, 87, 194, 1);
+    border: 1px solid rgba(126, 87, 194, 1);
+    font-weight: 600;
+    color: rgba(238, 238, 238, 1);
+}
+
+.btn-purple:hover {
+    background-color: transparent;
+    color: rgba(126, 87, 194, 1);
+}
+
+.btn-blue {
+    background-color: rgba(66, 165, 245, 1);
+    border: 1px solid rgba(66, 165, 245, 1);
+    font-weight: 600;
+    color: rgba(238, 238, 238, 1);
+}
+
+.btn-blue:hover {
+    background-color: transparent;
+    color: rgba(66, 165, 245, 1);
 }
