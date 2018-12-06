@@ -5,9 +5,9 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
 ?>
-<div style="position: absolute; z-index: -1; top: 0;"><img src="images/bg_1.jpg" alt="" class="bg-image"></div>
-<section class="signup-menu">
-    <div class="container"  style="margin-top: 80px;">
+<div class="bg-image"></div>
+<section class="signup-menu row-fluid" style="margin: 8% auto;">
+    <div class="container">
         <div class="col-md-4 col-md-offset-1 menu-panel">
             <div class="mp-header" style="background-color: rgba(66,165,245 ,1);">
                  <i class="fa fa-user"></i>
