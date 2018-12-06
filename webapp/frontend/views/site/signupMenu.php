@@ -14,7 +14,7 @@ use yii\bootstrap\ActiveForm;
             <div class="mp-body">
                 <h3 class="mp-title">Utilizador</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <?= Html::a('Registar', [''], ['class' => 'btn btn-blue btn-block btn-flat']); ?>
+                <?= Html::a('Registar', ['site/signup'], ['class' => 'btn btn-blue btn-block btn-flat']); ?>
             </div>
         </div>
         <div class="col-md-4 col-md-offset-1 menu-panel">
@@ -24,7 +24,7 @@ use yii\bootstrap\ActiveForm;
             <div class="mp-body">
                 <h3 class="mp-title">Associção</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <?= Html::a('Registar', [''], ['class' => 'btn btn-purple btn-block btn-flat']); ?>
+                <?= Html::a('Registar', ['site/signup', 'check' => '1'], ['class' => 'btn btn-purple btn-block btn-flat']); ?>
             </div>
         </div>
     </div>

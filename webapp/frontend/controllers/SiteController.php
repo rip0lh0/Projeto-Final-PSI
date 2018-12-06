@@ -13,6 +13,9 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use frontend\models\Adopter;
+use frontend\models\Kennel;
+
 
 /**
  * Site controller
@@ -143,7 +146,7 @@ class SiteController extends Controller
      *
      * @return mixed
      */
-    public function actionSignup()
+    public function actionSignup($check)
     {
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post())) {
@@ -153,13 +156,35 @@ class SiteController extends Controller
                 }
             }
         }
-
+        //verificação se acçãao botão for para criar user ou canil
+        if($check == '0'){
         return $this->render('signup', [
             'model' => $model,
         ]);
+        }
+        else if($check == '1'){
+            return $this->render('signupKennel', [
+                'model' => $model,
+            ]);
+        }
     }
+
+    public function actionSignupKennel()
+    {
+        $model = new SignupForm();
+        if ($model->load(Yii::$app->request->post())) {
+            if ($user = $model->signupKennel()) {
+                if (Yii::$app->getUser()->login($user)) {
+                    return $this->goHome();
+                }
+            }
+        }
+
+        
+    }
+
     /**
-     * Signs user up.
+     * Accounts Menu.
      * 
      * @return mixed
      */

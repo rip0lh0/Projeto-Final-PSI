@@ -50,6 +50,20 @@ class SignupForm extends Model
             [['name'], 'required'],
             ['name', 'string', 'max' => 255],
 
+            [['nif'], 'required'],
+            ['nif', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This nif address has already been taken.'],
+
+
+            [['local'], 'required'],
+            ['local', 'string', 'max' => 255],
+
+            [['address'], 'required'],
+            ['address', 'string', 'max' => 255],
+            
+
+            [['cellphone'], 'trim'],
+            ['password', 'string', 'min' => 9, 'max' => 9],
+
         ];
     }
 

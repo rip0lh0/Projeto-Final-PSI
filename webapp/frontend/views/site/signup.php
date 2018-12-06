@@ -6,9 +6,17 @@
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+// selected box inports
+use yii\helpers\ArrayHelper;
+use backend\models\Standard;
+use common\models\User;
 
-$this->title = 'Signup';
+$this->title = 'Criar Utilizador';
 $this->params['breadcrumbs'][] = $this->title;
+
+// $userName = Yii::$app->user->identity->username;
+// $local = Yii::$app->user->identity->local;
+
 ?>
 <div class="site-signup">
     <h1><?= Html::encode($this->title) ?></h1>
@@ -22,12 +30,15 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
                 <?= $form->field($model, 'email') ?>
                 <?= $form->field($model, 'password')->passwordInput() ?>
-                <?= $form->field($model, 'nome') ?>
-                <?= $form->field($model, 'nif') ?>
-                <?= $form->field($model, 'morada') ?>
-                <?= $form->field($model, 'localidade') ?>
-                <?= $form->field($model, 'nacionalidade') ?>
+                <?= $form->field($model, 'name') ?>
+                <!-- <?= $form->field($model, 'local') ?> -->
 
+                
+
+                   
+                 
+
+                    
                 <div class="form-group">
                     <?= Html::submitButton('Signup', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
                 </div>
@@ -38,3 +49,4 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
     </div>
 </div>
+

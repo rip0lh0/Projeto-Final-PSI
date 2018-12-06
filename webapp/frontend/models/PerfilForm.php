@@ -31,9 +31,7 @@ class PerfilSearch extends perfil
         ];
     }
 
-    public function signupPerfil(){
-        
-    }
+    
 
     /**
      * {@inheritdoc}
