@@ -58,16 +58,31 @@ class SiteController extends Controller
     public function actions()
     {
         return [
-            'error' => [
-                'class' => 'yii\web\ErrorAction',
-            ],
             'captcha' => [
                 'class' => 'yii\captcha\CaptchaAction',
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
             ],
         ];
     }
+    public function actionError()
+    {
+        $exception = Yii::$app->errorHandler->exception;
 
+        if ($exception !== null) {
+            $statusCode = $exception->statusCode;
+            $name = $exception->getName();
+            $message = $exception->getMessage();
+
+
+            return $this->render('error', [
+                'exception' => $exception,
+                'statusCode' => $statusCode,
+                'name' => $name,
+                'message' => $message,
+                'preurl' => Yii::$app->request->referrer
+            ]);
+        }
+    }
     /**
      * Displays homepage.
      *
