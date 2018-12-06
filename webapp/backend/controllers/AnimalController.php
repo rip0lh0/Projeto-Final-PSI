@@ -18,6 +18,7 @@ use common\models\Animal;
 use common\models\User;
 use common\models\Breed;
 use common\models\KennelAnimal;
+use yii\helpers\Json;
 /**
  * AnimalController implements the CRUD actions for Animal model.
  */
@@ -86,8 +87,7 @@ class AnimalController extends Controller
     public function actionCreate()
     {
         $model = new AnimalForm();
-
-        $breed = Breed::find()->asArray()->all();
+        $breed = Breed::find()->where(['id_parent' => null])->asArray()->all();
 
         if ($model->load(Yii::$app->request->post())) {
             if ($model->saveData()) {
@@ -99,6 +99,24 @@ class AnimalController extends Controller
             'breed' => $breed,
             'model' => $model,
         ]);
+    }
+
+    // Create Functions That Loads Selected Data (ID)
+    public function actionSubbreed()
+    {
+        $out = [];
+
+        if (Yii::$app->request->post('depdrop_parents')) {
+            $parents = Yii::$app->request->post('depdrop_parents');
+            if ($parents != null) {
+                $id_breed = $parents[0];
+                $out = Breed::find()->where(['id_parent' => $id_breed])->all();
+
+                echo Json::encode(['output' => $out, 'selected' => '']);
+                return;
+            }
+        }
+        echo Json::encode(['output' => '', 'selected' => '']);
     }
 
     /**

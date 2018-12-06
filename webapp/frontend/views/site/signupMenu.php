@@ -6,22 +6,22 @@ use yii\bootstrap\ActiveForm;
 
 ?>
 <section class="signup-menu">
-    <div class="container">
+    <div class="container"  style="margin-top: 80px;">
         <div class="col-md-4 col-md-offset-1 menu-panel">
             <div class="mp-header" style="background-color: rgba(66,165,245 ,1);">
                  <i class="fa fa-user"></i>
             </div>
-            <div class="mp-body">
+            <div class="mp-body" style="padding-top: 1%;">
                 <h3 class="mp-title">Utilizador</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <?= Html::a('Registar', [''], ['class' => 'btn btn-blue btn-block btn-flat']); ?>
+                <?= Html::a('Registar', ['site/signup'], ['class' => 'btn btn-blue btn-block btn-flat']); ?>
             </div>
         </div>
-        <div class="col-md-4 col-md-offset-1 menu-panel">
+        <div class="col-md-4 col-md-offset-2 menu-panel">
             <div class="mp-header" style="background-color: rgba(126, 87, 194, 1);">
                 <i class="fa fa-group"></i>
             </div>
-            <div class="mp-body">
+            <div class="mp-body" style="padding-top: 1%;">
                 <h3 class="mp-title">Associção</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 <?= Html::a('Registar', [''], ['class' => 'btn btn-purple btn-block btn-flat']); ?>

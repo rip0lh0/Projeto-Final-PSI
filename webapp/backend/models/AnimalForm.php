@@ -25,6 +25,7 @@ class AnimalForm extends Model
     public $age;
     /* FileBreed */
     public $id_breeds = [];
+    public $id_breed;
 
     public function rules()
     {

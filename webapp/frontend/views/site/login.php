@@ -5,36 +5,68 @@
 /* @var $model \common\models\LoginForm */
 
 use yii\helpers\Html;
-use yii\bootstrap\ActiveForm;
+use kartik\form\ActiveForm;
 
 $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
+
+
 ?>
-<div class="site-login">
-    <h1><?= Html::encode($this->title) ?></h1>
+<section class="login">
+    <div class="container" style="margin-top: 80px;">
+        <?php $form = ActiveForm::begin(
+            [
+                'id' => 'login-form',
+                'fieldConfig' => [
+                    'autoPlaceholder' => true
+                ],
+                'formConfig' => ['showErrors' => false]
+            ]
+        ); ?>
+        <div class="col-md-6 col-md-offset-3">
+            <div class="menu-panel">
+                <div class="mp-header" style="background-color: rgba(33,150,243 ,1); padding: 3%;">
+                    <h1><?= $this->title ?></h1>
+                </div>
+                <div class="mp-body" style="padding: 5% 10%;">
+                        <?= $form->field($model, 'username', [
+                            'feedbackIcon' => [
+                                'prefix' => 'fa fa-',
+                                'default' => 'user',
+                                'success' => 'check-circle',
+                                'error' => 'exclamation-circle',
+                                'defaultOptions' => ['class' => 'text-primary']
+                            ]
+                        ])->textInput([
+                            'autofocus' => true,
+                            'class' => 'input-flat'
+                        ]) ?>
 
-    <p>Please fill out the following fields to login:</p>
-    
-    <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
+                        <?= $form->field($model, 'password', [
+                            'options' => ['style' => 'margin-top: 30px;'],
+                            'feedbackIcon' => [
+                                'prefix' => 'fa fa-',
+                                'default' => 'lock',
+                                'success' => 'check-circle',
+                                'error' => 'exclamation-circle',
+                                'defaultOptions' => ['class' => 'text-primary']
+                            ]
+                        ])->passwordInput([
+                            'class' => 'input-flat'
+                        ]) ?>
 
-                <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+                        <?= $form->field($model, 'rememberMe', [
+                            'autoPlaceholder' => false,
+                            'labelOptions' => ['class' => 'pure-material-checkbox', 'style' => 'margin-top: 10px;']
+                        ])->checkbox()->label('<span>Remember Me</span>'); ?>
 
-                <?= $form->field($model, 'password')->passwordInput() ?>
-
-                <?= $form->field($model, 'rememberMe')->checkbox() ?>
-
-                <div style="color:#999;margin:1em 0">
-                    If you forgot your password you can <?= Html::a('reset it', ['site/request-password-reset']) ?>.
+                        <?= Html::submitButton('Login', ['class' => 'btn btn-blue btn-block btn-flat', 'style' => 'margin-top: 30px; min-height: 45px;', 'name' => 'login-button']) ?>
+                        <?= $form->errorSummary($model, ['header' => '', 'class' => 'mp-error', 'style' => 'background-color: #ef5350']); ?> 
+                        
                 </div>
                 
-                <div class="form-group">
-                    <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
-                </div>
-
-            <?php ActiveForm::end(); ?>
+            </div>
         </div>
+        <?php ActiveForm::end(); ?>
     </div>
-    
-</div>
+</section>

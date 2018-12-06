@@ -5,6 +5,8 @@ use yii\widgets\ActiveForm;
 use dosamigos\fileupload\FileUploadUI;
 use yii\helpers\ArrayHelper;
 use kartik\select2\Select2;
+use kartik\depdrop\DepDrop;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\animal */
@@ -36,9 +38,14 @@ $this->params['breadcrumbs'][] = $this->title;
                         <h3 class="box-title">Ficha Do Animal</h3>
                     </div>
                     <div class="box-body">
-                        <?= $form->field($model, 'id_breeds')->widget(Select2::classname(), [
-                            'data' => ArrayHelper::map($breed, 'id', 'name'),
-                            'options' => ['multiple' => true, 'search' => true, 'placeholder' => 'Select Breed Energy...'],
+                        <?= $form->field($model, 'id_breed')->dropDownList(ArrayHelper::map($breed, 'id', 'name'), ['id' => 'id_breed', 'prompt' => '']) ?>
+                        <?= $form->field($model, 'id_breeds')->widget(DepDrop::classname(), [
+                            'options' => ['id' => 'id_subbreed'],
+                            'pluginOptions' => [
+                                'depends' => ['id_breed'],
+                                'placeholder' => 'Select...',
+                                'url' => Url::to(['animal/subbreed'])
+                            ]
                         ]); ?>
                         <!-- Animal Gender -->
                         <?= $form->field($model, 'gender')->dropDownList([
