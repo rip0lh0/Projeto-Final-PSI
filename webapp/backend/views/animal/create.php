@@ -6,10 +6,9 @@ use dosamigos\fileupload\FileUploadUI;
 use yii\helpers\ArrayHelper;
 use kartik\select2\Select2;
 use kartik\depdrop\DepDrop;
-use yii\helpers\Url;
 
-/* @var $this yii\web\View */
-/* @var $model common\models\animal */
+/* @var  $this yii\web\View */
+/* @var  $model common\models\animal */
 
 $this->title = 'Novo Animal';
 
@@ -47,6 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'url' => Url::to(['animal/subbreed'])
                             ]
                         ]); ?>
+                        
                         <!-- Animal Gender -->
                         <?= $form->field($model, 'gender')->dropDownList([
                             'M' => 'Masculino',

@@ -96,6 +96,7 @@ class AnimalController extends Controller
         }
 
         return $this->render('create', [
+            'breedtype' => $breedtype,
             'breed' => $breed,
             'model' => $model,
         ]);
@@ -122,7 +123,7 @@ class AnimalController extends Controller
     /**
      * Updates an existing Animal model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
+     * @param integer  $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -142,7 +143,7 @@ class AnimalController extends Controller
     /**
      * Deletes an existing Animal model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
+     * @param integer  $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -156,7 +157,7 @@ class AnimalController extends Controller
     /**
      * Finds the Animal model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
+     * @param integer  $id
      * @return Animal the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */

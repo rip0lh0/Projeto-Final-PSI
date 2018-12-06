@@ -38,7 +38,6 @@ class AnimalForm extends Model
             [['neutered', 'age'], 'integer'],
             [['neutered', 'gender'], 'required'],
             [['weight'], 'number'],
-
             [['id_breeds'], 'each', 'rule' => ['number']]
 
             //['id_breeds', 'each', 'rule' => ['integer', 'targetClass' => Breed::className(), 'targetAttribute' => ['id_breed' => 'id']]]

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 04-Dez-2018 às 13:54
+-- Generation Time: 06-Dez-2018 às 10:13
 -- Versão do servidor: 5.7.21
 -- PHP Version: 7.0.29
 
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `breed` (
   `lifespan` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `idx-breed-id_parent` (`id_parent`)
-) ENGINE=InnoDB AUTO_INCREMENT=84 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=113 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Extraindo dados da tabela `breed`
@@ -126,7 +126,34 @@ INSERT INTO `breed` (`id`, `id_parent`, `name`, `description`, `origin`, `lifesp
 (80, 1, 'West highland white terrier', '', 'Escócia', '12 a 16 anos'),
 (81, 1, 'Whippet', '', 'Reino Unido', '12 a 15 anos'),
 (82, 1, 'Yorkshire Terrier', '', 'Inglaterra', '13 a 16 anos'),
-(83, 1, 'Pequinês', '', 'República Popular da China', '12 a 15 anos');
+(83, 1, 'Pequinês', '', 'República Popular da China', '12 a 15 anos'),
+(84, NULL, 'Gato', '', '', ''),
+(85, 84, 'Abissínio', '', 'Egito', ''),
+(87, 84, 'Gato de Pêlo Curto Americano (American Shorthair)', '', 'América do Norte', ''),
+(88, 84, 'Angorá', '', 'Turquia', '12 – 18 anos'),
+(89, 84, 'Azul russo', '', 'Rússia', '10 a 15 anos'),
+(90, 84, 'Bengal', '', 'Estados Unidos da América', '12 a 16 anos'),
+(91, 84, 'Gato de pelo curto brasileiro (Brazilian Shorthair)', '', 'Brasil', ''),
+(92, 84, 'British Short Hair', '', 'Reino Unido', '12 a 20 anos'),
+(93, 84, 'Burmês', '', 'Birmânia (atual Myanmar)', '12 a 18 anos'),
+(94, 84, 'Chartreux', '', 'França', '11 a 15 anos'),
+(95, 84, 'Cornish Rex', '', 'Grã-Bretanha', '11 a 15 anos'),
+(96, 84, 'Devon Rex', '', 'Grã-Bretanha', '9 a 15 anos'),
+(97, 84, 'Mau Egípcio', '', 'Egipto e Itália', '12 a 17 anos'),
+(98, 84, ' European Shorthair', '', 'Itália', '12 anos'),
+(99, 84, 'Gato Exótico', '', 'Estados Unidos da América', '10 a 15 anos'),
+(100, 84, 'Himalaia', '', 'Reino Unido, Estados Unidos da América', '10 a 15 anos'),
+(101, 84, 'Norueguês da Floresta', '', 'Noruega', '12 a 16 anos'),
+(102, 84, 'Maine Coon', '', 'Noruega', '15 anos'),
+(104, 84, 'Munchkin', '', 'Estados Unidos da América', '12 a 14 anos'),
+(105, 84, 'Oriental Shorthair', '', 'Tailândia e Reino Unido', '12 a 15 anos'),
+(106, 84, 'Persa', '', 'Pérsia (Irão), Reino Unido', '12 a 17 anos'),
+(107, 84, 'Ragdoll', '', 'Estados Unidos da América', '12 a 17 anos'),
+(108, 84, 'Sagrado da Birmânia', '', 'Birmânia (Myanmar)', '12 a 16 anos'),
+(109, 84, 'Savannah', '', 'Estados Unidos da América', '17 a 20 anos'),
+(110, 84, 'Scottish Fold', '', 'Reino Unido (Escócia)', '12 a 15 anos'),
+(111, 84, 'Siamês', '', 'Sião (Tailândia)', '10 a 15 anos'),
+(112, 84, 'Sphynx', '', 'Canadá', '10 a 15 anos');
 
 -- --------------------------------------------------------
 
@@ -235,7 +262,39 @@ INSERT INTO `breed_coat` (`id_coat`, `id_breed`) VALUES
 (2, 80),
 (1, 81),
 (2, 82),
-(2, 83);
+(2, 83),
+(1, 85),
+(1, 87),
+(2, 88),
+(1, 89),
+(1, 90),
+(1, 91),
+(1, 92),
+(1, 93),
+(1, 94),
+(1, 95),
+(1, 96),
+(1, 97),
+(1, 98),
+(1, 99),
+(1, 100),
+(2, 100),
+(1, 101),
+(2, 101),
+(2, 102),
+(1, 104),
+(2, 104),
+(1, 105),
+(1, 106),
+(2, 106),
+(1, 107),
+(2, 107),
+(1, 108),
+(2, 108),
+(1, 109),
+(1, 110),
+(1, 111),
+(3, 112);
 
 -- --------------------------------------------------------
 
@@ -336,7 +395,28 @@ INSERT INTO `breed_energy` (`id_energy`, `id_breed`) VALUES
 (3, 80),
 (2, 81),
 (3, 82),
-(1, 83);
+(1, 83),
+(2, 89),
+(3, 90),
+(2, 92),
+(2, 93),
+(2, 94),
+(2, 95),
+(2, 96),
+(2, 97),
+(2, 98),
+(2, 99),
+(2, 100),
+(2, 101),
+(2, 104),
+(2, 105),
+(1, 106),
+(2, 107),
+(2, 108),
+(3, 109),
+(2, 110),
+(2, 111),
+(2, 112);
 
 -- --------------------------------------------------------
 
@@ -409,7 +489,28 @@ INSERT INTO `breed_size` (`id_size`, `id_breed`) VALUES
 (2, 80),
 (3, 81),
 (1, 82),
-(1, 83);
+(1, 83),
+(2, 85),
+(2, 87),
+(2, 88),
+(3, 89),
+(3, 90),
+(3, 91),
+(3, 92),
+(3, 93),
+(3, 94),
+(3, 95),
+(3, 96),
+(3, 97),
+(3, 98),
+(3, 99),
+(3, 100),
+(2, 104),
+(3, 105),
+(3, 106),
+(3, 110),
+(3, 111),
+(3, 112);
 
 --
 -- Constraints for dumped tables
@@ -440,7 +541,7 @@ ALTER TABLE `breed_energy`
 --
 ALTER TABLE `breed_size`
   ADD CONSTRAINT `fk-breed_size-id_breed` FOREIGN KEY (`id_breed`) REFERENCES `breed` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `fk-breed_size-id_size` FOREIGN KEY (`id_size`) REFERENCES `energy` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `fk-breed_size-id_size` FOREIGN KEY (`id_size`) REFERENCES `size` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
