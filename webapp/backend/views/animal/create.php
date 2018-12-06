@@ -6,6 +6,7 @@ use dosamigos\fileupload\FileUploadUI;
 use yii\helpers\ArrayHelper;
 use kartik\select2\Select2;
 use kartik\depdrop\DepDrop;
+use yii\helpers\Url;
 
 /* @var  $this yii\web\View */
 /* @var  $model common\models\animal */

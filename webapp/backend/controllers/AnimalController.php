@@ -96,7 +96,6 @@ class AnimalController extends Controller
         }
 
         return $this->render('create', [
-            'breedtype' => $breedtype,
             'breed' => $breed,
             'model' => $model,
         ]);
