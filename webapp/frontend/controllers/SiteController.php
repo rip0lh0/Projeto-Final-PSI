@@ -177,12 +177,11 @@ class SiteController extends Controller
             }
         }
         //verificação se acçãao botão for para criar user ou canil
-        if($check == '0'){
-        return $this->render('signup', [
-            'model' => $model,
-        ]);
-        }
-        else if($check == '1'){
+        if ($check == '0') {
+            return $this->render('signup', [
+                'model' => $model,
+            ]);
+        } else if ($check == '1') {
             return $this->render('signupKennel', [
                 'model' => $model,
             ]);
@@ -200,7 +199,7 @@ class SiteController extends Controller
             }
         }
 
-        
+
     }
 
     /**

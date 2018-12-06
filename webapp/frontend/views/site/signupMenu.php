@@ -6,7 +6,7 @@ use yii\bootstrap\ActiveForm;
 
 ?>
 <div class="bg-image"></div>
-<section class="signup-menu row-fluid" style="margin: 8% auto;">
+<section class="signup-menu row-fluid">
     <div class="container">
         <div class="col-md-4 col-md-offset-1 menu-panel">
             <div class="mp-header" style="background-color: rgba(66,165,245 ,1);">
