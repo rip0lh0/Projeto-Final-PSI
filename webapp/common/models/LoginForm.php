@@ -24,7 +24,7 @@ class LoginForm extends Model
     {
         return [
             // username and password are both required
-            [['username', 'password'], 'required', 'message' => '{attribute} não pode ficar em branco!'],
+            [['username', 'password'], 'required', 'message' => '{attribute} não pode ficar em branco.'],
             // rememberMe must be a boolean value
             ['rememberMe', 'boolean'],
             ['password', 'string', 'min' => 6, 'message' => '{attribute} têm de ter pelo menos 6 digitos'],

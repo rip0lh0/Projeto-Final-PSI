@@ -1,5 +1,3 @@
-// 768
-
 $(function () {
     if (screen.width < 768) $(".navbar").addClass("shrink-nav");
     $(window).scroll(function () {

@@ -38,14 +38,16 @@ $this->params['breadcrumbs'][] = $this->title;
                         <h3 class="box-title">Ficha Do Animal</h3>
                     </div>
                     <div class="box-body">
-                        <?= $form->field($model, 'id_breed')->dropDownList(ArrayHelper::map($breed, 'id', 'name'), ['id' => 'id_breed', 'prompt' => '']) ?>
-                        <?= $form->field($model, 'id_breeds')->widget(DepDrop::classname(), [
-                            'options' => ['id' => 'id_subbreed'],
+                        <?= $form->field($model, 'id_breed')->dropDownList(
+                            ArrayHelper::map($breed, 'id', 'name'), ['id' => 'id_breed']) ?>
+                        <?= $form->field($model, 'id_breeds')->widget(Select2::classname(), [
+                            'model' => $model,
+                            'attribute' => 'id_breeds',
+                            'data' => $breed,
+                            'options' => ['placeholder' => 'Select a state ...'],
                             'pluginOptions' => [
-                                'depends' => ['id_breed'],
-                                'placeholder' => 'Select...',
-                                'url' => Url::to(['animal/subbreed'])
-                            ]
+                                'allowClear' => true
+                            ],
                         ]); ?>
                         
                         <!-- Animal Gender -->

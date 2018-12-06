@@ -15,7 +15,7 @@ use yii\helpers\HTML;
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <?= Html::a(Html::img('images/logo_500x150.png', ['class' => 'navbar-brand ']), ['site/index']); ?>
+                <?= Html::a(Html::img('images/logo_500x150_2.png', ['class' => 'navbar-brand ']), ['site/index']); ?>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
