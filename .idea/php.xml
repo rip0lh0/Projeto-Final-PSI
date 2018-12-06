@@ -82,8 +82,8 @@
       <path value="$PROJECT_DIR$/webapp/vendor/bower-asset/datatables-bootstrap3" />
       <path value="$PROJECT_DIR$/webapp/vendor/bower-asset/datatables" />
       <path value="$PROJECT_DIR$/webapp/vendor/kartik-v/yii2-widget-select2" />
-      <path value="$PROJECT_DIR$/webapp/vendor/ralouphie/getallheaders" />
-      <path value="$PROJECT_DIR$/webapp/vendor/symfony/contracts" />
+      <path value="$PROJECT_DIR$/webapp/vendor/kartik-v/yii2-widget-depdrop" />
+      <path value="$PROJECT_DIR$/webapp/vendor/kartik-v/dependent-dropdown" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="5.4.0" />

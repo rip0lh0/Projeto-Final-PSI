@@ -87,8 +87,8 @@ class AnimalController extends Controller
     {
         $model = new AnimalForm();
 
+        $breedtype = Breed::find()->where(['id_parent' => null])->asArray()->all();
         $breed = Breed::find()->asArray()->all();
-
         if ($model->load(Yii::$app->request->post())) {
             if ($model->saveData()) {
                 return $this->redirect('index');
@@ -96,6 +96,7 @@ class AnimalController extends Controller
         }
 
         return $this->render('create', [
+            'breedtype' => $breedtype,
             'breed' => $breed,
             'model' => $model,
         ]);
