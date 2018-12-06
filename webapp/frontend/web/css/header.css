@@ -1,17 +1,19 @@
 .navbar {
+    color: #000 !important;
+    background-color: rgba(207, 216, 220, 0.8);
+    position: fixed;
     padding: 10px 0;
-    position: absolute;
     width: 100%;
     top: 0px;
     margin-bottom: 0px;
     border-radius: 0px;
-    background-color: transparent;
     border: transparent;
     -webkit-transition: all ease-in-out 0.4s;
     -moz-transition: all ease-in-out 0.4s;
     -o-transition: all ease-in-out 0.4s;
     transition: all ease-in-out 0.4s;
     z-index: 9999;
+
 }
 
 .navbar-default .navbar-nav>li>a:hover {
@@ -42,15 +44,7 @@
     width: 200px;
 }
 
-.shrink-nav {
-    color: #000 !important;
-    top: 0px;
-    background-color: #fff;
-    position: fixed;
-}
-
 .shrink-nav .navbar-nav>li>a {
-    color: #000 !important;
     line-height: 20px;
 }
 

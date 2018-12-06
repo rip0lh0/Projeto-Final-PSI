@@ -195,7 +195,7 @@ class SiteController extends Controller
                     }
 
                     if ($valid) {
-                        $msg = $breed.' Inserted with Success';
+                        $msg = $modelBreed->name . ' Inserted with Success';
                     }
                 }
             }

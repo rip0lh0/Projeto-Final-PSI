@@ -18,6 +18,7 @@ use common\models\Animal;
 use common\models\User;
 use common\models\Breed;
 use common\models\KennelAnimal;
+use yii\helpers\Json;
 /**
  * AnimalController implements the CRUD actions for Animal model.
  */
@@ -86,8 +87,7 @@ class AnimalController extends Controller
     public function actionCreate()
     {
         $model = new AnimalForm();
-
-        $breed = Breed::find()->asArray()->all();
+        $breed = Breed::find()->where(['id_parent' => null])->asArray()->all();
 
         if ($model->load(Yii::$app->request->post())) {
             if ($model->saveData()) {
@@ -101,10 +101,28 @@ class AnimalController extends Controller
         ]);
     }
 
+    // Create Functions That Loads Selected Data (ID)
+    public function actionSubbreed()
+    {
+        $out = [];
+
+        if (Yii::$app->request->post('depdrop_parents')) {
+            $parents = Yii::$app->request->post('depdrop_parents');
+            if ($parents != null) {
+                $id_breed = $parents[0];
+                $out = Breed::find()->where(['id_parent' => $id_breed])->all();
+
+                echo Json::encode(['output' => $out, 'selected' => '']);
+                return;
+            }
+        }
+        echo Json::encode(['output' => '', 'selected' => '']);
+    }
+
     /**
      * Updates an existing Animal model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
+     * @param integer  $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -124,7 +142,7 @@ class AnimalController extends Controller
     /**
      * Deletes an existing Animal model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
+     * @param integer  $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -138,7 +156,7 @@ class AnimalController extends Controller
     /**
      * Finds the Animal model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
+     * @param integer  $id
      * @return Animal the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
