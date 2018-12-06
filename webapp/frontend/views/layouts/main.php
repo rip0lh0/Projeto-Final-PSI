@@ -28,7 +28,7 @@ AppAsset::register($this);
     <?php $this->head() ?>
 </head>
 
-<body>
+<body style="background-color: transperant;">
 <?php $this->beginBody() ?>
     <?= $this->render('header'); ?>
 
