@@ -57,6 +57,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             'autofocus' => true,
                             'class' => 'input-flat'
                         ]) ?>
+                        
                         <?= $form->field($model, 'password', [
                             'options' => ['style' => 'margin-top: 30px;'],
                             'feedbackIcon' => [

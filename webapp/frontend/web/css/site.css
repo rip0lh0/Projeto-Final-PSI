@@ -5,11 +5,13 @@ body {
     color: #444;
     background-size: cover;
     /* background-image: linear-gradient(141deg, #F06292 0%, #CE93D8 51%, #BA68C8 75%); */
+}
 
+section {
+    margin: 8% auto;
 }
 
 .bg-image {
-    background-image: url('../images/bg_1.jpg');
     background-repeat: no-repeat;
     position: absolute;
     z-index: -1;
@@ -206,10 +208,14 @@ a.desc:after {
     border: none;
 }
 
+.btn {
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
 .btn-purple {
     background-color: rgba(186, 104, 200, 1);
     border: 1px solid rgba(186, 104, 200, 1);
-    font-weight: 600;
     color: rgba(238, 238, 238, 1);
 }
 
@@ -221,13 +227,27 @@ a.desc:after {
 .btn-blue {
     background-color: rgba(66, 165, 245, 1);
     border: 1px solid rgba(66, 165, 245, 1);
-    font-weight: 600;
     color: rgba(238, 238, 238, 1);
 }
 
 .btn-blue:hover {
     background-color: transparent;
     color: rgba(66, 165, 245, 1);
+}
+
+.btn-orange {
+    background-color: rgba(255, 167, 38, 1);
+    border: 1px solid rgba(255, 167, 38, 1);
+    color: rgba(238, 238, 238, 1);
+}
+
+.btn-orange:hover {
+    background-color: transparent;
+    color: rgba(255, 167, 38, 1);
+}
+
+.form-group {
+    margin-bottom: 20px;
 }
 
 .input-flat {
@@ -248,6 +268,10 @@ a.desc:after {
 }
 
 .has-success .input-flat {
+    color: #43A047;
+}
+
+.has-success .input-flat::placeholder {
     color: #43A047;
 }
 
@@ -303,20 +327,49 @@ a.desc:after {
 
 /* Footer */
 footer {
-    background-color: #000;
-    min-height: 300px;
+    min-height: 400px;
     bottom: 0;
-    margin-top: 50px;
+    margin-bottom: 0;
+    background-color: rgba(38, 50, 56, 1);
+    color: rgba(250, 250, 250, 0.6);
 }
 
-section {
-    margin: 8% auto;
+.footer-panel {
+    height: 100%;
+    margin: 50px 0px;
 }
 
+.footer-panel h1,
+.footer-panel h2,
+.footer-panel h3,
+.footer-panel h4 {
+    margin-bottom: 30px;
+
+}
+
+.fp-title {
+    font-weight: bolder;
+}
+
+.footer-panel>ul {
+    padding-left: 10px;
+    list-style: none;
+}
+
+.footer-panel>ul>li {
+    margin: 10px 0;
+}
+
+.footer-panel>ul>li>.fa {
+    margin-right: 8px;
+}
+
+.footer-panel>ul>li>small {
+    font-size: 12px;
+}
 
 
 /* Material Checkbox*/
-
 .pure-material-checkbox {
     z-index: 0;
     position: relative;
@@ -328,7 +381,7 @@ section {
     padding-left: 0 !important;
 }
 
-/* Input */
+/* input */
 .pure-material-checkbox>input {
     appearance: none;
     -moz-appearance: none;
@@ -352,7 +405,7 @@ section {
     transition: opacity 0.3s, transform 0.2s;
 }
 
-/* Span */
+/* span */
 .pure-material-checkbox>span {
     display: inline-block;
     width: 100%;

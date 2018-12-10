@@ -18,14 +18,12 @@ class SignupForm extends Model
 
     /* Common Information */
     public $name;
+    public $phone;
 
     /* Kennel Infromation */
     public $nif;
     public $local;
     public $address;
-
-    /* Adopter Infromation */
-    public $cellphone;
 
     /**
      * {@inheritdoc}
@@ -49,20 +47,11 @@ class SignupForm extends Model
             [['name'], 'required'],
             ['name', 'string', 'max' => 255],
 
-            [['nif'], 'required'],
-            ['nif', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This nif address has already been taken.'],
+            ['nif', 'unique', 'targetClass' => '\common\models\kennel', 'message' => 'This nif address has already been taken.'],
+            ['nif', 'string', 'min' => 9, 'max' => 9],
 
-
-            [['local'], 'required'],
-            ['local', 'string', 'max' => 255],
-
-            [['address'], 'required'],
-            ['address', 'string', 'max' => 255],
-            
-
-            [['cellphone'], 'trim'],
-            ['password', 'string', 'min' => 9, 'max' => 9],
-
+            [['local', 'address'], 'string', 'max' => 255],
+            ['phone', 'string', 'min' => 11, 'max' => 11],
         ];
     }
 

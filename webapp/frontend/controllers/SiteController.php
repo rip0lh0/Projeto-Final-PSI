@@ -7,9 +7,12 @@ use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use yii\helpers\ArrayHelper;
+
 
 use common\models\LoginForm;
 use common\models\Perfil;
+use common\models\Local;
 
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
@@ -176,14 +179,23 @@ class SiteController extends Controller
                 }
             }
         }
-        //verificação se acçãao botão for para criar user ou canil
+        //Check if its User Or Kennel
         if ($check == '0') {
             return $this->render('signup', [
                 'model' => $model,
             ]);
         } else if ($check == '1') {
+
+            $mainLocals = Local::find()->asArray()->where(['id_parent' => null])->all();
+            $locals = [];
+
+            foreach ($mainLocals as $key => $mainLocal) {
+                $locals[$mainLocal['name']] = ArrayHelper::map(Local::find()->asArray()->where(['id_parent' => $mainLocal['id']])->all(), 'id', 'name');
+            }
+
             return $this->render('signupKennel', [
                 'model' => $model,
+                'locals' => $locals,
             ]);
         }
     }
@@ -198,8 +210,6 @@ class SiteController extends Controller
                 }
             }
         }
-
-
     }
 
     /**
