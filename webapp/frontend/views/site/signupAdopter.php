@@ -14,8 +14,8 @@ $this->params['breadcrumbs'][] = $this->title;
 // $local = Yii::$app->user->identity->local;
 
 ?>
-<section class="signup">
-    <div class="container" style="margin-top: 80px;">
+<section class="signup row-fluid bg-image" style="background-image: url('images/bg_2.jpg');">
+    <div class="container" style="padding: 120px 0;">
         <?php $form = ActiveForm::begin(
             [
                 'id' => 'login-form',

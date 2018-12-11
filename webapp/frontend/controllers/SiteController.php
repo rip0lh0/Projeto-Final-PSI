@@ -172,20 +172,25 @@ class SiteController extends Controller
     public function actionSignup($check)
     {
         $model = new SignupForm();
+
         if ($model->load(Yii::$app->request->post())) {
+            $model->user_type = $check;
             if ($user = $model->signup()) {
                 if (Yii::$app->getUser()->login($user)) {
                     return $this->goHome();
                 }
             }
         }
+        
+
         //Check if its User Or Kennel
-        if ($check == '0') {
-            return $this->render('signup', [
+        if ($check == SignupForm::SELF_ADOPTER) {
+            return $this->render('signupAdopter', [
                 'model' => $model,
             ]);
-        } else if ($check == '1') {
 
+        } else
+            if ($check == SignupForm::SELF_KENNEL) {
             $mainLocals = Local::find()->asArray()->where(['id_parent' => null])->all();
             $locals = [];
 
@@ -197,18 +202,6 @@ class SiteController extends Controller
                 'model' => $model,
                 'locals' => $locals,
             ]);
-        }
-    }
-
-    public function actionSignupKennel()
-    {
-        $model = new SignupForm();
-        if ($model->load(Yii::$app->request->post())) {
-            if ($user = $model->signupKennel()) {
-                if (Yii::$app->getUser()->login($user)) {
-                    return $this->goHome();
-                }
-            }
         }
     }
 

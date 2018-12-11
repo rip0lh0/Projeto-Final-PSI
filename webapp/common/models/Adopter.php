@@ -8,9 +8,11 @@ use Yii;
  * This is the model class for table "adopter".
  *
  * @property int $id
+ * @property int $id_user
  * @property string $name
  * @property double $cellphone
  *
+ * @property User $user
  * @property Adoption[] $adoptions
  */
 class Adopter extends \yii\db\ActiveRecord
@@ -29,9 +31,11 @@ class Adopter extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name'], 'required'],
+            [['id_user', 'name'], 'required'],
+            [['id_user'], 'integer'],
             [['cellphone'], 'number'],
             [['name'], 'string', 'max' => 255],
+            [['id_user'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['id_user' => 'id']],
         ];
     }
 
@@ -42,9 +46,18 @@ class Adopter extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
+            'id_user' => 'Id User',
             'name' => 'Name',
             'cellphone' => 'Cellphone',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUser()
+    {
+        return $this->hasOne(User::className(), ['id' => 'id_user']);
     }
 
     /**

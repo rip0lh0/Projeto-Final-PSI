@@ -12,7 +12,7 @@ use yii\web\UploadedFile;
 /* Backend Models */
 use backend\models\UploadForm;
 use backend\models\AnimalForm;
-use backend\models\kennelAnimalSearch;
+use backend\models\AnimalSearch;
 /* Common Models */
 use common\models\Animal;
 use common\models\User;
@@ -58,7 +58,8 @@ class AnimalController extends Controller
 
         $kennelAnimals = $kennel->kennelAnimals;
 
-        $searchModel = new KennelAnimalSearch();
+        $searchModel = new AnimalSearch();
+        $searchModel->id_kennel = $kennel->id;
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams, $kennel);
 
         return $this->render('index', ['kennelAnimals' => $kennelAnimals, 'dataProvider' => $dataProvider, 'searchModel' => $searchModel]);

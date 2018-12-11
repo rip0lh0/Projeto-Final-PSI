@@ -12,10 +12,8 @@ use kartik\select2\Select2;
 $this->title = 'Associação';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="bg-image" style="background-image: url('images/bg_2.jpg');"></div>
-
-<section class="signup">
-    <div class="container" style="margin-top: 80px;">
+<section class="signup row-fluid bg-image" style="background-image: url('images/bg_2.jpg');">
+    <div class="container" style="padding: 120px 0;">
         <?php $form = ActiveForm::begin(
             [
                 'id' => 'login-form',
@@ -31,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <h1><?= $this->title ?></h1>
                 </div>
                 <div class="mp-body" style="padding: 5% 10%;">
-                    <div class="col-md-6" >
+                    <div class="col-md-12" >
                         <?= $form->field($model, 'username', [
                             'feedbackIcon' => [
                                 'prefix' => 'fa fa-',
@@ -42,6 +40,19 @@ $this->params['breadcrumbs'][] = $this->title;
                             ]
                         ])->textInput([
                             'autofocus' => true,
+                            'class' => 'input-flat',
+                            'style' => 'margin-top: 0px;'
+                        ]) ?>
+
+                        <?= $form->field($model, 'name', [
+                            'feedbackIcon' => [
+                                'prefix' => 'fa fa-',
+                                'default' => 'user',
+                                'success' => 'check-circle',
+                                'error' => 'exclamation-circle',
+                                'defaultOptions' => ['class' => 'text-primary']
+                            ]
+                        ])->textInput([
                             'class' => 'input-flat',
                             'style' => 'margin-top: 0px;'
                         ]) ?>
@@ -58,7 +69,6 @@ $this->params['breadcrumbs'][] = $this->title;
                             'autofocus' => true,
                             'class' => 'input-flat'
                         ]) ?>
-                        
                         <?= $form->field($model, 'password', [
                             'feedbackIcon' => [
                                 'prefix' => 'fa fa-',
@@ -70,46 +80,9 @@ $this->params['breadcrumbs'][] = $this->title;
                         ])->passwordInput([
                             'class' => 'input-flat'
                         ]) ?>
-                    </div>
-                    <div class="col-md-6">
-                        <?= $form->field($model, 'name', [
-                            'feedbackIcon' => [
-                                'prefix' => 'fa fa-',
-                                'default' => 'user',
-                                'success' => 'check-circle',
-                                'error' => 'exclamation-circle',
-                                'defaultOptions' => ['class' => 'text-primary']
-                            ]
-                        ])->textInput([
-                            'class' => 'input-flat',
-                            'style' => 'margin-top: 0px;'
-                        ]) ?>
 
-                        <?= $form->field($model, 'nif', [
-                            'feedbackIcon' => [
-                                'prefix' => 'fa fa-',
-                                'default' => 'user',
-                                'success' => 'check-circle',
-                                'error' => 'exclamation-circle',
-                                'defaultOptions' => ['class' => 'text-primary']
-                            ]
-                        ])->textInput([
-                            'class' => 'input-flat'
-                        ]) ?>
-
-                        <?= $form->field($model, 'address', [
-                            'feedbackIcon' => [
-                                'prefix' => 'fa fa-',
-                                'default' => 'user',
-                                'success' => 'check-circle',
-                                'error' => 'exclamation-circle',
-                                'defaultOptions' => ['class' => 'text-primary']
-                            ]
-                        ])->textInput([
-                            'class' => 'input-flat'
-                        ]) ?>
                     </div>
-                    <div class="col-md-12" style="margin-top: 0;">
+                    <div class="col-md-6" style="margin-top: 0;">
                         <?= $form->field($model, 'phone', [
                             'feedbackIcon' => [
                                 'prefix' => 'fa fa-',
@@ -124,15 +97,44 @@ $this->params['breadcrumbs'][] = $this->title;
                         ])->textInput([
                             'class' => 'input-flat'
                         ]) ?>
+
+                        <?= $form->field($model, 'address', [
+                            'feedbackIcon' => [
+                                'prefix' => 'fa fa-',
+                                'default' => 'map-marker',
+                                'success' => 'check-circle',
+                                'error' => 'exclamation-circle',
+                                'defaultOptions' => ['class' => 'text-primary']
+                            ]
+                        ])->textInput([
+                            'class' => 'input-flat'
+                        ]) ?>
+
+                    </div>
+                    <div class="col-md-6" style="margin-top: 0;">
+                        <?= $form->field($model, 'nif', [
+                            'feedbackIcon' => [
+                                'prefix' => 'fa fa-',
+                                'default' => 'list-alt',
+                                'success' => 'check-circle',
+                                'error' => 'exclamation-circle',
+                                'defaultOptions' => ['class' => 'text-primary']
+                            ]
+                        ])->textInput([
+                            'class' => 'input-flat'
+                        ]) ?>
+
                         <?= $form->field($model, 'local')->widget(Select2::classname(), [
                             'data' => $locals,
                             'options' => [
+                                'class' => 'input-flat',
                                 'placeholder' => 'Localidade'
                             ],
                             'pluginOptions' => [
                                 'allowClear' => true
                             ],
                         ]); ?>
+
                     </div>
                     <?= Html::submitButton('Registar', ['class' => 'btn btn-orange btn-block btn-flat', 'style' => 'margin-top: 30px; min-height: 45px;', 'name' => 'login-button']) ?>
                     <?= $form->errorSummary($model, ['header' => '', 'class' => 'mp-error', 'style' => 'background-color: #ef5350']); ?>  

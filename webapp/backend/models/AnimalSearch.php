@@ -5,12 +5,13 @@ namespace backend\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\kennelAnimal;
+
+use common\models\KennelAnimal;
 
 /**
  * kennelAnimalSearch represents the model behind the search form of `common\models\kennelAnimal`.
  */
-class kennelAnimalSearch extends kennelAnimal
+class AnimalSearch extends KennelAnimal
 {
     /**
      * {@inheritdoc}
@@ -61,7 +62,6 @@ class kennelAnimalSearch extends kennelAnimal
         $query->andFilterWhere([
             'id' => $this->id,
             'id_kennel' => $this->id_kennel,
-            'id_animal' => $this->id_animal,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             'state' => $this->state,
