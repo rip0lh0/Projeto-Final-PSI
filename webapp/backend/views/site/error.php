@@ -14,12 +14,12 @@ $this->title = $name;
 <section class="content">
     <div class="error-page">
         <h2 class="headline text-yellow"><?= $statusCode ?></h2>
-
+        <section class="signup row-fluid bg-image" style="background-image: url('img/error_dog.jpg');">
         <div class="error-content">
             <h3><i class="fa fa-warning text-yellow"></i> Oops! <?= nl2br(Html::encode($message)) ?></h3>
 
             <p calss="error">The above error occurred while the Web server was processing your request.</p>
-            <?php 
+            <?php
             if (false)
                 echo Html::a('Go Back!!', $preurl, ['class' => 'btn btn-warning btn-flat']);
             else
