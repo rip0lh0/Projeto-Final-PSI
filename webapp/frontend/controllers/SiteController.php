@@ -191,6 +191,7 @@ class SiteController extends Controller
 
         } else
             if ($check == SignupForm::SELF_KENNEL) {
+
             $mainLocals = Local::find()->asArray()->where(['id_parent' => null])->all();
             $locals = [];
 

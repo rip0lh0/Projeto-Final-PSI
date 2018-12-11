@@ -58,7 +58,7 @@ class SignupForm extends Model
             ['nif', 'string', 'min' => 9, 'max' => 9],
 
             [['local', 'address', 'nif'], 'required', 'when' => function ($model) {
-                return ($user_type == SignupForm::SELF_KENNEL);
+                return ($this->user_type == SignupForm::SELF_KENNEL);
             }, 'message' => '{attribute} não pode ficar em branco.'],
 
             [['local', 'address'], 'string', 'max' => 255],
@@ -79,8 +79,8 @@ class SignupForm extends Model
 
         /* Creates Adopters */
         $auth = \Yii::$app->authManager;
-        $adopterRole = $auth->getRole('adopter');
-        $auth->assign($adopterRole, $user->getId());
+        $role = $auth->getRole('adopter');
+        $auth->assign($role, $user->getId());
 
         return true;
     }
@@ -97,8 +97,8 @@ class SignupForm extends Model
         if ($kennel->save() == null) return false;
 
         $auth = \Yii::$app->authManager;
-        $kennelRole = $auth->getRole('kennel');
-        $auth->assign($kennelRole, $user->getId());
+        $role = $auth->getRole('kennel');
+        $auth->assign($role, $user->getId());
 
         return true;
     }
@@ -129,11 +129,11 @@ class SignupForm extends Model
                 case SignupForm::SELF_KENNEL:
                     $valid = $valid && $this->signupKennel($user);
                     break;
-                case SignupForm::SELF_KENNEL:
+                case SignupForm::SELF_ADOPTER:
                     $valid = $valid && $this->signupAdopter($user);
                     break;
                 default:
-                    $valid += false;
+                    $valid = $valid && false;
             }
 
             if ($valid) return $user;
