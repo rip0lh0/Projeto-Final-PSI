@@ -1,8 +1,10 @@
 /* Navbar */
 .navbar-default {
     color: #FAFAFA;
-    background-color: rgba(207, 216, 220, 0.6);
-    border-color: rgba(207, 216, 220, 0.6);
+    /* background-color: rgba(207, 216, 220, 0.6);
+    border-color: rgba(207, 216, 220, 0.6); */
+    background-color: transparent;
+    border: none;
 }
 
 .nav>li>a {

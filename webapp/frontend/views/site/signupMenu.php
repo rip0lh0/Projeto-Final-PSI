@@ -9,7 +9,7 @@ use frontend\models\SignupForm;
 <section class="signup-menu row-fluid bg-image" style="background-image: url('images/bg_1.jpg');">
     <div class="container" style="padding: 120px 0;">
         <div class="col-md-4 col-md-offset-1 menu-panel">
-            <div class="mp-header" style="background-color: rgba(66,165,245 ,1);">
+            <div class="mp-header" style="background-color: rgba(66,165,245 ,1); padding: 8%;">
                 <i class="fa fa-user"></i>
             </div>
             <div class="mp-body" style="padding-top: 1%;">
@@ -19,7 +19,7 @@ use frontend\models\SignupForm;
             </div>
         </div>
         <div class="col-md-4 col-md-offset-2 menu-panel">
-            <div class="mp-header" style="background-color: rgba(255,167,38 ,1);">
+            <div class="mp-header" style="background-color: rgba(255,167,38 ,1); padding: 8%;">
                 <i class="fa fa-group"></i>
             </div>
             <div class="mp-body" style="padding-top: 1%;">

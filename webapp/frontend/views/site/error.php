@@ -10,26 +10,21 @@ use yii\helpers\Html;
 
 $this->title = $name;
 ?>
-<section class="signup row-fluid bg-image" style="padding: 25% 25%;background-image: url('images/error_dog.jpg');">
-    <div class="col-md-6 col-md-offset-9 menu-panel">
-        <div class="content" align="center" style="padding: 10% 10%;">
-            <div class="error-page">
-                <h2 class="headline text-yellow"><?= $statusCode ?></h2>
-                <div class="error-content" >
+<section class="signup row-fluid bg-image" style="background-image: url('images/error_dog.jpg'); padding: 120px 0;">
+    <div class="container">
+        <div class="col-md-4 col-md-offset-8 menu-panel" style="margin-top: 25%;">
+            <div class="menu-panel" style="margin-top: 0;">
+                <div class="mp-header">
+                    <h2 class="text-yellow"><?= $statusCode ?></h2>
+                </div>
+                
+                <div class="mp-body" style="padding-top: 0;">
                     <h3><i class="fa fa-warning text-yellow"></i> Oops! <?= nl2br(Html::encode($message)) ?></h3>
 
                     <p calss="error">The above error occurred while the Web server was processing your request.</p>
-                    <?php
-                    if (false)
-                        echo Html::a('Go Back!!', $preurl, ['class' => 'btn btn-warning btn-flat']);
-                    else
-                        echo Html::a('Go Back!!', ['/site/logout'], ['data-method' => 'post', 'class' => 'btn btn-warning btn-flat']);
-                    ?>
-                    </div>
-                    <!-- /.error-content -->
+                    <?= Html::a('Go Back!!', $preurl, ['class' => 'btn btn-orange btn-block btn-flat']); ?>
+                </div>
             </div>
-            <!-- /.error-page -->
         </div>
     </div>
-
 </section>
