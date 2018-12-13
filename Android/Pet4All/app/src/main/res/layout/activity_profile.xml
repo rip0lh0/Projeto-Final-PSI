@@ -170,12 +170,13 @@
                         android:id="@+id/buttonSendMsg"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:drawableLeft="@drawable/ic_action_send_message"
                         android:layout_weight="1"
-                        android:textColor="@android:color/white"
                         android:background="@drawable/btn_send_message_style"
-                        android:padding="5dp"
-                        android:text="@string/button_send_message" />
+                        android:drawableStart="@drawable/ic_action_send_message"
+                        android:drawablePadding="5dp"
+                        android:layout_marginStart="15dp"
+                        android:text="@string/button_send_message"
+                        android:textColor="@android:color/white" />
 
                 </LinearLayout>
 
