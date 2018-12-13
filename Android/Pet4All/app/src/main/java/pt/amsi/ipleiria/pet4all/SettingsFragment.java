@@ -25,12 +25,10 @@ public class SettingsFragment extends Fragment {
     ImageButton btnSettings,btnReport,btnEditProfile;
     RelativeLayout settingsFragment;
     LinearLayout settingsActionBtns;
-    Animation slide_right,slide_left,fadeout,fadein;
+    Animation slide_right,slide_left;
 
     Animation visibleTrue = new AnimationSet(true);
     Animation visibleFalse = new AnimationSet(true);
-    private Boolean settingsState1;
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -46,7 +44,6 @@ public class SettingsFragment extends Fragment {
         btnSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.e("teste","--> " + settingsFragment.toString());
                 toggleDropDown(view);
 
             }
@@ -54,30 +51,26 @@ public class SettingsFragment extends Fragment {
 
         return view;
     }
+
     public void toggleDropDown(View view) {
         settingsState=!settingsState;
         ViewGroup.LayoutParams params = settingsFragment.getLayoutParams();
         params.height = (settingsState) ? ViewGroup.LayoutParams.MATCH_PARENT : ViewGroup.LayoutParams.WRAP_CONTENT;
         settingsFragment.setLayoutParams(params);
         /* Rotate Button */
-
-
         if (settingsState){
-            float deg = btnSettings.getRotation() - 90F;
+            float deg = btnSettings.getRotation() - 180F;
             btnSettings.animate().rotation(deg).setInterpolator(new AccelerateDecelerateInterpolator());
             openMenu(view);
 
         } else {
-            float deg = btnSettings.getRotation() + 90F;
+            float deg = btnSettings.getRotation() + 180F;
             btnSettings.animate().rotation(deg).setInterpolator(new AccelerateDecelerateInterpolator());
             closeMenu(view);
         }
 
-
-        /*set correct animations*/
-
-
     }
+
     public void closeMenu(View view){
         settingsActionBtns.startAnimation(visibleFalse);
         visibleFalse.setFillBefore(false);
@@ -103,6 +96,7 @@ public class SettingsFragment extends Fragment {
 
 
     }
+
     public void openMenu(View view) {
         settingsActionBtns.startAnimation(visibleTrue);
         visibleTrue.setFillBefore(false);
@@ -126,6 +120,7 @@ public class SettingsFragment extends Fragment {
             }
         });
     }
+
     public void loadanimations(){
         slide_left = AnimationUtils.loadAnimation(getActivity(), R.anim.slide_left_settings);
         slide_right = AnimationUtils.loadAnimation(getActivity(), R.anim.slide_right_settings);
