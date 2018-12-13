@@ -110,6 +110,7 @@ public class SettingsFragment extends Fragment {
         visibleTrue.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
+                settingsActionBtns.setVisibility(View.VISIBLE);
             }
 
             @Override
@@ -126,14 +127,9 @@ public class SettingsFragment extends Fragment {
         });
     }
     public void loadanimations(){
-        Animation anim = AnimationUtils.loadAnimation(getActivity(), (settingsState) ? R.anim.fade_in : R.anim.fade_out);
         slide_left = AnimationUtils.loadAnimation(getActivity(), R.anim.slide_left_settings);
         slide_right = AnimationUtils.loadAnimation(getActivity(), R.anim.slide_right_settings);
-        fadein =AnimationUtils.loadAnimation(getActivity(), R.anim.fade_in_default);
-        fadeout =AnimationUtils.loadAnimation(getActivity(), R.anim.fade_out_default);
-        ((AnimationSet) visibleTrue).addAnimation(fadein);
         ((AnimationSet) visibleTrue).addAnimation(slide_right);
-        ((AnimationSet) visibleFalse).addAnimation(fadeout);
         ((AnimationSet) visibleFalse).addAnimation(slide_left);
     }
     // TODO: Rename method, update argument and hook method into UI event
