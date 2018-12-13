@@ -25,8 +25,23 @@ $this->params['breadcrumbs'][] = $this->title;
             </form>
         </div>
     </div>
-    <div class="col-md-6 col-md-offset-3">
+
+    <div class="col-md-6 col-md-offset-3" >
+        <div class="row">
+            <div class="column">
+                <img src="images/bone1.png" alt="Snow" style="width:25%">
+            </div>
+            <div class="column">
+                <h1>Vagabundo</h1>
+            </div>
+            <div class="column">
+                <img src="images/bone1.png" alt="Mountains" style="width:25%">
+            </div>
+        </div>
+        <div style="margin-top: 5%"></div>
+        <div style="margin-top: 5%"></div>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ullamcorper tristique erat, ac lobortis augue porttitor sit amet. Sed sit amet quam in enim ultricies porttitor vitae quis lectus. Nullam quis vulputate tellus. Proin convallis pellentesque libero in ultricies. Vestibulum pharetra sagittis varius. Proin et neque sit amet urna venenatis congue. Ut at finibus enim, ac elementum magna. Nunc bibendum libero vel sapien accumsan, vel accumsan tortor accumsan. Suspendisse potenti. Vestibulum efficitur diam sed lectus blandit ultricies. Sed pretium mauris id lorem suscipit, a molestie tortor pretium. Pellentesque viverra hendrerit ante, varius finibus odio facilisis eu. Morbi sollicitudin ante risus, vitae viverra leo malesuada in. Sed nec luctus velit, eu ornare urna.</p>
     </div>
-    <div style="margin-bottom: 10%"></div>
+    <div style="margin-bottom: 25%"></div>
+
 </section>
