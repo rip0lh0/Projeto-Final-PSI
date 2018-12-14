@@ -15,4 +15,5 @@
     <color name="color_Btn_Default">#365363</color>
     <color name="color_Btn_Default_Stroke">#3D5E70</color>
     <color name="color_Btn_Default_Pressed">#5E2246</color>
+    <color name="color_Main_blue">#2196F3</color>
 </resources>

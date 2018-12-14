@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_2"
+    android:scaleType="centerCrop"
+    tools:context=".RegisterActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/roundedcontainer_top1"
+        android:orientation="vertical"
+        android:alpha="0.9"
+        android:padding="15dp">
+
+        <TextView
+            android:drawableLeft="@drawable/ic_action_user"
+            android:drawablePadding="15dp"
+            android:id="@+id/textViewRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:text="@string/txtRegister1Static" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:alpha="0.9"
+        android:background="@drawable/roundedcontainer_bottom"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/editTextname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/rounded_input_bar"
+                    android:drawableRight="@drawable/ic_person_black_24dp"
+                    android:ems="10"
+                    android:hint="Nome"
+                    android:inputType="textPersonName" />
+
+                <EditText
+                    android:id="@+id/editTextEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/rounded_input_bar"
+                    android:drawableRight="@drawable/ic_email_black_24dp"
+                    android:ems="10"
+                    android:hint="E-mail"
+                    android:inputType="textEmailAddress" />
+
+                <EditText
+                    android:id="@+id/editTextPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/rounded_input_bar"
+                    android:drawableRight="@drawable/ic_lock_black_24dp"
+                    android:ems="10"
+                    android:hint="Password"
+                    android:inputType="textPassword" />
+
+                <EditText
+                    android:id="@+id/editTextPassword1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/rounded_input_bar"
+                    android:drawableRight="@drawable/ic_lock_black_24dp"
+                    android:ems="10"
+                    android:hint="Confirmar Password"
+                    android:inputType="textPassword" />
+
+                <EditText
+                    android:id="@+id/editTextPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/rounded_input_bar"
+                    android:drawableRight="@drawable/ic_phone_black_24dp"
+                    android:ems="10"
+                    android:hint="Telefone/Telemóvel"
+                    android:inputType="phone"
+                    android:maxLength="9" />
+
+                <EditText
+                    android:id="@+id/editTextNIF"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/rounded_input_bar"
+                    android:drawableRight="@drawable/ic_perm_identity_black_24dp"
+                    android:hint="NIF"
+                    android:inputType="number"
+                    android:maxLength="9" />
+
+                <EditText
+                    android:id="@+id/editTextAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/rounded_input_bar"
+                    android:drawableRight="@drawable/ic_location_on_black_24dp"
+                    android:ems="10"
+                    android:hint="Endereço"
+                    android:inputType="text" />
+
+                <EditText
+                    android:id="@+id/editTextLocal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/rounded_input_bar"
+                    android:drawableRight="@drawable/ic_keyboard_arrow_down_black_24dp"
+                    android:ems="10"
+                    android:hint="Localidade"
+                    android:inputType="text" />
+
+                <Button
+                    android:id="@+id/buttonConfirm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/btn_send_message_style"
+                    android:backgroundTintMode="src_atop"
+                    android:padding="15dp"
+                    android:text="Confirmar"
+                    android:textColor="@android:color/black" />
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+</LinearLayout>

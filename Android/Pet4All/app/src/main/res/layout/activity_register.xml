@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@android:color/white"
+    android:background="@drawable/bg_2"
+    android:scaleType="centerCrop"
     tools:context=".RegisterActivity">
 
     <LinearLayout
@@ -16,6 +17,7 @@
         android:layout_marginTop="50dp"
         android:background="@drawable/roundedcontainer_top"
         android:orientation="vertical"
+        android:alpha="0.9"
         android:padding="15dp">
 
         <TextView
@@ -29,6 +31,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:alpha="0.9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
