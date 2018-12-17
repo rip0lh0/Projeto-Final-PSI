@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:background="@drawable/bg_2"
     android:scaleType="centerCrop"
-    tools:context=".RegisterActivity">
+    tools:context=".RegisterKennelActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -143,11 +143,12 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
-                    android:background="@drawable/btn_send_message_style"
+                    android:background="@drawable/rounded_orange_button"
                     android:backgroundTintMode="src_atop"
                     android:padding="15dp"
+                    android:layout_marginBottom="10dp"
                     android:text="Confirmar"
-                    android:textColor="@android:color/black" />
+                    android:textColor="@color/btn_text_color_orange" />
             </LinearLayout>
         </ScrollView>
 

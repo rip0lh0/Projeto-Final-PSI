@@ -171,12 +171,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:background="@drawable/btn_send_message_style"
+                        android:background="@drawable/rounded_blue_button"
                         android:drawableStart="@drawable/ic_action_send_message"
                         android:drawablePadding="5dp"
+                        android:paddingRight="15dp"
                         android:layout_marginStart="15dp"
                         android:text="@string/button_send_message"
-                        android:textColor="@android:color/white" />
+                        android:textColor="@color/btn_text_color_blue" />
 
                 </LinearLayout>
 

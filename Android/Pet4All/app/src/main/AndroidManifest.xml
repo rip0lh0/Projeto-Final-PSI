@@ -25,8 +25,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".activity_register_menu"></activity>
+        <activity android:name=".RegisterMenuActivity"></activity>
+        <activity android:name=".RegisterKennelActivity" />
+        <activity android:name=".RegisterUserActivity" />
     </application>
 
 </manifest>
