@@ -88,7 +88,7 @@
                 android:id="@+id/textViewRegisterKennel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_action_user"
+                android:drawableLeft="@drawable/ic_action_association_white"
                 android:drawablePadding="15dp"
                 android:text="@string/txtRegister1Static"
                 android:textColor="@android:color/white" />
