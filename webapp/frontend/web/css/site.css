@@ -780,7 +780,6 @@ footer {
     background-color: currentColor;
 }
 
-
 /* Animals List */
 .animals-list {
     background-color: rgba(176, 190, 197, 0.8);
@@ -902,4 +901,3 @@ footer {
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-}

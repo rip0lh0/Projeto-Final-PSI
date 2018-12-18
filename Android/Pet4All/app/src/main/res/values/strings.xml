@@ -34,4 +34,12 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="txtRegisterStatic">Registar Utilizador</string>
+    <string name="txtRegister1Static">Registar Associação</string>
+    <string name="txtRegisterUserDesc1">Placeholder text</string>
+    <string name="txtRegisterUserDesc2">Placeholder text</string>
+    <string name="txtRegisterUserDesc3">Placeholder text</string>
+    <string name="txtRegisterKennelDesc1">Placeholder text</string>
+    <string name="txtRegisterKennelDesc2">Placeholder text</string>
+    <string name="txtRegisterKennelDesc3">Placeholder text</string>
 </resources>
