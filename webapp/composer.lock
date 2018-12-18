@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d89ecf21950f42caae7f4668bb10f54e",
+    "content-hash": "46ea1858a4ef841b8023142303a2a4b5",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -1033,48 +1033,6 @@
                 "yii2"
             ],
             "time": "2018-11-05T12:33:27+00:00"
-        },
-        {
-            "name": "perminder-klair/yii2-dropzone",
-            "version": "v1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/perminder-klair/yii2-dropzone.git",
-                "reference": "41e8145d940cc9955011138a9f16ad80e9831423"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/perminder-klair/yii2-dropzone/zipball/41e8145d940cc9955011138a9f16ad80e9831423",
-                "reference": "41e8145d940cc9955011138a9f16ad80e9831423",
-                "shasum": ""
-            },
-            "require": {
-                "yiisoft/yii2": "2.0.*"
-            },
-            "type": "yii2-extension",
-            "autoload": {
-                "psr-4": {
-                    "kato\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Parminder Klair",
-                    "email": "perminder.klair@gmail.com"
-                }
-            ],
-            "description": "DropzoneJs Extention for Yii2",
-            "keywords": [
-                "dropzone",
-                "extension",
-                "upload",
-                "yii2"
-            ],
-            "time": "2015-11-09T11:28:44+00:00"
         },
         {
             "name": "rmrevin/yii2-fontawesome",

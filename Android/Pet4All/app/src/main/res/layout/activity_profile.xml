@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/user_name"
                 android:textColor="@color/color_Primary_Light_Text"
-                android:textSize="18dp" />
+                android:textSize="18sp" />
 
             <ScrollView
                 android:layout_width="wrap_content"
@@ -127,7 +127,7 @@
                         android:id="@+id/imageViewPin"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/ic_place_black_24dp" />
+                        app:srcCompat="@drawable/ic_action_local_blue" />
 
                     <TextView
                         android:id="@+id/textViewUserLocation"
@@ -158,13 +158,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:gravity="center"
                 android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:orientation="horizontal">
 
                     <Button
                         android:id="@+id/buttonSendMsg"
@@ -174,14 +170,11 @@
                         android:background="@drawable/rounded_blue_button"
                         android:drawableStart="@drawable/ic_action_send_message"
                         android:drawablePadding="5dp"
-                        android:paddingRight="15dp"
-                        android:layout_marginStart="15dp"
+                        android:paddingEnd="15dp"
                         android:text="@string/button_send_message"
                         android:textColor="@color/btn_text_color_blue" />
 
                 </LinearLayout>
-
-            </LinearLayout>
 
         </LinearLayout>
 

@@ -16,16 +16,18 @@ public class RegisterMenuActivity extends AppCompatActivity {
     }
 
     public void btnRegister(View view) {
+        Intent intent = new Intent();
         switch (view.getId()) {
             case R.id.buttonUser:
-                Intent intentUser= new Intent(this,RegisterUserActivity.class);
-                startActivity(intentUser);
+                Log.e("v","está cheio de erro");
+                intent = new Intent(this, RegisterUserActivity.class);
                 break;
 
             case R.id.buttonKennel:
-                Intent intentKennel= new Intent(this,RegisterKennelActivity.class);
-                startActivity(intentKennel);
+                intent = new Intent(this, RegisterKennelActivity.class);
                 break;
         }
+        startActivity(intent);
+
     }
 }

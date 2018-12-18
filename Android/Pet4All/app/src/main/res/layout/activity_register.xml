@@ -23,7 +23,7 @@
 
         <TextView
             android:drawableLeft="@drawable/ic_action_user"
-            android:drawablePadding="15dp"
+            android:drawablePadding="15sp"
             android:id="@+id/textViewRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -51,7 +51,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_input_bar"
-                android:drawableRight="@drawable/ic_person_black_24dp"
+                android:drawableEnd="@drawable/ic_action_person_blue"
                 android:hint="Nome"
                 android:ems="10"
                 android:inputType="textPersonName" />
@@ -69,7 +69,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_input_bar"
-                android:drawableRight="@drawable/ic_email_black_24dp"
+                android:drawableEnd="@drawable/ic_action_email_blue"
                 android:ems="10"
                 android:hint="E-mail"
                 android:inputType="textEmailAddress" />
@@ -88,7 +88,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_input_bar"
-                android:drawableRight="@drawable/ic_lock_black_24dp"
+                android:drawableEnd="@drawable/ic_action_lock_blue"
                 android:ems="10"
                 android:hint="Password"
                 android:inputType="textPassword" />
@@ -107,7 +107,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_input_bar"
-                android:drawableRight="@drawable/ic_lock_black_24dp"
+                android:drawableEnd="@drawable/ic_action_lock_blue"
                 android:ems="10"
                 android:hint="Confirmar Password"
                 android:inputType="textPassword" />
