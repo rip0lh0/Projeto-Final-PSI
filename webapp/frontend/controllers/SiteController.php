@@ -20,6 +20,7 @@ use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use frontend\models\Adopter;
 use frontend\models\Kennel;
+use common\models\Animal;
 
 
 /**
@@ -215,6 +216,25 @@ class SiteController extends Controller
     {
         return $this->render('signupMenu');
     }
+
+    /**
+     * Animals List
+     * 
+     * @return mixed
+     */
+
+    public function actionAnimals()
+    {
+
+        $animals = Animal::find()->all();
+
+        return $this->render('animals', [
+            'animals' => $animals
+        ]);
+    }
+
+
+
 
     /**
      * Requests password reset.

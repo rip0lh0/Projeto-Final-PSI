@@ -4,6 +4,8 @@ namespace backend\models;
 
 use Yii;
 use yii\base\Model;
+use yii\helpers\FileHelper;
+use yii\web\UploadedFile;
 
 /* @Models */
 use common\models\Animal;
@@ -24,8 +26,12 @@ class AnimalForm extends Model
     public $weight;
     public $age;
     /* FileBreed */
-    public $id_breeds = [];
-    public $id_breed;
+    public $parentBreed;
+    public $breeds;
+    /**
+     * @var UploadedFile[]
+     */
+    public $photos;
 
     public function rules()
     {
@@ -33,64 +39,128 @@ class AnimalForm extends Model
             /* Animal */
             [['name', 'description', 'neutered', 'gender'], 'required'],
             [['name', 'description', 'chip'], 'string', 'max' => 255],
-            /* File */
+            /* Medical File */
             [['neutered', 'gender'], 'required'],
             [['neutered', 'age'], 'integer'],
             [['neutered', 'gender'], 'required'],
-            [['weight'], 'number'],
-            [['id_breeds'], 'each', 'rule' => ['number']]
+            [['weight', 'parentBreed'], 'number'],
 
-            //['id_breeds', 'each', 'rule' => ['integer', 'targetClass' => Breed::className(), 'targetAttribute' => ['id_breed' => 'id']]]
+            [['breeds'], 'each', 'rule' => ['number']],
+            /* Images */
+            [['photos'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg', 'maxFiles' => 12]
         ];
     }
 
-    public function saveData()
+    public function saveAnimal()
     {
-
-        if (!$this->validate()) return null;
+        if (!$this->validate()) return false;
 
         $animal = new Animal();
-        $animalFile = new AnimalFile();
-        $kennelAnimal = new KennelAnimal();
-        
+        $hasSuccess = true;
+        $kennel = Yii::$app->user->identity->kennel;
+
         /* Animal */
         $animal->name = $this->name;
         $animal->description = $this->description;
 
-        if ($animal->save() == null) return null;
+        $hasSuccess = $hasSuccess && $animal->save();
 
-        /* Animal File */
-        $animalFile->id_animal = $animal->id;
-        $animalFile->chip = $this->chip;
-        $animalFile->neutered = $this->neutered;
-        $animalFile->gender = $this->gender;
-        $animalFile->weight = $this->weight;
-        $animalFile->age = $this->age;
-        $animalFile->created_at = date('Y-m-d H:i:s');
-        $animalFile->updated_at = date('Y-m-d H:i:s');
+        $hasSuccess = $hasSuccess &&
+            $this->saveAnimalFile($animal->id) &&
+            $this->saveKennelAnimal($animal->id, $kennel->id);
 
-        if ($animalFile->save() == null) return null;
+        if (!$hasSuccess) $animal->delete();
 
-        /* File Breed */
-        if (!empty($this->id_breeds)) {
-            foreach ($this->id_breeds as $id_breed) {
+        $this->savePhotos();
+
+        return $hasSuccess;
+    }
+
+    /**
+     * Medical Information
+     * 
+     * @return boolean
+     */
+    public function saveAnimalFile($animal_ID)
+    {
+        $medicalFile = new AnimalFile();
+
+        $medicalFile->id_animal = $animal_ID;
+        $medicalFile->chip = $this->chip;
+        $medicalFile->neutered = $this->neutered;
+        $medicalFile->gender = $this->gender;
+        $medicalFile->weight = $this->weight;
+        $medicalFile->age = $this->age;
+
+        $medicalFile->created_at = date('Y-m-d H:i:s');
+        $medicalFile->updated_at = date('Y-m-d H:i:s');
+
+        if ($medicalFile->save() == null) return false;
+
+        $this->saveAnimalBreeds($medicalFile->id);
+
+        return true;
+    }
+
+    /**
+     * Connect Animal To Kennel
+     * 
+     * @return boolean
+     */
+    public function saveKennelAnimal($animal_ID, $kennel_ID)
+    {
+        $kennelAnimal = new KennelAnimal();
+
+        $kennelAnimal->id_animal = $animal_ID;
+        $kennelAnimal->id_kennel = $kennel_ID;
+
+        $kennelAnimal->created_at = date('Y-m-d H:i:s');
+        $kennelAnimal->updated_at = date('Y-m-d H:i:s');
+
+        if ($kennelAnimal->save() != null) return true;
+
+        return false;
+    }
+
+    /**
+     * Connect Animal To Multiple Breeds
+     * 
+     * @return mixed
+     */
+    public function saveAnimalBreeds($file_ID)
+    {
+        if (!empty($this->breeds)) {
+            foreach ($this->breeds as $value) {
                 $fileBreed = new FileBreed();
 
-                $fileBreed->id_breed = $id_breed;
-                $fileBreed->id_file = $animalFile->id;
+                $fileBreed->id_breed = $value;
+                $fileBreed->id_file = $file_ID;
 
                 $fileBreed->save();
             }
         }
+    }
 
-        /* Kennel Animal */
-        $kennelAnimal->id_animal = $animal->id;
-        $kennelAnimal->id_kennel = Yii::$app->user->id;
-        $kennelAnimal->created_at = date('Y-m-d H:i:s');
-        $kennelAnimal->updated_at = date('Y-m-d H:i:s');
+    /**
+     * Save Photos To Directory
+     * 
+     * @return mixed
+     */
+    public function savePhotos()
+    {
+        if (empty($this->photos)) return;
 
-        if ($kennelAnimal->save() == null) return null;
+        $kennelName = Yii::$app->user->identity->email;
+        $kennelName = substr($kennelName, 0, strpos($kennelName, "@"));
 
-        return true;
+        $count = 0;
+        $path = Yii::getAlias('@common') . '/uploads/animals/' . $kennelName . '/' . $this->name;
+
+
+        FileHelper::createDirectory($path);
+        foreach ($this->photos as $photo) {
+            $photo->saveAs($path . '/' . $count . '.png');
+            $count++;
+        }
     }
 }

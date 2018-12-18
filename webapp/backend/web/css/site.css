@@ -139,3 +139,7 @@ a.desc:after {
 .skin-blue .sidebar-menu>li.active>a {
     border-left-color: #f39c12 !important;
 }
+
+.kv-file-upload {
+    visibility: hidden !important;
+}

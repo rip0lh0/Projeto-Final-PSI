@@ -1,12 +1,13 @@
 <?php
 
+use yii\helpers\Url;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use dosamigos\fileupload\FileUploadUI;
 use yii\helpers\ArrayHelper;
+
+use kartik\file\FileInput;
 use kartik\select2\Select2;
 use kartik\depdrop\DepDrop;
-use yii\helpers\Url;
 
 /* @var  $this yii\web\View */
 /* @var  $model common\models\animal */
@@ -15,6 +16,11 @@ $this->title = 'Novo Animal';
 
 $this->params['breadcrumbs'][] = ['label' => 'Animals', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
+
+
+$script = '$.post("' . Url::to(['animal/subbreed', 'id' => '']) . '" + $(this).val(), function( data ) { 
+                $("#animalform-breeds").html( data );
+        });';
 ?>
 <div class="content">
     <div class="row">
@@ -38,18 +44,24 @@ $this->params['breadcrumbs'][] = $this->title;
                         <h3 class="box-title">Ficha Do Animal</h3>
                     </div>
                     <div class="box-body">
-                        <?= $form->field($model, 'id_breed')->dropDownList(
-                            ArrayHelper::map($breed, 'id', 'name'), ['id' => 'id_breed']) ?>
-                        <?= $form->field($model, 'id_breeds')->widget(Select2::classname(), [
-                            'model' => $model,
-                            'attribute' => 'id_breeds',
-                            'data' => $breed,
-                            'options' => ['placeholder' => 'Select a state ...'],
+                        <?= $form->field($model, 'parentBreed')->widget(Select2::classname(), [
+                            'data' => ArrayHelper::map($breed, 'id', 'name'),
+                            'hideSearch' => true,
+                            'options' => [
+                                'placeholder' => 'Selecionar Tipo',
+                                'onchange' => $script
+                            ],
                             'pluginOptions' => [
                                 'allowClear' => true
                             ],
                         ]); ?>
                         
+                        <?= $form->field($model, 'breeds')->widget(Select2::className(), [
+                            'options' => [
+                                'multiple' => true
+                            ],
+                        ]); ?>
+
                         <!-- Animal Gender -->
                         <?= $form->field($model, 'gender')->dropDownList([
                             'M' => 'Masculino',
@@ -68,10 +80,20 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Extra</h3>
+                        <h3 class="box-title">Fotos</h3>
                     </div>
                     <div class="box-body">
-                        
+                        <?= $form->field($model, 'photos[]')->widget(FileInput::classname(), [
+                            'options' => [
+                                'accept' => 'image/*',
+                                'multiple' => true
+                            ],
+                            'pluginOptions' => [
+                                'showUpload' => false,
+                                'showRemove' => true,
+                                'maxFileCount' => 4
+                            ]
+                        ]); ?>
                     </div>
                     <div class="box-footer">
                         <!-- Submit Button -->

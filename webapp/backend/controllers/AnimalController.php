@@ -89,35 +89,34 @@ class AnimalController extends Controller
     {
         $model = new AnimalForm();
         $breed = Breed::find()->where(['id_parent' => null])->asArray()->all();
+        $error = '';
 
         if ($model->load(Yii::$app->request->post())) {
-            if ($model->saveData()) {
-                return $this->redirect('index');
-            }
+            $model->photos = UploadedFile::getInstances($model, 'photos');
+
+            if ($model->saveAnimal()) return $this->redirect(['animal/index']);
+            else $error = 'Erro ao salvar os Dados';
         }
 
         return $this->render('create', [
             'breed' => $breed,
             'model' => $model,
+            'error' => $error
         ]);
     }
 
     // Create Functions That Loads Selected Data (ID)
-    public function actionSubbreed()
+    public function actionSubbreed($id)
     {
-        $out = [];
+        $dataReceived = Breed::find()->where(['id_parent' => $id])->asArray()->all();
 
-        if (Yii::$app->request->post('depdrop_parents')) {
-            $parents = Yii::$app->request->post('depdrop_parents');
-            if ($parents != null) {
-                $id_breed = $parents[0];
-                $out = Breed::find()->where(['id_parent' => $id_breed])->all();
-
-                echo Json::encode(['output' => $out, 'selected' => '']);
-                return;
+        if (!empty($dataReceived)) {
+            foreach ($dataReceived as $data) {
+                echo "<option value='" . $data['id'] . "'>" . $data['name'] . "</option>";
             }
+        } else {
+            echo "<option value=''>-</option>";
         }
-        echo Json::encode(['output' => '', 'selected' => '']);
     }
 
     /**
