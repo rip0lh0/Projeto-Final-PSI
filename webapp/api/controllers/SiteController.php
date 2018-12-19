@@ -1,12 +1,12 @@
 <?php
-
-namespace app\controllers;
+namespace api\controllers;
 
 use yii\rest\ActiveController;
+use common\models\Animal;
 
-class UserController extends ActiveController
+class SiteController extends ActiveController
 {
-    public $modelClass = 'app\models\User';
+    public $modelClass = 'common\models\Animal';
 
     protected function verbs()
     {
@@ -19,4 +19,9 @@ class UserController extends ActiveController
         ];
     }
 
+    public function actionAnimal()
+    {
+        $count = Animal::find()->all();
+        return count($count);
+    }
 }
