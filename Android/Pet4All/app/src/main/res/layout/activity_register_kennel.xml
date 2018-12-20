@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:scaleType="centerCrop"
-    tools:context=".RegisterKennelActivity">
+    tools:context=".RegisterActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -142,11 +142,15 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
+<<<<<<< HEAD
                     android:background="@drawable/rounded_orange_button"
+=======
+                    android:background="@drawable/btn_send_message_style"
+                    android:backgroundTintMode="src_atop"
+>>>>>>> parent of 6252a0f... #Android #Bugs
                     android:padding="15dp"
-                    android:layout_marginBottom="10dp"
                     android:text="Confirmar"
-                    android:textColor="@color/btn_text_color_orange" />
+                    android:textColor="@android:color/black" />
             </LinearLayout>
         </ScrollView>
 

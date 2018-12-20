@@ -25,9 +25,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".ProfileActivity" />
+<<<<<<< HEAD
         <activity android:name=".RegisterMenuActivity"/>
         <activity android:name=".RegisterKennelActivity" />
         <activity android:name=".RegisterUserActivity" />
+=======
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".activity_register_menu"></activity>
+>>>>>>> parent of 6252a0f... #Android #Bugs
     </application>
 
 </manifest>

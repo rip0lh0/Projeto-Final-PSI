@@ -50,7 +50,7 @@ public class NavbarFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 toggleDropDown(view);
-                Intent intent= new Intent(getActivity(),LoginActivity.class);
+                Intent intent= new Intent(getActivity(),ProfileActivity.class);
                 startActivity(intent);
             }
         });
