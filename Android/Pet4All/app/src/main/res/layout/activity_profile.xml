@@ -171,8 +171,11 @@
                         android:drawableStart="@drawable/ic_action_send_message"
                         android:drawablePadding="5dp"
 <<<<<<< HEAD
+<<<<<<< HEAD
                         android:paddingEnd="15dp"
 =======
+=======
+>>>>>>> parent of 6252a0f... #Android #Bugs
                         android:layout_marginStart="15dp"
 >>>>>>> parent of 6252a0f... #Android #Bugs
                         android:text="@string/button_send_message"

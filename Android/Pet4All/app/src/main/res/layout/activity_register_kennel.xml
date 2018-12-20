@@ -143,8 +143,11 @@
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
 <<<<<<< HEAD
+<<<<<<< HEAD
                     android:background="@drawable/rounded_orange_button"
 =======
+=======
+>>>>>>> parent of 6252a0f... #Android #Bugs
                     android:background="@drawable/btn_send_message_style"
                     android:backgroundTintMode="src_atop"
 >>>>>>> parent of 6252a0f... #Android #Bugs
