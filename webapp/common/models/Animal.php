@@ -3,7 +3,6 @@
 namespace common\models;
 
 use Yii;
-use yii\db\ActiveRecord;
 use yii\helpers\FileHelper;
 use yii\helpers\Url;
 use yii\helpers\Html;
@@ -18,7 +17,7 @@ use yii\helpers\Html;
  * @property AnimalFile[] $animalFiles
  * @property KennelAnimal[] $kennelAnimals
  */
-class Animal extends ActiveRecord
+class Animal extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
