@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity_register_menu">
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@android:color/darker_gray"
+    tools:context=".RegisterMenuActivity">
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -142,9 +143,3 @@
         android:name="pt.amsi.ipleiria.pet4all.NavbarFragment">
     </fragment>
 </RelativeLayout>
-=======
-</LinearLayout>
->>>>>>> parent of 6252a0f... #Android #Bugs
-=======
-</LinearLayout>
->>>>>>> parent of 6252a0f... #Android #Bugs
