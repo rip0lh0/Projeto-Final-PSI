@@ -47,7 +47,7 @@ return [
             'rules' => [
                 [
                     'class' => 'yii\rest\UrlRule',
-                    'controller' => 'api\site',
+                    'controller' => 'animal',
                     'pluralize' => false
                 ]
             ]

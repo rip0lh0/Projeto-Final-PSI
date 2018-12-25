@@ -1,0 +1,30 @@
+﻿Inicia o servidor
+    - Abrir cmd e ir para o diretório do projeto
+    - Exectutar o comando './yii serve --docroot="api/web"'
+
+## CRUD ##
+http://localhost:8080/site (GET)
+    - Devolve todos os valores na tabela "Animal";
+
+http://localhost:8080/site/(id) (GET)
+    - Receive Json Data
+
+http://localhost:8080/site (Post)
+    - Send Json Data
+    - ("name" and "description")
+
+http://localhost:8080/site/(id) (PUT)
+    - Send Json Data
+    - ("name" or "description")
+
+http://localhost:8080/site/(id) (Delete)
+    - Delte target 
+
+## Custom ##
+http://localhost:8080/site/filter-by-animal-age?min_age=1
+    - Filters all animals by age
+    
+http://localhost:8080/animal/new-animal
+    - Inserts a New Animal and his Medical File
+
+    
