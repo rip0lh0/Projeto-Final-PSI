@@ -38,9 +38,9 @@ return [
                 ],
             ],
         ],
-        'errorHandler' => [
-            'errorAction' => 'site/error',
-        ],
+        // 'errorHandler' => [
+        //     'errorAction' => 'animal/error',
+        // ],
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
@@ -49,6 +49,18 @@ return [
                     'class' => 'yii\rest\UrlRule',
                     'controller' => 'animal',
                     'pluralize' => false
+                ],
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => 'user',
+                    'tokens' => [
+                        '{username}' => '<username:\\w+>',
+                        '{password}' => '<password:\\w+>'
+                    ],
+                    'extraPatterns' => [
+                        'GET authentication/{username}/{password}' => 'authentication'
+                    ],
+                    //'pluralize' => false
                 ]
             ]
         ]
