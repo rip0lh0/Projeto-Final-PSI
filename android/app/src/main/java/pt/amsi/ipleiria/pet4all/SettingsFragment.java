@@ -14,6 +14,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
 import android.view.animation.RotateAnimation;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -26,6 +27,8 @@ public class SettingsFragment extends Fragment {
     RelativeLayout settingsFragment;
     LinearLayout settingsActionBtns;
     Animation slide_right,slide_left;
+    Boolean windowState=false;      // True = Open : False = Close
+    FrameLayout reportWindow;
 
     Animation visibleTrue = new AnimationSet(true);
     Animation visibleFalse = new AnimationSet(true);
@@ -45,7 +48,25 @@ public class SettingsFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 toggleDropDown(view);
-
+            }
+        });
+        reportWindow = (FrameLayout) view.findViewById(R.id.reportFragment);
+        reportWindow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                reportWindow.setVisibility(View.GONE);
+                windowState=!windowState;
+            }
+        });
+        btnReport = view.findViewById(R.id.buttonReportAbuse);
+        btnReport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                toggleDropDown(view);
+                windowState=!windowState;
+                if (windowState){
+                    reportWindow.setVisibility(View.VISIBLE);
+                }
             }
         });
 

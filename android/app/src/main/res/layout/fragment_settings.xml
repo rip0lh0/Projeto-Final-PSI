@@ -65,4 +65,17 @@
 
     </LinearLayout>
 
+    <FrameLayout
+        android:id="@+id/reportFragment"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <fragment
+            android:name="pt.amsi.ipleiria.pet4all.ReportFragment"
+            android:fillViewport="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+
 </RelativeLayout>

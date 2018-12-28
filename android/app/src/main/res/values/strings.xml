@@ -42,4 +42,15 @@
     <string name="txtRegisterKennelDesc1">Placeholder text</string>
     <string name="txtRegisterKennelDesc2">Placeholder text</string>
     <string name="txtRegisterKennelDesc3">Placeholder text</string>
+    <string name="txtReportFragmentStaticTop">Denunciar</string>
+    <string name="reportSpinnerPromptDesc">Descrição</string>
+    <string name="reportSpinnerPromptDesc1">Descrição da Denuncia</string>
+    <string name="reportSpinnerPromptSubmit">Submeter</string>
+    <string name="reportSpinnerPrompt">Razão da Denuncia</string>
+    <string-array name="reportDropdown">
+        <item > Imagem Inapropriada</item>
+        <item >Perfil Inapropriado</item>
+        <item >Abuso da Plataforma</item>
+        <item >Outro</item>
+    </string-array>
 </resources>
