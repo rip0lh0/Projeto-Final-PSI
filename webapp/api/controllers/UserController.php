@@ -11,28 +11,21 @@ use yii\filters\AccessControl;
 /* Models */
 use common\models\User;
 use common\models\LoginForm;
+use api\mosquitto\phpMQTT;
+use api\models\ServerProperties;
 
 class UserController extends ActiveController
 {
     public $modelClass = 'common\models\User';
+    public $message = [];
 
     public function behaviors()
     {
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['authentication', 'logout', 'subscribe', 'create-channel'],
+                'only' => ['authentication', 'logout'],
                 'rules' => [
-                    [
-                        'allow' => true,
-                        'actions' => ['create-channel'],
-                        'roles' => ['kennel']
-                    ],
-                    [
-                        'allow' => true,
-                        'actions' => ['subscribe'],
-                        'roles' => ['adopter']
-                    ],
                     [
                         'allow' => true,
                         'actions' => ['authentication'],
@@ -56,17 +49,6 @@ class UserController extends ActiveController
             $actions['update'],
             $actions['delete']);
         return $actions;
-    }
-
-
-    public function actionSubscribe($channelName)
-    {
-
-    }
-
-    public function actionCreateChannel($channelName)
-    {
-
     }
 
     public function actionAuthentication($username, $password)
