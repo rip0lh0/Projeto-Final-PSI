@@ -3,6 +3,7 @@ package pt.amsi.ipleiria.pet4all;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
@@ -339,7 +340,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
             if (success) {
                 Intent intent = new Intent(LoginActivity.this,ProfileActivity.class);
-                startActivity(intent);
+                ActivityOptions options = ActivityOptions.makeCustomAnimation(LoginActivity.this,android.R.anim.fade_in,android.R.anim.fade_out);
+                startActivity(intent, options.toBundle());
                 finish();
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));

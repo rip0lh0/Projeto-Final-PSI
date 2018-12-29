@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".searchAnimalActivity">
+
+    <LinearLayout
+        android:id="@+id/MenuLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:orientation="vertical"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/roundedcontainer_top"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewTopTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_action_white_pet_paw"
+                android:drawablePadding="5dp"
+                android:gravity="center_vertical"
+                android:text="@string/searchMenuTopbartxt"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/roundedcontainer_bottom"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewTypeStatic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="@string/txtTypeStatic" />
+
+            <Spinner
+                android:id="@+id/spinnerAnimalType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/roundedcontainerprofile"
+                android:entries="@array/typeDropdown" />
+
+            <TextView
+                android:id="@+id/textViewGenderStatic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/txtGenderStatic" />
+
+            <Spinner
+                android:id="@+id/spinnerAnimalGender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/roundedcontainerprofile"
+                android:entries="@array/genderDropdown" />
+
+            <TextView
+                android:id="@+id/textViewAgeStatic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/txtAgeStatic" />
+
+            <Spinner
+                android:id="@+id/spinnerAnimalAge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/roundedcontainerprofile"
+                android:entries="@array/ageDropdown" />
+
+            <TextView
+                android:id="@+id/textViewDistance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/txtDistanceStatic" />
+
+            <Spinner
+                android:id="@+id/spinnerAnimalAge2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/roundedcontainerprofile"
+                android:entries="@array/distanceDropdown" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_below="@id/MenuLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buttonShow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_blue_button"
+            android:textColor="@color/btn_text_color_blue"
+            android:text="@string/btnSearchtext" />
+
+        <Button
+            android:id="@+id/buttonShowAll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_blue_button"
+            android:textColor="@color/btn_text_color_blue"
+            android:text="@string/btnShowAll" />
+    </LinearLayout>
+
+    <fragment
+        android:id="@id/navbarFragment"
+        android:name="pt.amsi.ipleiria.pet4all.NavbarFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

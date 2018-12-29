@@ -25,8 +25,11 @@
             android:text="@string/hello_blank_fragment">
 
             <TextView
+                android:drawableLeft="@drawable/ic_action_report_abuse_white"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:drawablePadding="5dp"
+                android:gravity="center_vertical"
                 android:text="@string/txtReportFragmentStaticTop"
                 android:textColor="@android:color/white" />
 
@@ -54,6 +57,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/roundedcontainerprofile"
                     android:drawSelectorOnTop="true"
+                    android:overlapAnchor="false"
                     android:entries="@array/reportDropdown"
                     android:prompt="@string/reportSpinnerPrompt"
                     android:spinnerMode="dropdown" />
@@ -84,7 +88,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-                    android:background="@drawable/rounded_blue_button"
+                    android:backgroundTint="@color/color_Main_blue"
                     android:text="@string/reportSpinnerPromptSubmit"
                     android:textColor="@color/btn_text_color_blue" />
 

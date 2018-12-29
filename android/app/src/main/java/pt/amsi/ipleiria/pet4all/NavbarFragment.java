@@ -1,5 +1,7 @@
 package pt.amsi.ipleiria.pet4all;
 
+import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -50,7 +52,20 @@ public class NavbarFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent= new Intent(getActivity(),LoginActivity.class);
-                startActivity(intent);
+                ActivityOptions options = ActivityOptions.makeCustomAnimation(getContext(),android.R.anim.fade_in,android.R.anim.fade_out);
+                startActivity(intent, options.toBundle());
+            }
+        });
+
+        btnSearch = (ImageButton)view.findViewById(R.id.btnSearch);
+        btnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(getActivity(),searchAnimalActivity.class);
+                ActivityOptions options = ActivityOptions.makeCustomAnimation(getContext(),android.R.anim.fade_in,android.R.anim.fade_out);
+                startActivity(intent, options.toBundle());
+
+
             }
         });
 

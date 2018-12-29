@@ -46,11 +46,44 @@
     <string name="reportSpinnerPromptDesc">Descrição</string>
     <string name="reportSpinnerPromptDesc1">Descrição da Denuncia</string>
     <string name="reportSpinnerPromptSubmit">Submeter</string>
+    <string name="searchMenuTopbartxt">Procurar animal</string>
     <string name="reportSpinnerPrompt">Razão da Denuncia</string>
+    <string name="txtGenderStatic">Género</string>
+    <string name="txtDistanceStatic">Distância</string>
+    <string name="txtAgeStatic">Idade</string>
+    <string name="txtTypeStatic">Tipo do Animal</string>
+    <string name="btnSearchtext">Procurar</string>
+    <string name="btnShowAll">Mostrar Todos</string>
+    <string-array name="genderDropdown">
+        <item>Mostrar tudo</item>
+        <item>Macho</item>
+        <item>Fêmea</item>
+    </string-array>
+    <string-array name="typeDropdown">
+        <item>Todos</item>
+        <item>Cão</item>
+        <item>Gato</item>
+    </string-array>
+    <string-array name="ageDropdown">
+        <item>Todos</item>
+        <item>Até 1 ano</item>
+        <item>Até 3 anos</item>
+        <item>Até 5 anos</item>
+        <item>Até 7 anos</item>
+        <item>Até 9 anos</item>
+    </string-array>
+    <string-array name="distanceDropdown">
+        <item>Todos</item>
+        <item>Até 10 kms</item>
+        <item>Até 30 kms</item>
+        <item>Até 50 kms</item>
+        <item>Até 70 kms</item>
+        <item>Até 90 kms</item>
+    </string-array>
     <string-array name="reportDropdown">
-        <item > Imagem Inapropriada</item>
-        <item >Perfil Inapropriado</item>
-        <item >Abuso da Plataforma</item>
-        <item >Outro</item>
+        <item>Todos</item>
+        <item>Imagem Inapropriada</item>
+        <item>Perfil Inapropriado</item>
+        <item>Abuso da Plataforma</item>
     </string-array>
 </resources>
