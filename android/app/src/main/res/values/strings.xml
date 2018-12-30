@@ -42,4 +42,5 @@
     <string name="txtRegisterKennelDesc1">Placeholder text</string>
     <string name="txtRegisterKennelDesc2">Placeholder text</string>
     <string name="txtRegisterKennelDesc3">Placeholder text</string>
+    <string name="title_activity_animals">AnimalsActivity</string>
 </resources>

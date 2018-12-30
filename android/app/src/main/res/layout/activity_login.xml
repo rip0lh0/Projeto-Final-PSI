@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#0091EA"
-    tools:context=".LoginActivity">
+    tools:context=".Activities.LoginActivity">
 
 
 
@@ -127,7 +127,7 @@
 
     <fragment
         android:id="@id/navbarFragment"
-        android:name="pt.amsi.ipleiria.pet4all.NavbarFragment"
+        android:name="pt.amsi.ipleiria.pet4all.Fragments.NavbarFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />

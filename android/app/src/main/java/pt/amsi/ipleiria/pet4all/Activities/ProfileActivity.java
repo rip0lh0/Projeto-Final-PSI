@@ -1,7 +1,9 @@
-package pt.amsi.ipleiria.pet4all;
+package pt.amsi.ipleiria.pet4all.Activities;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+
+import pt.amsi.ipleiria.pet4all.R;
 
 public class ProfileActivity extends AppCompatActivity {
 

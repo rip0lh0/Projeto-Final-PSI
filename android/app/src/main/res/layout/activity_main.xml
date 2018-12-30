@@ -1,18 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <fragment
-        android:id="@id/navbarFragment"
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/text_input_client"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Client ID" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/btn_connect_server"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:name="pt.amsi.ipleiria.pet4all.NavbarFragment">
-    </fragment>
+        android:text="Connect" />
 
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/text_input_channel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Channel" />
+    </android.support.design.widget.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_subscribe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:elevation="0dp"
+            android:text="Subscribe" />
+
+        <Button
+            android:id="@+id/btn_unsubscribe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Unsubscribe" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/text_received_messages"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="teste" />
+
+    <!--
+    <fragment
+        android:id="@id/navbarFragment"
+        android:name="pt.amsi.ipleiria.pet4all.Fragments.NavbarFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></fragment>
+    -->
 
 </LinearLayout>
