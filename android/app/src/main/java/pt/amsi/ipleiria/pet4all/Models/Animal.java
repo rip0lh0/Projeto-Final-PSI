@@ -1,7 +1,7 @@
 package pt.amsi.ipleiria.pet4all.Models;
 
 public class Animal {
-    public final static String DB_NAME = "animal";
+    public final static String TABEL_NAME = "animal";
 
     private int id;
     private String name;
@@ -31,10 +31,6 @@ public class Animal {
     public void update(String name){
         this.update(name, this.description);
     }
-
-    //public void update(String description){
-    //    this.update(this.name, this.description);
-    //}
 
     public static void delete(Animal animal){
 
