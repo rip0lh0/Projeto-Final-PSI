@@ -17,11 +17,11 @@ use yii\helpers\HTML;
         <div id="main-navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav pull-right">
                 <?php if (Yii::$app->user->isGuest) { ?>
-                    <li class="hvrcenter"><?= Html::a('Login', ['site/login']) ?></li>
+                    <li class="hvrcenter"><?= Html::a('Login', ['user/authentication']) ?></li>
                     <li class="hvrcenter"><?= Html::a('Signup', ['site/menu']) ?></li>
                     <?php 
                 } else { ?>
-                    <li class="hvrcenter"><?= Html::a('Logout', ['site/logout'], ['data-method' => 'post']); ?></li>
+                    <li class="hvrcenter"><?= Html::a('Logout', ['user/logout'], ['data-method' => 'post']); ?></li>
                     <?php 
                 } ?>
             </ul>

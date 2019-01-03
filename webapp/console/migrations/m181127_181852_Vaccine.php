@@ -16,7 +16,7 @@ class m181127_181852_Vaccine extends Migration
 
         $this->createTable('{{%vaccine}}', [
             'id' => $this->primaryKey(),
-            'id_tretment' => $this->integer()->notNull(),
+            'id_treatment' => $this->integer()->notNull(),
             'vaccine' => $this->string()->notNull(),
             'date' => $this->date(),
         ], $tableOptions);
