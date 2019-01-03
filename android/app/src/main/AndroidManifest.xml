@@ -15,20 +15,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".MainActivity" />
+
         <activity
             android:name=".Activities.LoginActivity"
             android:label="@string/title_activity_login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".Activities.ProfileActivity" />
         <activity android:name=".Activities.RegisterMenuActivity" />
         <activity android:name=".Activities.RegisterKennelActivity" />
         <activity android:name=".Activities.RegisterUserActivity" />
-        <activity android:name=".Activities.searchAnimalActivity"></activity>
+        <activity android:name=".Activities.searchAnimalActivity"/>
     </application>
 
 </manifest>
