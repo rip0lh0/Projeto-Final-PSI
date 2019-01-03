@@ -1,4 +1,4 @@
-package pt.amsi.ipleiria.pet4all;
+package pt.amsi.ipleiria.pet4all.Fragments;
 
 import android.content.Context;
 import android.net.Uri;
@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
+
+import pt.amsi.ipleiria.pet4all.R;
 
 
 public class ReportFragment extends Fragment {

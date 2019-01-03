@@ -1,4 +1,4 @@
-package pt.amsi.ipleiria.pet4all;
+package pt.amsi.ipleiria.pet4all.Fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,6 +19,8 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import pt.amsi.ipleiria.pet4all.R;
 
 
 public class SettingsFragment extends Fragment {

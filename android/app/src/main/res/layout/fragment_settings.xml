@@ -4,7 +4,7 @@
     android:id="@+id/settingsFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SettingsFragment">
+    tools:context=".Fragments.SettingsFragment">
 
     <LinearLayout
         android:id="@+id/buttons"
@@ -72,7 +72,7 @@
         android:layout_height="match_parent">
 
         <fragment
-            android:name="pt.amsi.ipleiria.pet4all.ReportFragment"
+            android:name="pt.amsi.ipleiria.pet4all.Fragments.ReportFragment"
             android:fillViewport="true"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

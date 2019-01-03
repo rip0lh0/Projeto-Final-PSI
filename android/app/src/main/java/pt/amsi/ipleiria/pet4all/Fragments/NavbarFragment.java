@@ -1,6 +1,5 @@
-package pt.amsi.ipleiria.pet4all;
+package pt.amsi.ipleiria.pet4all.Fragments;
 
-import android.app.Activity;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +14,10 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import pt.amsi.ipleiria.pet4all.Activities.searchAnimalActivity;
+import pt.amsi.ipleiria.pet4all.Activities.LoginActivity;
+import pt.amsi.ipleiria.pet4all.R;
 
 /* Controls All Navbar Actions And Animations */
 

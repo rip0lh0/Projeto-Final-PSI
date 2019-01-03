@@ -1,13 +1,15 @@
-package pt.amsi.ipleiria.pet4all;
+package pt.amsi.ipleiria.pet4all.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class searchAnimalActivity extends AppCompatActivity {
+import pt.amsi.ipleiria.pet4all.R;
+
+public class RegisterActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_animal);
+        setContentView(R.layout.activity_register);
     }
 }

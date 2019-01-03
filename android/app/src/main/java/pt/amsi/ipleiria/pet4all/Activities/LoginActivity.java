@@ -1,4 +1,4 @@
-package pt.amsi.ipleiria.pet4all;
+package pt.amsi.ipleiria.pet4all.Activities;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -26,13 +26,14 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import pt.amsi.ipleiria.pet4all.R;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
