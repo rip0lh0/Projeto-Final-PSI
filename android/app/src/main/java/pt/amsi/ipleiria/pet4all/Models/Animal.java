@@ -18,6 +18,7 @@ public class Animal {
     }
 
     public Animal(){}
+
     public Animal(String name, String description){
         this.name = name;
         this.description = description;

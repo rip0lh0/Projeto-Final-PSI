@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d139d08-1f37-4d82-a0e1-2f9254b7bc9e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Android/Pet4All/app/src/main/res/layout/fragment_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Android/Pet4All/app/src/main/res/layout/fragment_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/frontend/views/site/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/frontend/views/site/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/frontend/web/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/frontend/web/css/site.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Activities/searchAnimalActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Activities/searchAnimalActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/Animal.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,22 +24,22 @@
           <entry key="project.open.time.12" value="2" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.open.time.6" value="2" />
+          <entry key="project.open.time.6" value="3" />
           <entry key="project.open.time.7" value="2" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="11" />
+          <entry key="project.opened" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="3" />
-          <entry key="php" value="23" />
+          <entry key="php" value="25" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="3" />
-          <entry key="PHP" value="23" />
+          <entry key="PHP" value="25" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -63,15 +61,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webapp/frontend/views/site/signupMenu.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="34" selection-start-line="34" selection-end-line="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webapp/backend/views/site/error.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -96,20 +85,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webapp/console/migrations/m181129_094159_Breed_Energy.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webapp/console/migrations/m181129_094216_Breed_Size.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="31" column="19" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webapp/frontend/views/site/login.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="391">
@@ -121,34 +96,54 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webapp/frontend/views/site/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="588">
+            <state relative-caret-position="612">
               <caret line="37" column="75" selection-start-line="37" selection-start-column="75" selection-end-line="37" selection-end-column="75" />
               <folding>
                 <element signature="e#140#161#0#PHP" expanded="true" />
-                <element signature="n#style#0;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#1;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#1;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#1;n#section#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webapp/frontend/web/css/site.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="670">
-              <caret line="767" lean-forward="true" selection-start-line="767" selection-end-line="767" />
+              <caret line="767" selection-start-line="767" selection-end-line="767" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/webapp/common/models/Adopter.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="687">
+              <caret line="65" column="34" lean-forward="true" selection-start-line="65" selection-start-column="34" selection-end-line="65" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webapp/common/models/Coat.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webapp/common/models/Breed.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1004">
+              <caret line="85" column="7" selection-start-line="85" selection-start-column="7" selection-end-line="85" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webapp/frontend/web/css/header.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1064" />
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -196,9 +191,7 @@
   </component>
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths>
-      <path value="$PROJECT_DIR$/Assets (Raw)/Templates/startbootstrap-sb-admin-2-gh-pages/package.json" />
-      <path value="$PROJECT_DIR$/webapp/backend/web/assets/830bfd7a/package.json" />
-      <path value="$PROJECT_DIR$/webapp/backend/web/assets/a893ba49/package.json" />
+      <path value="$PROJECT_DIR$/#Assets (Raw)/Templates/startbootstrap-sb-admin-2-gh-pages/package.json" />
     </packageJsonPaths>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
@@ -287,10 +280,9 @@
       <path value="$PROJECT_DIR$/webapp/vendor/kartik-v/dependent-dropdown" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="138" />
-    <option name="y" value="-13" />
-    <option name="width" value="1412" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="-7" />
+    <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
   <component name="ProjectView">
@@ -405,16 +397,18 @@
       <workItem from="1544536646872" duration="3494000" />
       <workItem from="1544548897217" duration="3387000" />
       <workItem from="1544610839619" duration="3828000" />
+      <workItem from="1546529229344" duration="770000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36109000" />
+    <option name="totallyTimeSpent" value="36879000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4989154" weight="0.14712153" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4989154" visible="true" weight="0.19083156" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5010846" side_tool="true" weight="0.14552239" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -474,8 +468,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/webapp/frontend/config/main-local.php" />
-    <entry file="file://$PROJECT_DIR$/webapp/frontend/web/index-test.php" />
     <entry file="file://$PROJECT_DIR$/webapp/backend/views/layouts/main.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -562,41 +554,10 @@
     <entry file="file://$PROJECT_DIR$/webapp/common/models/Energy.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/common/models/BreedSize.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="44" column="31" selection-start-line="44" selection-start-column="26" selection-end-line="44" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/common/models/BreedCoat.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="44" column="33" selection-start-line="44" selection-start-column="26" selection-end-line="44" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/common/models/BreedEnergy.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="44" column="37" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/common/models/Breed.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1445">
-          <caret line="85" column="7" selection-start-line="85" selection-start-column="7" selection-end-line="85" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/common/config/main-local.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="5" selection-start-column="5" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/common/models/BreedSize.php" />
+    <entry file="file://$PROJECT_DIR$/webapp/common/models/BreedCoat.php" />
+    <entry file="file://$PROJECT_DIR$/webapp/common/models/BreedEnergy.php" />
+    <entry file="file://$PROJECT_DIR$/webapp/common/config/main-local.php" />
     <entry file="file://$PROJECT_DIR$/webapp/backend/views/animal/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-169" />
@@ -661,6 +622,8 @@
     <entry file="file://$PROJECT_DIR$/webapp/frontend/views/site/contact.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/console/migrations/m181129_094159_Breed_Energy.php" />
+    <entry file="file://$PROJECT_DIR$/webapp/console/migrations/m181129_094216_Breed_Size.php" />
     <entry file="file://$PROJECT_DIR$/webapp/frontend/views/site/signupMenu.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
@@ -685,21 +648,6 @@
     <entry file="file://$PROJECT_DIR$/webapp/console/migrations/m181129_094123_Energy.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/console/migrations/m181129_094159_Breed_Energy.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/console/migrations/m181129_094216_Breed_Size.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="19" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/frontend/web/css/header.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1064" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webapp/frontend/views/site/login.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -709,23 +657,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/webapp/frontend/views/site/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
+        <state relative-caret-position="612">
           <caret line="37" column="75" selection-start-line="37" selection-start-column="75" selection-end-line="37" selection-end-column="75" />
           <folding>
             <element signature="e#140#161#0#PHP" expanded="true" />
-            <element signature="n#style#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#1;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#section#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/frontend/web/css/header.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/webapp/frontend/web/css/site.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="670">
-          <caret line="767" lean-forward="true" selection-start-line="767" selection-end-line="767" />
+          <caret line="767" selection-start-line="767" selection-end-line="767" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/common/models/Coat.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/common/models/Breed.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1004">
+          <caret line="85" column="7" selection-start-line="85" selection-start-column="7" selection-end-line="85" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/common/models/Adopter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="687">
+          <caret line="65" column="34" lean-forward="true" selection-start-line="65" selection-start-column="34" selection-end-line="65" selection-end-column="34" />
         </state>
       </provider>
     </entry>
