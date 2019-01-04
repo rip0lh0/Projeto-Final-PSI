@@ -29,9 +29,6 @@ public class Animal {
         this.description = description;
     }
 
-    public void update(String name){
-        this.update(name, this.description);
-    }
 
     public static void delete(Animal animal){
 
