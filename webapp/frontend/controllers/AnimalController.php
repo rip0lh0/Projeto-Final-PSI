@@ -2,17 +2,12 @@
 
 namespace frontend\controllers;
 
-use yii\rest\ActiveController;
-
 /* Common Models */
 use common\models\Animal;
+use yii\web\Controller;
 
-
-
-class AnimalController extends ActiveController
+class AnimalController extends Controller
 {
-    public $modelClass = 'common\models\Animal';
-
     public function actionIndex()
     {
         $animals = Animal::find()->all();
