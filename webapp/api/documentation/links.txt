@@ -3,21 +3,21 @@
     - Exectutar o comando './yii serve --docroot="api/web"'
 
 ## CRUD ##
-http://localhost:8080/site (GET)
+http://localhost:8080/animal (GET)
     - Devolve todos os valores na tabela "Animal";
 
-http://localhost:8080/site/(id) (GET)
+http://localhost:8080/animal/(id) (GET)
     - Receive Json Data
 
-http://localhost:8080/site (Post)
+http://localhost:8080/animal (Post)
     - Send Json Data
     - ("name" and "description")
 
-http://localhost:8080/site/(id) (PUT)
+http://localhost:8080/animal/(id) (PUT)
     - Send Json Data
     - ("name" or "description")
 
-http://localhost:8080/site/(id) (Delete)
+http://localhost:8080/animal/(id) (Delete)
     - Delte target 
 
 ## Custom ##

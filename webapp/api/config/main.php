@@ -16,9 +16,9 @@ return [
         'request' => [
             'csrfParam' => '_csrf-api',
             'cookieValidationKey' => 'Xwf3Djk4sS2IqqGlhiUBQDbp_rbYhtcp',
-            'parsers' => [
-                'application/json' => 'yii\web\JsonParser'
-            ]
+            // 'parsers' => [
+            //     'application/json' => 'yii\web\JsonParser'
+            // ]
         ],
         'user' => [
             'identityClass' => 'common\models\User',
@@ -38,9 +38,9 @@ return [
                 ],
             ],
         ],
-        'errorHandler' => [
-            'errorAction' => 'site/error',
-        ],
+        // 'errorHandler' => [
+        //     'errorAction' => 'animal/error',
+        // ],
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
@@ -48,7 +48,18 @@ return [
                 [
                     'class' => 'yii\rest\UrlRule',
                     'controller' => 'animal',
-                    'pluralize' => false
+                    //'pluralize' => false
+                ],
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => 'user',
+                    'tokens' => [
+                        '{username}' => '<username:\\w+>',
+                        '{password}' => '<password:\\w+>'
+                    ],
+                    'extraPatterns' => [
+                        'GET authentication/{username}/{password}' => 'authentication'
+                    ],
                 ]
             ]
         ]
