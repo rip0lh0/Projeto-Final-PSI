@@ -8,7 +8,7 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 /* @Mosquitto */
 use api\mosquitto\phpMQTT;
-use api\models\ServerProperties;
+use api\mosquitto\ServerProperties;
 /* @Models */
 use common\models\Animal;
 use common\models\AnimalFile;

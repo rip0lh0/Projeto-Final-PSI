@@ -5,6 +5,8 @@
 /* @var $model \frontend\models\SignupForm */
 
 use yii\helpers\Html;
+use yii\helpers\Url;
+
 use kartik\form\ActiveForm;
 
 $this->title = 'Criar Utilizador';
@@ -14,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
 // $local = Yii::$app->user->identity->local;
 
 ?>
-<section class="signup row-fluid bg-image" style="background-image: url('images/bg_2.jpg');">
+<section class="signup row-fluid bg-image" style="background-image: url('<?= Url::base(true) ?>/images/bg_2.jpg');">
     <div class="container" style="padding: 120px 0;">
         <?php $form = ActiveForm::begin(
             [

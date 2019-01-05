@@ -11,7 +11,7 @@ use yii\helpers\HTML;
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <?= Html::a(Html::img('images/logo_500x150_2.png', ['class' => 'logo']), ['site/index']); ?>
+            <?= Html::a(Html::img(['images/logo_500x150_2.png'], ['class' => 'logo']), ['site/index']); ?>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div id="main-navbar" class="collapse navbar-collapse">

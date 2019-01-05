@@ -5,6 +5,7 @@
 /* @var $model \frontend\models\SignupForm */
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\helpers\ArrayHelper;
 use kartik\form\ActiveForm;
 use kartik\select2\Select2;
@@ -12,7 +13,7 @@ use kartik\select2\Select2;
 $this->title = 'Associação';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<section class="signup row-fluid bg-image" style="background-image: url('images/bg_2.jpg');">
+<section class="signup row-fluid bg-image" style="background-image: url('<?= Url::base(true) ?>/images/bg_2.jpg');">
     <div class="container" style="padding: 120px 0;">
         <?php $form = ActiveForm::begin(
             [

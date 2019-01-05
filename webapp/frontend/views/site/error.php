@@ -6,11 +6,16 @@
 /* @var $exception Exception */
 
 use common\models\User;
+use yii\helpers\Url;
+
 use yii\helpers\Html;
+
+//var_dump($exception);
+
 
 $this->title = $name;
 ?>
-<section class="signup row-fluid bg-image" style="background-image: url('images/error_dog.jpg'); padding: 120px 0;">
+<section class="signup row-fluid bg-image" style="background-image: url('<?= Url::base(true) ?>/images/error_dog.jpg'); padding: 120px 0;">
     <div class="container">
         <div class="col-md-4 col-md-offset-8 menu-panel" style="margin-top: 25%;">
             <div class="menu-panel" style="margin-top: 0;">

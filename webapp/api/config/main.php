@@ -16,39 +16,24 @@ return [
         'request' => [
             'csrfParam' => '_csrf-api',
             'cookieValidationKey' => 'Xwf3Djk4sS2IqqGlhiUBQDbp_rbYhtcp',
-            // 'parsers' => [
-            //     'application/json' => 'yii\web\JsonParser'
-            // ]
+            'parsers' => [
+                'application/json' => 'yii\web\JsonParser'
+            ]
         ],
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => false,
             'identityCookie' => ['name' => '_identity-api', 'httpOnly' => true],
         ],
-        'session' => [
-            // this is the name of the session cookie used for login on the api
-            'name' => 'api',
-        ],
-        'log' => [
-            'traceLevel' => YII_DEBUG ? 3 : 0,
-            'targets' => [
-                [
-                    'class' => 'yii\log\FileTarget',
-                    'levels' => ['error', 'warning'],
-                ],
-            ],
-        ],
-        // 'errorHandler' => [
-        //     'errorAction' => 'animal/error',
-        // ],
         'urlManager' => [
             'enablePrettyUrl' => true,
+            'enableStrictParsing' => true,
             'showScriptName' => false,
             'rules' => [
                 [
                     'class' => 'yii\rest\UrlRule',
                     'controller' => 'animal',
-                    //'pluralize' => false
+                    'pluralize' => false
                 ],
                 [
                     'class' => 'yii\rest\UrlRule',

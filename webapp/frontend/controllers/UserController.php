@@ -150,7 +150,7 @@ class UserController extends Controller
         ]);
     }
 
-    public function acitonLogout()
+    public function actionLogout()
     {
         Yii::$app->user->logout();
 

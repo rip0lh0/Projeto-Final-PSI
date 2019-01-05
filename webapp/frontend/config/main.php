@@ -37,28 +37,21 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+        'urlManager' => [
+            'baseUrl' => '/',
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => []
+        ]
         // 'urlManager' => [
         //     'enablePrettyUrl' => true,
         //     'showScriptName' => false,
         //     'rules' => [
-        //         [
-        //             'class' => 'yii\rest\UrlRule',
-        //             'controller' => 'animal',
-        //             'pluralize' => false
-        //         ],
-        //         [
-        //             'class' => 'yii\rest\UrlRule',
-        //             'controller' => 'user',
-        //             'pluralize' => false
-        //         ],
-        //         [
-        //             'class' => 'yii\rest\UrlRule',
-        //             'controller' => 'site',
-        //             'pluralize' => false
-        //         ]
-
-        //     ]
-        // ]
+        //         '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+        //         '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+        //         '<controller:\w+>/<id:\d+>' => '<controller>/view',
+        //     ],
+        // ],
     ],
     'params' => $params,
 ];

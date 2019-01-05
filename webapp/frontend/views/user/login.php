@@ -5,13 +5,15 @@
 /* @var $model \common\models\LoginForm */
 
 use yii\helpers\Html;
+use yii\helpers\Url;
+
 use kartik\form\ActiveForm;
 
 $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>
-<section class="login row-fluid bg-image" style="background-image: url('images/bg_1.jpg');">
+<section class="login row-fluid bg-image" style="background-image: url('<?= Url::base(true) ?>/images/bg_1.jpg');">
     <div class="container" style="padding: 120px 0;">
         <?php $form = ActiveForm::begin(
             [
