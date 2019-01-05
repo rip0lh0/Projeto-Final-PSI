@@ -41,17 +41,32 @@ return [
             'baseUrl' => '/',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'rules' => []
+            'rules' => [
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => 'v1/animal',
+                    'pluralize' => false
+                ],
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => 'v1/user',
+                    'tokens' => [
+                        '{username}' => '<username:\\w+>',
+                        '{password}' => '<password:\\w+>'
+                    ],
+                    'extraPatterns' => [
+                        // 'GET authentication/{username}/{password}' => 'authentication',
+                        'GET profile/{username}' => 'profile'
+                    ],
+                    'pluralize' => false
+                ]
+            ]
         ]
-        // 'urlManager' => [
-        //     'enablePrettyUrl' => true,
-        //     'showScriptName' => false,
-        //     'rules' => [
-        //         '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
-        //         '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
-        //         '<controller:\w+>/<id:\d+>' => '<controller>/view',
-        //     ],
-        // ],
+    ],
+    'modules' => [
+        'v1' => [
+            'class' => 'frontend\modules\v1\Module',
+        ],
     ],
     'params' => $params,
 ];
