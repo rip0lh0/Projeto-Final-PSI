@@ -17,7 +17,6 @@ use api\models\ServerProperties;
 class UserController extends ActiveController
 {
     public $modelClass = 'common\models\User';
-    public $message = [];
 
     public function behaviors()
     {

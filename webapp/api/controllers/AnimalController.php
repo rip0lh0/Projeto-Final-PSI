@@ -17,26 +17,21 @@ class AnimalController extends ActiveController
 {
     public $modelClass = 'common\models\Animal';
 
-    public function behaviors()
-    {
-        return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'only' => ['filter-by-animal-age', 'new-animal'],
-                'rules' => [
-                    [
-                        'allow' => true,
-                        'roles' => ['kennel']
-                    ],
-                    [
-                        'allow' => true,
-                        'actions' => ['new-animal'],
-                        'roles' => ['?']
-                    ]
-                ],
-            ],
-        ];
-    }
+    // public function behaviors()
+    // {
+    //     return [
+    //         'access' => [
+    //             'class' => AccessControl::className(),
+    //             'rules' => [
+    //                 [
+    //                     'allow' => true,
+    //                     'actions' => ['filter-by-animal-age'],
+    //                     'roles' => ['kennel']
+    //                 ],
+    //             ],
+    //         ],
+    //     ];
+    // }
 
     /**
      * Selects All the Animals with a certain age
@@ -84,13 +79,9 @@ class AnimalController extends ActiveController
             $fileData->updated_at = date('Y-m-d H:i:s');
 
             if ($fileData->validate() && $fileData->save()) {
-
-
                 $msgJson = json_encode(Yii::$app->request->post());
-                $this->PublishToChannel("New Animal", $msgJson);
-
+                $this->PublishToChannel("new-animal", $msgJson);
                 return $msgJson;
-
             } else
                 $animalData->delete();
         }

@@ -25,22 +25,6 @@ return [
             'enableAutoLogin' => false,
             'identityCookie' => ['name' => '_identity-api', 'httpOnly' => true],
         ],
-        'session' => [
-            // this is the name of the session cookie used for login on the api
-            'name' => 'api',
-        ],
-        'log' => [
-            'traceLevel' => YII_DEBUG ? 3 : 0,
-            'targets' => [
-                [
-                    'class' => 'yii\log\FileTarget',
-                    'levels' => ['error', 'warning'],
-                ],
-            ],
-        ],
-        // 'errorHandler' => [
-        //     'errorAction' => 'animal/error',
-        // ],
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
