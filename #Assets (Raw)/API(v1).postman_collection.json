@@ -1,0 +1,618 @@
+{
+	"variables": [],
+	"info": {
+		"name": "API(v1)",
+		"_postman_id": "ee937cdb-b361-2983-7963-7f1ec6684176",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://www.localhost/v1/animal",
+			"request": {
+				"url": "http://www.localhost/v1/animal",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic a2VubmVsdGVzdGU6MTIzNDU2",
+						"description": ""
+					},
+					{
+						"key": "",
+						"value": "",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "New Daisy 2",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "description",
+							"value": "rest api",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "chip",
+							"value": "ND2",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "neutered",
+							"value": "1",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "gender",
+							"value": "M",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "weight",
+							"value": "",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "age",
+							"value": "56",
+							"type": "text",
+							"description": ""
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://www.localhost/v1/animal",
+			"request": {
+				"url": "http://www.localhost/v1/animal",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic a2VubmVsdGVzdGU6MTIzNDU2",
+						"description": ""
+					},
+					{
+						"key": "",
+						"value": "",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "New Daisy 3",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "description",
+							"value": "rest api",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "chip",
+							"value": "ND2",
+							"type": "text",
+							"description": "",
+							"disabled": true
+						},
+						{
+							"key": "neutered",
+							"value": "1",
+							"type": "text",
+							"description": "",
+							"disabled": true
+						},
+						{
+							"key": "gender",
+							"value": "M",
+							"type": "text",
+							"description": "",
+							"disabled": true
+						},
+						{
+							"key": "weight",
+							"value": "",
+							"type": "text",
+							"description": "",
+							"disabled": true
+						},
+						{
+							"key": "age",
+							"value": "56",
+							"type": "text",
+							"description": "",
+							"disabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://www.localhost/v1/animal/96",
+			"request": {
+				"url": "http://www.localhost/v1/animal/96",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic a2VubmVsdGVzdGU6MTIzNDU2",
+						"description": ""
+					},
+					{
+						"key": "",
+						"value": "",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "New Daisy 2",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "description",
+							"value": "rest api",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "chip",
+							"value": "ND2",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "neutered",
+							"value": "1",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "gender",
+							"value": "M",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "weight",
+							"value": "",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "age",
+							"value": "56",
+							"type": "text",
+							"description": ""
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://www.localhost/v1/animal/96",
+			"request": {
+				"url": "http://www.localhost/v1/animal/96",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic a2VubmVsdGVzdGU6MTIzNDU2",
+						"description": ""
+					},
+					{
+						"key": "",
+						"value": "",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "New Daisy 2",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "description",
+							"value": "rest api",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "chip",
+							"value": "ND2",
+							"type": "text",
+							"description": "",
+							"disabled": true
+						},
+						{
+							"key": "neutered",
+							"value": "1",
+							"type": "text",
+							"description": "",
+							"disabled": true
+						},
+						{
+							"key": "gender",
+							"value": "M",
+							"type": "text",
+							"description": "",
+							"disabled": true
+						},
+						{
+							"key": "weight",
+							"value": "",
+							"type": "text",
+							"description": "",
+							"disabled": true
+						},
+						{
+							"key": "age",
+							"value": "56",
+							"type": "text",
+							"description": "",
+							"disabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://www.localhost/v1/animal/96",
+			"request": {
+				"url": "http://www.localhost/v1/animal/96",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic a2VubmVsdGVzdGU6MTIzNDU2",
+						"description": ""
+					},
+					{
+						"key": "",
+						"value": "",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "New Daisy 3",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "description",
+							"value": "rest api",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "chip",
+							"value": "ND2",
+							"type": "text",
+							"description": "",
+							"disabled": true
+						},
+						{
+							"key": "neutered",
+							"value": "1",
+							"type": "text",
+							"description": "",
+							"disabled": true
+						},
+						{
+							"key": "gender",
+							"value": "M",
+							"type": "text",
+							"description": "",
+							"disabled": true
+						},
+						{
+							"key": "weight",
+							"value": "",
+							"type": "text",
+							"description": "",
+							"disabled": true
+						},
+						{
+							"key": "age",
+							"value": "56",
+							"type": "text",
+							"description": "",
+							"disabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://www.localhost/v1/animal/profile/96",
+			"request": {
+				"url": "http://www.localhost/v1/animal/profile/96",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic a2VubmVsdGVzdGU6MTIzNDU2",
+						"description": ""
+					},
+					{
+						"key": "",
+						"value": "",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "New Daisy 2",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "description",
+							"value": "rest api",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "chip",
+							"value": "ND2",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "neutered",
+							"value": "1",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "gender",
+							"value": "M",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "weight",
+							"value": "",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "age",
+							"value": "56",
+							"type": "text",
+							"description": ""
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://www.localhost/v1/animal/create-animal",
+			"request": {
+				"url": "http://www.localhost/v1/animal/create-animal",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic a2VubmVsdGVzdGU6MTIzNDU2",
+						"description": ""
+					},
+					{
+						"key": "",
+						"value": "",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "New Daisy 2",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "description",
+							"value": "rest api",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "chip",
+							"value": "ND20",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "neutered",
+							"value": "1",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "gender",
+							"value": "M",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "weight",
+							"value": "",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "age",
+							"value": "56",
+							"type": "text",
+							"description": ""
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://www.localhost/v1/user/profile/kennelteste",
+			"request": {
+				"url": "http://www.localhost/v1/user/profile/kennelteste",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic a2VubmVsdGVzdGU6MTIzNDU2",
+						"description": ""
+					},
+					{
+						"key": "",
+						"value": "",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "New Daisy 2",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "description",
+							"value": "rest api",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "chip",
+							"value": "ND4",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "neutered",
+							"value": "1",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "gender",
+							"value": "M",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "weight",
+							"value": "",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "age",
+							"value": "56",
+							"type": "text",
+							"description": ""
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
