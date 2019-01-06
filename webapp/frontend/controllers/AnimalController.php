@@ -13,7 +13,7 @@ class AnimalController extends Controller
     {
         $animals = Animal::find()->all();
 
-        return $this->render('animals', [
+        return $this->render('index', [
             'animals' => $animals
         ]);
     }
