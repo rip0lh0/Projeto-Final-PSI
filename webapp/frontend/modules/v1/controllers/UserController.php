@@ -9,10 +9,12 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\filters\auth\HttpBasicAuth;
 use yii\helpers\Json;
+use yii\web\ForbiddenHttpException;
 
 /* Models */
 use common\models\User;
 use common\models\LoginForm;
+use yii\web\NotFoundHttpException;
 
 class UserController extends ActiveController
 {
@@ -21,6 +23,16 @@ class UserController extends ActiveController
     public function behaviors()
     {
         $behaviors = parent::behaviors();
+        // $behaviors['access'] = [
+        //     'class' => AccessControl::className(),
+        //     'only' => ['profile'],
+        //     'rules' => [
+        //         [
+        //             'allow' => true,
+        //             'roles' => ['@'],
+        //         ],
+        //     ],
+        // ];
         $behaviors['basicAuth'] = [
             'class' => HttpBasicAuth::className(),
             'auth' => [$this, 'authentication']
@@ -38,24 +50,42 @@ class UserController extends ActiveController
         return $actions;
     }
 
+
+
     public function authentication($username, $password)
     {
         if (empty($username) || empty($password)) return null;
 
         $user = User::find()->where(['username' => $username])->one();
-        if ($user->validatePassword($password)) {
-            return $user;
-        }
+        if ($user->validatePassword($password)) return $user;
 
         return null;
     }
+
+    // public function actionAuthentication()
+    // {
+    //     $request = Yii::$app->request;
+
+    //     $username = $request->post('username');
+    //     $password = $request->post('password');
+
+    // }
 
     public function actionProfile($username)
     {
         $user = User::find()->where(['username' => $username])->one();
 
-        if (empty($user)) return ["Error" => 'User not found'];
+        if (empty($user)) throw new NotFoundHttpException();
 
         return $user;
+    }
+
+
+
+    public function actionLogout()
+    {
+        Yii::$app->user->logout();
+
+        return ['success' => 'Logout successful'];
     }
 }

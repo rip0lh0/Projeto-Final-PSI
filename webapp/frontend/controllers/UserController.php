@@ -97,7 +97,10 @@ class UserController extends Controller
                     'model' => $model,
                     'locals' => $locals,
                 ]);
+            } else {
+                throw new \yii\web\NotFoundHttpException();
             }
+
         }
     }
 

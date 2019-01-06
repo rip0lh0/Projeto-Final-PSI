@@ -15,6 +15,8 @@ return [
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-frontend',
+            'class' => 'common\components\Request',
+            'web' => '/frontend/web'
         ],
         'user' => [
             'identityClass' => 'common\models\User',
@@ -45,6 +47,9 @@ return [
                 [
                     'class' => 'yii\rest\UrlRule',
                     'controller' => 'v1/animal',
+                    'extraPatterns' => [
+                        'GET profile/{id}' => 'profile'
+                    ],
                     'pluralize' => false
                 ],
                 [
