@@ -20,25 +20,13 @@ class AnimalController extends ActiveController
 {
     public $modelClass = 'common\models\Animal';
 
-    // public function behaviors()
-    // {
-    //     $behaviors = parent::behaviors();
-    //     $behaviors['access'] = [
-    //         'class' => AccessControl::className(),
-    //         'only' => ['CreateAnimal'],
-    //         'rules' => [
-    //             [
-    //                 'allow' => true,
-    //                 'roles' => ['Kennel'],
-    //             ],
-    //         ],
-    //     ];
-    //     return $behaviors;
-    // }
-
     public function checkAccess($action, $model = null, $params = [])
     {
-        if ($action === 'post' || $action === 'delete' || $action === 'create-animal') if (Yii::$app->user->isGuest) throw new \yii\web\ForbiddenHttpException('Apenas Utilizadores registados podem executar' . $action);
+        if ($action === 'create-animal') {
+            if (Yii::$app->user->isGuest && Yii::$app->user->checkAccess('kennel')) {
+                throw new ForbiddenHttpException('Kennels can performe ' . $action);
+            }
+        }
     }
 
 
@@ -106,7 +94,7 @@ class AnimalController extends ActiveController
 
     public function PublishToChannel($channelName, $jsonData)
     {
-        //$username = Yii::$app->user->identity->username;
+        // $username = Yii::$app->user->identity->username;
         // $publisherID = "phpMQTT-" . $username;
         $publisherID = "phpMQTT-Yii2_PUB";
 

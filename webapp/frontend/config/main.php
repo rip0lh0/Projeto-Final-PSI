@@ -40,7 +40,7 @@ return [
             'errorAction' => 'site/error',
         ],
         'urlManager' => [
-            'baseUrl' => '/',
+            //'baseUrl' => '/',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
@@ -60,7 +60,7 @@ return [
                         '{password}' => '<password:\\w+>'
                     ],
                     'extraPatterns' => [
-                        // 'GET authentication/{username}/{password}' => 'authentication',
+                        //'POST authentication/{username}/{password}' => 'authentication',
                         'GET profile/{username}' => 'profile'
                     ],
                     'pluralize' => false

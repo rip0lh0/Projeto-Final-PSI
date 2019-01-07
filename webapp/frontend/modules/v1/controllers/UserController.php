@@ -5,16 +5,17 @@ namespace frontend\modules\v1\controllers;
 use Yii;
 use yii\rest\ActiveController;
 use yii\base\Model;
+use yii\base\ErrorException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\filters\auth\HttpBasicAuth;
 use yii\helpers\Json;
 use yii\web\ForbiddenHttpException;
+use yii\web\NotFoundHttpException;
 
 /* Models */
 use common\models\User;
 use common\models\LoginForm;
-use yii\web\NotFoundHttpException;
 
 class UserController extends ActiveController
 {
@@ -23,21 +24,16 @@ class UserController extends ActiveController
     public function behaviors()
     {
         $behaviors = parent::behaviors();
-        // $behaviors['access'] = [
-        //     'class' => AccessControl::className(),
-        //     'only' => ['profile'],
-        //     'rules' => [
-        //         [
-        //             'allow' => true,
-        //             'roles' => ['@'],
-        //         ],
-        //     ],
-        // ];
         $behaviors['basicAuth'] = [
             'class' => HttpBasicAuth::className(),
-            'auth' => [$this, 'authentication']
+            'auth' => [$this, 'authorization']
         ];
         return $behaviors;
+    }
+
+    public function checkAccess($action, $model = null, $params = [])
+    {
+        if ($action === 'profile') if (Yii::$app->user->isGuest) throw new ForbiddenHttpException('Apenas Utilizadores registados podem executar' . $action);
     }
 
     public function actions()
@@ -52,7 +48,7 @@ class UserController extends ActiveController
 
 
 
-    public function authentication($username, $password)
+    public function authorization($username, $password)
     {
         if (empty($username) || empty($password)) return null;
 
@@ -62,17 +58,23 @@ class UserController extends ActiveController
         return null;
     }
 
-    // public function actionAuthentication()
-    // {
-    //     $request = Yii::$app->request;
+    public function actionAuthentication()
+    {
+        $request = Yii::$app->request;
 
-    //     $username = $request->post('username');
-    //     $password = $request->post('password');
+        $username = $request->post('username');
+        $password = $request->post('password');
 
-    // }
+        $user = User::findByUsername($username);
+
+        if ($user->validatePassword($password)) return Yii::$app->user->login($user);
+        else throw new ErrorException("Faild to Authenticate");
+    }
 
     public function actionProfile($username)
     {
+        if ($username != Yii::$app->user->identity->username) throw new ForbiddenHttpException();
+
         $user = User::find()->where(['username' => $username])->one();
 
         if (empty($user)) throw new NotFoundHttpException();
@@ -84,7 +86,9 @@ class UserController extends ActiveController
 
     public function actionLogout()
     {
-        Yii::$app->user->logout();
+        if (Yii::$app->user->isGuest) throw new ErrorException("No session available");
+
+        Yii::$app->user->logout(true);
 
         return ['success' => 'Logout successful'];
     }
