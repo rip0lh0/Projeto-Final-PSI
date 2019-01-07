@@ -30,6 +30,7 @@
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/fedemotta/yii2-widget-datatables" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/fzaninotto/faker" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/guzzlehttp/psr7" />
+      <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/kartik-v/bootstrap-fileinput" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/kartik-v/bootstrap-popover-x" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/kartik-v/dependent-dropdown" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/kartik-v/yii2-krajee-base" />
@@ -37,6 +38,7 @@
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/kartik-v/yii2-widget-activeform" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/kartik-v/yii2-widget-datepicker" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/kartik-v/yii2-widget-depdrop" />
+      <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/kartik-v/yii2-widget-fileinput" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/kartik-v/yii2-widget-select2" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/myclabs/deep-copy" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/phar-io/manifest" />
@@ -53,6 +55,7 @@
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/phpunit/php-token-stream" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/phpunit/phpunit" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/psr/http-message" />
+      <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/ralouphie/getallheaders" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/rmrevin/yii2-fontawesome" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/sebastian/code-unit-reverse-lookup" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/sebastian/comparator" />
@@ -68,6 +71,7 @@
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/swiftmailer/swiftmailer" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/symfony/browser-kit" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/symfony/console" />
+      <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/symfony/contracts" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/symfony/css-selector" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/symfony/dom-crawler" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/symfony/event-dispatcher" />

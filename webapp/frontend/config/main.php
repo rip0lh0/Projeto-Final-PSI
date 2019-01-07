@@ -24,7 +24,6 @@ return [
             'identityCookie' => ['name' => '_identity-frontend', 'httpOnly' => true],
         ],
         'session' => [
-            // this is the name of the session cookie used for login on the frontend
             'name' => 'frontend',
         ],
         'log' => [
@@ -40,7 +39,7 @@ return [
             'errorAction' => 'site/error',
         ],
         'urlManager' => [
-            //'baseUrl' => '/',
+            'baseUrl' => '/',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
@@ -60,7 +59,6 @@ return [
                         '{password}' => '<password:\\w+>'
                     ],
                     'extraPatterns' => [
-                        //'POST authentication/{username}/{password}' => 'authentication',
                         'GET profile/{username}' => 'profile'
                     ],
                     'pluralize' => false
