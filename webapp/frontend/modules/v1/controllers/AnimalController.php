@@ -29,7 +29,6 @@ class AnimalController extends ActiveController
         }
     }
 
-
     /**
      * Inserts A New Animal And His Medical File
      *
@@ -65,7 +64,7 @@ class AnimalController extends ActiveController
             if ($fileData->validate() && $fileData->save()) {
 
                 $msgJson = Yii::$app->request->post();
-                return $this->PublishToChannel("New Animal", Json::encode($msgJson));
+                return $this->PublishToChannel("NEWANIMAL", Json::encode($msgJson));
             } else
                 $animalData->delete();
         }
@@ -94,8 +93,6 @@ class AnimalController extends ActiveController
 
     public function PublishToChannel($channelName, $jsonData)
     {
-        // $username = Yii::$app->user->identity->username;
-        // $publisherID = "phpMQTT-" . $username;
         $publisherID = "phpMQTT-Yii2_PUB";
 
         $mqtt = new phpMQTT(ServerProperties::_SERVER, ServerProperties::_PORT, $publisherID);

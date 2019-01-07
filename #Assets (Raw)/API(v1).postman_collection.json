@@ -613,6 +613,61 @@
 				"description": ""
 			},
 			"response": []
+		},
+		{
+			"name": "http://www.localhost/v1/user/authentication",
+			"request": {
+				"url": "http://www.localhost/v1/user/authentication",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic a2VubmVsdGVzdGU6MTIzNDU2",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "kennelteste",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://www.localhost/v1/user/logout",
+			"request": {
+				"url": "http://www.localhost/v1/user/logout",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic a2VubmVsdGVzdGU6MTIzNDU2",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
 		}
 	]
 }
