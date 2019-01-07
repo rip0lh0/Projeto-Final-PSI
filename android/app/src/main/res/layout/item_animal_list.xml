@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:layout_weight="9"
+        android:background="@drawable/roundedcontainer_animaldesc"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <ImageView
+            android:id="@+id/imageViewAnimal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".60"
+            android:maxHeight="150dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/profileplaceholder" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".30"
+
+            android:background="@drawable/roundedcontainer_bottom"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TextView" />
+
+                <TextView
+                    android:id="@+id/textViewName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nome"
+                    android:textSize="25sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textViewAge"
+                        android:layout_width="211dp"
+                        android:layout_height="wrap_content"
+                        android:hint="Idade" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textViewDesc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Descrição"
+                        android:lines="5"
+                        android:maxLines="5" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/labelGender"
+                        android:layout_width="115dp"
+                        android:layout_height="wrap_content"
+                        android:text="Sexo" />
+
+                    <TextView
+                        android:id="@+id/textViewGender"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="25"
+                    android:background="@drawable/roundedcontaineranimalleftbutton"
+                    android:drawableLeft="@drawable/ic_action_send_message"
+                    android:text="Contactar" />
+
+                <ImageButton
+                    android:id="@+id/button3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="10"
+                    android:background="@drawable/roundedcontaineranimalcenterbtn"
+                    android:src="@drawable/ic_action_white_share" />
+
+                <ImageButton
+                    android:id="@+id/button4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="10"
+                    android:background="@drawable/roundedcontaineranimalrightbutton"
+                    android:src="@drawable/ic_action_white_view"
+                    android:text="Button" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    </LinearLayout>
+

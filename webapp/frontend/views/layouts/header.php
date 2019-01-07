@@ -1,4 +1,5 @@
 <?php
+
 use yii\helpers\HTML;
 use yii\helpers\Url;
 
@@ -29,3 +30,4 @@ use yii\helpers\Url;
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
+
