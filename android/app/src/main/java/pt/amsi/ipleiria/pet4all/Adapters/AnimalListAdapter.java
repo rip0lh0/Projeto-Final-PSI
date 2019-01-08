@@ -61,32 +61,34 @@ public class AnimalListAdapter extends BaseAdapter {
         private TextView textViewAge;
         private TextView textViewGender;
         private TextView textViewDesc;
+        private TextView textViewType;
         private ImageView imageViewAnimal;
 
         public ViewHolderList(View convertView){
             textViewName = convertView.findViewById(R.id.textViewName);
             textViewAge = convertView.findViewById(R.id.textViewAge);
             textViewGender = convertView.findViewById(R.id.textViewGender);
+            textViewType = convertView.findViewById(R.id.textViewType);
             textViewDesc = convertView.findViewById(R.id.textViewDesc);
             imageViewAnimal = convertView.findViewById(R.id.imageViewAnimal);
         }
 
-        public void update(Animal animal, AnimalFile animalFile){
+        public void update(Animal animal){
             textViewName.setText(animal.getName());
             textViewDesc.setText(String.valueOf(animal.getDescription()));
             Glide.with(context)
-                    .load(animalFile.get())
-                    .placeholder(R.drawable.ipl_semfundo)
+                    .load(animal.getImage())
+                    .placeholder(R.drawable.error_dog)
                     .fitCenter()
                     .thumbnail(0f)
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .into(imageViewCapa);
+                    .into(imageViewAnimal);
         }
 
     }
 
-    public void refresh(ArrayList<Livro> livros){
-        this.livros = livros;
+    public void refresh(ArrayList<Animal> animals){
+        this.animals = animals;
         notifyDataSetChanged();
     }
 }
