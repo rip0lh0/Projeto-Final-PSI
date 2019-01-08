@@ -6,6 +6,7 @@ public class Animal {
     private int id;
     private String name;
     private String description;
+    private String image;
 
     public int getId() {
         return id;
@@ -19,9 +20,10 @@ public class Animal {
 
     public Animal(){}
 
-    public Animal(String name, String description){
+    public Animal(String name, String description, String image){
         this.name = name;
         this.description = description;
+        this.image = image;
     }
 
     public void update(String name, String description){
@@ -29,6 +31,9 @@ public class Animal {
         this.description = description;
     }
 
+    public String getImage(){
+        return image;
+    }
 
     public static void delete(Animal animal){
 
