@@ -28,6 +28,9 @@ class AnimalForm extends Model
     /* FileBreed */
     public $parentBreed;
     public $breeds;
+
+    private $created_at;
+
     /**
      * @var UploadedFile[]
      */
@@ -154,7 +157,7 @@ class AnimalForm extends Model
         $kennelName = substr($kennelName, 0, strpos($kennelName, "@"));
 
         $count = 0;
-        $path = Yii::getAlias('@common') . '/uploads/animals/' . $kennelName . '/' . $this->name;
+        $path = Yii::getAlias('@common') . '/uploads/animals/' . $kennelName + . '/' . $this->name;
 
 
         FileHelper::createDirectory($path);

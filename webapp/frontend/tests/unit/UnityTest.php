@@ -15,6 +15,19 @@ class UnityTest extends \Codeception\Test\Unit
     {
     }
 
+    public function testFistName(){
+        $user = new User;
+        $user->setFirstName('valter');
+        $this->assertEquals($user->getFistName(), 'valter');
+    }
+
+    public function testUsername(){
+        $user = new User;
+        $user->
+
+    }
+
+
     // tests
     public function testSomeFeature()
     {
