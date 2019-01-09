@@ -2,10 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d139d08-1f37-4d82-a0e1-2f9254b7bc9e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Adapters/AnimalListAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Adapters/AnimalListAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Activities/AnimalDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Activities/AnimalDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Activities/AnimalsGrid.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Activities/AnimalsGrid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Activities/AnimalsList.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Activities/AnimalsList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Activities/searchAnimalActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Activities/searchAnimalActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/Animal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/AnimalDBHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/AnimalDBHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Utilities/AnimalJsonParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Utilities/AnimalJsonParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/layout/activity_animals_grid.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/res/layout/activity_animals_grid.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/layout/activity_animals_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/res/layout/activity_animals_list.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/layout/activity_search_animal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/res/layout/activity_search_animal.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/layout/animal_details_fragment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/res/layout/animal_details_fragment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,9 +30,9 @@
     <session id="386510699">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="14" />
+          <entry key="project.closed" value="15" />
           <entry key="project.open.time.10" value="1" />
-          <entry key="project.open.time.11" value="3" />
+          <entry key="project.open.time.11" value="4" />
           <entry key="project.open.time.12" value="2" />
           <entry key="project.open.time.13" value="2" />
           <entry key="project.open.time.15" value="1" />
@@ -30,20 +40,20 @@
           <entry key="project.open.time.6" value="4" />
           <entry key="project.open.time.7" value="2" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="17" />
+          <entry key="project.opened" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="3" />
           <entry key="htaccess" value="8" />
-          <entry key="php" value="64" />
+          <entry key="php" value="65" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="3" />
-          <entry key="PHP" value="64" />
+          <entry key="PHP" value="65" />
           <entry key="htaccess" value="8" />
         </counts>
       </usages-collector>
@@ -51,13 +61,13 @@
         <counts>
           <entry key="css" value="61" />
           <entry key="htaccess" value="66" />
-          <entry key="php" value="1607" />
+          <entry key="php" value="1613" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="61" />
-          <entry key="PHP" value="1607" />
+          <entry key="PHP" value="1613" />
           <entry key="htaccess" value="66" />
         </counts>
       </usages-collector>
@@ -71,7 +81,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webapp/console/migrations/m190107_211744_update_data.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="449">
+            <state relative-caret-position="2720">
               <caret line="160" selection-start-line="160" selection-end-line="160" />
             </state>
           </provider>
@@ -79,14 +89,21 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webapp/console/migrations/m181217_152129_update_Animal_File.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-102" />
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webapp/console/migrations/m190108_023446_update_dates.php">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/webapp/console/migrations/m190108_023446_update_dates.php">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/webapp/console/migrations/m190108_174604_update_data.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -131,6 +148,7 @@
         <option value="$PROJECT_DIR$/webapp/frontend/controllers/AnimalController.php" />
         <option value="$PROJECT_DIR$/webapp/common/config/bootstrap.php" />
         <option value="$PROJECT_DIR$/webapp/console/migrations/m190107_211744_update_data.php" />
+        <option value="$PROJECT_DIR$/webapp/console/migrations/m190108_174604_update_data.php" />
       </list>
     </option>
   </component>
@@ -237,8 +255,9 @@
       <path value="$PROJECT_DIR$/webapp/vendor/symfony/contracts" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="953" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="561" />
+    <option name="y" value="-21" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
@@ -324,16 +343,17 @@
       <workItem from="1546796152022" duration="6569000" />
       <workItem from="1546854265568" duration="1210000" />
       <workItem from="1546956115978" duration="2130000" />
+      <workItem from="1547037113377" duration="139000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47672000" />
+    <option name="totallyTimeSpent" value="47811000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="953" y="0" width="974" height="1047" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4989154" visible="true" weight="0.4573304" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4989154" visible="true" weight="0.22814499" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5010846" side_tool="true" weight="0.14552239" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -393,7 +413,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/webapp/common/models/BreedSize.php" />
     <entry file="file://$PROJECT_DIR$/webapp/common/models/BreedCoat.php" />
     <entry file="file://$PROJECT_DIR$/webapp/common/models/BreedEnergy.php" />
     <entry file="file://$PROJECT_DIR$/webapp/backend/views/animal/index.php">
@@ -626,18 +645,6 @@
     <entry file="file://$PROJECT_DIR$/webapp/frontend/config/bootstrap.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/console/migrations/m190107_211744_update_data.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
-          <caret line="160" selection-start-line="160" selection-end-line="160" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/console/migrations/m181217_152129_update_Animal_File.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-102" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webapp/common/models/Animal.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="867">
@@ -645,8 +652,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/console/migrations/m190107_211744_update_data.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2720">
+          <caret line="160" selection-start-line="160" selection-end-line="160" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/console/migrations/m181217_152129_update_Animal_File.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/webapp/console/migrations/m190108_023446_update_dates.php">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/console/migrations/m190108_174604_update_data.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>

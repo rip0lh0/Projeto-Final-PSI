@@ -28,7 +28,7 @@ public class SingletonAnimals implements AnimalsListener {
 
     private static RequestQueue volleyQueue =null;
 
-    private String mUrlApiAnimals = "";
+    private String mUrlApiAnimals = "192.168.43.186/v1/animal";
     private String mUrlApiLogin = "";
     private AnimalsListener animalsListener;
 

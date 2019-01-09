@@ -37,7 +37,7 @@ public static ArrayList<Animal>parserJsonAnimals(JSONArray response,Context cont
             int status=animal.getInt("status");
 
             Animal auxAnimal=new Animal(idAnimal,name,description,
-                    breed,coat,size,energy,chip,neutered,gender,weight,age
+                    /*breed,*/coat,size,energy,chip,neutered,gender,weight,age
             ,created_at,updated_at,status);
             tempAnimalList.add(auxAnimal);
         }
@@ -71,7 +71,7 @@ public static ArrayList<Animal>parserJsonAnimals(JSONArray response,Context cont
             int status=animal.getInt("status");
 
            animalAux=new Animal(idAnimal,name,description,
-                    breed,coat,size,energy,chip,neutered,gender,weight,age
+                   /*breed,*/coat,size,energy,chip,neutered,gender,weight,age
                     ,created_at,updated_at,status);
         }
         catch (JSONException ex){
@@ -84,7 +84,7 @@ public static ArrayList<Animal>parserJsonAnimals(JSONArray response,Context cont
 
     }
 
-    public static boolean isConnectionInternet(Context context){
+    public static boolean isConnectedInternet(Context context){
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = cm.getActiveNetworkInfo();
         return  networkInfo != null && networkInfo.isConnected();

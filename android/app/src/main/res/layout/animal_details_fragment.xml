@@ -7,14 +7,16 @@
     android:fillViewport="true"
     android:background="#64435463"
     android:layout_height="match_parent"
-    tools:context=".Fragments.ReportFragment">
+    tools:context=".Fragments.AnimalDetailsFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginRight="25dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="25dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
         android:background="@drawable/roundedcontainer_animaldesc"
         android:orientation="vertical">
 
@@ -25,64 +27,78 @@
             android:id="@+id/imageView3"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.2"
+            android:layout_weight="0.1"
+            android:cropToPadding="true"
+            android:padding="5dp"
             app:srcCompat="@drawable/error_dog" />
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="0dp"
+            android:layout_weight="0.1">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/textViewName2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="@string/reportSpinnerPrompt" />
-
-                <Spinner
-                    android:id="@+id/reportMenuSpinner"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/roundedcontainerprofile"
-                    android:drawSelectorOnTop="true"
-                    android:overlapAnchor="false"
-                    android:entries="@array/reportDropdown"
-                    android:prompt="@string/reportSpinnerPrompt"
-                    android:spinnerMode="dropdown" />
+                    android:hint="Nome"
+                    android:textSize="25sp" />
 
                 <TextView
+                    android:id="@+id/textViewDesc2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/reportSpinnerPromptDesc" />
+                    android:hint="Descrição"
+                    android:lines="3"
+                    android:maxLines="3" />
 
-                <EditText
-                    android:id="@+id/editText"
-                    android:gravity="top|start"
+                <TextView
+                    android:id="@+id/textViewAge2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/roundedcontainerprofile"
-                    android:ems="10"
-                    android:hint="@string/reportSpinnerPromptDesc1"
-                    android:inputType="textMultiLine"
-                    android:lines="6"
-                    android:minLines="4"
-                    android:scrollbars="vertical" />
+                    android:hint="Idade" />
 
-                <Button
-                    android:id="@+id/button"
-                    android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/textViewGender2"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:backgroundTint="@color/color_Main_blue"
-                    android:text="@string/reportSpinnerPromptSubmit"
-                    android:textColor="@color/btn_text_color_blue" />
+                    android:hint="Género" />
+
+                <TextView
+                    android:id="@+id/textViewType2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Tipo" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Energia" />
+
+                    <TextView
+                        android:id="@+id/textView11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pelugem" />
+
+                    <TextView
+                        android:id="@+id/textView12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tamanho" />
+
+                </LinearLayout>
 
             </LinearLayout>
         </ScrollView>

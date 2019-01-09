@@ -31,6 +31,9 @@
         <activity android:name=".Activities.RegisterKennelActivity" />
         <activity android:name=".Activities.RegisterUserActivity" />
         <activity android:name=".Activities.searchAnimalActivity"/>
+        <activity android:name=".Activities.AnimalDetails" />
+        <activity android:name=".Activities.AnimalsGrid" />
+        <activity android:name=".Activities.AnimalsList" />
     </application>
 
 </manifest>

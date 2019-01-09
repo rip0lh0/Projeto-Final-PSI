@@ -26,11 +26,11 @@ public class Animal {
 
 
 
-    public Animal(long id,String name,String description, int breed, int coat, int size, int energy,String chip,int neutered,int gender,int weight,int age,String created_at,String updated_at,int status){
+    public Animal(long id,String name,String description/*, int breed*/, int coat, int size, int energy,String chip,int neutered,int gender,int weight,int age,String created_at,String updated_at,int status){
         this.id=id;
         this.name = name;
         this.description = description;
-        this.breed= breed;
+        //this.breed= breed;
         this.coat=coat;
         this.size=size;
         this.energy=energy;
