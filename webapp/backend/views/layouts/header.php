@@ -6,7 +6,7 @@ use common\models\User;
 
 
 $userName = Yii::$app->user->identity->username;
-$local = Yii::$app->user->identity->local;
+$local = Yii::$app->user->identity->kennel->local;
 AppAsset::register($this);
 ?>
 <header class="main-header">

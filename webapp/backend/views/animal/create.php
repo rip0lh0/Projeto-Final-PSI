@@ -44,24 +44,15 @@ $script = '$.post("' . Url::to(['animal/subbreed', 'id' => '']) . '" + $(this).v
                         <h3 class="box-title">Ficha Do Animal</h3>
                     </div>
                     <div class="box-body">
-                        <?= $form->field($model, 'parentBreed')->widget(Select2::classname(), [
-                            'data' => ArrayHelper::map($breed, 'id', 'name'),
-                            'hideSearch' => true,
-                            'options' => [
-                                'placeholder' => 'Selecionar Tipo',
-                                'onchange' => $script
-                            ],
-                            'pluginOptions' => [
-                                'allowClear' => true
-                            ],
-                        ]); ?>
-                        
-                        <?= $form->field($model, 'breeds')->widget(Select2::className(), [
-                            'options' => [
-                                'multiple' => true
-                            ],
-                        ]); ?>
-
+                        <?= $form->field($model, 'energy')->dropDownList(
+                            ArrayHelper::map($energy, 'id', 'energy')
+                        ); ?>
+                        <?= $form->field($model, 'coat')->dropDownList(
+                            ArrayHelper::map($coat, 'id', 'coat_size')
+                        ); ?>
+                        <?= $form->field($model, 'size')->dropDownList(
+                            ArrayHelper::map($size, 'id', 'size')
+                        ); ?>
                         <!-- Animal Gender -->
                         <?= $form->field($model, 'gender')->dropDownList([
                             'M' => 'Masculino',

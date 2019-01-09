@@ -21,6 +21,7 @@ use frontend\models\SignupForm;
 /* Exceptions */
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
+use common\models\User;
 
 
 class UserController extends Controller
@@ -76,16 +77,16 @@ class UserController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
             $model->user_type = $signupType;
-            if ($user = $model->signup()) return $this->redirect(["user/authentication"]);
+            if ($model->signup()) return $this->redirect(["user/authentication"]);
         }
         
         // SignupType its User (0) Or Kennel (1)
-        if ($signupType == SignupForm::SELF_ADOPTER) {
+        if ($signupType == User::TYPE_ADOPTER) {
             return $this->render('signupAdopter', [
                 'model' => $model,
             ]);
         } else {
-            if ($signupType == SignupForm::SELF_KENNEL) {
+            if ($signupType == User::TYPE_KENNEL) {
                 $mainLocals = Local::find()->asArray()->where(['id_parent' => null])->all();
                 $locals = [];
 

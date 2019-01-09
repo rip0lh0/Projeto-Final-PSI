@@ -19,6 +19,9 @@ use common\models\User;
 use common\models\Breed;
 use common\models\KennelAnimal;
 use yii\helpers\Json;
+use common\models\Coat;
+use common\models\Energy;
+use common\models\Size;
 /**
  * AnimalController implements the CRUD actions for Animal model.
  */
@@ -62,7 +65,11 @@ class AnimalController extends Controller
         $searchModel->id_kennel = $kennel->id;
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams, $kennel);
 
-        return $this->render('index', ['kennelAnimals' => $kennelAnimals, 'dataProvider' => $dataProvider, 'searchModel' => $searchModel]);
+        return $this->render('index', [
+            'kennelAnimals' => $kennelAnimals,
+            'dataProvider' => $dataProvider,
+            'searchModel' => $searchModel
+        ]);
     }
 
     /**
@@ -73,7 +80,8 @@ class AnimalController extends Controller
      */
     public function actionView($id)
     {
-        $model = KennelAnimal::find()->where(['id' => $id])->one();
+        $kennel_id = User::findIdentity(Yii::$app->user->id)->kennel->id;
+        $model = KennelAnimal::find()->where(['id' => $id, 'id_kennel' => $kennel_id])->one();
 
         return $this->render('view', [
             'model' => $model,
@@ -88,7 +96,10 @@ class AnimalController extends Controller
     public function actionCreate()
     {
         $model = new AnimalForm();
-        $breed = Breed::find()->where(['id_parent' => null])->asArray()->all();
+        $coat = Coat::find()->asArray()->all();
+        $energy = Energy::find()->asArray()->all();
+        $size = Size::find()->asArray()->all();
+        //$breed = Breed::find()->where(['id_parent' => null])->asArray()->all();
         $error = '';
 
         if ($model->load(Yii::$app->request->post())) {
@@ -99,25 +110,28 @@ class AnimalController extends Controller
         }
 
         return $this->render('create', [
-            'breed' => $breed,
+            //'breed' => $breed,
+            'coat' => $coat,
+            'energy' => $energy,
+            'size' => $size,
             'model' => $model,
             'error' => $error
         ]);
     }
 
     // Create Functions That Loads Selected Data (ID)
-    public function actionSubbreed($id)
-    {
-        $dataReceived = Breed::find()->where(['id_parent' => $id])->asArray()->all();
+    // public function actionSubbreed($id)
+    // {
+    //     $dataReceived = Breed::find()->where(['id_parent' => $id])->asArray()->all();
 
-        if (!empty($dataReceived)) {
-            foreach ($dataReceived as $data) {
-                echo "<option value='" . $data['id'] . "'>" . $data['name'] . "</option>";
-            }
-        } else {
-            echo "<option value=''>-</option>";
-        }
-    }
+    //     if (!empty($dataReceived)) {
+    //         foreach ($dataReceived as $data) {
+    //             echo "<option value='" . $data['id'] . "'>" . $data['name'] . "</option>";
+    //         }
+    //     } else {
+    //         echo "<option value=''>-</option>";
+    //     }
+    // }
 
     /**
      * Updates an existing Animal model.

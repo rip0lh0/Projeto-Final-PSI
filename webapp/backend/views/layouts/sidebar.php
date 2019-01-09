@@ -18,11 +18,11 @@ AppAsset::register($this);
             'icon' => 'paw',
             'label' => 'Animais',
         ];
-        $animalMenuItems[] = [
-            'url' => ['site/breed'],
-            'icon' => 'cubes',
-            'label' => 'Raças',
-        ];
+        // $animalMenuItems[] = [
+        //     'url' => ['site/breed'],
+        //     'icon' => 'cubes',
+        //     'label' => 'Raças',
+        // ];
         /* End Animals Menu Items */
 
         $menuItems = [];

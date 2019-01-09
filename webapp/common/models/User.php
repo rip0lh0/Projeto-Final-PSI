@@ -4,15 +4,13 @@ namespace common\models;
 
 use Yii;
 use yii\base\NotSupportedException;
-use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
-
+use yii\behaviors\TimestampBehavior;
 /**
  * This is the model class for table "user".
  *
  * @property int $id
- * @property int $id_local
  * @property string $username
  * @property string $password_hash
  * @property string $password_reset_token
@@ -22,13 +20,20 @@ use yii\web\IdentityInterface;
  * @property int $created_at
  * @property int $updated_at
  *
+ * @property Adopter[] $adopters
  * @property Kennel[] $kennels
- * @property Local $local
  */
 class User extends ActiveRecord implements IdentityInterface
 {
     const STATUS_DELETED = 0;
-    const STATUS_ACTIVE = 10;
+    const STATUS_TOKEN = 1;
+    const STATUS_PROFILE = 2;
+    const STATUS_BAN = 3;
+    const STATUS_ACTIVE = 4;
+
+    const TYPE_KENNEL = 0;
+    const TYPE_ADOPTER = 1;
+
     /**
      * {@inheritdoc}
      */
@@ -53,19 +58,8 @@ class User extends ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            ['status', 'default', 'value' => self::STATUS_ACTIVE],
-            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
-            [['id_local'], 'exist', 'skipOnError' => true, 'targetClass' => Local::className(), 'targetAttribute' => ['id_local' => 'id']],
-        ];
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function attributeLabels()
-    {
-        return [
-            'id_local' => 'Local',
+            ['status', 'default', 'value' => self::STATUS_TOKEN],
+            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_BAN, self::STATUS_PROFILE, self::STATUS_TOKEN, self::STATUS_DELETED]]
         ];
     }
     /**
@@ -202,19 +196,16 @@ class User extends ActiveRecord implements IdentityInterface
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getLocal()
+    public function getAdopters()
     {
-        return $this->hasOne(Local::className(), ['id' => 'id_local']);
+        return $this->hasMany(Adopter::className(), ['id_user' => 'id']);
     }
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function getKennel()
     {
         return $this->hasOne(Kennel::className(), ['id_user' => 'id']);
     }
-
-    public function getAdopter()
-    {
-        return $this->hasOne(Adopter::className(), ['id_user' => 'id']);
-    }
-
 }

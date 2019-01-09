@@ -4,7 +4,7 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Url;
-use frontend\models\SignupForm;
+use common\models\User;
 
 ?>
 <section class="signup-menu row-fluid bg-image" style="background-image: url('<?= Url::base(true) ?>/images/bg_1.jpg');">
@@ -17,7 +17,7 @@ use frontend\models\SignupForm;
                 <div class="mp-body" style="padding-top: 1%;">
                     <h3 class="mp-title">Utilizador</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <?= Html::a('Registar', ['user/registration', 'signupType' => SignupForm::SELF_ADOPTER], ['class' => 'btn btn-blue btn-large btn-block btn-flat']); ?>
+                    <?= Html::a('Registar', ['user/registration', 'signupType' => User::TYPE_ADOPTER], ['class' => 'btn btn-blue btn-large btn-block btn-flat']); ?>
                 </div>
             </div>
         </div>
@@ -29,7 +29,7 @@ use frontend\models\SignupForm;
                 <div class="mp-body" style="padding-top: 1%;">
                     <h3 class="mp-title">Associção</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <?= Html::a('Registar', ['user/registration', 'signupType' => SignupForm::SELF_KENNEL], ['class' => 'btn btn-orange btn-large btn-block btn-flat']); ?>
+                    <?= Html::a('Registar', ['user/registration', 'signupType' => User::TYPE_KENNEL], ['class' => 'btn btn-orange btn-large btn-block btn-flat']); ?>
                 </div>
             </div>
         </div>

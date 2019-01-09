@@ -9,14 +9,18 @@ use Yii;
  *
  * @property int $id
  * @property int $id_user
- * @property int $id_contact
- * @property int $id_social
  * @property string $name
  * @property double $nif
  * @property string $address
+ * @property int $id_local
+ * @property string $phone
+ * @property string $cell_phone
+ * @property string $fax
+ * @property string $facebook
+ * @property string $instagram
+ * @property string $youtube
  *
- * @property Contact $contact
- * @property Social $social
+ * @property Local $local
  * @property User $user
  * @property KennelAnimal[] $kennelAnimals
  * @property Schedule[] $schedules
@@ -37,12 +41,11 @@ class Kennel extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_user', 'name', 'nif', 'address'], 'required'],
-            [['id_user', 'id_contact', 'id_social'], 'integer'],
+            [['id_user', 'name', 'nif', 'address', 'id_local'], 'required'],
+            [['id_user', 'id_local'], 'integer'],
             [['nif'], 'number'],
-            [['name', 'address'], 'string', 'max' => 255],
-            [['id_contact'], 'exist', 'skipOnError' => true, 'targetClass' => Contact::className(), 'targetAttribute' => ['id_contact' => 'id']],
-            [['id_social'], 'exist', 'skipOnError' => true, 'targetClass' => Social::className(), 'targetAttribute' => ['id_social' => 'id']],
+            [['name', 'address', 'phone', 'cell_phone', 'fax', 'facebook', 'instagram', 'youtube'], 'string', 'max' => 255],
+            [['id_local'], 'exist', 'skipOnError' => true, 'targetClass' => Local::className(), 'targetAttribute' => ['id_local' => 'id']],
             [['id_user'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['id_user' => 'id']],
         ];
     }
@@ -55,28 +58,25 @@ class Kennel extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'id_user' => 'Id User',
-            'id_contact' => 'Id Contact',
-            'id_social' => 'Id Social',
             'name' => 'Name',
             'nif' => 'Nif',
             'address' => 'Address',
+            'id_local' => 'Id Local',
+            'phone' => 'Phone',
+            'cell_phone' => 'Cell Phone',
+            'fax' => 'Fax',
+            'facebook' => 'Facebook',
+            'instagram' => 'Instagram',
+            'youtube' => 'Youtube',
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getContact()
+    public function getLocal()
     {
-        return $this->hasOne(Contact::className(), ['id' => 'id_contact']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getSocial()
-    {
-        return $this->hasOne(Social::className(), ['id' => 'id_social']);
+        return $this->hasOne(Local::className(), ['id' => 'id_local']);
     }
 
     /**

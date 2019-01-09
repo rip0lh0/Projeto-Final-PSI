@@ -9,7 +9,6 @@ use yii\web\UploadedFile;
 
 /* @Models */
 use common\models\Animal;
-use common\models\AnimalFile;
 use common\models\KennelAnimal;
 use common\models\Breed;
 use common\models\FileBreed;
@@ -19,17 +18,17 @@ class AnimalForm extends Model
     /* Animal */
     public $name;
     public $description;
-    /* File */
     public $chip;
     public $gender;
     public $neutered;
     public $weight;
     public $age;
+    public $energy;
+    public $size;
+    public $coat;
     /* FileBreed */
-    public $parentBreed;
-    public $breeds;
-
-    private $created_at;
+    //public $breeds;
+    //public $parentBreed;
 
     /**
      * @var UploadedFile[]
@@ -40,15 +39,12 @@ class AnimalForm extends Model
     {
         return [
             /* Animal */
-            [['name', 'description', 'neutered', 'gender'], 'required'],
+            [['name', 'description', 'neutered', 'gender', 'energy', 'coat', 'size'], 'required'],
             [['name', 'description', 'chip'], 'string', 'max' => 255],
-            /* Medical File */
-            [['neutered', 'gender'], 'required'],
             [['neutered', 'age'], 'integer'],
-            [['neutered', 'gender'], 'required'],
-            [['weight', 'parentBreed'], 'number'],
+            [['weight'/*, 'parentBreed'*/ ], 'number'],
 
-            [['breeds'], 'each', 'rule' => ['number']],
+            //[[/*'breeds', */'energy', 'coat', 'size'], 'each', 'rule' => ['number']],
             /* Images */
             [['photos'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg', 'maxFiles' => 12]
         ];
@@ -59,50 +55,33 @@ class AnimalForm extends Model
         if (!$this->validate()) return false;
 
         $animal = new Animal();
-        $hasSuccess = true;
+
         $kennel = Yii::$app->user->identity->kennel;
 
         /* Animal */
         $animal->name = $this->name;
         $animal->description = $this->description;
+        $animal->chip = $this->chip;
+        $animal->neutered = $this->neutered;
+        $animal->gender = $this->gender;
+        $animal->weight = $this->weight;
+        $animal->age = $this->age;
+        $animal->id_energy = $this->energy;
+        $animal->id_coat = $this->coat;
+        $animal->id_size = $this->size;
 
-        $hasSuccess = $hasSuccess && $animal->save();
+        if (!$animal->save()) return null;
 
-        $hasSuccess = $hasSuccess &&
-            $this->saveAnimalFile($animal->id) &&
-            $this->saveKennelAnimal($animal->id, $kennel->id);
+        $kennelAnimal = $this->saveAnimalToKennel($animal->id, $kennel->id);
 
-        if (!$hasSuccess) $animal->delete();
+        if (!$kennelAnimal) {
+            $animal->delete();
+            return null;
+        }
 
-        $this->savePhotos();
+        $this->saveAnimalPhotos($kennelAnimal->created_at);
 
-        return $hasSuccess;
-    }
-
-    /**
-     * Medical Information
-     * 
-     * @return boolean
-     */
-    public function saveAnimalFile($animal_ID)
-    {
-        $medicalFile = new AnimalFile();
-
-        $medicalFile->id_animal = $animal_ID;
-        $medicalFile->chip = $this->chip;
-        $medicalFile->neutered = $this->neutered;
-        $medicalFile->gender = $this->gender;
-        $medicalFile->weight = $this->weight;
-        $medicalFile->age = $this->age;
-
-        $medicalFile->created_at = date('Y-m-d H:i:s');
-        $medicalFile->updated_at = date('Y-m-d H:i:s');
-
-        if ($medicalFile->save() == null) return false;
-
-        $this->saveAnimalBreeds($medicalFile->id);
-
-        return true;
+        return $animal;
     }
 
     /**
@@ -110,17 +89,16 @@ class AnimalForm extends Model
      * 
      * @return boolean
      */
-    public function saveKennelAnimal($animal_ID, $kennel_ID)
+    public function saveAnimalToKennel($idAnimal, $idKennel)
     {
         $kennelAnimal = new KennelAnimal();
 
-        $kennelAnimal->id_animal = $animal_ID;
-        $kennelAnimal->id_kennel = $kennel_ID;
+        $kennelAnimal->id_animal = $idAnimal;
+        $kennelAnimal->id_kennel = $idKennel;
 
-        $kennelAnimal->created_at = date('Y-m-d H:i:s');
-        $kennelAnimal->updated_at = date('Y-m-d H:i:s');
+        if ($kennelAnimal->save()) return $kennelAnimal;
 
-        if ($kennelAnimal->save() != null) return true;
+        var_dump($kennelAnimal);
 
         return false;
     }
@@ -130,26 +108,27 @@ class AnimalForm extends Model
      * 
      * @return mixed
      */
-    public function saveAnimalBreeds($file_ID)
-    {
-        if (!empty($this->breeds)) {
-            foreach ($this->breeds as $value) {
-                $fileBreed = new FileBreed();
+    // public function saveAnimalBreeds($idAnimal)
+    // {
+    //     if (empty($this->breeds)) return false;
 
-                $fileBreed->id_breed = $value;
-                $fileBreed->id_file = $file_ID;
+    //     foreach ($this->breeds as $value) {
+    //         $fileBreed = new FileBreed();
 
-                $fileBreed->save();
-            }
-        }
-    }
+    //         $fileBreed->id_breed = $value;
+    //         $fileBreed->id_animal = $idAnimal;
+
+    //         $fileBreed->save();
+    //     }
+
+    // }
 
     /**
      * Save Photos To Directory
      * 
      * @return mixed
      */
-    public function savePhotos()
+    public function saveAnimalPhotos($timestamp)
     {
         if (empty($this->photos)) return;
 
@@ -157,12 +136,12 @@ class AnimalForm extends Model
         $kennelName = substr($kennelName, 0, strpos($kennelName, "@"));
 
         $count = 0;
-        $path = Yii::getAlias('@common') . '/uploads/animals/' . $kennelName + . '/' . $this->name;
-
+        $path = Yii::getAlias('@common') . '/uploads/animals/' . $kennelName . '/' . $this->name . '_' . $timestamp;
 
         FileHelper::createDirectory($path);
+
         foreach ($this->photos as $photo) {
-            $photo->saveAs($path . '/' . $count . '.png');
+            $photo->saveAs($path . '/' . $count . '.jpeg');
             $count++;
         }
     }
