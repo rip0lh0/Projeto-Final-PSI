@@ -112,4 +112,26 @@ class Animal extends \yii\db\ActiveRecord
     {
         return $this->hasMany(KennelAnimal::className(), ['id_animal' => 'id']);
     }
+
+    public function getKennelAnimal()
+    {
+        return $this->hasMany(KennelAnimal::className(), ['id_animal' => 'id'])->orderBy('created_at DESC')->one();
+        //return $this->hasOne(KennelAnimal::className(), ['id_animal' => 'id', 'created_at' => 'DESC']);
+    }
+
+
+
+    public function getImage($imageName)
+    {
+        $kennel = $this->kennelAnimal->kennel;
+        $kennelEmail = substr($kennel->user->email, 0, strpos($kennel->user->email, "@"));
+
+        $imagePath = Yii::getAlias('@uploads') . '/animals/' . $kennelEmail . '/' . $this->name . '_' . $this->kennelAnimal->created_at . '/' . $imageName . '.jpeg';
+
+        $fp = fopen($imagePath, 'r');
+        $data = fread($fp, filesize($imagePath));
+
+        echo '<img src="data:image/jpeg;base64,' . base64_encode($data) . '" style="width: 100%; object-fit: cover; height: 300px"/>';
+        fclose($fp);
+    }
 }
