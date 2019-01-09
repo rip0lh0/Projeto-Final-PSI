@@ -16,78 +16,78 @@ class m190107_211744_update_data extends Migration
         if ($this->db->driverName === 'mysql') $tableOptions = 'CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE=InnoDB';
 
         // /* Animal Table */
-        // $this->addColumn('animal', 'id_coat', $this->integer());
-        // $this->addColumn('animal', 'id_energy', $this->integer());
-        // $this->addColumn('animal', 'id_size', $this->integer());
-        // $this->addColumn('animal', 'chip', $this->string()->unique());
-        // $this->addColumn('animal', 'age', $this->float()->null());
-        // $this->addColumn('animal', 'gender', $this->integer());
-        // $this->addColumn('animal', 'weight', $this->integer());
-        // $this->addColumn('animal', 'neutered', $this->tinyInteger()->notNull());
-        // $this->addColumn('animal', 'created_at', $this->dateTime()->notNull());
-        // $this->addColumn('animal', 'updated_at', $this->dateTime()->notNull());
-        // $this->addColumn('animal', 'status', $this->integer()->notNull());
+        $this->addColumn('animal', 'id_coat', $this->integer());
+        $this->addColumn('animal', 'id_energy', $this->integer());
+        $this->addColumn('animal', 'id_size', $this->integer());
+        $this->addColumn('animal', 'chip', $this->string()->unique());
+        $this->addColumn('animal', 'age', $this->float()->null());
+        $this->addColumn('animal', 'gender', $this->integer());
+        $this->addColumn('animal', 'weight', $this->integer());
+        $this->addColumn('animal', 'neutered', $this->tinyInteger()->notNull());
+        $this->addColumn('animal', 'created_at', $this->dateTime()->notNull());
+        $this->addColumn('animal', 'updated_at', $this->dateTime()->notNull());
+        $this->addColumn('animal', 'status', $this->integer()->notNull());
 
         // /* Drop Foreign Key & Index */
-        // $this->dropForeignKey(
-        //     'fk-treatment-id_animal_file',
-        //     '{{%treatment}}'
-        // );
+       $this->dropForeignKey(
+             'fk-treatment-id_animal_file',
+             '{{%treatment}}'
+        );
 
-        // $this->dropIndex(
-        //     'idx-treatment-id_animal_file',
-        //     '{{%treatment}}'
-        // );
+         $this->dropIndex(
+             'idx-treatment-id_animal_file',
+             '{{%treatment}}'
+         );
 
-        // $this->dropForeignKey(
-        //     'fk-animal_file-id_animal',
-        //     '{{%animal_file}}'
-        // );
+        $this->dropForeignKey(
+            'fk-animal_file-id_animal',
+             '{{%animal_file}}'
+         );
 
-        // $this->dropIndex(
-        //     'idx-animal_file-id_animal',
-        //     '{{%animal_file}}'
-        // );
+        $this->dropIndex(
+            'idx-animal_file-id_animal',
+             '{{%animal_file}}'
+        );
 
-        // $this->dropForeignKey(
-        //     'fk-user-id_local',
-        //     '{{%user}}'
-        // );
+        $this->dropForeignKey(
+            'fk-user-id_local',
+            '{{%user}}'
+        );
 
-        // $this->dropIndex(
-        //     'idx-user-id_local',
-        //     '{{%user}}'
-        // );
+        $this->dropIndex(
+             'idx-user-id_local',
+             '{{%user}}'
+         );
 
-        // $this->dropForeignKey(
-        //     'fk-kennel-id_user',
-        //     '{{%kennel}}'
-        // );
+        $this->dropForeignKey(
+            'fk-kennel-id_user',
+            '{{%kennel}}'
+        );
 
-        // $this->dropIndex(
-        //     'idx-kennel-id_user',
-        //     '{{%kennel}}'
-        // );
+        $this->dropIndex(
+             'idx-kennel-id_user',
+             '{{%kennel}}'
+        );
 
-        // $this->dropForeignKey(
-        //     'fk-kennel-id_contact',
-        //     '{{%kennel}}'
-        // );
+        $this->dropForeignKey(
+             'fk-kennel-id_contact',
+             '{{%kennel}}'
+        );
 
-        // $this->dropIndex(
-        //     'idx-kennel-id_contact',
-        //     '{{%kennel}}'
-        // );
+         $this->dropIndex(
+            'idx-kennel-id_contact',
+             '{{%kennel}}'
+        );
 
-        // $this->dropForeignKey(
-        //     'fk-kennel-id_social',
-        //     '{{%kennel}}'
-        // );
+         $this->dropForeignKey(
+             'fk-kennel-id_social',
+             '{{%kennel}}'
+         );
 
-        // $this->dropIndex(
-        //     'idx-kennel-id_social',
-        //     '{{%kennel}}'
-        // );
+        $this->dropIndex(
+             'idx-kennel-id_social',
+             '{{%kennel}}'
+        );
 
         $this->addColumn('treatment', 'id_animal', $this->integer()->notNull());
 
@@ -176,19 +176,4 @@ class m190107_211744_update_data extends Migration
 
         return false;
     }
-
-    /*
-    // Use up()/down() to run migration code without a transaction.
-    public function up()
-    {
-
-    }
-
-    public function down()
-    {
-        echo "m190107_211744_update_data cannot be reverted.\n";
-
-        return false;
-    }
-     */
 }
