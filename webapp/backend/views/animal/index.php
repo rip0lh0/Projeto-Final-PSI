@@ -1,8 +1,8 @@
 <?php
 
 use yii\helpers\Html;
-use common\models\AnimalState;
 use fedemotta\datatables\DataTables;
+use common\models\KennelAnimal;
 
 $this->title = 'Animals';
 $this->params['breadcrumbs'][] = $this->title;
@@ -27,7 +27,11 @@ $this->params['breadcrumbs'][] = $this->title;
                         ],
                         'columns' => [
                             ['class' => 'yii\grid\SerialColumn'],
-                            'animal.animalFile.chip',
+                            'animal.name',
+                            'animal.chip',
+                            'animal.age',
+                            'animal.weight',
+                            'animal.size.size',
                             [
                                 'attribute' => 'created_at',
                                 'format' => ['date', 'php:d/m/Y']
@@ -36,7 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'attribute' => 'state',
                                 'format' => 'html',
                                 'value' => function ($data) {
-                                    return '<span class="label label-danger">' . $data->state . '</span>';
+                                    return '<span class="label label-danger">' . KennelAnimal::status($data->status) . '</span>';
                                 },
                             ],
                             [

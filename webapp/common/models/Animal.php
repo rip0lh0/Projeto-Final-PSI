@@ -3,10 +3,6 @@
 namespace common\models;
 
 use Yii;
-use yii\db\ActiveRecord;
-use yii\helpers\FileHelper;
-use yii\helpers\Url;
-use yii\helpers\Html;
 
 /**
  * This is the model class for table "animal".
@@ -14,11 +10,22 @@ use yii\helpers\Html;
  * @property int $id
  * @property string $name
  * @property string $description
+ * @property int $id_coat
+ * @property int $id_energy
+ * @property int $id_size
+ * @property string $chip
+ * @property double $age
+ * @property string $gender
+ * @property double $weight
+ * @property int $neutered
  *
- * @property AnimalFile[] $animalFiles
+ * @property Coat $coat
+ * @property Energy $energy
+ * @property Size $size
+ * @property AnimalBreed[] $animalBreeds
  * @property KennelAnimal[] $kennelAnimals
  */
-class Animal extends ActiveRecord
+class Animal extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
@@ -34,7 +41,15 @@ class Animal extends ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'description'], 'string', 'max' => 255],
+            [['name', 'gender', 'neutered'], 'required'],
+            [['id_coat', 'id_energy', 'id_size', 'neutered'], 'integer'],
+            [['age', 'weight'], 'number'],
+            [['name', 'description', 'chip'], 'string', 'max' => 255],
+            [['gender'], 'string', 'max' => 1],
+            [['chip'], 'unique'],
+            [['id_coat'], 'exist', 'skipOnError' => true, 'targetClass' => Coat::className(), 'targetAttribute' => ['id_coat' => 'id']],
+            [['id_energy'], 'exist', 'skipOnError' => true, 'targetClass' => Energy::className(), 'targetAttribute' => ['id_energy' => 'id']],
+            [['id_size'], 'exist', 'skipOnError' => true, 'targetClass' => Size::className(), 'targetAttribute' => ['id_size' => 'id']],
         ];
     }
 
@@ -47,15 +62,47 @@ class Animal extends ActiveRecord
             'id' => 'ID',
             'name' => 'Name',
             'description' => 'Description',
+            'id_coat' => 'Id Coat',
+            'id_energy' => 'Id Energy',
+            'id_size' => 'Id Size',
+            'chip' => 'Chip',
+            'age' => 'Age',
+            'gender' => 'Gender',
+            'weight' => 'Weight',
+            'neutered' => 'Neutered',
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getAnimalFile()
+    public function getCoat()
     {
-        return $this->hasOne(AnimalFile::className(), ['id_animal' => 'id']);
+        return $this->hasOne(Coat::className(), ['id' => 'id_coat']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getEnergy()
+    {
+        return $this->hasOne(Energy::className(), ['id' => 'id_energy']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getSize()
+    {
+        return $this->hasOne(Size::className(), ['id' => 'id_size']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getAnimalBreeds()
+    {
+        return $this->hasMany(AnimalBreed::className(), ['id_animal' => 'id']);
     }
 
     /**
@@ -65,26 +112,4 @@ class Animal extends ActiveRecord
     {
         return $this->hasMany(KennelAnimal::className(), ['id_animal' => 'id']);
     }
-
-    public function getCurrKennel()
-    {
-        return $this->hasMany(KennelAnimal::className(), ['id_animal' => 'id'])->orderBy('created_at DESC')->one();
-    }
-
-
-    public function getImage($imageName)
-    {
-        $kennel = $this->currKennel->kennel->user->email;
-        $kennel = substr($kennel, 0, strpos($kennel, "@"));
-
-        $imagePath = Yii::getAlias('@uploads') . '/animals/' . $kennel . '/' . $this->name . '/' . $imageName . '.png';
-        // echo Html::img($imagePath);
-
-        $fp = fopen($imagePath, 'r');
-        $data = fread($fp, filesize($imagePath));
-
-        echo '<img src="data:image/jpeg;base64,' . base64_encode($data) . '" style="width: 100%; object-fit: cover; height: 300px"/>';
-        fclose($fp);
-    }
-
 }

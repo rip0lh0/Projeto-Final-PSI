@@ -3,7 +3,6 @@ namespace frontend\models;
 
 use yii\base\Model;
 use common\models\User;
-use app\models\TipoPerfil;
 use common\models\Kennel;
 use common\models\Adopter;
 
@@ -12,22 +11,15 @@ use common\models\Adopter;
  */
 class SignupForm extends Model
 {
-
-    const SELF_KENNEL = 0;
-    const SELF_ADOPTER = 1;
-
-
     public $user_type = -1;
 
     /* User */
     public $username;
     public $email;
     public $password;
-
     /* Common Information */
     public $name;
     public $phone;
-
     /* Kennel Infromation */
     public $nif;
     public $local;
@@ -58,7 +50,7 @@ class SignupForm extends Model
             ['nif', 'string', 'min' => 9, 'max' => 9],
 
             [['local', 'address', 'nif'], 'required', 'when' => function ($model) {
-                return ($this->user_type == SignupForm::SELF_KENNEL);
+                return ($this->user_type == User::TYPE_KENNEL);
             }, 'message' => '{attribute} não pode ficar em branco.'],
 
             [['local', 'address'], 'string', 'max' => 255],
@@ -82,6 +74,7 @@ class SignupForm extends Model
         $role = $auth->getRole('adopter');
         $auth->assign($role, $user->getId());
 
+
         return true;
     }
 
@@ -93,6 +86,7 @@ class SignupForm extends Model
         $kennel->name = $this->name;
         $kennel->nif = $this->nif;
         $kennel->address = $this->address;
+        $kennel->id_local = $this->local;
 
         if ($kennel->save() == null) return false;
 
@@ -112,33 +106,25 @@ class SignupForm extends Model
     public function signup()
     {
         if ($this->validate()) {
-            $valid = true;
-
             $user = new User();
 
             $user->username = $this->username;
             $user->email = $this->email;
-            $user->id_local = $this->local;
             $user->setPassword($this->password);
             $user->generateAuthKey();
 
-
-            $valid = $valid && $user->save();
+            if (!$user->save()) return null;
 
             switch ($this->user_type) {
-                case SignupForm::SELF_KENNEL:
-                    $valid = $valid && $this->signupKennel($user);
-                    break;
-                case SignupForm::SELF_ADOPTER:
-                    $valid = $valid && $this->signupAdopter($user);
-                    break;
+                case User::TYPE_KENNEL:
+                    $this->signupKennel($user);
+                    return $user;
+                case USER::TYPE_ADOPTER:
+                    $this->signupAdopter($user);
+                    return $user;
                 default:
-                    $valid = $valid && false;
+                    $user->delete();
             }
-
-            if ($valid) return $user;
-
-            $user->delete();
         }
 
         return null;

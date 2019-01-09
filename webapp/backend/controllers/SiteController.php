@@ -79,14 +79,14 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $profileKennel = User::findIdentity(Yii::$app->user->id)->kennel;
+        // $profileKennel = User::findIdentity(Yii::$app->user->id)->kennel;
 
-        $kennelAnimals = array_slice($profileKennel->kennelAnimals, 0, 10);
+        // $kennelAnimals = array_slice($profileKennel->kennelAnimals, 0, 10);
 
         //$this->layout = 'blank';
 
         return $this->render('index', [
-            'kennelAnimals' => $kennelAnimals
+            'kennelAnimals' => null
         ]);
     }
 

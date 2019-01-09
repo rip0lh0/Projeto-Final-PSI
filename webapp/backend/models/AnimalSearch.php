@@ -19,8 +19,8 @@ class AnimalSearch extends KennelAnimal
     public function rules()
     {
         return [
-            [['id', 'id_kennel', 'id_animal', 'state'], 'integer'],
-            [['created_at', 'updated_at'], 'safe'],
+            [['id', 'id_kennel', 'id_animal', 'status'], 'integer'],
+            //[['created_at', 'updated_at'], 'safe'],
         ];
     }
 
@@ -61,10 +61,10 @@ class AnimalSearch extends KennelAnimal
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'id_kennel' => $this->id_kennel,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
-            'state' => $this->state,
+            'id_kennel' => $this->id_kennel,
+            'status' => $this->status,
         ]);
 
         return $dataProvider;
