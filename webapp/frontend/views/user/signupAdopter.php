@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="container" style="padding: 120px 0;">
         <?php $form = ActiveForm::begin(
             [
-                'id' => 'login-form',
+                'id' => 'signup-form',
                 'fieldConfig' => [
                     'autoPlaceholder' => true
                 ],
