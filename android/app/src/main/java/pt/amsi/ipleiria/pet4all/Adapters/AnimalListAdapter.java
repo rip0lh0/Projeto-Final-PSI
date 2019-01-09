@@ -70,19 +70,22 @@ public class AnimalListAdapter extends BaseAdapter {
             textViewGender = convertView.findViewById(R.id.textViewGender);
             textViewType = convertView.findViewById(R.id.textViewType);
             textViewDesc = convertView.findViewById(R.id.textViewDesc);
-            imageViewAnimal = convertView.findViewById(R.id.imageViewAnimal);
+            //imageViewAnimal = convertView.findViewById(R.id.imageViewAnimal);
         }
 
         public void update(Animal animal){
             textViewName.setText(animal.getName());
             textViewDesc.setText(String.valueOf(animal.getDescription()));
-            Glide.with(context)
+            textViewGender.setText(animal.getGender());
+            textViewType.setText(String.valueOf(animal.getBreed()));
+            textViewAge.setText(String.valueOf(animal.getAge()));
+            /*Glide.with(context)
                     .load(animal.getImage())
                     .placeholder(R.drawable.error_dog)
                     .fitCenter()
                     .thumbnail(0f)
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .into(imageViewAnimal);
+                    .into(imageViewAnimal);*/
         }
 
     }

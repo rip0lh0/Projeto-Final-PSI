@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/reportMenuWindow"
+    android:layout_width="match_parent"
+    android:fillViewport="true"
+    android:background="#64435463"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.ReportFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="25dp"
+        android:background="@drawable/roundedcontainer_animaldesc"
+        android:orientation="vertical">
+
+
+        <!-- TODO: Update blank fragment layout -->
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"
+            app:srcCompat="@drawable/error_dog" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/reportSpinnerPrompt" />
+
+                <Spinner
+                    android:id="@+id/reportMenuSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/roundedcontainerprofile"
+                    android:drawSelectorOnTop="true"
+                    android:overlapAnchor="false"
+                    android:entries="@array/reportDropdown"
+                    android:prompt="@string/reportSpinnerPrompt"
+                    android:spinnerMode="dropdown" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/reportSpinnerPromptDesc" />
+
+                <EditText
+                    android:id="@+id/editText"
+                    android:gravity="top|start"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/roundedcontainerprofile"
+                    android:ems="10"
+                    android:hint="@string/reportSpinnerPromptDesc1"
+                    android:inputType="textMultiLine"
+                    android:lines="6"
+                    android:minLines="4"
+                    android:scrollbars="vertical" />
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:backgroundTint="@color/color_Main_blue"
+                    android:text="@string/reportSpinnerPromptSubmit"
+                    android:textColor="@color/btn_text_color_blue" />
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+</RelativeLayout>
