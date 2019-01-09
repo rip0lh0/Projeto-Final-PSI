@@ -341,6 +341,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
             if (success) {
                 Intent intent = new Intent(LoginActivity.this,ProfileActivity.class);
+                intent.putExtra("EMAIL", mEmail);
                 ActivityOptions options = ActivityOptions.makeCustomAnimation(LoginActivity.this,android.R.anim.fade_in,android.R.anim.fade_out);
                 startActivity(intent, options.toBundle());
                 finish();
