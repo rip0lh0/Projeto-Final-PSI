@@ -51,11 +51,11 @@ $itemsPerRow = 4;
                 <div class="col-md-<?= (12 / $itemsPerRow) ?>" style="margin-top: 20px;"><!-- Card -->
                     <div class="card">
                         <div class="card-header">
-                        <?= $animal->getImage('0'); ?>
+                            <?= $animal->getImage('0'); ?>
                         </div>
                         <div class="card-body">
                             <h3 class="card-title"><?= $animal->name ?>
-                                <small style="display: block;"><?= $animal->animalFile->fileBreeds[0]->breed->parent->name ?></small>
+                                <small><?= $animal->size->size ?></small>
                             </h3>
                             
                             <p class="card-text block-ellipsis"><?= $animal->description ?></p>
