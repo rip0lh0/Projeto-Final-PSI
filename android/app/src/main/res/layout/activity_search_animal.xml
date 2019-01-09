@@ -112,6 +112,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:layout_weight="1"
+            android:onClick="onClickSearch"
             android:background="@drawable/rounded_blue_button"
             android:textColor="@color/btn_text_color_blue"
             android:text="@string/btnSearchtext" />
@@ -124,6 +125,7 @@
             android:layout_weight="1"
             android:background="@drawable/rounded_blue_button"
             android:textColor="@color/btn_text_color_blue"
+            android:onClick="onClickSearch"
             android:text="@string/btnShowAll" />
     </LinearLayout>
 

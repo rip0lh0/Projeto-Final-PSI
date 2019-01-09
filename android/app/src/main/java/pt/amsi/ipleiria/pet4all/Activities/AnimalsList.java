@@ -61,7 +61,7 @@ public class AnimalsList extends AppCompatActivity implements AnimalsListener {
         SingletonAnimals.getInstance(getApplicationContext()).setAnimalsListener(this);
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Toast.makeText(this, email, Toast.LENGTH_SHORT).show();
-        SingletonAnimals.getInstance(getApplicationContext()).getAllAnimalsAPI(getApplicationContext(), AnimalJsonParser.isConnectionInternet(getApplicationContext()));
+        SingletonAnimals.getInstance(getApplicationContext()).getAllAnimalsAPI(getApplicationContext(), AnimalJsonParser.isConnectedInternet(getApplicationContext()));
 //        listaLivros = SingletonGestorLivros.getInstance(getApplicationContext()).getLivrosBD();
         animalListView = (ListView) findViewById(R.id.listviewAnimalsList);
 
@@ -83,7 +83,7 @@ public class AnimalsList extends AppCompatActivity implements AnimalsListener {
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                SingletonAnimals.getInstance(getApplicationContext()).getAllAnimalsAPI(getApplicationContext(), LivroJsonParser.isConnectionInternet(getApplicationContext()));
+                SingletonAnimals.getInstance(getApplicationContext()).getAllAnimalsAPI(getApplicationContext(), AnimalJsonParser.isConnectedInternet(getApplicationContext()));
 //                lvListView.setAdapter(new ListaLivroAdaptador(getApplicationContext(), listaLivros));
                 swipeRefreshLayout.setRefreshing(false);
             }
@@ -93,62 +93,63 @@ public class AnimalsList extends AppCompatActivity implements AnimalsListener {
         Intent intentNewAnimal = new Intent(getApplicationContext(),AnimalDetails.class);
         startActivity(intentNewAnimal);
     }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_lista_livros, menu);
+    /*
+   @Override
+   public boolean onCreateOptionsMenu(Menu menu) {
+       MenuInflater inflater = getMenuInflater();
+       inflater.inflate(R.menu.menu_lista_livros, menu);
 
-        //Ex 11
-        MenuItem searchItem = menu.findItem(R.id.searchItem);
-        SearchView searchView = (SearchView)  MenuItemCompat.getActionView(searchItem);
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String s) {
-                return false;
-            }
+       //Ex 11
+       MenuItem searchItem = menu.findItem(R.id.searchItem);
+       SearchView searchView = (SearchView)  MenuItemCompat.getActionView(searchItem);
+       searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+           @Override
+           public boolean onQueryTextSubmit(String s) {
+               return false;
+           }
 
-            @Override
-            public boolean onQueryTextChange(String s) {
-                ArrayList<Animal> tempAnimalsList = new ArrayList<Animal>();
-                for(Animal animal :SingletonAnimals.getInstance(getApplicationContext()).getAnimalsDB())
-                {
-                    if(animal.getName().toLowerCase().contains(s.toLowerCase())){
-                        tempAnimalsList.add(animal);
-                    }
-                }
-                animalListView.setAdapter(new AnimalListAdapter(AnimalsList.this, tempAnimalsList));
-                return true;
-            }
-        });
+           @Override
+           public boolean onQueryTextChange(String s) {
+               ArrayList<Animal> tempAnimalsList = new ArrayList<Animal>();
+               for(Animal animal :SingletonAnimals.getInstance(getApplicationContext()).getAnimalsDB())
+               {
+                   if(animal.getName().toLowerCase().contains(s.toLowerCase())){
+                       tempAnimalsList.add(animal);
+                   }
+               }
+               animalListView.setAdapter(new AnimalListAdapter(AnimalsList.this, tempAnimalsList));
+               return true;
+           }
+       });
 
 
-        return super.onCreateOptionsMenu(menu);
-    }
+       return super.onCreateOptionsMenu(menu);
+   }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.gridItem:
-                finish();
-                Intent intentAnimalGrid = new Intent(getApplicationContext(), AnimalsGrid.class);
-                startActivity(intentAnimalGrid);
-                return true;
+       @Override
+      public boolean onOptionsItemSelected(MenuItem item) {
+           switch (item.getItemId()){
+               case R.id.gridItem:
+                   finish();
+                   Intent intentAnimalGrid = new Intent(getApplicationContext(), AnimalsGrid.class);
+                   startActivity(intentAnimalGrid);
+                   return true;
 
-            case R.id.emailItem:
-                Intent intentSendMail = new Intent(Intent.ACTION_SENDTO);
+               case R.id.emailItem:
+                   Intent intentSendMail = new Intent(Intent.ACTION_SENDTO);
 
-                intentSendMail.setType("text/plain");
-                intentSendMail.setData(Uri.parse("mailto:" + email));
-                //intentSendMail.setDataAndType(Uri.parse("mailto:" + mail),"text/plain");
-                intentSendMail.putExtra(Intent.EXTRA_SUBJECT, "AMSI 2017/18");
-                intentSendMail.putExtra(Intent.EXTRA_TEXT, "Olá " + email + " isto é uma mensagem de teste, enviado pela minha aplicação :)" );
+                   intentSendMail.setType("text/plain");
+                   intentSendMail.setData(Uri.parse("mailto:" + email));
+                   //intentSendMail.setDataAndType(Uri.parse("mailto:" + mail),"text/plain");
+                   intentSendMail.putExtra(Intent.EXTRA_SUBJECT, "AMSI 2017/18");
+                   intentSendMail.putExtra(Intent.EXTRA_TEXT, "Olá " + email + " isto é uma mensagem de teste, enviado pela minha aplicação :)" );
 
-                if(intentSendMail.resolveActivity(getPackageManager()) != null){
-                    startActivity(intentSendMail);
-                }
-        }
-        return super.onOptionsItemSelected(item);
-    }
+                   if(intentSendMail.resolveActivity(getPackageManager()) != null){
+                       startActivity(intentSendMail);
+                   }
+           }
+           return super.onOptionsItemSelected(item);
+       }*/
     @Override
     public void onRefreshAnimalsList(ArrayList<Animal> animalsList) {
         if(!animalsList.isEmpty()){
@@ -165,6 +166,6 @@ public class AnimalsList extends AppCompatActivity implements AnimalsListener {
     @Override
     protected void onPostResume() {
         super.onPostResume();
-        SingletonAnimals.getInstance(getApplicationContext()).getAllAnimalsAPI(getApplicationContext(), AnimalJsonParser.isConnectionInternet(getApplicationContext()));
+        SingletonAnimals.getInstance(getApplicationContext()).getAllAnimalsAPI(getApplicationContext(), AnimalJsonParser.isConnectedInternet(getApplicationContext()));
     }
 }

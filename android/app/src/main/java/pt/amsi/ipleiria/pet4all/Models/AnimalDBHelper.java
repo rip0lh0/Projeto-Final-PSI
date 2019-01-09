@@ -133,18 +133,18 @@ public class AnimalDBHelper extends SQLiteOpenHelper {
                         cursor.getLong(0),
                         cursor.getString(1),
                         cursor.getString(2),
+                        //cursor.getInt(3),
                         cursor.getInt(3),
                         cursor.getInt(4),
                         cursor.getInt(5),
-                        cursor.getInt(6),
-                        cursor.getString(7),
+                        cursor.getString(6),
+                        cursor.getInt(7),
                         cursor.getInt(8),
                         cursor.getInt(9),
                         cursor.getInt(10),
-                        cursor.getInt(11),
+                        cursor.getString(11),
                         cursor.getString(12),
-                        cursor.getString(13),
-                        cursor.getInt(12));
+                        cursor.getInt(13));
                 auxAnimal.setId(cursor.getLong(0));
                 animals.add(auxAnimal);
             }while (cursor.moveToNext());
