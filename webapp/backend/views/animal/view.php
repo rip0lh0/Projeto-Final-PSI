@@ -52,7 +52,6 @@ $this->params['breadcrumbs'][] = $this->title;
                         <h3 class="box-title">Fotos</h3>
                     </div>
                     <div class="box-body"> 
-                        <div class="container">
                         <div id="profile-photos" class="carousel slide" data-ride="carousel">
                             <!-- Indicators -->
                             <ol class="carousel-indicators">
@@ -87,8 +86,6 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                                 <span class="sr-only">Next</span>
                             </a>
-                        </div>
-                            
                         </div>
                     </div>
                 </div>

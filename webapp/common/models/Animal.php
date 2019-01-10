@@ -129,7 +129,7 @@ class Animal extends \yii\db\ActiveRecord
         $fp = fopen($imagePath, 'r');
         $data = fread($fp, filesize($imagePath));
 
-        echo '<img src="data:image/jpeg;base64,' . base64_encode($data) . '" style="width: 100%; object-fit: cover;"/>';
+        echo '<img src="data:image/jpeg;base64,' . base64_encode($data) . '" style="width: 100%; object-fit: fill;"/>';
         //echo base64_encode($data);
 
         fclose($fp);
