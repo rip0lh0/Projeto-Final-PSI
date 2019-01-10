@@ -6,12 +6,13 @@
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+use yii\helpers\Url;
 
 $this->title = 'Pet4All';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<section class="intro row-fluid bg-image" style="background-image: url('images/bg_3.jpg'); height: 100%;">
+<section class="intro row-fluid bg-image" style="background-image: url('<?= Url::base(true) ?>/images/bg_3.jpg'); height: 100%;">
     <div class="container">
         <div class="search-nav" style="margin: 120px auto;">
             <form class="form-inline">

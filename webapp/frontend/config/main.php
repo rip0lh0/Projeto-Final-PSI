@@ -15,6 +15,8 @@ return [
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-frontend',
+            'class' => 'common\components\Request',
+            'web' => '/frontend/web'
         ],
         'user' => [
             'identityClass' => 'common\models\User',
@@ -22,7 +24,6 @@ return [
             'identityCookie' => ['name' => '_identity-frontend', 'httpOnly' => true],
         ],
         'session' => [
-            // this is the name of the session cookie used for login on the frontend
             'name' => 'frontend',
         ],
         'log' => [
@@ -37,14 +38,38 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
         'urlManager' => [
+            'baseUrl' => '/',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-            ],
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => 'v1/animal',
+                    'extraPatterns' => [
+                        'GET profile/{id}' => 'profile'
+                    ],
+                    'pluralize' => false
+                ],
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => 'v1/user',
+                    'tokens' => [
+                        '{username}' => '<username:\\w+>',
+                        '{password}' => '<password:\\w+>'
+                    ],
+                    'extraPatterns' => [
+                        'GET profile/{username}' => 'profile'
+                    ],
+                    'pluralize' => false
+                ]
+            ]
+        ]
+    ],
+    'modules' => [
+        'v1' => [
+            'class' => 'frontend\modules\v1\Module',
         ],
-     */
     ],
     'params' => $params,
 ];
