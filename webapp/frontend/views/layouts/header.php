@@ -19,8 +19,8 @@ use yii\helpers\Url;
         <div id="main-navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav pull-right">
                 <?php if (Yii::$app->user->isGuest) { ?>
-                    <li class="hvrcenter"><?= Html::a('Login', ['user/authentication']) ?></li>
-                    <li class="hvrcenter"><?= Html::a('Signup', ['site/menu']) ?></li>
+                    <li class="hvrcenter"><?= Html::a('Login', ['user/authentication'],['id'=>'loginButton']) ?></li>
+                    <li class="hvrcenter"><?= Html::a('Signup', ['site/menu'],['id' => 'signupButton']) ?></li>
                     <?php 
                 } else { ?>
                     <li class="hvrcenter"><?= Html::a('Logout', ['user/logout'], ['data-method' => 'post']); ?></li>
