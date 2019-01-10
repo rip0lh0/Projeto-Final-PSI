@@ -42,12 +42,12 @@ class AnimalController extends Controller
                     ],
                 ],
             ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
+            // 'verbs' => [
+            //     'class' => VerbFilter::className(),
+            //     'actions' => [
+            //         'create' => ['POST'],
+            //     ],
+            // ],
         ];
     }
 
@@ -80,11 +80,12 @@ class AnimalController extends Controller
      */
     public function actionView($id)
     {
-        $kennel_id = User::findIdentity(Yii::$app->user->id)->kennel->id;
-        $model = KennelAnimal::find()->where(['id' => $id, 'id_kennel' => $kennel_id])->one();
+        $animalKennel = $this->findAnimalInKennel($id);
+
+        if (!$animalKennel) throw new NotFoundHttpException();
 
         return $this->render('view', [
-            'model' => $model,
+            'animal' => $animalKennel->animal,
         ]);
     }
 
@@ -162,9 +163,16 @@ class AnimalController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $kennelAnimal = $this->findAnimalInKennel($id);
 
-        return $this->redirect(['index']);
+        if ($kennelAnimal->status == KennelAnimal::STATUS_DELETED)
+            $kennelAnimal->status = KennelAnimal::STATUS_FOR_ADOPTION;
+        else
+            $kennelAnimal->status = KennelAnimal::STATUS_DELETED;
+
+        $kennelAnimal->save();
+
+        return $this->redirect(['animal/index']);
     }
 
     /**
@@ -181,5 +189,14 @@ class AnimalController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+
+
+    protected function findAnimalInKennel($id)
+    {
+        $kennel_id = User::findIdentity(Yii::$app->user->id)->kennel->id;
+        $animal = KennelAnimal::find()->where(['id' => $id, 'id_kennel' => $kennel_id])->one();
+
+        return $animal;
     }
 }

@@ -45,8 +45,7 @@ $script = '$.post("' . Url::to(['animal/subbreed', 'id' => '']) . '" + $(this).v
                     </div>
                     <div class="box-body">
                         <?= $form->field($model, 'energy')->dropDownList(
-                            ArrayHelper::map($energy, 'id', 'energy'),
-
+                            ArrayHelper::map($energy, 'id', 'energy')
                         ); ?>
                         <?= $form->field($model, 'coat')->dropDownList(
                             ArrayHelper::map($coat, 'id', 'coat_size')

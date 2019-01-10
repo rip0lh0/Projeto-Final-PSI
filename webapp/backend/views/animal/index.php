@@ -27,27 +27,60 @@ $this->params['breadcrumbs'][] = $this->title;
                         ],
                         'columns' => [
                             ['class' => 'yii\grid\SerialColumn'],
-                            'animal.name',
-                            'animal.chip',
-                            'animal.age',
-                            'animal.weight',
-                            'animal.size.size',
+                            [
+                                'headerOptions' => ['width' => '300'],
+                                'attribute' => 'animal.name',
+                            ],
+                            [
+                                'headerOptions' => ['width' => '140'],
+                                'attribute' => 'animal.chip'
+                            ],
+                            [
+                                //'headerOptions' => ['width' => '60'],
+                                'attribute' => 'animal.age'
+                            ],
+                            [
+                                //'headerOptions' => ['width' => '60'],
+                                'attribute' => 'animal.weight'
+                            ],
+                            [
+                                'headerOptions' => ['width' => '140'],
+                                'attribute' => 'animal.size.size'
+                            ],
                             [
                                 'attribute' => 'created_at',
                                 'format' => ['date', 'php:d/m/Y']
                             ],
                             [
-                                'attribute' => 'state',
+                                'headerOptions' => ['width' => '80'],
+                                'attribute' => 'status',
+                                'options' => ['class' => 'teste'],
                                 'format' => 'html',
                                 'value' => function ($data) {
-                                    return '<span class="label label-danger">' . KennelAnimal::status($data->status) . '</span>';
+                                    $state = KennelAnimal::status($data->status);
+                                    $htmlData = "";
+                                    $htmlData .= '<h4 style="margin: 0;"><span class="label label-' . $state['options'] . '">' . $state['msg'] . '</span></h4>';
+                                    //$htmlData .= Html::a($state['msg'] . ' <i class="fa fa-eye"></i>', ['animal/view', 'id' => $data->id], ['class' => 'btn btn-info btn-xs btn-block']);
+                                    return $htmlData;
                                 },
                             ],
                             [
+                                'headerOptions' => ['width' => '140'],
                                 'label' => 'Ações',
                                 'format' => 'html',
                                 'value' => function ($data) {
-                                    return Html::a('Ver', ['animal/view', 'id' => $data->id], ['class' => 'btn btn-primary btn-sm']);
+                                    $htmlData = "";
+                                    $htmlData .= Html::a('<i class="fa fa-eye"></i>', ['animal/view', 'id' => $data->id], ['class' => 'btn btn-info btn-xs', 'style' => 'margin: 0 2px;']);
+                                    if ($data->status != KennelAnimal::STATUS_ADOPTED && $data->status != KennelAnimal::STATUS_BAN) {
+                                        if ($data->status == KennelAnimal::STATUS_DELETED) {
+                                            $htmlData .= Html::a('<i class="fa fa-history"></i>', ['animal/delete', 'id' => $data->id], ['class' => 'btn btn-success btn-xs', 'style' => 'margin: 0 2px;']);
+                                        } else {
+                                            $htmlData .= Html::a('<i class="fa fa-pencil"></i>', ['animal/update', 'id' => $data->id], ['class' => 'btn btn-warning btn-xs', 'style' => 'margin: 0 2px;']);
+                                            $htmlData .= Html::a('<i class="fa fa-medkit"></i>', ['animal/medical', 'id' => $data->id], ['class' => 'btn btn-success btn-xs', 'style' => 'margin: 0 2px;']);
+                                            $htmlData .= Html::a('<i class="fa fa-trash"></i>', ['animal/delete', 'id' => $data->id], ['class' => 'btn btn-danger btn-xs', 'style' => 'margin: 0 2px;']);
+                                        }
+                                    }
+                                    return $htmlData;
                                 },
                             ],
                         ],
@@ -58,3 +91,8 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
     </div>
 </div>
+
+
+<script>
+
+</script>

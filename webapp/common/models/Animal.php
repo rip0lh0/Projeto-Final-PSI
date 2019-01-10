@@ -119,19 +119,40 @@ class Animal extends \yii\db\ActiveRecord
         //return $this->hasOne(KennelAnimal::className(), ['id_animal' => 'id', 'created_at' => 'DESC']);
     }
 
-
-
     public function getImage($imageName)
     {
         $kennel = $this->kennelAnimal->kennel;
         $kennelEmail = substr($kennel->user->email, 0, strpos($kennel->user->email, "@"));
 
-        $imagePath = Yii::getAlias('@uploads') . '/animals/' . $kennelEmail . '/' . $this->name . '_' . $this->kennelAnimal->created_at . '/' . $imageName . '.jpeg';
+        $imagePath = Yii::getAlias('@uploads') . '/animals/' . $kennelEmail . '/' . $this->name . '_' . $this->kennelAnimal->created_at . '/' . $imageName;
 
         $fp = fopen($imagePath, 'r');
         $data = fread($fp, filesize($imagePath));
 
-        echo '<img src="data:image/jpeg;base64,' . base64_encode($data) . '" style="width: 100%; object-fit: cover; height: 300px"/>';
+        echo '<img src="data:image/jpeg;base64,' . base64_encode($data) . '" style="width: 100%; object-fit: cover;"/>';
+        //echo base64_encode($data);
+
         fclose($fp);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImages()
+    {
+        $kennel = $this->kennelAnimal->kennel;
+        $kennelEmail = substr($kennel->user->email, 0, strpos($kennel->user->email, "@"));
+        $directory = Yii::getAlias('@uploads') . '/animals/' . $kennelEmail . '/' . $this->name . '_' . $this->kennelAnimal->created_at;
+
+        $files = scandir($directory);
+        $images = [];
+        foreach ($files as $file) {
+            if ($file == '.' || $file == '..') continue;
+
+            $images[] = $file;
+        }
+
+        return $images;
+
     }
 }

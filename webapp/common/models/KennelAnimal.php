@@ -22,7 +22,7 @@ use yii\behaviors\TimestampBehavior;
 class KennelAnimal extends \yii\db\ActiveRecord
 {
     const STATUS_DELETED = 0;
-    const STATUS_IN_KENNEL = 1;
+    //const STATUS_IN_KENNEL = 1;
     const STATUS_FOR_ADOPTION = 2;
     const STATUS_BAN = 3;
     const STATUS_ADOPTED = 4;
@@ -38,15 +38,30 @@ class KennelAnimal extends \yii\db\ActiveRecord
     {
         switch ($state) {
             case self::STATUS_DELETED:
-                return "Removido";
-            case self::STATUS_IN_KENNEL:
-                return "No Canil";
+                return [
+                    "options" => "danger",
+                    "msg" => "Removido",
+                ];
+            // case self::STATUS_IN_KENNEL:
+            //     return [
+            //         "options" => "warning",
+            //         "msg" => "No Canil",
+            //     ];
             case self::STATUS_FOR_ADOPTION:
-                return "Para Adoção";
+                return [
+                    "options" => "warning",
+                    "msg" => "Para Adoção",
+                ];
             case self::STATUS_BAN:
-                return "Banido";
+                return [
+                    "options" => "danger",
+                    "msg" => "Banido",
+                ];
             case self::STATUS_ADOPTED:
-                return "Adotado";
+                return [
+                    "options" => "success",
+                    "msg" => "Adotado",
+                ];
         }
     }
 
@@ -56,10 +71,10 @@ class KennelAnimal extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            ['status', 'default', 'value' => self::STATUS_IN_KENNEL],
+            ['status', 'default', 'value' => self::STATUS_FOR_ADOPTION],
             ['status', 'in', 'range' => [
                 self::STATUS_DELETED,
-                self::STATUS_IN_KENNEL,
+                //self::STATUS_IN_KENNEL,
                 self::STATUS_FOR_ADOPTION,
                 self::STATUS_BAN,
                 self::STATUS_ADOPTED
