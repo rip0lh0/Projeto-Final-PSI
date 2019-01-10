@@ -73,11 +73,11 @@ $this->params['breadcrumbs'][] = $this->title;
                                     $htmlData .= Html::a('<i class="fa fa-eye"></i>', ['animal/view', 'id' => $data->id], ['class' => 'btn btn-info btn-xs', 'style' => 'margin: 0 2px;']);
                                     if ($data->status != KennelAnimal::STATUS_ADOPTED && $data->status != KennelAnimal::STATUS_BAN) {
                                         if ($data->status == KennelAnimal::STATUS_DELETED) {
-                                            $htmlData .= Html::a('<i class="fa fa-history"></i>', ['animal/delete', 'id' => $data->id], ['class' => 'btn btn-success btn-xs', 'style' => 'margin: 0 2px;']);
+                                            $htmlData .= Html::a('<i class="fa fa-history"></i>', ['animal/delete', 'id_animal' => $data->id], ['class' => 'btn btn-success btn-xs', 'style' => 'margin: 0 2px;']);
                                         } else {
-                                            $htmlData .= Html::a('<i class="fa fa-pencil"></i>', ['animal/update', 'id' => $data->id], ['class' => 'btn btn-warning btn-xs', 'style' => 'margin: 0 2px;']);
-                                            $htmlData .= Html::a('<i class="fa fa-medkit"></i>', ['animal/medical', 'id' => $data->id], ['class' => 'btn btn-success btn-xs', 'style' => 'margin: 0 2px;']);
-                                            $htmlData .= Html::a('<i class="fa fa-trash"></i>', ['animal/delete', 'id' => $data->id], ['class' => 'btn btn-danger btn-xs', 'style' => 'margin: 0 2px;']);
+                                            $htmlData .= Html::a('<i class="fa fa-pencil"></i>', ['animal/update', 'id_animal' => $data->id], ['class' => 'btn btn-warning btn-xs', 'style' => 'margin: 0 2px;']);
+                                            $htmlData .= Html::a('<i class="fa fa-medkit"></i>', ['animal/medical', 'id_animal' => $data->id], ['class' => 'btn btn-success btn-xs', 'style' => 'margin: 0 2px;']);
+                                            $htmlData .= Html::a('<i class="fa fa-trash"></i>', ['animal/delete', 'id_animal' => $data->id], ['class' => 'btn btn-danger btn-xs', 'style' => 'margin: 0 2px;']);
                                         }
                                     }
                                     return $htmlData;

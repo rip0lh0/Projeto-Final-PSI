@@ -12,10 +12,13 @@ use common\models\Animal;
 use common\models\KennelAnimal;
 use common\models\Breed;
 use common\models\FileBreed;
+use common\models\Kennel;
 
 class AnimalForm extends Model
 {
+    public $id_Kennel;
     /* Animal */
+    public $id;
     public $name;
     public $description;
     public $chip;
@@ -23,23 +26,17 @@ class AnimalForm extends Model
     public $neutered;
     public $weight;
     public $age;
-    public $energy;
-    public $size;
-    public $coat;
-    /* FileBreed */
-    //public $breeds;
-    //public $parentBreed;
-
-    /**
-     * @var UploadedFile[]
-     */
+    public $id_energy;
+    public $id_size;
+    public $id_coat;
+    /** @var UploadedFile[] */
     public $photos;
 
     public function rules()
     {
         return [
             /* Animal */
-            [['name', 'description', 'neutered', 'gender', 'energy', 'coat', 'size'], 'required'],
+            [['name', 'description', 'neutered', 'gender', 'id_energy', 'id_coat', 'id_size', 'id_Kennel'], 'required'],
             [['name', 'description', 'chip'], 'string', 'max' => 255],
             [['neutered', 'age'], 'integer'],
             [['weight'/*, 'parentBreed'*/ ], 'number'],
@@ -50,96 +47,75 @@ class AnimalForm extends Model
         ];
     }
 
-    public function saveAnimal()
+    public function createAnimal()
     {
         if (!$this->validate()) return false;
-
         $animal = new Animal();
 
-        $kennel = Yii::$app->user->identity->kennel;
-
-        /* Animal */
         $animal->name = $this->name;
         $animal->description = $this->description;
-        $animal->chip = $this->chip;
         $animal->neutered = $this->neutered;
+        $animal->chip = $this->chip;
         $animal->gender = $this->gender;
         $animal->weight = $this->weight;
         $animal->age = $this->age;
-        $animal->id_energy = $this->energy;
-        $animal->id_coat = $this->coat;
-        $animal->id_size = $this->size;
+        $animal->id_energy = $this->id_energy;
+        $animal->id_coat = $this->id_coat;
+        $animal->id_size = $this->id_size;
 
         if (!$animal->save()) return null;
 
-        $kennelAnimal = $this->saveAnimalToKennel($animal->id, $kennel->id);
+        $this->photos($animal);
+        $kennel_Animal = $this->addToKennel($animal->id, $this->id_Kennel);
 
-        if (!$kennelAnimal) {
+        if (!$kennel_Animal) {
             $animal->delete();
             return null;
         }
 
-        $this->saveAnimalPhotos($kennelAnimal->created_at);
+        return $animal;
+    }
+
+    public function updateAnimal()
+    {
+        $animal = Animal::findOne($this->id);
+
+        $animal->name = $this->name;
+        $animal->description = $this->description;
+        $animal->neutered = $this->neutered;
+        $animal->gender = $this->gender;
+        $animal->weight = $this->weight;
+        $animal->age = $this->age;
+        $animal->id_energy = $this->id_energy;
+        $animal->id_coat = $this->id_coat;
+        $animal->id_size = $this->id_size;
+
+        if (!$animal->update()) return null;
+
+        $this->photos($animal);
 
         return $animal;
     }
 
-    /**
-     * Connect Animal To Kennel
-     * 
-     * @return boolean
-     */
-    public function saveAnimalToKennel($idAnimal, $idKennel)
+    public function addToKennel($id_animal, $id_kennel)
     {
-        $kennelAnimal = new KennelAnimal();
+        $kennel_Animal = new KennelAnimal();
 
-        $kennelAnimal->id_animal = $idAnimal;
-        $kennelAnimal->id_kennel = $idKennel;
+        $kennel_Animal->id_animal = $id_animal;
+        $kennel_Animal->id_kennel = $id_kennel;
 
-        if ($kennelAnimal->save()) return $kennelAnimal;
-
-        var_dump($kennelAnimal);
-
-        return false;
+        if ($kennel_Animal->save()) return $kennelAnimal;
+        else return false;
     }
 
-    /**
-     * Connect Animal To Multiple Breeds
-     * 
-     * @return mixed
-     */
-    // public function saveAnimalBreeds($idAnimal)
-    // {
-    //     if (empty($this->breeds)) return false;
-
-    //     foreach ($this->breeds as $value) {
-    //         $fileBreed = new FileBreed();
-
-    //         $fileBreed->id_breed = $value;
-    //         $fileBreed->id_animal = $idAnimal;
-
-    //         $fileBreed->save();
-    //     }
-
-    // }
-
-    /**
-     * Save Photos To Directory
-     * 
-     * @return mixed
-     */
-    public function saveAnimalPhotos($timestamp)
+    public function photos($animal)
     {
         if (empty($this->photos)) return;
 
-        $kennelName = Yii::$app->user->identity->email;
-        $kennelName = substr($kennelName, 0, strpos($kennelName, "@"));
-
-        $count = 0;
-        $path = Yii::getAlias('@common') . '/uploads/animals/' . $kennelName . '/' . $this->name . '_' . $timestamp;
-
+        $path = Yii::getAlias('@common') . '/uploads/animals/' . $this->id_Kennel . '/' . $animal->kennelanimal->created_at;
         FileHelper::createDirectory($path);
 
+        $count = 0;
         foreach ($this->photos as $photo) {
             $photo->saveAs($path . '/' . $count . '.jpeg');
             $count++;

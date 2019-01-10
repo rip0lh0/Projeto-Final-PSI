@@ -97,21 +97,20 @@ class AnimalController extends Controller
     public function actionCreate()
     {
         $model = new AnimalForm();
+        $model->id_Kennel = User::findIdentity(Yii::$app->user->id)->kennel->id;
+
         $coat = Coat::find()->asArray()->all();
         $energy = Energy::find()->asArray()->all();
         $size = Size::find()->asArray()->all();
-        //$breed = Breed::find()->where(['id_parent' => null])->asArray()->all();
         $error = '';
 
         if ($model->load(Yii::$app->request->post())) {
             $model->photos = UploadedFile::getInstances($model, 'photos');
-
-            if ($model->saveAnimal()) return $this->redirect(['animal/index']);
+            if ($model->createAnimal()) return $this->redirect(['animal/index']);
             else $error = 'Erro ao salvar os Dados';
         }
 
         return $this->render('create', [
-            //'breed' => $breed,
             'coat' => $coat,
             'energy' => $energy,
             'size' => $size,
@@ -120,20 +119,6 @@ class AnimalController extends Controller
         ]);
     }
 
-    // Create Functions That Loads Selected Data (ID)
-    // public function actionSubbreed($id)
-    // {
-    //     $dataReceived = Breed::find()->where(['id_parent' => $id])->asArray()->all();
-
-    //     if (!empty($dataReceived)) {
-    //         foreach ($dataReceived as $data) {
-    //             echo "<option value='" . $data['id'] . "'>" . $data['name'] . "</option>";
-    //         }
-    //     } else {
-    //         echo "<option value=''>-</option>";
-    //     }
-    // }
-
     /**
      * Updates an existing Animal model.
      * If update is successful, the browser will be redirected to the 'view' page.
@@ -141,15 +126,25 @@ class AnimalController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($id)
+    public function actionUpdate($id_animal)
     {
-        $model = $this->findModel($id);
+        $model = $this->findModel($id_animal);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        $coat = Coat::find()->asArray()->all();
+        $energy = Energy::find()->asArray()->all();
+        $size = Size::find()->asArray()->all();
+
+        if ($model->load(Yii::$app->request->post())) {
+            $model->photos = UploadedFile::getInstances($model, 'photos');
+            if ($model->updateAnimal()) return $this->redirect(['animal/index']);
+            else $error = 'Erro ao salvar os Dados';
         }
 
+
         return $this->render('update', [
+            'coat' => $coat,
+            'energy' => $energy,
+            'size' => $size,
             'model' => $model,
         ]);
     }
@@ -161,16 +156,17 @@ class AnimalController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($id)
+    public function actionDelete($id_animal)
     {
-        $kennelAnimal = $this->findAnimalInKennel($id);
+        $kennel_animal = $this->findAnimalInKennel($id_animal);
 
-        if ($kennelAnimal->status == KennelAnimal::STATUS_DELETED)
-            $kennelAnimal->status = KennelAnimal::STATUS_FOR_ADOPTION;
-        else
-            $kennelAnimal->status = KennelAnimal::STATUS_DELETED;
+        if ($kennel_animal->status == KennelAnimal::STATUS_DELETED) {
+            $kennel_animal->status = KennelAnimal::STATUS_FOR_ADOPTION;
+        } else {
+            $kennel_animal->status = KennelAnimal::STATUS_DELETED;
+        }
 
-        $kennelAnimal->save();
+        $kennel_animal->save();
 
         return $this->redirect(['animal/index']);
     }
@@ -182,9 +178,20 @@ class AnimalController extends Controller
      * @return Animal the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($id)
+    protected function findModel($id_animal)
     {
-        if (($model = Animal::findOne($id)) !== null) {
+        $kennel_animal = $this->findAnimalInKennel($id_animal);
+        if (!$kennel_animal) throw new NotFoundHttpException();
+
+        $animal = $kennel_animal->animal;
+        if ($animal == null) throw new NotFoundHttpException();
+
+        $model = new AnimalForm();
+        $model->id_Kennel = $kennel_animal->id;
+        $model->attributes = $animal->attributes;
+        $model->id = $animal->id;
+
+        if ($model !== null) {
             return $model;
         }
 
@@ -192,11 +199,11 @@ class AnimalController extends Controller
     }
 
 
-    protected function findAnimalInKennel($id)
+    protected function findAnimalInKennel($id_animal)
     {
-        $kennel_id = User::findIdentity(Yii::$app->user->id)->kennel->id;
-        $animal = KennelAnimal::find()->where(['id' => $id, 'id_kennel' => $kennel_id])->one();
+        $id_kennel = User::findIdentity(Yii::$app->user->id)->kennel->id;
+        $kennel_animal = KennelAnimal::find()->where(['id' => $id_animal, 'id_kennel' => $id_kennel])->one();
 
-        return $animal;
+        return $kennel_animal;
     }
 }
