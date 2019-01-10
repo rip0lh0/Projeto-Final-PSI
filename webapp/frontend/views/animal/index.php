@@ -51,7 +51,7 @@ $itemsPerRow = 4;
                 <div class="col-md-<?= (12 / $itemsPerRow) ?>" style="margin-top: 20px;"><!-- Card -->
                     <div class="card">
                         <div class="card-header">
-                            <?= $animal->getImage('0'); ?>
+                            <?= $animal->getImage('0.jpeg'); ?>
                         </div>
                         <div class="card-body">
                             <h3 class="card-title"><?= $animal->name ?>
