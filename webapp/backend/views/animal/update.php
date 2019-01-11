@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = 'Update';
                         <!-- Description -->
                         <?= $form->field($model, 'description')->textInput(); ?>
                         <!-- Chip Number -->
-                        <?= $form->field($model, 'chip')->textInput(['disabled' => true]); ?>
+                        <?= $form->field($model, 'chip')->textInput(['disabled' => ($model->chip) ? true : false]); ?>
                     </div>
                 </div>
                 <div class="box box-primary">

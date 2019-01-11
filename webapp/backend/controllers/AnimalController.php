@@ -78,9 +78,9 @@ class AnimalController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($id)
+    public function actionView($id_animal)
     {
-        $animalKennel = $this->findAnimalInKennel($id);
+        $animalKennel = $this->findAnimalInKennel($id_animal);
 
         if (!$animalKennel) throw new NotFoundHttpException();
 
@@ -140,7 +140,6 @@ class AnimalController extends Controller
             else $error = 'Erro ao salvar os Dados';
         }
 
-
         return $this->render('update', [
             'coat' => $coat,
             'energy' => $energy,
@@ -187,7 +186,7 @@ class AnimalController extends Controller
         if ($animal == null) throw new NotFoundHttpException();
 
         $model = new AnimalForm();
-        $model->id_Kennel = $kennel_animal->id;
+        $model->id_Kennel = $kennel_animal->id_kennel;
         $model->attributes = $animal->attributes;
         $model->id = $animal->id;
 

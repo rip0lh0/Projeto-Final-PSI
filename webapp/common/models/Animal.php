@@ -114,10 +114,19 @@ class Animal extends ActiveRecord
         return $this->hasMany(KennelAnimal::className(), ['id_animal' => 'id']);
     }
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function getKennelAnimal()
     {
         return $this->hasMany(KennelAnimal::className(), ['id_animal' => 'id'])->orderBy('created_at DESC')->one();
         //return $this->hasOne(KennelAnimal::className(), ['id_animal' => 'id', 'created_at' => 'DESC']);
+    }
+
+
+    public function getAnimalGender()
+    {
+        return ($this->gender == 'M') ? 'Macho' : 'Fêmea';
     }
 
     public function getImage($imageName)
@@ -125,13 +134,12 @@ class Animal extends ActiveRecord
         $kennel = $this->kennelAnimal->kennel;
         $kennelEmail = substr($kennel->user->email, 0, strpos($kennel->user->email, "@"));
 
-        $imagePath = Yii::getAlias('@uploads') . '/animals/' . $kennelEmail . '/' . $this->name . '_' . $this->kennelAnimal->created_at . '/' . $imageName;
+        $imagePath = Yii::getAlias('@uploads') . '/animals/' . $kennel->id . '/' . $this->kennelAnimal->created_at . '/' . $imageName;
 
         $fp = fopen($imagePath, 'r');
         $data = fread($fp, filesize($imagePath));
 
         echo '<img src="data:image/jpeg;base64,' . base64_encode($data) . '" style="width: 100%; object-fit: fill;"/>';
-        //echo base64_encode($data);
 
         fclose($fp);
     }
@@ -143,7 +151,7 @@ class Animal extends ActiveRecord
     {
         $kennel = $this->kennelAnimal->kennel;
         $kennelEmail = substr($kennel->user->email, 0, strpos($kennel->user->email, "@"));
-        $directory = Yii::getAlias('@uploads') . '/animals/' . $kennelEmail . '/' . $this->name . '_' . $this->kennelAnimal->created_at;
+        $directory = Yii::getAlias('@uploads') . '/animals/' . $kennel->id . '/' . $this->kennelAnimal->created_at;
 
         $files = scandir($directory);
         $images = [];

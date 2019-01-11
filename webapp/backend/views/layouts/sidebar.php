@@ -15,14 +15,14 @@ AppAsset::register($this);
         $animalMenuItems = [];
         $animalMenuItems[] = [
             'url' => ['animal/index'],
-            'icon' => 'paw',
+            'icon' => ' icofont-cat-face',
             'label' => 'Animais',
         ];
-        // $animalMenuItems[] = [
-        //     'url' => ['site/breed'],
-        //     'icon' => 'cubes',
-        //     'label' => 'Raças',
-        // ];
+        $animalMenuItems[] = [
+            'url' => ['adoption/index'],
+            'icon' => 'book',
+            'label' => 'Adoções',
+        ];
         /* End Animals Menu Items */
 
         $menuItems = [];
@@ -35,6 +35,18 @@ AppAsset::register($this);
             'icon' => 'paw',
             'label' => 'Animais',
             'items' => $animalMenuItems,
+        ];
+
+        // $menuItems[] = [
+        //     'url' => ['animal/index'],
+        //     'icon' => 'paw',
+        //     'label' => 'Animais',
+        // ];
+
+        $menuItems[] = [
+            'url' => ['/site/options'],
+            'icon' => 'cog',
+            'label' => 'Definições',
         ];
 
         echo Menu::widget(['items' => $menuItems]);
