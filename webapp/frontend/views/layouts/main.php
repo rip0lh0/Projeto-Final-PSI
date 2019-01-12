@@ -4,8 +4,6 @@
 /* @var $content string */
 
 use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
@@ -28,14 +26,13 @@ AppAsset::register($this);
     <?php $this->head() ?>
 </head>
 
-<body>
+<body class="animsition">
 <?php $this->beginBody() ?>
     <?= $this->render('header'); ?>
 
     <?= $content ?>
 
     <?= $this->render('footer'); ?>
-
 <?php $this->endBody() ?>
 </body>
 </html>

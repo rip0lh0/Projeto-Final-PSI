@@ -27,7 +27,7 @@ AppAsset::register($this);
 
         $menuItems = [];
         $menuItems[] = [
-            'url' => ['/site/index'],
+            'url' => ['site/index'],
             'icon' => 'home',
             'label' => 'Home',
         ];

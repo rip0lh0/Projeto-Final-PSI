@@ -11,38 +11,41 @@ use yii\helpers\Url;
 $this->title = 'Pet4All';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-
-<section class="intro row-fluid bg-image" style="background-image: url('<?= Url::base(true) ?>/images/bg_3.jpg'); height: 100%;">
-    <div class="container">
-        <div class="search-nav" style="margin: 120px auto;">
-            <form class="form-inline">
-                <div class="form-group">
-                    <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe">
+<!-- WELCOME AREA START -->
+<section class="welcome_area bg-img background-overlay" style="background-image: url('<?= Url::base(true) ?>/images/bg_3.jpg');">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12">
+                <div class="hero-content">
+                    <h6>asoss</h6>
+                    <h2>New Collection</h2>
+                    <a href="#" class="btn essence-btn">view collection</a>
                 </div>
-                <div class="form-group">
-                    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">
-                </div>
-                <button type="submit" class="btn btn-default">teste</button>
-            </form>
+            </div>
         </div>
     </div>
-
-    <div class="col-md-6 col-md-offset-3" >
-        <div class="row">
-            <div class="column">
-                <img src="images/bone1.png" alt="Snow" style="width:25%">
-            </div>
-            <div class="column">
-                <h1>Vagabundo</h1>
-            </div>
-            <div class="column">
-                <img src="images/bone1.png" alt="Mountains" style="width:25%">
-            </div>
-        </div>
-        <div style="margin-top: 5%"></div>
-        <div style="margin-top: 5%"></div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ullamcorper tristique erat, ac lobortis augue porttitor sit amet. Sed sit amet quam in enim ultricies porttitor vitae quis lectus. Nullam quis vulputate tellus. Proin convallis pellentesque libero in ultricies. Vestibulum pharetra sagittis varius. Proin et neque sit amet urna venenatis congue. Ut at finibus enim, ac elementum magna. Nunc bibendum libero vel sapien accumsan, vel accumsan tortor accumsan. Suspendisse potenti. Vestibulum efficitur diam sed lectus blandit ultricies. Sed pretium mauris id lorem suscipit, a molestie tortor pretium. Pellentesque viverra hendrerit ante, varius finibus odio facilisis eu. Morbi sollicitudin ante risus, vitae viverra leo malesuada in. Sed nec luctus velit, eu ornare urna.</p>
-    </div>
-    <div style="margin-bottom: 25%"></div>
-
 </section>
+<!-- WELCOME AREA END -->
+
+<div class="top_catagory_area section-padding-80 clearfix">
+    <div class="container">
+        <div class="row justify-content-center">
+            <!-- Single Catagory -->
+            <div class="col-12 col-sm-6 col-md-6">
+                <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url('<?= Url::base(true) ?>/images/catagory_dogs.jpg');">
+                    <div class="catagory-content">
+                        <a href="#">Cão</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Single Catagory -->
+            <div class="col-12 col-sm-6 col-md-6">
+                <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url('<?= Url::base(true) ?>/images/catagory_cats.jpg');">
+                    <div class="catagory-content">
+                        <a href="#">Gato</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
