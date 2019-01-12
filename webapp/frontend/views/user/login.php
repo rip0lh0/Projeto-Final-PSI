@@ -13,61 +13,52 @@ $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>
-<section class="login row-fluid bg-image" style="background-image: url('<?= Url::base(true) ?>/images/bg_1.jpg');">
-    <div class="container" style="padding: 120px 0;">
-        <?php $form = ActiveForm::begin(
-            [
-                'id' => 'login-form',
-                'fieldConfig' => [
-                    'autoPlaceholder' => true
-                ],
-                'formConfig' => ['showErrors' => false]
-            ]
-        ); ?>
-        <div class="col-md-6 col-md-offset-3">
-            <div class="menu-panel">
-                <div class="mp-header" style="background-color: rgba(33,150,243 ,1); padding: 3%;">
-                    <h1><?= $this->title ?></h1>
+
+<div class="breadcumb_area bg-img" style="background-image: url('<?= Url::base(true) ?>/images/bg_3.jpg');">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12">
+                <div class="page-title text-center">
+                    <h2><?= $this->title ?></h2>
                 </div>
-                <div class="mp-body" style="padding: 5% 10%;">
-                        <?= $form->field($model, 'username', [
-                            'feedbackIcon' => [
-                                'prefix' => 'fa fa-',
-                                'default' => 'user',
-                                'success' => 'check-circle',
-                                'error' => 'exclamation-circle',
-                                'defaultOptions' => ['class' => 'text-primary']
-                            ]
-                        ])->textInput([
-                            'autofocus' => true,
-                            'class' => 'input-flat'
-                        ]) ?>
-
-                        <?= $form->field($model, 'password', [
-                            'options' => ['style' => 'margin-top: 30px;'],
-                            'feedbackIcon' => [
-                                'prefix' => 'fa fa-',
-                                'default' => 'lock',
-                                'success' => 'check-circle',
-                                'error' => 'exclamation-circle',
-                                'defaultOptions' => ['class' => 'text-primary']
-                            ]
-                        ])->passwordInput([
-                            'class' => 'input-flat'
-                        ]) ?>
-
-                        <?= $form->field($model, 'rememberMe', [
-                            'autoPlaceholder' => false,
-                            'labelOptions' => ['class' => 'pure-material-checkbox', 'style' => 'margin-top: 10px;']
-                        ])->checkbox()->label('<span>Remember Me</span>'); ?>
-
-                        <?= Html::submitButton('Login', ['class' => 'btn btn-blue btn-block btn-flat', 'style' => 'margin-top: 30px; min-height: 45px;', 'name' => 'login-button']) ?>
-                        <?= $form->errorSummary($model, ['header' => '', 'class' => 'mp-error', 'style' => 'background-color: #ef5350']); ?> 
-                        
-                </div>
-                
             </div>
         </div>
-        <?php ActiveForm::end(); ?>
     </div>
-</section>
+</div>
+
+<div class="checkout_area section-padding-80">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <div class="checkout_details_area clearfix">
+                    <?php $form = ActiveForm::begin(
+                        [
+                            'id' => 'login-form',
+                            // 'fieldConfig' => [
+                            //     'autoPlaceholder' => true
+                            // ],
+                            'formConfig' => ['showErrors' => false]
+                        ]
+                    ); ?>
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <?= $form->field($model, 'password')->passwordInput() ?>
+                            </div>
+                           <div class="col-12">
+                                <div class="custom-control custom-checkbox d-block mb-2">
+                                    <input type="checkbox" class="custom-control-input" id="rememberme">
+                                    <label class="custom-control-label" for="rememberme">Remember Me</label>
+                                </div>
+                            </div>
+                            <?= Html::submitButton('Login', ['class' => 'btn btn-primary btn-lg btn-block', 'name' => 'login-button']) ?>
+                            <?= $form->errorSummary($model, ['header' => '', 'style' => 'background-color: #ef5350']); ?> 
+                        </div>
+                    <?php ActiveForm::end(); ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

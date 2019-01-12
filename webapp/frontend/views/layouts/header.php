@@ -67,7 +67,7 @@ $menuItems[] = [
                 </div> -->
                 <!-- User Login Info -->
                 <div class="user-login-info">
-                    <?= Html::a('<i class="fa fa-user fa-2x"></i>', ['user/authentication']); ?>
+                    <?= Html::a('<i class="fa fa-user fa-2x"></i>', ['user/authentication'], ['style' => 'line-height: 90px;']); ?>
                     <!-- <a href="#" style="line-height: 103px;"><i class="fa fa-user fa-2x"></i></a> -->
                 </div>
             </div>
