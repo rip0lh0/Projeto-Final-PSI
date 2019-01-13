@@ -29,7 +29,8 @@ AppAsset::register($this);
 <body class="animsition">
 <?php $this->beginBody() ?>
     <?= $this->render('header'); ?>
-
+    <?= $this->render('rightbar'); ?>
+    
     <?= $content ?>
 
     <?= $this->render('footer'); ?>

@@ -59,12 +59,20 @@ class UserController extends Controller
         if (!Yii::$app->user->isGuest) return $this->goHome();
 
         $model = new LoginForm();
+        $error = '';
 
-        if ($model->load(Yii::$app->request->post()) && $model->login()) return $this->goBack();
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            if ($model->login()) {
+                return $this->goBack();
+            }
+        } else {
+            $error = $model->errors;
+        }
 
         $model->password = '';
         return $this->render('login', [
             'model' => $model,
+            'error' => $error
         ]);
 
     }

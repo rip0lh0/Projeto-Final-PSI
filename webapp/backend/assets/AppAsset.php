@@ -21,6 +21,6 @@ class AppAsset extends AssetBundle
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
         'dmstr\web\AdminLteAsset',
-        '\rmrevin\yii\fontawesome\AssetBundle',
+        'rmrevin\yii\fontawesome\AssetBundle'
     ];
 }

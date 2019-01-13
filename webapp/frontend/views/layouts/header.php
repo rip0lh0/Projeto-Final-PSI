@@ -11,7 +11,7 @@ $menuItems[] = [
 
 $menuItems[] = [
     'url' => ['animal/index'],
-    'label' => 'Animal',
+    'label' => 'Animais',
     'icon' => ''
 ];
 
@@ -62,12 +62,12 @@ $menuItems[] = [
                     </form>
                 </div> -->
                 <!-- Favourite Area -->
-                <!-- <div class="favourite-area">
-                    <a href="#" style="line-height: 103px;"><i class="fa fa-heart fa-2x"></i></a>
-                </div> -->
+                <div class="cart-area">
+                    <a href="#" id="essenceCartBtn"><i class="fas fa-shopping-cart"></i></a>
+                </div>
                 <!-- User Login Info -->
                 <div class="user-login-info">
-                    <?= Html::a('<i class="fa fa-user fa-2x"></i>', ['user/authentication'], ['style' => 'line-height: 90px;']); ?>
+                    <?= Html::a('<i class="far fa-user" aria-hidden="true"></i>', ['user/authentication'], ['style' => 'vertical-align: middle; font-size: 1.6em;']); ?>
                     <!-- <a href="#" style="line-height: 103px;"><i class="fa fa-user fa-2x"></i></a> -->
                 </div>
             </div>

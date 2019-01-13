@@ -17,9 +17,9 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="row h-100 align-items-center">
             <div class="col-12">
                 <div class="hero-content">
-                    <h6>asoss</h6>
-                    <h2>New Collection</h2>
-                    <a href="#" class="btn essence-btn">view collection</a>
+                    <h3 style="color: white; ">Pronto para adotar um animal de estimação?</h3>
+                    <h2 style="color: white; font-size: 38px;">Os nossos cães e gatos de resgate estão prontos para se juntar à sua família.</h2>
+                    <?= Html::a('Adotar', ['animal/index'], ['class' => 'btn btn-primary btn-lg']) ?>
                 </div>
             </div>
         </div>
@@ -34,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="col-12 col-sm-6 col-md-6">
                 <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url('<?= Url::base(true) ?>/images/catagory_dogs.jpg');">
                     <div class="catagory-content">
-                        <a href="#">Cão</a>
+                        <a href="#">cães</a>
                     </div>
                 </div>
             </div>

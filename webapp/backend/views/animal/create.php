@@ -46,13 +46,13 @@ $script =
                         <h3 class="box-title">Ficha Do Animal</h3>
                     </div>
                     <div class="box-body">
-                        <?= $form->field($model, 'energy')->dropDownList(
+                        <?= $form->field($model, 'id_energy')->dropDownList(
                             ArrayHelper::map($energy, 'id', 'energy')
                         ); ?>
-                        <?= $form->field($model, 'coat')->dropDownList(
+                        <?= $form->field($model, 'id_coat')->dropDownList(
                             ArrayHelper::map($coat, 'id', 'coat_size')
                         ); ?>
-                        <?= $form->field($model, 'size')->dropDownList(
+                        <?= $form->field($model, 'id_size')->dropDownList(
                             ArrayHelper::map($size, 'id', 'size')
                         ); ?>
                         <!-- Animal Gender -->

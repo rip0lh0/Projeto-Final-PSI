@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "211589427e620fd8015f65d94984b569",
+    "content-hash": "ec6b3c02405faa2732c22ffdb25450b9",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -194,27 +194,6 @@
                 "bower-asset/jquery": ">=1.7.0"
             },
             "type": "bower-asset"
-        },
-        {
-            "name": "bower-asset/fontawesome",
-            "version": "v4.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/FortAwesome/Font-Awesome.git",
-                "reference": "41b9ed01103e6820c3cb043ba7ddab30ecd3f4c0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/FortAwesome/Font-Awesome/zipball/41b9ed01103e6820c3cb043ba7ddab30ecd3f4c0",
-                "reference": "41b9ed01103e6820c3cb043ba7ddab30ecd3f4c0",
-                "shasum": null
-            },
-            "type": "bower-asset",
-            "license": [
-                "OFL-1.1",
-                "MIT",
-                "CC-BY-3.0"
-            ]
         },
         {
             "name": "bower-asset/inputmask",
@@ -520,22 +499,22 @@
         },
         {
             "name": "dmstr/yii2-adminlte-asset",
-            "version": "2.6.2",
+            "version": "2.7.0-beta1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dmstr/yii2-adminlte-asset.git",
-                "reference": "c96336e1960ebc6c1e72487a7c6ca1a1589519fe"
+                "reference": "789360570d53c88d446c0193947e269267bfbba8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dmstr/yii2-adminlte-asset/zipball/c96336e1960ebc6c1e72487a7c6ca1a1589519fe",
-                "reference": "c96336e1960ebc6c1e72487a7c6ca1a1589519fe",
+                "url": "https://api.github.com/repos/dmstr/yii2-adminlte-asset/zipball/789360570d53c88d446c0193947e269267bfbba8",
+                "reference": "789360570d53c88d446c0193947e269267bfbba8",
                 "shasum": ""
             },
             "require": {
                 "almasaeed2010/adminlte": "^2.4.0",
                 "cebe/yii2-gravatar": "1.*",
-                "rmrevin/yii2-fontawesome": "~2.9",
+                "rmrevin/yii2-fontawesome": "~3.1",
                 "yiisoft/yii2": "2.*",
                 "yiisoft/yii2-bootstrap": "~2.0.0"
             },
@@ -576,7 +555,7 @@
                 "theme",
                 "yii2"
             ],
-            "time": "2018-07-24T14:47:13+00:00"
+            "time": "2018-08-27T07:20:52+00:00"
         },
         {
             "name": "doctrine/lexer",
@@ -1053,22 +1032,26 @@
         },
         {
             "name": "rmrevin/yii2-fontawesome",
-            "version": "2.10.3",
+            "version": "3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rmrevin/yii2-fontawesome.git",
-                "reference": "ce4dd62a048090f3d98822d4bc9401bfcdde1f98"
+                "reference": "0b05ae6ddaed96490a195057e11f9a3dc5952cb9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rmrevin/yii2-fontawesome/zipball/ce4dd62a048090f3d98822d4bc9401bfcdde1f98",
-                "reference": "ce4dd62a048090f3d98822d4bc9401bfcdde1f98",
+                "url": "https://api.github.com/repos/rmrevin/yii2-fontawesome/zipball/0b05ae6ddaed96490a195057e11f9a3dc5952cb9",
+                "reference": "0b05ae6ddaed96490a195057e11f9a3dc5952cb9",
                 "shasum": ""
             },
             "require": {
-                "bower-asset/fontawesome": "4.3.*",
                 "php": ">=5.4.0",
-                "yiisoft/yii2": "2.0.*"
+                "yiisoft/yii2": "^2.0.0"
+            },
+            "require-dev": {
+                "doctrine/instantiator": "1.0.*",
+                "phpdocumentor/reflection-docblock": "~3.1.0",
+                "phpunit/phpunit": "^4.8"
             },
             "type": "yii2-extension",
             "extra": {
@@ -1088,9 +1071,9 @@
             ],
             "authors": [
                 {
-                    "name": "Roman Revin",
-                    "email": "xgismox@gmail.com",
-                    "homepage": "http://rmrevin.ru/"
+                    "name": "Revin Roman",
+                    "email": "roman@rmrevin.com",
+                    "homepage": "https://rmrevin.com/"
                 }
             ],
             "description": "Asset Bundle for Yii2 with Font Awesome",
@@ -1101,7 +1084,7 @@
                 "font",
                 "yii"
             ],
-            "time": "2015-06-23T13:06:14+00:00"
+            "time": "2018-09-17T10:48:42+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

@@ -12,7 +12,7 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        //'css/site.css',
+        'css/main.css',
         //'css/header.css',
         /* ESSENCE TEMPLATE */
         // FONTS
@@ -39,6 +39,7 @@ class AppAsset extends AssetBundle
         // 'yii\bootstrap4\BootstrapAsset',
         'yii\bootstrap4\BootstrapAsset',
         'yii\bootstrap4\BootstrapPluginAsset',
-        '\rmrevin\yii\fontawesome\AssetBundle',
+        'rmrevin\yii\fontawesome\AssetBundle',
+        'rmrevin\yii\fontawesome\CdnProAssetBundle'
     ];
 }

@@ -40,7 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             'formConfig' => ['showErrors' => false]
                         ]
                     ); ?>
-                        <div class="row">
+                        <div class="row justify-content-center">
                             <div class="col-md-12 mb-3">
                                 <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
                             </div>
@@ -53,8 +53,15 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <label class="custom-control-label" for="rememberme">Remember Me</label>
                                 </div>
                             </div>
-                            <?= Html::submitButton('Login', ['class' => 'btn btn-primary btn-lg btn-block', 'name' => 'login-button']) ?>
-                            <?= $form->errorSummary($model, ['header' => '', 'style' => 'background-color: #ef5350']); ?> 
+                            <div class="col-6">
+                                <?= Html::submitButton('Login', ['class' => 'btn btn-primary btn-lg btn-block', 'name' => 'login-button', 'style' => 'font-size: 2.25rem;']) ?>
+                            </div>
+                            <?php if ($model) ?>
+                            <div class="container">
+                                <div class="alert alert-danger" role="alert">
+                                    <?= var_dump($error) ?>
+                                </div>
+                            </div>
                         </div>
                     <?php ActiveForm::end(); ?>
                 </div>
