@@ -4,18 +4,42 @@
     <list default="true" id="3d139d08-1f37-4d82-a0e1-2f9254b7bc9e" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/android/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Activities/AnimalDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Activities/AnimalDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Activities/AnimalsGrid.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Activities/AnimalsGrid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Activities/AnimalsList.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Activities/AnimalsList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Activities/AnimalDetails.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Activities/AnimalsGrid.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Activities/AnimalsList.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Activities/searchAnimalActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Activities/searchAnimalActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/Animal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/AnimalDBHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/AnimalDBHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Utilities/AnimalJsonParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Utilities/AnimalJsonParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/layout/activity_animals_grid.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/res/layout/activity_animals_grid.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/layout/activity_animals_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/res/layout/activity_animals_list.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/layout/activity_search_animal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/res/layout/activity_search_animal.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/layout/animal_details_fragment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/res/layout/animal_details_fragment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Adapters/AnimalListAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Adapters/AnimalListAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Adapters/GridAnimalAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Adapters/GridAnimalAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Fragments/AnimalDetailsFragment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Listeners/AnimalsListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/Adopter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/Adoption.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/Animal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/AnimalDBHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/AnimalFile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/Breed.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/Coat.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/Contact.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/Energy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/FileBreed.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/Kennel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/KennelAnimal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/Local.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/Model.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/Schedule.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/Size.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/Social.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/Treatment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/Vaccine.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Singleton/SingletonAnimals.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Utilities/AnimalJsonParser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/layout/activity_animals_grid.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/layout/activity_animals_list.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/layout/animal_details_add.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/layout/animal_details_fragment.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/layout/item_animal_grid.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/layout/item_animal_list.xml" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,7 +54,7 @@
     <session id="386510699">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="15" />
+          <entry key="project.closed" value="16" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.11" value="4" />
           <entry key="project.open.time.12" value="2" />
@@ -38,9 +62,9 @@
           <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.6" value="4" />
-          <entry key="project.open.time.7" value="2" />
+          <entry key="project.open.time.7" value="3" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="18" />
+          <entry key="project.opened" value="19" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -97,12 +121,19 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webapp/console/migrations/m190108_174604_update_data.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
               <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/webapp/frontend/modules/v1/controllers/AnimalController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-102" />
           </provider>
         </entry>
       </file>
@@ -163,6 +194,7 @@
       <path value="$PROJECT_DIR$/#Assets (Raw)/Templates/startbootstrap-sb-admin-2-gh-pages/package.json" />
       <path value="$PROJECT_DIR$/webapp/backend/web/assets/69b94f0e/package.json" />
       <path value="$PROJECT_DIR$/webapp/backend/web/assets/706ce021/package.json" />
+      <path value="$PROJECT_DIR$/webapp/vendor/bower-asset/bootstrap4/package.json" />
     </packageJsonPaths>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
@@ -266,6 +298,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -295,7 +328,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -344,16 +376,17 @@
       <workItem from="1546854265568" duration="1210000" />
       <workItem from="1546956115978" duration="2130000" />
       <workItem from="1547037113377" duration="139000" />
+      <workItem from="1547389821508" duration="8000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47811000" />
+    <option name="totallyTimeSpent" value="47819000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4989154" visible="true" weight="0.22814499" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4989154" visible="true" weight="0.23081024" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5010846" side_tool="true" weight="0.14552239" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -573,11 +606,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/frontend/modules/v1/controllers/AnimalController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-585" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webapp/frontend/views/animal/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-102" />
@@ -635,13 +663,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/common/models/AnimalFile.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="92" selection-start-line="92" selection-end-line="92" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/common/models/AnimalFile.php" />
     <entry file="file://$PROJECT_DIR$/webapp/frontend/config/bootstrap.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -670,6 +692,11 @@
         <state relative-caret-position="238">
           <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/frontend/modules/v1/controllers/AnimalController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-102" />
       </provider>
     </entry>
   </component>

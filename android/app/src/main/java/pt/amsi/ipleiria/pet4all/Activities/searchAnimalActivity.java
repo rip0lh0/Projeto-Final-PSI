@@ -8,7 +8,7 @@ import android.widget.Toast;
 
 import pt.amsi.ipleiria.pet4all.R;
 
-public class searchAnimalActivity extends AppCompatActivity {
+public class SearchAnimalActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +22,7 @@ public class searchAnimalActivity extends AppCompatActivity {
             case R.id.buttonShow:
             break;
             case R.id.buttonShowAll:
-                Intent intentShowAll = new Intent(getApplicationContext(),AnimalsList.class);
+                Intent intentShowAll = new Intent(getApplicationContext(),SearchMainActivity.class);
                 startActivity(intentShowAll);
                 break;
         }
