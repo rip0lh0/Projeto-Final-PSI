@@ -5,13 +5,13 @@ use yii\helpers\Url;
 
 $menuItems[] = [
     'url' => ['site/index'],
-    'label' => 'Home',
+    'label' => '<i class="fas fa-home fa-2x"></i>',
     'icon' => ''
 ];
 
 $menuItems[] = [
     'url' => ['animal/index'],
-    'label' => 'Animais',
+    'label' => '<i class="fas fa-paw fa-2x"></i>',
     'icon' => ''
 ];
 
@@ -62,12 +62,12 @@ $menuItems[] = [
                     </form>
                 </div> -->
                 <!-- Favourite Area -->
-                <div class="cart-area">
-                    <a href="#" id="essenceCartBtn"><i class="fas fa-shopping-cart"></i></a>
-                </div>
+                <!-- <div class="cart-area">
+                    <a href="#" id="essenceCartBtn"><i class="fas fa-heart"></i></a>
+                </div> -->
                 <!-- User Login Info -->
                 <div class="user-login-info">
-                    <?= Html::a('<i class="far fa-user" aria-hidden="true"></i>', ['user/authentication'], ['style' => 'vertical-align: middle; font-size: 1.6em;']); ?>
+                    <?= Html::a('<i class="fas fa-user"></i>', ((Yii::$app->user->isGuest) ? ['user/authentication'] : '#'), ['style' => 'vertical-align: middle; font-size: 1.6em; color: #787878;', 'id' => 'essenceCartBtn']); ?>
                     <!-- <a href="#" style="line-height: 103px;"><i class="fa fa-user fa-2x"></i></a> -->
                 </div>
             </div>

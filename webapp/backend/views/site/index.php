@@ -11,7 +11,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="row">
         <div class="col-md-4">
             <div class="info-box">
-                <span class="info-box-icon bg-blue"><i class="fa fa-facebook-f"></i></span>
+                <span class="info-box-icon bg-blue"><i class="fab fa-facebook"></i></span>
                 <div class="info-box-content">
                     <span class="info-box-text">Shares <small>(Total)</small></span>
                     <span class="info-box-number">93,139</span>
@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
         <div class="col-md-4">
             <div class="info-box">
-                <span class="info-box-icon bg-aqua"><i class="fa fa-twitter"></i></span>
+                <span class="info-box-icon bg-aqua"><i class="fab fa-twitter"></i></span>
                 <div class="info-box-content">
                     <span class="info-box-text">Tweets <small>(Total)</small></span>
                     <span class="info-box-number">93,139</span>
@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
         <div class="col-md-4">
             <div class="info-box">
-                <span class="info-box-icon bg-red"><i class="fa fa-share-alt"></i></span>
+                <span class="info-box-icon bg-red"><i class="fas fa-share-alt"></i></span>
                 <div class="info-box-content">
                     <span class="info-box-text">Adoções <small>(Total)</small></span>
                     <span class="info-box-number">93,139</span>

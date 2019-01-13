@@ -8,14 +8,7 @@ use yii\helpers\Url;
         <div class="row">
             <!-- Single Widget Area -->
             <div class="col-12 col-md-6">
-                <div class="single_widget_area d-flex mb-30">
-                    <!-- Logo -->
-                    
-                </div>
-            </div>
-            <!-- Single Widget Area -->
-            <div class="col-12 col-md-6">
-                <div class="single_widget_area mb-30">
+                <div class="single_widget_area">
                     <ul class="footer_widget_menu">
                         <li><a href="http://franciscof.com/">Francisco Fernandes</a></li>
                         <li><a href="https://sites.google.com/view/matolifer/p%C3%A1gina-inicial">Matheus Ferreira</a></li>
@@ -23,11 +16,8 @@ use yii\helpers\Url;
                     </ul>
                 </div>
             </div>
-        </div>
-
-        <div class="row align-items-end">
             <!-- Single Widget Area -->
-            <div class="col-12 col-md-6">
+            <!-- <div class="col-12 col-md-6">
                 <div class="single_widget_area">
                     <div class="footer_heading mb-30">
                         <h6>Subscribe</h6>
@@ -39,27 +29,23 @@ use yii\helpers\Url;
                         </form>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!-- Single Widget Area -->
-            <div class="col-12 col-md-6">
+            
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-6">
                 <div class="single_widget_area">
                     <div class="footer_social_area">
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook"
-                                aria-hidden="true"></i></a>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="fa fa-instagram"
-                                aria-hidden="true"></i></a>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter"
-                                aria-hidden="true"></i></a>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="Pinterest"><i class="fa fa-pinterest"
-                                aria-hidden="true"></i></a>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="Youtube"><i class="fa fa-youtube-play"
-                                aria-hidden="true"></i></a>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="row mt-5">
+        <div class="row">
             <div class="col-md-12 text-center">
                 <p>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
