@@ -15,7 +15,7 @@ import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import pt.amsi.ipleiria.pet4all.Activities.searchAnimalActivity;
+import pt.amsi.ipleiria.pet4all.Activities.SearchAnimalActivity;
 import pt.amsi.ipleiria.pet4all.Activities.LoginActivity;
 import pt.amsi.ipleiria.pet4all.R;
 
@@ -64,7 +64,7 @@ public class NavbarFragment extends Fragment {
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent(getActivity(),searchAnimalActivity.class);
+                Intent intent= new Intent(getActivity(),SearchAnimalActivity.class);
                 ActivityOptions options = ActivityOptions.makeCustomAnimation(getContext(),android.R.anim.fade_in,android.R.anim.fade_out);
                 startActivity(intent, options.toBundle());
 

@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -14,6 +15,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".MainActivity" />
 
@@ -30,10 +32,8 @@
         <activity android:name=".Activities.RegisterMenuActivity" />
         <activity android:name=".Activities.RegisterKennelActivity" />
         <activity android:name=".Activities.RegisterUserActivity" />
-        <activity android:name=".Activities.searchAnimalActivity"/>
-        <activity android:name=".Activities.AnimalDetails" />
-        <activity android:name=".Activities.AnimalsGrid" />
-        <activity android:name=".Activities.AnimalsList" />
+        <activity android:name=".Activities.SearchAnimalActivity"/>
+        <activity android:name=".Activities.SearchMainActivity" />
     </application>
 
 </manifest>
