@@ -65,8 +65,9 @@ class AnimalForm extends Model
 
         if (!$animal->save()) return null;
 
-        $this->photos($animal);
         $kennel_Animal = $this->addToKennel($animal->id, $this->id_Kennel);
+
+        $this->photos($animal, $kennel_Animal->created_at);
 
         if (!$kennel_Animal) {
             $animal->delete();
@@ -104,15 +105,15 @@ class AnimalForm extends Model
         $kennel_Animal->id_animal = $id_animal;
         $kennel_Animal->id_kennel = $id_kennel;
 
-        if ($kennel_Animal->save()) return $kennelAnimal;
+        if ($kennel_Animal->save()) return $kennel_Animal;
         else return false;
     }
 
-    public function photos($animal)
+    public function photos($animal, $timestamp)
     {
         if (empty($this->photos)) return;
 
-        $path = Yii::getAlias('@common') . '/uploads/animals/' . $this->id_Kennel . '/' . $animal->kennelanimal->created_at;
+        $path = Yii::getAlias('@common') . '/uploads/animals/' . $this->id_Kennel . '/' . $timestamp;
         FileHelper::createDirectory($path);
 
         $count = 0;
