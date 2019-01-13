@@ -24,24 +24,26 @@ use yii\helpers\Url;
                     <h6 class="us-since">Membro desde: 20/20/2019</h6>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12 us-stat">
-                    <div class="col-3">
-                        <i class="fas fa-envelope fa-3x"></i>
+            <!-- <div class="row justify-content-md-center">
+                <div class="col-8" style="padding: 10px;">
+                    <div class="row us-stat">
+                        <div class="col-3 us-stat-icon">
+                            <i class="fas fa-envelope fa-3x"></i>
+                        </div>
+                        <div class="col-9">
+                            <h4>Email</h4>
+                        </div>
                     </div>
-                    <div class="col-9">
-
-                    </div>
-                </div>
-            </div>
-            <!-- <div class="row align-bottom">
-                <div class="col">
-                    <a href="#" class="btn btn-primary btn-lg btn-block" role="button" aria-pressed="true">Primary link</a>
-                </div>
-                <div class="col">
-                    <a href="#" class="btn btn-primary btn-lg btn-block" role="button" aria-pressed="true">Primary link</a>
                 </div>
             </div> -->
+            <div class="row align-top" style="padding: 25px;">
+                <div class="col">
+                    <a href="#" class="btn btn-outline-primary btn-lg btn-block us-btn" role="button" aria-pressed="true">Profile</a>
+                </div>
+                <div class="col">
+                    <a href="#" class="btn btn-outline-secondary btn-lg btn-block us-btn" role="button" aria-pressed="true">Logout</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
