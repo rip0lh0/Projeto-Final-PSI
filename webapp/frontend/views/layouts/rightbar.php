@@ -1,7 +1,10 @@
 <?php
 
 use yii\helpers\Url;
+use yii\helpers\Html;
 
+
+$user = Yii::$app->user->identity;
 ?>
 
  <!-- ##### Right Side Cart Area ##### -->
@@ -20,8 +23,8 @@ use yii\helpers\Url;
                     <img src="<?= Url::base(true) ?>/images/photo_placeholder.jpg" class="circle img-thumbnail mx-auto d-block us-photo" alt="...">
                 </div>
                 <div class="col-12">
-                    <h3 class="us-username">Username</h3>
-                    <h6 class="us-since">Membro desde: 20/20/2019</h6>
+                    <h3 class="us-username"><?= $user->username; ?></h3>
+                    <h6 class="us-since">Membro desde: <?= date('d-m-Y', $user->created_at); ?></h6>
                 </div>
             </div>
             <!-- <div class="row justify-content-md-center">
@@ -41,7 +44,7 @@ use yii\helpers\Url;
                     <a href="#" class="btn btn-outline-primary btn-lg btn-block us-btn" role="button" aria-pressed="true">Profile</a>
                 </div>
                 <div class="col">
-                    <a href="#" class="btn btn-outline-secondary btn-lg btn-block us-btn" role="button" aria-pressed="true">Logout</a>
+                    <?= Html::a('Sign out', ['user/logout'], ['data-method' => 'post', 'class' => 'btn btn-outline-secondary btn-lg btn-block us-btn']) ?>
                 </div>
             </div>
         </div>

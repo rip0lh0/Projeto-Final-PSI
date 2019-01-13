@@ -148,10 +148,10 @@ $itemsPerRow = 3;
                             <div class="product-topbar d-flex align-items-center justify-content-between">
                                 <!-- Total Products -->
                                 <div class="total-products">
-                                    <p><span>186</span> products found</p>
+                                    <p><span><?= count($animals) ?></span> Animais encontrados</p>
                                 </div>
                                 <!-- Sorting -->
-                                <div class="product-sorting d-flex">
+                                <!-- <div class="product-sorting d-flex">
                                     <p>Sort by:</p>
                                     <form action="#" method="get">
                                         <select name="select" id="sortByselect">
@@ -162,7 +162,7 @@ $itemsPerRow = 3;
                                         </select>
                                         <input type="submit" class="d-none" value="">
                                     </form>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -196,13 +196,14 @@ $itemsPerRow = 3;
                                     <a href="single-product-details.html">
                                         <h6><?= $animal->name ?></h6>
                                     </a>
-                                    <p class="card-text block-ellipsis"><?= $animal->description ?></p>
+                                    <span class="badge badge-<?= ($animal->gender == 'M') ? 'blue' : 'pink'; ?>"><?= $animal->animalGender ?></span>
+                                    <span><?= ($animal->age) ? $animal->age . ' Anos.' : ''; ?></span>
 
                                     <!-- Hover Content -->
                                     <div class="hover-content">
                                         <!-- Add to Cart -->
                                         <div class="add-to-cart-btn">
-                                            <a href="#" class="btn essence-btn">Add to Cart</a>
+                                            <a href="#" class="btn essence-btn">Adotar</a>
                                         </div>
                                     </div>
                                 </div>

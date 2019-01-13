@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 ?>
 
-<div class="breadcumb_area bg-img" style="background-image: url('<?= Url::base(true) ?>/images/bg_3.jpg');">
+<div class="breadcumb_area bg-img" style="background-image: url('<?= Url::base(true) ?>/images/bg_1.jpg');">
     <div class="container h-100">
         <div class="row h-100 align-items-center">
             <div class="col-12">
@@ -54,7 +54,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 </div>
                             </div>
                             <div class="col-6">
-                                <?= Html::submitButton('Login', ['class' => 'btn btn-primary btn-lg btn-block', 'name' => 'login-button', 'style' => 'font-size: 2.25rem;']) ?>
+                                <?= Html::submitButton('Login', ['class' => 'btn btn-primary btn-lg btn-block', 'name' => 'login-button', 'style' => 'font-size: 2em;']) ?>
                             </div>
                             <?php if ($model) ?>
                             <div class="container">

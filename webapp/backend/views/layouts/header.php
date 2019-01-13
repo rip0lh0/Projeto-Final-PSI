@@ -13,7 +13,8 @@ AppAsset::register($this);
     <?= Html::a('<span class="logo-mini">P4A</span><span class="logo-lg">' . Yii::$app->name . '</span>', Yii::$app->homeUrl, ['class' => 'logo']) ?>
     <nav class="navbar navbar-static-top" role="navigation">
         <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-            <span class="sr-only">Toggle navigation</span>
+            <!-- <span class="sr-only">Toggle navigation</span> -->
+            <i class="fas fa-bars"></i>
         </a>
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">

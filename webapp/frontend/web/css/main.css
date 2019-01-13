@@ -60,15 +60,48 @@
 }
 
 .us-btn {
-    font-size: 2.25rem;
+    font-size: 1.5em;
 }
 
 .circle {
     border-radius: 50rem;
 }
 
+.product-img {
+    min-height: 300px;
+}
+
+.product-img img {
+    height: 400px !important;
+    object-fit: cover !important;
+}
+
+.badge {
+    color: white !important;
+}
+
+.badge-pink {
+    background-color: #EC407A;
+}
+
+.badge-blue {
+    background-color: #29B6F6;
+}
+
+.essence-btn {
+    background-color: #29B6F6 !important;
+}
+
+.essence-btn:hover {
+    background-color: #EC407A !important;
+}
+
+.right-side-cart-area {
+    width: 400px !important;
+}
+
 /* The overlay effect (full height and width) - lays on top of the container and over the image */
-.overlay {
+/* .overlay {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -79,9 +112,9 @@
     opacity: 0;
     transition: .3s ease;
     background-color: rgba(0, 0, 0, 0.3);
-}
+} */
 
 /* When you mouse over the container, fade in the overlay icon*/
-.container:hover .overlay {
+/* .container:hover .overlay {
     opacity: 1;
-}
+} */

@@ -29,7 +29,7 @@ AppAsset::register($this);
 <body class="animsition">
 <?php $this->beginBody() ?>
     <?= $this->render('header'); ?>
-    <?= $this->render('rightbar'); ?>
+    <?= (!Yii::$app->user->isGuest) ? $this->render('rightbar') : ''; ?>
     
     <?= $content ?>
 
