@@ -48,7 +48,7 @@
     // }
 
     // :: Header Cart Active Code
-    var cartbtn1 = $('#essenceCartBtn');
+    var cartbtn1 = $('.nav-profile-btn');
     var cartOverlay = $(".cart-bg-overlay");
     var cartWrapper = $(".right-side-cart-area");
     var cartbtn2 = $("#rightSideCart");
