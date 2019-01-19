@@ -14,13 +14,12 @@ use yii\base\ErrorException;
 
 class ImageHandler extends Model
 {
-
-    private const IMAGE_EXTENSION = '.jpg';
+    private const IMAGE_EXTENSION = ".jpg";
     private const TEMP_DIRECTORY = "temp/animals/";
     private const FINAL_DIRECTORY = "/uploads/animals/";
 
-    private const QUALITY = '80'; // JPEG QUALITY
-    private const RESOLUTION = '720'; // HEIGHT
+    private const QUALITY = "80"; // JPEG QUALITY
+    private const RESOLUTION = "720"; // HEIGHT
 
     public static function temp_upload($source_img_name, $target_img_name, $target_folder_name)
     {

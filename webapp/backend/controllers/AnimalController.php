@@ -117,10 +117,8 @@ class AnimalController extends Controller
             }
         }
 
-        if (!Yii::$app->request->post()) {
-            //var_dump(Yii::$app->request->post());
-            ImageHandler::delete_directory($model->id_Kennel);
-        }
+        if (!Yii::$app->request->post()) ImageHandler::delete_directory($model->id_Kennel);
+
 
         return $this->render('create', [
             // Pre Define Values
@@ -145,23 +143,30 @@ class AnimalController extends Controller
     {
         $model = $this->findModel($id_animal);
 
+        // Get Pre Define Values
         $coat = Coat::find()->asArray()->all();
         $energy = Energy::find()->asArray()->all();
         $size = Size::find()->asArray()->all();
 
+        // UI Messages
+        $result = [];
+
         if ($model->load(Yii::$app->request->post())) {
             if ($model->updateAnimal()) return $this->redirect(['animal/index']);
             else $error = 'Erro ao salvar os Dados';
-        } 
-        
-        //ImageHandler::delete_directory($model->id_Kennel);
+        }
 
+        if (!Yii::$app->request->post()) ImageHandler::delete_directory($model->id_Kennel);
 
         return $this->render('update', [
+            // Pre Define Values
             'coat' => $coat,
             'energy' => $energy,
             'size' => $size,
+            // Model
             'model' => $model,
+            // UI Messages
+            'result' => $result
         ]);
     }
 

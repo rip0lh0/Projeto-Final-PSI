@@ -18,28 +18,22 @@ $this->title = 'Novo Animal';
 $this->params['breadcrumbs'][] = ['label' => 'Animals', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 
-$file_list = [];
 
 $dropzoneScript = '
     $("#previews").addClass("container-fluid");  
 ';
 
 $this->registerJs($dropzoneScript);
-
-
-
-
 ?>
 
 
 
 <div class="content">
     <div class="row">
-       <?php $form = ActiveForm::begin(
-            [
-                'id' => 'create-animal-form'
-            ]
-        ); ?>
+        <?php 
+        $form = ActiveForm::begin([
+            'id' => 'create-animal-form'
+        ]); ?>
             <div class="col-md-12">
                 <div class="box box-primary">
                     <div class="box-header with-border">
