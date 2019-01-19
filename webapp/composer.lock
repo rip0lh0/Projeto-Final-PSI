@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4f51f4683aec60b324905f782cb3aff9",
+    "content-hash": "f912d64e294d54c14de2ec51f800dc7f",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -1078,50 +1078,6 @@
             "time": "2018-09-11T07:12:52+00:00"
         },
         {
-            "name": "tpmanc/yii2-imagick",
-            "version": "v1.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/tpmanc/yii2-imagick.git",
-                "reference": "2b32bbd72bd6460a04497027a2e4272f73326c93"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/tpmanc/yii2-imagick/zipball/2b32bbd72bd6460a04497027a2e4272f73326c93",
-                "reference": "2b32bbd72bd6460a04497027a2e4272f73326c93",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "tpmanc\\imagick\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "tpmanc",
-                    "email": "tpxtrime@mail.ru",
-                    "homepage": "https://tpmanc.github.io",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Yii 2 class for working with Imagick",
-            "homepage": "https://github.com/tpmanc/yii2-imagick",
-            "keywords": [
-                "imagick",
-                "yii",
-                "yii2"
-            ],
-            "time": "2016-02-05T10:45:44+00:00"
-        },
-        {
             "name": "yiisoft/yii2",
             "version": "2.0.15.1",
             "source": {
@@ -1514,22 +1470,6 @@
                 "parser"
             ],
             "time": "2019-01-16T14:22:17+00:00"
-        },
-        {
-            "name": "bower-asset/bootstrap4",
-            "version": "v4.2.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "9e4e94747bd698f4f61d48ed54c9c6d4d199bd32"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/9e4e94747bd698f4f61d48ed54c9c6d4d199bd32",
-                "reference": "9e4e94747bd698f4f61d48ed54c9c6d4d199bd32",
-                "shasum": null
-            },
-            "type": "bower-asset"
         },
         {
             "name": "bower-asset/typeahead.js",
