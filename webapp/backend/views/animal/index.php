@@ -77,9 +77,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
                                             $htmlData .= Html::a('<i class="fas fa-notes-medical"></i>', ['animal/medical', 'id_animal' => $data->id], ['class' => 'btn btn-success btn-xs', 'style' => 'margin: 0 2px;', 'data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => 'Ficha Medica']);
                                         }
+                                        $htmlData .= Html::a(($data->status == KennelAnimal::STATUS_DELETED) ? '<i class="fas fa-history"></i>' : '<i class="far fa-trash-alt"></i>', ['animal/delete', 'id_animal' => $data->id], ['class' => 'btn btn-' . (($data->status == KennelAnimal::STATUS_DELETED) ? 'success' : 'danger') . ' btn-xs', 'style' => 'margin: 0 2px;', 'data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => 'Tooltip on top']);
                                     }
-                                    $htmlData .= Html::a(($data->status == KennelAnimal::STATUS_DELETED) ? '<i class="fas fa-history"></i>' : '<i class="far fa-trash-alt"></i>', ['animal/delete', 'id_animal' => $data->id], ['class' => 'btn btn-' . (($data->status == KennelAnimal::STATUS_DELETED) ? 'success' : 'danger') . ' btn-xs', 'style' => 'margin: 0 2px;', 'data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => 'Tooltip on top']);
                                     return $htmlData;
+
                                 },
                             ],
                         ],

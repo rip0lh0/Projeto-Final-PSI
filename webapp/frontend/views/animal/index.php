@@ -176,26 +176,19 @@ $itemsPerRow = 3;
                             <div class="single-product-wrapper">
                                 <!-- Product Image -->
                                 <div class="product-img">
-                                    <?= $animal->getImage('0.jpeg'); ?>
+                                    
+                                    <img src="data:image/jpeg;base64, <?= $animal->getImage('0.jpg'); ?>" alt="">
                                     <!-- Hover Thumb -->
-                                    <img class="hover-img" src="img/product-img/product-2.jpg" alt="">
-
-                                    <!-- Product Badge -->
-                                    <!-- <div class="product-badge">
-                                        <span>-30%</span>
-                                    </div> -->
-                                    <!-- Favourite -->
-                                    <!-- <div class="product-favourite">
-                                        <a href="#" class="favme fa fa-heart"></a>
-                                    </div> -->
+                                    <?php if (count($animal->allImages) >= 2) { ?>
+                                    <img class="hover-img" src="data:image/jpg;base64, <?= $animal->getImage('1.jpg'); ?>" alt="">
+                                        <?php 
+                                    } ?>
                                 </div>
 
                                 <!-- Product Description -->
                                 <div class="product-description">
                                     <span><?= $animal->size->size ?></span>
-                                    <a href="single-product-details.html">
-                                        <h6><?= $animal->name ?></h6>
-                                    </a>
+                                    <?= Html::a('<h6>' . $animal->name . '</h6>', ['animal/adopt', 'id_animal' => $animal->id]) ?>
                                     <span class="badge badge-<?= ($animal->gender == 'M') ? 'blue' : 'pink'; ?>"><?= $animal->animalGender ?></span>
                                     <span><?= ($animal->age) ? $animal->age . ' Anos.' : ''; ?></span>
 
@@ -203,7 +196,7 @@ $itemsPerRow = 3;
                                     <div class="hover-content">
                                         <!-- Add to Cart -->
                                         <div class="add-to-cart-btn">
-                                            <a href="#" class="btn essence-btn">Adotar</a>
+                                            <?= Html::a('Adotar', ['animal/adopt', 'id_animal' => $animal->id], ['class' => 'btn essence-btn']) ?>
                                         </div>
                                     </div>
                                 </div>

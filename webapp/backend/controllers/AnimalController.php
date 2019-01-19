@@ -3,25 +3,25 @@
 namespace backend\controllers;
 
 use Yii;
-
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
-use yii\web\UploadedFile;
+use yii\helpers\Json;
 /* Backend Models */
 use backend\models\UploadForm;
 use backend\models\AnimalForm;
 use backend\models\AnimalSearch;
+use backend\models\ImageHandler;
 /* Common Models */
 use common\models\Animal;
 use common\models\User;
 use common\models\Breed;
 use common\models\KennelAnimal;
-use yii\helpers\Json;
 use common\models\Coat;
 use common\models\Energy;
 use common\models\Size;
+
 /**
  * AnimalController implements the CRUD actions for Animal model.
  */
@@ -97,25 +97,40 @@ class AnimalController extends Controller
     public function actionCreate()
     {
         $model = new AnimalForm();
+
+        // Set Kennel ID
         $model->id_Kennel = User::findIdentity(Yii::$app->user->id)->kennel->id;
 
+        // Get Pre Define Values
         $coat = Coat::find()->asArray()->all();
         $energy = Energy::find()->asArray()->all();
         $size = Size::find()->asArray()->all();
-        $error = '';
 
+        // UI Messages
+        $result = [];
+
+        // Validate Data
         if ($model->load(Yii::$app->request->post())) {
-            $model->photos = UploadedFile::getInstances($model, 'photos');
-            if ($model->createAnimal()) return $this->redirect(['animal/index']);
-            else $error = 'Erro ao salvar os Dados';
+            $result = $model->createAnimal();
+            if (array_key_exists('Success', $result)) {
+                return $this->redirect(['animal/index']);
+            }
+        }
+
+        if (!Yii::$app->request->post()) {
+            //var_dump(Yii::$app->request->post());
+            ImageHandler::delete_directory($model->id_Kennel);
         }
 
         return $this->render('create', [
+            // Pre Define Values
             'coat' => $coat,
             'energy' => $energy,
             'size' => $size,
+            // Model
             'model' => $model,
-            'error' => $error
+            // UI Messages
+            'result' => $result
         ]);
     }
 
@@ -135,10 +150,12 @@ class AnimalController extends Controller
         $size = Size::find()->asArray()->all();
 
         if ($model->load(Yii::$app->request->post())) {
-            $model->photos = UploadedFile::getInstances($model, 'photos');
             if ($model->updateAnimal()) return $this->redirect(['animal/index']);
             else $error = 'Erro ao salvar os Dados';
-        }
+        } 
+        
+        //ImageHandler::delete_directory($model->id_Kennel);
+
 
         return $this->render('update', [
             'coat' => $coat,
@@ -197,12 +214,36 @@ class AnimalController extends Controller
         throw new NotFoundHttpException('The requested page does not exist.');
     }
 
-
     protected function findAnimalInKennel($id_animal)
     {
         $id_kennel = User::findIdentity(Yii::$app->user->id)->kennel->id;
         $kennel_animal = KennelAnimal::find()->where(['id' => $id_animal, 'id_kennel' => $id_kennel])->one();
 
         return $kennel_animal;
+    }
+
+    public function actionUploadTempFile()
+    {
+        $id_Kennel = User::findIdentity(Yii::$app->user->id)->kennel->id;
+        $file_data_name = 'uploaded_file';
+
+        if (isset($_FILES[$file_data_name])) {
+
+            return Json::encode(ImageHandler::temp_upload($file_data_name, $_FILES[$file_data_name]['name'], $id_Kennel));
+        }
+
+        return false;
+    }
+
+    public function actionRemoveTempFile()
+    {
+        $id_Kennel = User::findIdentity(Yii::$app->user->id)->kennel->id;
+
+        if (Yii::$app->request->isAjax) {
+            $data = Yii::$app->request->post();
+            $file_name = $data['name'];
+
+            echo Json::encode(ImageHandler::delete_image($file_name, $id_Kennel));
+        }
     }
 }

@@ -7,7 +7,10 @@ use yii\base\Model;
 use yii\helpers\FileHelper;
 use yii\web\UploadedFile;
 
-/* @Models */
+use backend\models\ImageHandler;
+
+
+/* @Common Models */
 use common\models\Animal;
 use common\models\KennelAnimal;
 use common\models\Breed;
@@ -29,21 +32,44 @@ class AnimalForm extends Model
     public $id_energy;
     public $id_size;
     public $id_coat;
-    /** @var UploadedFile[] */
-    public $photos;
+
+    //public $photos;
 
     public function rules()
     {
         return [
-            /* Animal */
-            [['name', 'description', 'neutered', 'gender', 'id_energy', 'id_coat', 'id_size', 'id_Kennel'], 'required'],
-            [['name', 'description', 'chip'], 'string', 'max' => 255],
-            [['neutered', 'age'], 'integer'],
-            [['weight'/*, 'parentBreed'*/ ], 'number'],
-
-            //[[/*'breeds', */'energy', 'coat', 'size'], 'each', 'rule' => ['number']],
-            /* Images */
-            [['photos'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg', 'maxFiles' => 12]
+            [
+                ['name', 'description', 'neutered', 'gender', 'id_energy', 'id_coat', 'id_size', 'id_Kennel'],
+                'required',
+                'message' => '{attribute} não pode ficar em branco.'
+            ],
+            [
+                ['chip'],
+                'string',
+                'min' => 9,
+                'max' => 9,
+                'message' => '{attribute} contem 9 caracteres.'
+            ],
+            [
+                ['name'],
+                'string',
+                'max' => 60,
+                'message' => '{attribute} contem mais de 60 caracteres.'
+            ],
+            [
+                ['description'],
+                'string',
+                'max' => 255,
+                'message' => '{attribute} contem mais de 255 caracteres.'
+            ],
+            [
+                ['neutered', 'age'],
+                'integer'
+            ],
+            [
+                ['weight'],
+                'number'
+            ],
         ];
     }
 
@@ -55,26 +81,28 @@ class AnimalForm extends Model
         $animal->name = $this->name;
         $animal->description = $this->description;
         $animal->neutered = $this->neutered;
-        $animal->chip = $this->chip;
+        $animal->chip = ($this->chip) ? $this->chip : null;
         $animal->gender = $this->gender;
         $animal->weight = $this->weight;
         $animal->age = $this->age;
+
         $animal->id_energy = $this->id_energy;
         $animal->id_coat = $this->id_coat;
         $animal->id_size = $this->id_size;
 
-        if (!$animal->save()) return null;
+        if (!$animal->save()) return ['Error' => $animal->errors];
 
         $kennel_Animal = $this->addToKennel($animal->id, $this->id_Kennel);
 
-        $this->photos($animal, $kennel_Animal->created_at);
 
         if (!$kennel_Animal) {
             $animal->delete();
-            return null;
+            return ['Error' => 'Fail To Create Animal'];
         }
 
-        return $animal;
+        ImageHandler::final_upload($this->id_Kennel, ($this->id_Kennel . '/' . $kennel_Animal->created_at));
+
+        return ['Success' => 'Animal Created with Success'];
     }
 
     public function updateAnimal()
@@ -93,7 +121,7 @@ class AnimalForm extends Model
 
         if (!$animal->update()) return null;
 
-        $this->photos($animal);
+        $kennel_animal = $animal->kennelAnimal;
 
         return $animal;
     }
@@ -107,19 +135,5 @@ class AnimalForm extends Model
 
         if ($kennel_Animal->save()) return $kennel_Animal;
         else return false;
-    }
-
-    public function photos($animal, $timestamp)
-    {
-        if (empty($this->photos)) return;
-
-        $path = Yii::getAlias('@common') . '/uploads/animals/' . $this->id_Kennel . '/' . $timestamp;
-        FileHelper::createDirectory($path);
-
-        $count = 0;
-        foreach ($this->photos as $photo) {
-            $photo->saveAs($path . '/' . $count . '.jpeg');
-            $count++;
-        }
     }
 }

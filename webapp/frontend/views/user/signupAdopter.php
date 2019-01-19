@@ -9,91 +9,60 @@ use yii\helpers\Url;
 
 use kartik\form\ActiveForm;
 
-$this->title = 'Criar Utilizador';
+$this->title = 'Utilizador';
 $this->params['breadcrumbs'][] = $this->title;
 
 // $userName = Yii::$app->user->identity->username;
 // $local = Yii::$app->user->identity->local;
 
 ?>
-<section class="signup row-fluid bg-image" style="background-image: url('<?= Url::base(true) ?>/images/bg_2.jpg');">
-    <div class="container" style="padding: 120px 0;">
-        <?php $form = ActiveForm::begin(
-            [
-                'id' => 'signup-form',
-                'fieldConfig' => [
-                    'autoPlaceholder' => true
-                ],
-                'formConfig' => ['showErrors' => false]
-            ]
-        ); ?>
-        <div class="col-md-6 col-md-offset-3">
-            <div class="menu-panel">
-                <div class="mp-header" style="background-color: rgba(33,150,243 ,1); padding: 3%;">
-                    <h1><?= $this->title ?></h1>
+
+<div class="breadcumb_area bg-img" style="background-image: url('<?= Url::base(true) ?>/images/bg_2.jpg');">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12">
+                <div class="page-title text-center">
+                    <h2><?= $this->title ?></h2>
                 </div>
-                <div class="mp-body" style="padding: 5% 10%;">
-                    
-                    <?= $form->field($model, 'username', [
-                        'feedbackIcon' => [
-                            'prefix' => 'fa fa-',
-                            'default' => 'user',
-                            'success' => 'check-circle',
-                            'error' => 'exclamation-circle',
-                            'defaultOptions' => ['class' => 'text-primary']
-                        ]
-                    ])->textInput([
-                        'autofocus' => true,
-                        'class' => 'input-flat'
-                    ]) ?>
-
-                    <?= $form->field($model, 'name', [
-                        'options' => ['style' => 'margin-top: 30px;'],
-                        'feedbackIcon' => [
-                            'prefix' => 'fa fa-',
-                            'default' => 'user',
-                            'success' => 'check-circle',
-                            'error' => 'exclamation-circle',
-                            'defaultOptions' => ['class' => 'text-primary']
-                        ]
-                    ])->textInput([
-                        'autofocus' => true,
-                        'class' => 'input-flat'
-                    ]) ?>
-
-                    <?= $form->field($model, 'email', [
-                        'options' => ['style' => 'margin-top: 30px;'],
-                        'feedbackIcon' => [
-                            'prefix' => 'fa fa-',
-                            'default' => 'envelope',
-                            'success' => 'check-circle',
-                            'error' => 'exclamation-circle',
-                            'defaultOptions' => ['class' => 'text-primary']
-                        ]
-                    ])->textInput([
-                        'autofocus' => true,
-                        'class' => 'input-flat'
-                    ]) ?>
-                    
-                    <?= $form->field($model, 'password', [
-                        'options' => ['style' => 'margin-top: 30px;'],
-                        'feedbackIcon' => [
-                            'prefix' => 'fa fa-',
-                            'default' => 'lock',
-                            'success' => 'check-circle',
-                            'error' => 'exclamation-circle',
-                            'defaultOptions' => ['class' => 'text-primary']
-                        ]
-                    ])->passwordInput([
-                        'class' => 'input-flat'
-                    ]) ?>
-
-                    <?= Html::submitButton('Registar', ['class' => 'btn btn-blue btn-block btn-flat', 'style' => 'margin-top: 30px; min-height: 45px;', 'name' => 'login-button']) ?>
-                    <?= $form->errorSummary($model, ['header' => '', 'class' => 'mp-error', 'style' => 'background-color: #ef5350']); ?>  
-                </div>
-                
             </div>
         </div>
-        <?php ActiveForm::end(); ?>
     </div>
-</section>
+</div>
+
+<div class="checkout_area section-padding-80">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <div class="checkout_details_area clearfix">
+                     <?php $form = ActiveForm::begin(
+                        [
+                            'id' => 'signup-form',
+                            'formConfig' => ['showErrors' => false]
+                        ]
+                    ); ?>
+                        <div class="row justify-content-center">
+                            <div class="col-md-12 mb-3">
+                                <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <?= $form->field($model, 'name')->textInput() ?>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                 <?= $form->field($model, 'email')->input('email') ?>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <?= $form->field($model, 'password')->passwordInput() ?>
+                            </div>
+                            <div class="col-6" style="margin: 20px;">
+                                <?= Html::submitButton('Registar', ['class' => 'btn btn-primary btn-lg btn-block', 'style' => 'font-size: 2em;', 'name' => 'signup-button']) ?>
+                            </div>
+                            <div class="container">
+                                <?= $form->errorSummary($model, ['header' => '', 'class' => 'alert alert-danger']) ?>
+                            </div>
+                        </div>
+                    <?php ActiveForm::end(); ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

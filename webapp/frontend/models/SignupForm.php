@@ -22,7 +22,8 @@ class SignupForm extends Model
     public $phone;
     /* Kennel Infromation */
     public $nif;
-    public $local;
+    public $id_local;
+    public $id_sublocal;
     public $address;
 
     /**
@@ -49,12 +50,12 @@ class SignupForm extends Model
             ['nif', 'unique', 'targetClass' => '\common\models\kennel', 'message' => 'This nif address has already been taken.'],
             ['nif', 'string', 'min' => 9, 'max' => 9],
 
-            [['local', 'address', 'nif'], 'required', 'when' => function ($model) {
+            [['id_local', 'address', 'nif', 'id_sublocal'], 'required', 'when' => function ($model) {
                 return ($this->user_type == User::TYPE_KENNEL);
             }, 'message' => '{attribute} não pode ficar em branco.'],
 
-            [['local', 'address'], 'string', 'max' => 255],
-            ['phone', 'string', 'min' => 11, 'max' => 11],
+            [['address'], 'string', 'max' => 255],
+            ['phone', 'string', 'min' => 9, 'max' => 9],
         ];
     }
 
@@ -86,9 +87,9 @@ class SignupForm extends Model
         $kennel->name = $this->name;
         $kennel->nif = $this->nif;
         $kennel->address = $this->address;
-        $kennel->id_local = $this->local;
+        $kennel->id_local = $this->id_sublocal;
 
-        if ($kennel->save() == null) return false;
+        if (!$kennel->save()) return false;
 
         $auth = \Yii::$app->authManager;
         $role = $auth->getRole('kennel');
@@ -117,11 +118,11 @@ class SignupForm extends Model
 
             switch ($this->user_type) {
                 case User::TYPE_KENNEL:
-                    $this->signupKennel($user);
-                    return $user;
+                    if (!$this->signupKennel($user)) $user->delete();
+                    else return $user;
                 case USER::TYPE_ADOPTER:
-                    $this->signupAdopter($user);
-                    return $user;
+                    if (!$this->signupAdopter($user)) $user->delete();
+                    else return $user;
                 default:
                     $user->delete();
             }

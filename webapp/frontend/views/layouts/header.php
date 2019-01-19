@@ -4,7 +4,7 @@ use yii\helpers\HTML;
 use yii\helpers\Url;
 
 $menuItems[] = [
-    'url' => ['site/index'],
+    'url' => Url::home(),
     'label' => '<i class="fas fa-home fa-2x"></i>',
     'icon' => ''
 ];

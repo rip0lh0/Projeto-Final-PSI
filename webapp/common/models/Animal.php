@@ -138,16 +138,15 @@ class Animal extends ActiveRecord
 
         $fp = fopen($imagePath, 'r');
         $data = fread($fp, filesize($imagePath));
-
-        echo '<img src="data:image/jpeg;base64,' . base64_encode($data) . '" style="width: 100%; object-fit: fill;"/>';
-
         fclose($fp);
+
+        return base64_encode($data);
     }
 
     /**
      * @return mixed
      */
-    public function getImages()
+    public function getAllImages()
     {
         $kennel = $this->kennelAnimal->kennel;
         $kennelEmail = substr($kennel->user->email, 0, strpos($kennel->user->email, "@"));
@@ -158,7 +157,7 @@ class Animal extends ActiveRecord
         foreach ($files as $file) {
             if ($file == '.' || $file == '..') continue;
 
-            $images[] = $file;
+            $images[] = $this->getImage($file);
         }
 
         return $images;

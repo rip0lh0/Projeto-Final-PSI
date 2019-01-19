@@ -49,11 +49,12 @@ $isKennel = (Yii::$app->user->identity != null) ? (Yii::$app->user->identity->ke
         <?= ($isKennel) ? '</div>' : ''; /*End Content-wrapper*/ ?>
         <?= $this->render("@backend/views/layouts/footer"); ?>
         <?= ($isKennel) ? '</div>' : '' /* End wrapper */ ?>
+        
         <?php $this->endBody() ?>
-
-
         <script>
+        Dropzone.autoDiscover = false;
         $(function () {
+            
             //bootstrap WYSIHTML5 - text editor
             $('.textarea').wysihtml5()
         })

@@ -49,18 +49,19 @@ $this->params['breadcrumbs'][] = $this->title;
                             </div>
                            <div class="col-12">
                                 <div class="custom-control custom-checkbox d-block mb-2">
-                                    <input type="checkbox" class="custom-control-input" id="rememberme">
+                                    <input type="checkbox" class="custom-control-input" id="rememberme" checked>
                                     <label class="custom-control-label" for="rememberme">Remember Me</label>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-6" style="margin: 20px;">
                                 <?= Html::submitButton('Login', ['class' => 'btn btn-primary btn-lg btn-block', 'name' => 'login-button', 'style' => 'font-size: 2em;']) ?>
                             </div>
-                            <?php if ($model) ?>
+                            <div class="col-12">
+                                <p>Not Registered! <?= Html::a('Create an Account', ['site/menu']) ?></p>
+                            </div>
+
                             <div class="container">
-                                <div class="alert alert-danger" role="alert">
-                                    <?= var_dump($error) ?>
-                                </div>
+                                <?= $form->errorSummary($model, ['header' => '', 'class' => 'alert alert-danger']) ?>
                             </div>
                         </div>
                     <?php ActiveForm::end(); ?>

@@ -85,6 +85,7 @@ class UserController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
             $model->user_type = $signupType;
+            // $model->signup();
             if ($model->signup()) return $this->redirect(["user/authentication"]);
         }
         
@@ -95,21 +96,31 @@ class UserController extends Controller
             ]);
         } else {
             if ($signupType == User::TYPE_KENNEL) {
-                $mainLocals = Local::find()->asArray()->where(['id_parent' => null])->all();
-                $locals = [];
-
-                foreach ($mainLocals as $key => $mainLocal) {
-                    $locals[$mainLocal['name']] = ArrayHelper::map(Local::find()->asArray()->where(['id_parent' => $mainLocal['id']])->all(), 'id', 'name');
-                }
+                $locals = ArrayHelper::map(Local::find()->asArray()->where(['id_parent' => null])->orderBy(['name' => SORT_ASC])->all(), 'id', 'name');
+                $sublocals = ArrayHelper::map(Local::find()->asArray()->where(['id_parent' => ((!empty($model->local)) ? $model->local : key($locals))])->orderBy(['name' => SORT_ASC])->all(), 'id', 'name');
 
                 return $this->render('signupKennel', [
                     'model' => $model,
                     'locals' => $locals,
+                    'sublocals' => $sublocals
                 ]);
             } else {
                 throw new \yii\web\NotFoundHttpException();
             }
 
+        }
+    }
+
+
+    public function actionSubLocals($id_parent)
+    {
+        $sublocals[] = ArrayHelper::map(Local::find()->asArray()->where(['id_parent' => $id_parent])->orderBy(['name' => SORT_ASC])->all(), 'id', 'name');
+        if (!empty($sublocals)) {
+            foreach ($sublocals[0] as $key => $sublocal) {
+                echo "<option value='" . $key . "'>" . $sublocal . "</option>";
+            }
+        } else {
+            echo "<option>-</option>";
         }
     }
 

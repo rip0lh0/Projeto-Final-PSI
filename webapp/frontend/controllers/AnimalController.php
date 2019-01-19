@@ -2,14 +2,39 @@
 
 namespace frontend\controllers;
 
+use yii;
+use yii\web\Controller;
+use yii\helpers\Url;
+use yii\filters\AccessControl;
+
 /* Common Models */
 use common\models\Animal;
 use common\models\KennelAnimal;
-use yii\web\Controller;
-use yii\helpers\Url;
+use common\models\Energy;
+use common\models\Coat;
+use common\models\Size;
+use yii\web\NotFoundHttpException;
 
 class AnimalController extends Controller
 {
+
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['adopt'],
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'actions' => ['adopt'],
+                        'roles' => ['@']
+                    ],
+                ],
+            ],
+        ];
+    }
+
     public function actionIndex()
     {
         $animals = Animal::find()->join('JOIN', KennelAnimal::tableName(), 'animal.id = id_animal')->where([(KennelAnimal::tableName() . '.status') => KennelAnimal::STATUS_FOR_ADOPTION])->orderBy(['created_at' => SORT_DESC])->all();
@@ -24,9 +49,22 @@ class AnimalController extends Controller
 
     }
 
-    public function actionAdopt()
+    public function actionAdopt($id_animal)
     {
+        $animal = Animal::find()->join('JOIN', KennelAnimal::tableName(), 'animal.id = id_animal')->where([(KennelAnimal::tableName() . '.status') => KennelAnimal::STATUS_FOR_ADOPTION, 'animal.id' => $id_animal])->one();
 
+        if ($animal == null) throw new NotFoundHttpException();
+
+        $energies = Energy::find()->all();
+        $coats = Coat::find()->all();
+        $sizes = Size::find()->all();
+
+        return $this->render('adopt', [
+            'animal' => $animal,
+            'energies' => $energies,
+            'coats' => $coats,
+            'sizes' => $sizes,
+        ]);
     }
 
 }
