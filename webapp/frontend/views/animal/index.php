@@ -180,7 +180,7 @@ $itemsPerRow = 3;
                                     <img src="data:image/jpeg;base64, <?= $animal->getImage('0.jpg'); ?>" alt="">
                                     <!-- Hover Thumb -->
                                     <?php if (count($animal->allImages) >= 2) { ?>
-                                    <img class="hover-img" src="data:image/jpg;base64, <?= $animal->getImage('1.jpg'); ?>" alt="">
+                                    <img class="hover-img" src="data:image/jp$this->id_Kennelg;base64, <?= $animal->getImage('1.jpg'); ?>" alt="">
                                         <?php 
                                     } ?>
                                 </div>

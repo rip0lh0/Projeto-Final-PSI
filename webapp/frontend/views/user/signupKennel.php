@@ -17,12 +17,10 @@ $this->params['breadcrumbs'][] = $this->title;
 $scriptBreed =
     '$.post("' . Yii::$app->urlManager->createUrl('user/sub-locals?id_parent=') . '" + $(this).val(), 
         function( data ) {
-            $("select#signupform-sublocal" ).html( data );
+            $("select#signupform-id_sublocal" ).html( data );
             $("select").niceSelect("update");
         }
     );';
-
-
 ?>
 
 <div class="breadcumb_area bg-img" style="background-image: url('<?= Url::base(true) ?>/images/bg_3.jpg');">

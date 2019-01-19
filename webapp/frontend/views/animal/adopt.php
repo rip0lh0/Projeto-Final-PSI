@@ -1,5 +1,17 @@
 <?php 
 
+/* @var $this yii\web\View */
+/* @var $form yii\bootstrap\ActiveForm */
+/* @var $model \frontend\models\SignupForm */
+
+use yii\helpers\Html;
+use yii\helpers\Url;
+use yii\helpers\ArrayHelper;
+use kartik\form\ActiveForm;
+use kartik\select2\Select2;
+
+$this->title = $animal->name;
+$this->params['breadcrumbs'][] = $this->title;
 
 $images = $animal->allImages;
 
@@ -85,7 +97,7 @@ $images = $animal->allImages;
                 </ul>
             </div>
         </div>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#kennelContactModal">Contactar</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#kennelContactModal" style="margin-top: 3em;">Contactar</button>
     </div>
 </section>
 
@@ -115,38 +127,52 @@ $images = $animal->allImages;
                     <input type="text" class="form-control" value="<?= $animal->kennelAnimal->kennel->phone ?>" disabled>
                 </div>
 
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <i class="fas fa-map-marker-alt input-group-text" style="line-height: 23px;"></i>
+                    </div>
+                    <input type="text" class="form-control" value="<?= $animal->kennelAnimal->kennel->phone ?>" disabled>
+                </div>
+
                 <hr>
 
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">From: </label>
+                            <input type="email" class="form-control" id="exampleInputPassword1" value="<?= Yii::$app->user->identity->email; ?>" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Name: </label>
+                            <input type="email" class="form-control" id="exampleInputPassword1" value="<?= Yii::$app->user->identity->adopter->name; ?>" disabled>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-md-12">
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">From: </label>
-                        <input type="email" class="form-control" id="exampleInputPassword1" value="<?= Yii::$app->user->identity->email; ?>" disabled>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Name: </label>
-                        <input type="email" class="form-control" id="exampleInputPassword1" value="<?= Yii::$app->user->identity->adopter->name; ?>" disabled>
-                    </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Animal: </label>
                         <input type="email" class="form-control" id="exampleInputPassword1" value="<?= $animal->name; ?>" disabled>
                     </div>
+                </div>
+                <div class="col-md-12">
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Mensagem</label>
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
                     </div>
                 </div>
 
-                
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Enviar</button>
+                <button type="button" class="btn btn-outline-danger" data-dismiss="modal"><i class="fas fa-times"></i></button>
+                <button type="button" class="btn btn btn-info"><i class="fas fa-paper-plane"></i></button>
             </div>
         </div>
     </div>
 </div>
 
-<a class="floatbtn" href="<?= Yii::$app->request->referrer; ?>" style="position: fixed; z-index: 1000;" ><i class="fas fa-angle-left"></i></a>
+<!-- <a class="floatbtn" href="<?= Yii::$app->request->referrer; ?>" style="position: fixed; z-index: 1000;" ><i class="fas fa-angle-left"></i></a> -->
 
 
 
@@ -157,7 +183,7 @@ $scriptCarousel = "
         var owl = $('.product_thumbnail_slides');
         owl.owlCarousel({
             items: 1,
-            margin: 0,
+            margin: 10,
             nav: true,
             navText: ['" . '<i class="fas fa-arrow-left"></i>' . "', '" . '<i class="fas fa-arrow-right"></i>' . "'],
             dots: false,

@@ -34,9 +34,6 @@ $this->params['breadcrumbs'][] = $this->title;
                     <?php $form = ActiveForm::begin(
                         [
                             'id' => 'login-form',
-                            // 'fieldConfig' => [
-                            //     'autoPlaceholder' => true
-                            // ],
                             'formConfig' => ['showErrors' => false]
                         ]
                     ); ?>

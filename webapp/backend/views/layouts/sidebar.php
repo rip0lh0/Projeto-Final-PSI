@@ -15,7 +15,7 @@ AppAsset::register($this);
         $animalMenuItems = [];
         $animalMenuItems[] = [
             'url' => ['animal/index'],
-            'icon' => ' icofont-cat-face',
+            'icon' => 'paw',
             'label' => 'Animais',
         ];
         $animalMenuItems[] = [
@@ -31,17 +31,12 @@ AppAsset::register($this);
             'icon' => 'home',
             'label' => 'Home',
         ];
+
         $menuItems[] = [
-            'icon' => 'paw',
-            'label' => 'Animais',
+            'icon' => ' far fa-building',
+            'label' => 'Canil',
             'items' => $animalMenuItems,
         ];
-
-        // $menuItems[] = [
-        //     'url' => ['animal/index'],
-        //     'icon' => 'paw',
-        //     'label' => 'Animais',
-        // ];
 
         $menuItems[] = [
             'url' => ['/site/options'],
