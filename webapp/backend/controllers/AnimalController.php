@@ -8,6 +8,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\helpers\Json;
+use yii\data\ActiveDataProvider;
 /* Backend Models */
 use backend\models\UploadForm;
 use backend\models\AnimalForm;
@@ -42,12 +43,6 @@ class AnimalController extends Controller
                     ],
                 ],
             ],
-            // 'verbs' => [
-            //     'class' => VerbFilter::className(),
-            //     'actions' => [
-            //         'create' => ['POST'],
-            //     ],
-            // ],
         ];
     }
 
@@ -59,16 +54,18 @@ class AnimalController extends Controller
     {
         $kennel = User::findIdentity(Yii::$app->user->id)->kennel;
 
-        $kennelAnimals = $kennel->kennelAnimals;
+        $kennelAnimals = $kennel->getKennelAnimals();
 
-        $searchModel = new AnimalSearch();
-        $searchModel->id_kennel = $kennel->id;
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams, $kennel);
+        //$searchModel = new AnimalSearch();
+        //$searchModel->id_kennel = $kennel->id;
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => $kennelAnimals,
+        ]);
 
         return $this->render('index', [
-            'kennelAnimals' => $kennelAnimals,
             'dataProvider' => $dataProvider,
-            'searchModel' => $searchModel
+            //'searchModel' => $searchModel
         ]);
     }
 
@@ -78,14 +75,14 @@ class AnimalController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($id_animal)
+    public function actionView($id_kennelAnimal)
     {
-        $animalKennel = $this->findAnimalInKennel($id_animal);
+        $kennel_animal = $this->getKennelAnimal($id_kennelAnimal);
 
-        if (!$animalKennel) throw new NotFoundHttpException();
+        if (!$kennel_animal) throw new NotFoundHttpException();
 
         return $this->render('view', [
-            'animal' => $animalKennel->animal,
+            'animal' => $kennel_animal->animal,
         ]);
     }
 
@@ -101,7 +98,7 @@ class AnimalController extends Controller
         // Set Kennel ID
         $model->id_Kennel = User::findIdentity(Yii::$app->user->id)->kennel->id;
 
-        // Get Pre Define Values
+        // Get Select Values
         $coat = Coat::find()->asArray()->all();
         $energy = Energy::find()->asArray()->all();
         $size = Size::find()->asArray()->all();
@@ -119,12 +116,14 @@ class AnimalController extends Controller
 
         if (!Yii::$app->request->post()) ImageHandler::delete_directory($model->id_Kennel);
 
+        $files = ImageHandler::load_from_temp($model->id_Kennel);
 
         return $this->render('create', [
             // Pre Define Values
             'coat' => $coat,
             'energy' => $energy,
             'size' => $size,
+            'files' => $files,
             // Model
             'model' => $model,
             // UI Messages
@@ -139,9 +138,9 @@ class AnimalController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($id_animal)
+    public function actionUpdate($id_kennelAnimal)
     {
-        $model = $this->findModel($id_animal);
+        $model = $this->findModel($id_kennelAnimal);
 
         // Get Pre Define Values
         $coat = Coat::find()->asArray()->all();
@@ -152,17 +151,25 @@ class AnimalController extends Controller
         $result = [];
 
         if ($model->load(Yii::$app->request->post())) {
+            $model->updateAnimal();
             if ($model->updateAnimal()) return $this->redirect(['animal/index']);
             else $error = 'Erro ao salvar os Dados';
         }
 
+        $kennelAnimal = $this->getKennelAnimal($id_kennelAnimal);
+
+
         if (!Yii::$app->request->post()) ImageHandler::delete_directory($model->id_Kennel);
+
+        ImageHandler::copy_to_temp($model->id_Kennel . '/' . $kennelAnimal->created_at, $model->id_Kennel);
+        $files = ImageHandler::load_from_temp($model->id_Kennel);
 
         return $this->render('update', [
             // Pre Define Values
             'coat' => $coat,
             'energy' => $energy,
             'size' => $size,
+            'files' => $files,
             // Model
             'model' => $model,
             // UI Messages
@@ -177,9 +184,9 @@ class AnimalController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($id_animal)
+    public function actionDelete($id_kennelAnimal)
     {
-        $kennel_animal = $this->findAnimalInKennel($id_animal);
+        $kennel_animal = $this->getKennelAnimal($id_kennelAnimal);
 
         if ($kennel_animal->status == KennelAnimal::STATUS_DELETED) {
             $kennel_animal->status = KennelAnimal::STATUS_FOR_ADOPTION;
@@ -193,15 +200,15 @@ class AnimalController extends Controller
     }
 
     /**
-     * Finds the Animal model based on its primary key value.
+     * Finds the AnimalForm model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer  $id
      * @return Animal the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($id_animal)
+    protected function findModel($id_kennelAnimal)
     {
-        $kennel_animal = $this->findAnimalInKennel($id_animal);
+        $kennel_animal = $this->getKennelAnimal($id_kennelAnimal);
         if (!$kennel_animal) throw new NotFoundHttpException();
 
         $animal = $kennel_animal->animal;
@@ -219,14 +226,18 @@ class AnimalController extends Controller
         throw new NotFoundHttpException('The requested page does not exist.');
     }
 
-    protected function findAnimalInKennel($id_animal)
+    protected function getKennelAnimal($id_kennelAnimal)
     {
         $id_kennel = User::findIdentity(Yii::$app->user->id)->kennel->id;
-        $kennel_animal = KennelAnimal::find()->where(['id' => $id_animal, 'id_kennel' => $id_kennel])->one();
+        $kennel_animal = KennelAnimal::find()->where(['id' => $id_kennelAnimal, 'id_kennel' => $id_kennel])->one();
 
         return $kennel_animal;
     }
 
+    /**
+     * Actions Related to the image upload
+     * Dropzone Preview Upload
+     */
     public function actionUploadTempFile()
     {
         $id_Kennel = User::findIdentity(Yii::$app->user->id)->kennel->id;

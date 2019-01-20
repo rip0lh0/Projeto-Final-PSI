@@ -1,34 +1,73 @@
 <?php
 
 use yii\helpers\Html;
-use yii\grid\GridView;
+use fedemotta\datatables\DataTables;
+use common\models\KennelAnimal;
 
-/* @var $this yii\web\View */
-/* @var $searchModel backend\models\SearchTreatment */
-/* @var $dataProvider yii\data\ActiveDataProvider */
-
-$this->title = 'Treatments';
+$this->title = 'Tratamentos: ' . $animal->name;
 $this->params['breadcrumbs'][] = $this->title;
+
 ?>
-<div class="treatment-index">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <p>
-        <?= Html::a('Create Treatment', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'description',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
+<div class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-header">
+                    <?= Html::a('<i class="fa fa-plus"></i> Adicionar', ['treatment/create', 'id_animal' => $animal->id], ['class' => 'btn bg-purple pull-right']) ?>
+                </div>
+                <div class="box-body">
+                    <?= DataTables::widget([
+                        'dataProvider' => $dataProvider,
+                        //'filterModel' => $searchModel,
+                        'tableOptions' => ['class' => 'table table-bordered table-striped'],
+                        'clientOptions' => [
+                            'info' => true,
+                            'responsive' => true,
+                            'searching' => false,
+                        ],
+                        'columns' => [
+                            [
+                                'class' => 'yii\grid\SerialColumn',
+                                'headerOptions' => ['width' => '150'],
+                            ],
+                            [
+                                // 'headerOptions' => ['width' => '300'],
+                                'attribute' => 'name',
+                            ],
+                            [
+                                // 'headerOptions' => ['width' => '300'],
+                                'attribute' => 'description',
+                            ],
+                            [
+                                'headerOptions' => ['width' => '140'],
+                                'label' => 'Ações',
+                                'format' => 'html',
+                                'value' => function ($data) {
+                                    $htmlData = "";
+                                    /* Animal View */
+                                    $htmlData .= Html::a('<i class="far fa-eye"></i>', ['treatment/view', 'id_treatment' => $data->id], ['class' => 'btn btn-info btn-xs', 'style' => 'margin: 0 2px;', 'data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => 'Ver Dados']);
+                                    $htmlData .= Html::a('<i class="far fa-edit"></i>', ['treatment/update', 'id_treatment' => $data->id], ['class' => 'btn btn-warning btn-xs', 'style' => 'margin: 0 2px;', 'data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => 'Editar Dados']);
+                                    /* Delete Animal */
+                                    $htmlData .= Html::a(
+                                        '<i class="far fa-trash-alt"></i>',
+                                        [
+                                            'treatment/delete', 'id_treatment' => $data->id
+                                        ],
+                                        [
+                                            'class' => 'btn btn-danger btn-xs',
+                                            'style' => 'margin: 0 2px;',
+                                            'data-toggle' => 'tooltip',
+                                            'data-placement' => 'top',
+                                            'title' => 'Eliminar'
+                                        ]
+                                    );
+                                    return $htmlData;
+                                },
+                            ],
+                        ],
+                    ]); ?>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

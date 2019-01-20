@@ -5,6 +5,8 @@ use yii\helpers\Url;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
+use yii\helpers\Json;
+
 /* Kartik */
 use kartik\select2\Select2;
 use kartik\depdrop\DepDrop;
@@ -15,16 +17,36 @@ use kato\DropZone;
 /* @var $this yii\web\View */
 /* @var $model common\models\animal */
 
-$this->title = 'Update Animal: ' . $model->name;
+$this->title = 'Editar: ' . $model->name;
 $this->params['breadcrumbs'][] = ['label' => 'Animals', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
 
+
+$pro_files = '';
+
+if (!array_key_exists('error', $files)) {
+    foreach ($files as $key => $file) {
+        $mockfile = [
+            'name' => $file['name'],
+            'size' => $file['size']
+        ];
+
+        $pro_files .= 'var mockFile = ' . Json::encode($mockfile) . ';';
+
+        $pro_files .= 'myDropzone.files.push(mockFile);';
+        $pro_files .= 'myDropzone.emit("addedfile", mockFile);';
+        $pro_files .= 'myDropzone.createThumbnailFromUrl(mockFile, "' . (Url::base(true) . '/' . $file['url']) . '");';
+    }
+}
+
 $dropzoneScript = '
     $("#previews").addClass("container-fluid");  
+    $(function() {
+        ' . $pro_files . '
+    });
 ';
 
-$this->registerJs($dropzoneScript);
 ?>
 <div class="content">
     <div class="row">
@@ -41,11 +63,9 @@ $this->registerJs($dropzoneScript);
                         <?php 
                         if (array_key_exists('Error', $result)) {
                             echo '<div class="alert alert-danger alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="fas fa-ban"></i> Error</h4>';
-
                             foreach ($result['Error'] as $key => $value) {
                                 echo '<p>' . $value['0'] . '</p>';
                             }
-
                             echo '</div>';
                         }
                         ?>
@@ -92,6 +112,8 @@ $this->registerJs($dropzoneScript);
                         <h3 class="box-title">Fotos</h3>
                     </div>
                     <div class="box-body">
+                        <div id="loading-overlay" class="loading" hidden><i class="fas fa-sync fa-4x fa-spin"></i></div>
+
                         <?=
                         DropZone::widget([
                             'options' => [
@@ -102,6 +124,7 @@ $this->registerJs($dropzoneScript);
                                 'acceptedFiles' => 'image/jpeg, image/png',
                                 'url' => Url::to(['animal/upload-temp-file']),
                                 'maxFilesize' => '6',
+                                'maxFiles' => '6',
                                 'previewTemplate' => '
                                     <div class="col-md-2">
                                         <div class="dz-details bg-overlay">
@@ -117,41 +140,41 @@ $this->registerJs($dropzoneScript);
                                 '
                             ],
                             'clientEvents' => [
-                                'init' => '
-                                function() {
-                                    var thisDropzone = this;
-                                    $.ajax({
-                                        type: "POST",
-                                        url: "' . Url::to(['animal/remove-temp-file']) . '",
-                                        data: {
-                                            name: file.name
-                                        },
-                                        sucess: function(data){
-                                            console.log("success:" + data);
+                                'addedfile' => '
+                                    function(file) {
+                                        if(this.files.length > this.options.maxFilesize){
+                                            $("#maxfiles").attr("hidden", false);
+                                            this.removeFile(file);
+                                        }else {
+                                            if (this.files.length) {
+                                                var _i, _len;
+                                                for (_i = 0, _len = this.files.length; _i < _len - 1; _i++) // -1 to exclude current file
+                                                {
+                                                    if(this.files[_i].name === file.name && this.files[_i].size === file.size && this.files[_i].lastModifiedDate.toString() === file.lastModifiedDate.toString())
+                                                    {
+                                                        $("#samefiles").attr("hidden", false);
+                                                        this.removeFile(file);
+                                                    }
+                                                }
+                                            }
                                         }
-                                    });
-
-                                    ON("get_item_images.php", function(data) { // get the json response
-                                        $.each(data, function(key,value){ //loop through it
-                                            var mockFile = { name: value.name, size: value.size }; // here we get the file name and size as response 
-
-                                            thisDropzone.options.addedfile.call(thisDropzone, mockFile);
-
-                                            thisDropzone.options.thumbnail.call(thisDropzone, mockFile, "uploadsfolder/"+value.name);//uploadsfolder is the folder where you have all those uploaded files
-
-                                        });
-
-                                    });
+                                    }
                                 ',
                                 'processing' => '
                                     function () {
                                         $("#loading-overlay").attr("hidden", false);
                                     }
                                 ',
-                                'queuecomplete' =>
-                                    'function () {
+                                'queuecomplete' => '
+                                    function () {
                                         $("#loading-overlay").attr("hidden", true);
                                     }
+                                ',
+                                'maxfilesexceeded' => '
+                                   function(file) {
+                                        $("#maxfiles").attr("hidden", false);
+                                        this.removeFile(file);
+                                    }   
                                 ',
                                 'removedfile' => '
                                     function(file){
@@ -162,13 +185,20 @@ $this->registerJs($dropzoneScript);
                                                 name: file.name
                                             },
                                             sucess: function(data){
-                                                console.log("success:" + data);
+                                                
                                             }
                                         });
                                     }'
                             ],
                         ]);
                         ?>
+                        <br>
+                        <div id="maxfiles" class="alert alert-danger alert-dismissible" hidden>
+                            Numero Máximo de Ficheiros: 6
+                        </div>
+                        <div id="samefiles" class="alert alert-danger alert-dismissible" hidden>
+                            Ficheiro com nome igual 
+                        </div>
                     </div>
                     <div class="box-footer">
                         <!-- Submit Button -->
@@ -179,3 +209,9 @@ $this->registerJs($dropzoneScript);
         <?php ActiveForm::end(); ?>
     </div>
 </div>
+
+
+<?php
+$this->registerJs($dropzoneScript);
+
+?>

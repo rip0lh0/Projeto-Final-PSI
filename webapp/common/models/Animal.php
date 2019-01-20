@@ -3,7 +3,7 @@
 namespace common\models;
 
 use Yii;
-use yii\db\ActiveRecord;
+use backend\models\ImageHandler;
 
 /**
  * This is the model class for table "animal".
@@ -25,8 +25,9 @@ use yii\db\ActiveRecord;
  * @property Size $size
  * @property AnimalBreed[] $animalBreeds
  * @property KennelAnimal[] $kennelAnimals
+ * @property Treatment[] $treatments
  */
-class Animal extends ActiveRecord
+class Animal extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
@@ -117,6 +118,14 @@ class Animal extends ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
+    public function getTreatments()
+    {
+        return $this->hasMany(Treatment::className(), ['id_animal' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function getKennelAnimal()
     {
         return $this->hasMany(KennelAnimal::className(), ['id_animal' => 'id'])->orderBy('created_at DESC')->one();
@@ -129,18 +138,11 @@ class Animal extends ActiveRecord
         return ($this->gender == 'M') ? 'Macho' : 'Fêmea';
     }
 
+
     public function getImage($imageName)
     {
         $kennel = $this->kennelAnimal->kennel;
-        $kennelEmail = substr($kennel->user->email, 0, strpos($kennel->user->email, "@"));
-
-        $imagePath = Yii::getAlias('@uploads') . '/animals/' . $kennel->id . '/' . $this->kennelAnimal->created_at . '/' . $imageName;
-
-        $fp = fopen($imagePath, 'r');
-        $data = fread($fp, filesize($imagePath));
-        fclose($fp);
-
-        return base64_encode($data);
+        return ImageHandler::load_image($kennel->id . '/' . $this->kennelAnimal->created_at, $imageName);
     }
 
     /**
@@ -149,18 +151,6 @@ class Animal extends ActiveRecord
     public function getAllImages()
     {
         $kennel = $this->kennelAnimal->kennel;
-        $kennelEmail = substr($kennel->user->email, 0, strpos($kennel->user->email, "@"));
-        $directory = Yii::getAlias('@uploads') . '/animals/' . $kennel->id . '/' . $this->kennelAnimal->created_at;
-
-        $files = scandir($directory);
-        $images = [];
-        foreach ($files as $file) {
-            if ($file == '.' || $file == '..') continue;
-
-            $images[] = $this->getImage($file);
-        }
-
-        return $images;
-
+        return ImageHandler::load_images($kennel->id . '/' . $this->kennelAnimal->created_at);
     }
 }

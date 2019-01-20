@@ -52,41 +52,16 @@ $this->params['breadcrumbs'][] = $this->title;
                         <h3 class="box-title">Fotos</h3>
                     </div>
                     <div class="box-body"> 
-                        <div id="profile-photos" class="carousel slide" data-ride="carousel">
-                            <!-- Indicators -->
-                            <ol class="carousel-indicators">
-                                <?php 
-                                $counter = 0;
-                                foreach ($animal->images as $image) { ?>
-                                    <li data-target="#profile-photos" data-slide-to="<?= $counter ?>" <?= ($counter == 0) ? 'class="active"' : ''; ?>></li>
-                                    <?php 
-                                    $counter++;
-                                } ?>
-                            </ol>
-
-                            <!-- Wrapper for slides -->
-                            <div class="carousel-inner" role="listbox">
-                                <?php 
-                                $activeItem = true;
-                                foreach ($animal->images as $image) { ?>
-                                    <div class="item <?= ($activeItem) ? 'active' : ''; ?>">
-                                        <?= $animal->getImage($image); ?>
-                                    </div>
-                                    <?php 
-                                    $activeItem = false;
-                                } ?>
-                            </div>
-
-                            <!-- Controls -->
-                            <a class="left carousel-control" href="#profile-photos" role="button" data-slide="prev">
-                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="right carousel-control" href="#profile-photos" role="button" data-slide="next">
-                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </div>
+                        <?php 
+                        $count = 0;
+                        foreach ($animal->allImages as $image) {
+                            if ($count % 6 == 0) echo '<div class="row" style="margin-top: 30px;">';
+                            echo '<div class="col-md-2">';
+                            echo '<img src="data:image/jpeg;base64, ' . $image . '" style="width: 100%; height: 200px; object-fit: cover;"/>';
+                            echo '</div>';
+                            $count++;
+                            if ($count % 6 == 0) echo '</div>';
+                        } ?>
                     </div>
                 </div>
             </div>

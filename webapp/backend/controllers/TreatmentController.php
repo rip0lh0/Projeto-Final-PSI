@@ -3,15 +3,17 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\Treatment;
-use backend\models\SearchTreatment;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
+use yii\data\ActiveDataProvider;
 
-/**
- * TreatmentController implements the CRUD actions for Treatment model.
- */
+use common\models\User;
+use common\models\Animal;
+use common\models\KennelAnimal;
+use common\models\Treatment;
+use backend\models\TreatmentForm;
+
 class TreatmentController extends Controller
 {
     /**
@@ -20,108 +22,88 @@ class TreatmentController extends Controller
     public function behaviors()
     {
         return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['kennel']
+                    ],
                 ],
             ],
         ];
     }
 
-    /**
-     * Lists all Treatment models.
-     * @return mixed
-     */
-    public function actionIndex()
+
+    public function actionIndex($id_animal)
     {
-        $searchModel = new SearchTreatment();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $this->validateUser($id_animal);
+        $animal = Animal::find()->where(['id' => $id_animal])->one();
+
+        /* Animal Treatments */
+        $treatments = $animal->getTreatments();
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => $treatments,
+        ]);
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'animal' => $animal
         ]);
     }
 
-    /**
-     * Displays a single Treatment model.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionView($id)
+    public function actionView($id_treatment)
     {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
+
     }
 
-    /**
-     * Creates a new Treatment model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     */
-    public function actionCreate()
+    public function actionCreate($id_animal)
     {
-        $model = new Treatment();
+        $model = new TreatmentForm();
+        $model->id_animal = $id_animal;
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        $result = [];
+
+        if ($model->load(Yii::$app->request->post())) {
+            $model->vaccine_name = Yii::$app->request->post('TreatmentForm')['vaccine_name'];
+            $model->vaccine_date = Yii::$app->request->post('TreatmentForm')['vaccine_date'];
+            $result = $model->saveTreatment();
+            if (array_key_exists('success', $result)) {
+                return $this->redirect(['treatment/index', 'id_animal' => $id_animal]);
+            }
         }
 
+        //var_dump(Yii::$app->request->post('TreatmentForm')['vaccine']);
         return $this->render('create', [
             'model' => $model,
+            'result' => $result
         ]);
     }
 
-    /**
-     * Updates an existing Treatment model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionUpdate($id)
+    public function actionUpdate($id_treatment)
     {
-        $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
-
-        return $this->render('update', [
-            'model' => $model,
-        ]);
     }
 
-    /**
-     * Deletes an existing Treatment model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionDelete($id)
+    public function actionDelete($id_treatment)
     {
-        $this->findModel($id)->delete();
+        $treatment = Treatment::find()->where(['id' => $id_treatment])->one();
+        if (!$treatment) throw new NotFoundHttpException();
+        $this->validateUser($treatment->animal->id);
 
-        return $this->redirect(['index']);
+        $treatment->delete();
+
+        return $this->redirect(['treatment/index', 'id_animal' => $treatment->animal->id]);
     }
 
-    /**
-     * Finds the Treatment model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return Treatment the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    protected function findModel($id)
-    {
-        if (($model = Treatment::findOne($id)) !== null) {
-            return $model;
-        }
 
-        throw new NotFoundHttpException('The requested page does not exist.');
+    protected function validateUser($id_animal)
+    {
+        /* Validations */
+        $kennel = User::findIdentity(Yii::$app->user->id)->kennel;
+        $animal = Animal::find()->where(['id' => $id_animal])->one();
+        if (!KennelAnimal::find()->where(['id_animal' => $animal->id, 'id_kennel' => $kennel->id])->one()) throw new NotFoundHttpException();
+
     }
 }

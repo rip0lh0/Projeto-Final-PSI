@@ -9,7 +9,10 @@ use Yii;
  *
  * @property int $id
  * @property string $description
+ * @property int $id_animal
+ * @property string $name
  *
+ * @property Animal $animal
  * @property Vaccine[] $vaccines
  */
 class Treatment extends \yii\db\ActiveRecord
@@ -28,7 +31,10 @@ class Treatment extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['description'], 'string', 'max' => 255],
+            [['id_animal'], 'required'],
+            [['id_animal'], 'integer'],
+            [['description', 'name'], 'string', 'max' => 255],
+            [['id_animal'], 'exist', 'skipOnError' => true, 'targetClass' => Animal::className(), 'targetAttribute' => ['id_animal' => 'id']],
         ];
     }
 
@@ -40,7 +46,17 @@ class Treatment extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'description' => 'Description',
+            'id_animal' => 'Id Animal',
+            'name' => 'Name',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getAnimal()
+    {
+        return $this->hasOne(Animal::className(), ['id' => 'id_animal']);
     }
 
     /**

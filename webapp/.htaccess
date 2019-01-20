@@ -5,13 +5,14 @@ RewriteEngine On
 RewriteCond %{REQUEST_URI} ^/(admin)
 RewriteRule ^admin/assets/(.*)$ backend/web/assets/$1 [L]
 RewriteRule ^admin/css/(.*)$ backend/web/css/$1 [L]
-RewriteRule ^admin/img/(.*)$ backend/web/img/$1 [L]
 RewriteRule ^admin/js/(.*)$ backend/web/js/$1 [L]
 
-RewriteCond %{REQUEST_URI} !^/backend/web/(assets|css|js|img)/
+RewriteRule ^admin/img/(.*)$ backend/web/img/$1 [L]
+RewriteRule ^admin/temp/(.*)$ backend/web/temp/$1 [L]
+
+RewriteCond %{REQUEST_URI} !^/backend/web/(assets|css|js|img|temp)/
 RewriteCond %{REQUEST_URI} ^/(admin)
 RewriteRule ^.*$ backend/web/index.php [L]
-
 
 RewriteCond %{REQUEST_URI} ^/(assets|css|js|fonts|images)
 RewriteRule ^assets/(.*)$ frontend/web/assets/$1 [L]
@@ -20,7 +21,7 @@ RewriteRule ^js/(.*)$ frontend/web/js/$1 [L]
 RewriteRule ^fonts/(.*)$ frontend/web/fonts/$1 [L]
 RewriteRule ^images/(.*)$ frontend/web/images/$1 [L]
 
-RewriteCond %{REQUEST_URI} !^/(frontend|backend)/web/(assets|css|js|fonts|images)/
+RewriteCond %{REQUEST_URI} !^/(frontend|backend)/web/(assets|css|js|fonts|images|img|temp)/
 RewriteCond %{REQUEST_URI} !index.php
 RewriteCond %{REQUEST_FILENAME} !-f [OR]
 RewriteCond %{REQUEST_FILENAME} !-d
