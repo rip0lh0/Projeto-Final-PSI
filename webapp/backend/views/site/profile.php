@@ -94,8 +94,10 @@ AppAsset::register($this);
                                     if ($schedule->day == (string)$key) {
                                         $hour_open = date("H:i", strtotime($schedule->open_time));
                                         $hour_close = date("H:i", strtotime($schedule->close_time));
-                                        $hour_lunch_open = date("H:i", strtotime($schedule->lunch_open));
-                                        $hour_lunch_close = date("H:i", strtotime($schedule->lunch_close));
+                                        if($schedule->lunch_open){
+                                            $hour_lunch_open = date("H:i", strtotime($schedule->lunch_open));
+                                            $hour_lunch_close = date("H:i", strtotime($schedule->lunch_close));
+                                        }
                                     }
                                 }
 
