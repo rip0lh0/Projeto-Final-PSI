@@ -12,6 +12,8 @@ use Yii;
  * @property int $day
  * @property string $open_time
  * @property string $close_time
+ * @property string $lunch_open
+ * @property string $lunch_close
  *
  * @property Kennel $kennel
  */
@@ -33,7 +35,7 @@ class Schedule extends \yii\db\ActiveRecord
         return [
             [['id_kennel', 'day'], 'required'],
             [['id_kennel', 'day'], 'integer'],
-            [['open_time', 'close_time'], 'safe'],
+            [['open_time', 'close_time', 'lunch_open', 'lunch_close'], 'safe'],
             [['id_kennel'], 'exist', 'skipOnError' => true, 'targetClass' => Kennel::className(), 'targetAttribute' => ['id_kennel' => 'id']],
         ];
     }
@@ -49,6 +51,8 @@ class Schedule extends \yii\db\ActiveRecord
             'day' => 'Day',
             'open_time' => 'Open Time',
             'close_time' => 'Close Time',
+            'lunch_open' => 'Lunch Open',
+            'lunch_close' => 'Lunch Close',
         ];
     }
 

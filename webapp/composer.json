@@ -32,7 +32,8 @@
         "kartik-v/yii2-widget-depdrop": "^1.0",
         "yiisoft/yii2-bootstrap4": "^1.0@dev",
         "perminder-klair/yii2-dropzone": "dev-master",
-        "kartik-v/yii2-widget-activeform": "dev-master"
+        "kartik-v/yii2-widget-activeform": "dev-master",
+        "kartik-v/yii2-widget-timepicker": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
