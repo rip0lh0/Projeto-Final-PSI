@@ -121,11 +121,11 @@ class AnimalForm extends Model
 
         ImageHandler::final_upload($this->id_Kennel, ($this->id_Kennel . '/' . $animal->kennelAnimal->created_at));
 
-        if (!$animal->update()) return ['Error' => 'Fail To Create Animal'];
+        if (!$animal->update()) return ['Error' => 'Fail To Update Animal'];
 
 
 
-        return ['Success' => 'Animal Created with Success'];
+        return ['Success' => 'Animal Update with Success'];
     }
 
     public function addToKennel($id_animal, $id_kennel)

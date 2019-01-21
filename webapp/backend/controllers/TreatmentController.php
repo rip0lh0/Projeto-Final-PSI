@@ -13,6 +13,7 @@ use common\models\Animal;
 use common\models\KennelAnimal;
 use common\models\Treatment;
 use backend\models\TreatmentForm;
+use common\models\Vaccine;
 
 class TreatmentController extends Controller
 {
@@ -83,7 +84,26 @@ class TreatmentController extends Controller
 
     public function actionUpdate($id_treatment)
     {
+        $model = $this->findModel($id_treatment);
 
+        $result = [];
+
+        if ($model->load(Yii::$app->request->post())) {
+            $model->vaccine_name = Yii::$app->request->post('TreatmentForm')['vaccine_name'];
+            $model->vaccine_date = Yii::$app->request->post('TreatmentForm')['vaccine_date'];
+            $result = $model->updateTreatment();
+
+            if (array_key_exists('success', $result)) {
+                $id_animal = $model->id_animal;
+                return $this->redirect(['treatment/index', 'id_animal' => $id_animal]);
+            }
+        }
+
+        //var_dump(Yii::$app->request->post('TreatmentForm')['vaccine']);
+        return $this->render('update', [
+            'model' => $model,
+            'result' => $result
+        ]);
     }
 
     public function actionDelete($id_treatment)
@@ -95,6 +115,28 @@ class TreatmentController extends Controller
         $treatment->delete();
 
         return $this->redirect(['treatment/index', 'id_animal' => $treatment->animal->id]);
+    }
+
+    protected function findModel($id_treatment)
+    {
+        $treatment = Treatment::find()->where(['id' => $id_treatment])->one();
+        $this->validateUser($treatment->id_animal);
+
+        $vaccines = Vaccine::find()->where(['id_treatment' => $treatment->id])->all();
+
+        $model = new TreatmentForm();
+
+        foreach ($vaccines as $value) {
+            $model->vaccine_name[] = $value['vaccine'];
+            $model->vaccine_date[] = $value['date'];
+        }
+
+        $model->id = $treatment->id;
+        $model->id_animal = $treatment->id_animal;
+        $model->name = $treatment->name;
+        $model->description = $treatment->description;
+
+        return $model;
     }
 
 
