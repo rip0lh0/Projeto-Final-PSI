@@ -135,6 +135,9 @@ class SiteController extends Controller
         if ($model_schedule->load(Yii::$app->request->post())) {
             $model_schedule->id_kennel = $profile->id;
             $result = $model_schedule->saveSchedule();
+            if (array_key_exists("success", $result)) {
+                return $this->redirect(['site/profile']);
+            }
         }
 
         $nAnimais = count($profile->kennelAnimals);

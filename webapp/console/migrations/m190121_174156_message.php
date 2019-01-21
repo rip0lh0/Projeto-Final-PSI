@@ -58,7 +58,7 @@ class m190121_174156_message extends Migration
 
         $this->addColumn('schedule', 'lunch_open', $this->time());
         $this->addColumn('schedule', 'lunch_close', $this->time());
-        $this->dropPrimaryKey('id', 'schedule');
+
     }
 
     /**

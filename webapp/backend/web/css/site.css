@@ -22,7 +22,7 @@ body {
 }
 
 
-.btn-blue {
+.btn-green {
     color: #66BB6A;
     background-color: transparent;
     border-style: solid;
@@ -31,7 +31,7 @@ body {
     transition: background-color 0.3s ease;
 }
 
-.btn-blue:hover {
+.btn-green:hover {
     color: #FAFAFA;
     background-color: #66BB6A;
 }
@@ -294,7 +294,7 @@ a.desc:after {
 /* 
 /* Animation */
 
-@-webkit-keyframes spinner {
+/* @-webkit-keyframes spinner {
     0% {
         -webkit-transform: rotate(0deg);
         -moz-transform: rotate(0deg);
@@ -364,6 +364,4 @@ a.desc:after {
         -o-transform: rotate(360deg);
         transform: rotate(360deg);
     }
-}
-
-*/
+} */

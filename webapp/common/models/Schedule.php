@@ -7,7 +7,6 @@ use Yii;
 /**
  * This is the model class for table "schedule".
  *
- * @property int $id
  * @property int $id_kennel
  * @property int $day
  * @property string $open_time
@@ -19,6 +18,15 @@ use Yii;
  */
 class Schedule extends \yii\db\ActiveRecord
 {
+    public const DAY_WEEK = [
+        '1' => 'Segunda',
+        '2' => 'Terça',
+        '3' => 'Quarta',
+        '4' => 'Quinta',
+        '5' => 'Sexta',
+        '6' => 'Sábado',
+        '7' => 'Domingo'
+    ];
     /**
      * {@inheritdoc}
      */
@@ -46,7 +54,6 @@ class Schedule extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
             'id_kennel' => 'Id Kennel',
             'day' => 'Day',
             'open_time' => 'Open Time',
@@ -63,4 +70,10 @@ class Schedule extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Kennel::className(), ['id' => 'id_kennel']);
     }
+
+
+
+
+
+
 }
