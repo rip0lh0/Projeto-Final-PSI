@@ -38,10 +38,7 @@ class FunctionalCest
     }
 
     
-    // public function tryToLoginBackOffice(FunctionalTester $I){
-    //     $I->amOnPage('admin/site/login');
 
-    // }
 
     // // public function tryToInsertAnimal(FunctionalTester $I){
     // //     $I->amLoggedInAs(12);
