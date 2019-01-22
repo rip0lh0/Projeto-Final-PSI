@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "adoption".
@@ -15,8 +16,7 @@ use Yii;
  * @property string $description
  * @property int $state
  *
- * @property Adopter $adopter
- * @property KennelAnimal $animal
+ * @property Message[] $messages
  */
 class Adoption extends \yii\db\ActiveRecord
 {
@@ -34,12 +34,17 @@ class Adoption extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_adopter', 'id_animal', 'created_at', 'updated_at'], 'required'],
+            [['id_adopter', 'id_animal'], 'required'],
             [['id_adopter', 'id_animal', 'state'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
             [['description'], 'string', 'max' => 255],
-            [['id_adopter'], 'exist', 'skipOnError' => true, 'targetClass' => Adopter::className(), 'targetAttribute' => ['id_adopter' => 'id']],
-            [['id_animal'], 'exist', 'skipOnError' => true, 'targetClass' => KennelAnimal::className(), 'targetAttribute' => ['id_animal' => 'id']],
+        ];
+    }
+
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::className(),
         ];
     }
 
@@ -62,16 +67,8 @@ class Adoption extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getAdopter()
+    public function getMessages()
     {
-        return $this->hasOne(Adopter::className(), ['id' => 'id_adopter']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getAnimal()
-    {
-        return $this->hasOne(KennelAnimal::className(), ['id' => 'id_animal']);
+        return $this->hasMany(Message::className(), ['id_adoption' => 'id']);
     }
 }

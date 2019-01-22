@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use frontend\models\MessageForm;
 use yii;
 use yii\web\Controller;
 use yii\helpers\Url;
@@ -52,8 +53,17 @@ class AnimalController extends Controller
     public function actionAdopt($id_animal)
     {
         $animal = Animal::find()->join('JOIN', KennelAnimal::tableName(), 'animal.id = id_animal')->where([(KennelAnimal::tableName() . '.status') => KennelAnimal::STATUS_FOR_ADOPTION, 'animal.id' => $id_animal])->one();
-
+        $adopter = Yii::$app->user->identity->adopter;
         if ($animal == null) throw new NotFoundHttpException();
+        //var_dump($adopter);
+        $model = new MessageForm();
+
+        if($model->load(Yii::$app->request->post())){
+            $model->id_adopter = $adopter->id;
+            $model->id_animal = $animal->id;
+
+            $model->saveMessage();
+        }
 
         $energies = Energy::find()->all();
         $coats = Coat::find()->all();
@@ -61,6 +71,7 @@ class AnimalController extends Controller
 
         return $this->render('adopt', [
             'animal' => $animal,
+            'model'=>$model,
             'energies' => $energies,
             'coats' => $coats,
             'sizes' => $sizes,

@@ -24,7 +24,7 @@ import pt.amsi.ipleiria.pet4all.Models.Animal;
 import pt.amsi.ipleiria.pet4all.R;
 
 public class SearchMainActivity extends AppCompatActivity{
-    private static final String URL_ANIMALS="http://192.168.1.73/v1/animal";
+    private static final String URL_ANIMALS="http://192.168.1.67/v1/animal";
 
     List<Animal> animalList;
     RecyclerView recyclerView;
@@ -33,7 +33,6 @@ public class SearchMainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_main);
-
         recyclerView=findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
