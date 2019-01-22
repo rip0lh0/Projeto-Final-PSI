@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="hero-content">
                     <h3 style="color: white; ">Pronto para adotar um animal de estimação?</h3>
                     <h2 style="color: white; font-size: 38px;">Os nossos cães e gatos de resgate estão prontos para se juntar à sua família.</h2>
-                    <?= Html::a('Adotar', ['animal/index'], ['class' => 'btn essence-btn'], ['id' => 'btn-adotar']) ?>
+                    <?= Html::a('Adotar', ['animal/index'], ['class' => 'btn essence-btn']) ?>
                 </div>
             </div>
         </div>
