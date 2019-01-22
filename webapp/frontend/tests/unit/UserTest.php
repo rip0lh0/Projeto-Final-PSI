@@ -36,7 +36,7 @@ class UnityTest extends \Codeception\Test\Unit
     $model->username = 'test';
     $model->email = 'teste@gmail.com';
     $model->password = '123456789';
-    $model->user_type = User::TYPE_KENNEL;
+    // $model->user_type = User::TYPE_KENNEL;
     $model->signup();
 
 }
