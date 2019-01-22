@@ -2,44 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d139d08-1f37-4d82-a0e1-2f9254b7bc9e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/android/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Activities/AnimalDetails.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Activities/AnimalsGrid.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Activities/AnimalsList.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Activities/searchAnimalActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Activities/searchAnimalActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Adapters/AnimalListAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Adapters/AnimalListAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Adapters/GridAnimalAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Adapters/GridAnimalAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Fragments/AnimalDetailsFragment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Listeners/AnimalsListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/Adopter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/Adoption.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/Animal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/AnimalDBHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/AnimalFile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/Breed.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/Coat.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/Contact.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/Energy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/FileBreed.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/Kennel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/KennelAnimal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/Local.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/Model.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/Schedule.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/Size.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/Social.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/Treatment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Models/Vaccine.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Singleton/SingletonAnimals.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/pt/amsi/ipleiria/pet4all/Utilities/AnimalJsonParser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/layout/activity_animals_grid.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/layout/activity_animals_list.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/layout/animal_details_add.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/layout/animal_details_fragment.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/layout/item_animal_grid.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/layout/item_animal_list.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Projeto-Final-PSI.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Projeto-Final-PSI.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/backend/models/ImageHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/backend/models/ImageHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/common/models/Adoption.php" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/common/models/Adoption.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/frontend/controllers/AnimalController.php" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/frontend/controllers/AnimalController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/frontend/models/MessageForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/frontend/models/MessageForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/frontend/views/animal/adopt.php" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/frontend/views/animal/adopt.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -54,7 +25,7 @@
     <session id="386510699">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="16" />
+          <entry key="project.closed" value="17" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.11" value="4" />
           <entry key="project.open.time.12" value="2" />
@@ -71,13 +42,13 @@
         <counts>
           <entry key="css" value="3" />
           <entry key="htaccess" value="8" />
-          <entry key="php" value="65" />
+          <entry key="php" value="82" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="3" />
-          <entry key="PHP" value="65" />
+          <entry key="PHP" value="82" />
           <entry key="htaccess" value="8" />
         </counts>
       </usages-collector>
@@ -85,13 +56,13 @@
         <counts>
           <entry key="css" value="61" />
           <entry key="htaccess" value="66" />
-          <entry key="php" value="1613" />
+          <entry key="php" value="2690" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="61" />
-          <entry key="PHP" value="1613" />
+          <entry key="PHP" value="2690" />
           <entry key="htaccess" value="66" />
         </counts>
       </usages-collector>
@@ -103,37 +74,107 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webapp/console/migrations/m190107_211744_update_data.php">
+        <entry file="file://$PROJECT_DIR$/webapp/frontend/controllers/AnimalController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2720">
-              <caret line="160" selection-start-line="160" selection-end-line="160" />
+            <state relative-caret-position="364">
+              <caret line="57" column="10" selection-start-line="57" selection-start-column="10" selection-end-line="57" selection-end-column="10" />
+              <folding>
+                <element signature="e#40#72#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webapp/console/migrations/m181217_152129_update_Animal_File.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webapp/console/migrations/m190108_023446_update_dates.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webapp/console/migrations/m190108_174604_update_data.php">
+        <entry file="file://$PROJECT_DIR$/webapp/frontend/views/animal/adopt.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
+            <state relative-caret-position="194">
+              <caret line="113" column="19" selection-start-line="113" selection-start-column="19" selection-end-line="113" selection-end-column="19" />
+              <folding>
+                <element signature="e#127#148#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webapp/frontend/models/MessageForm.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="619">
+              <caret line="43" selection-start-line="43" selection-end-line="43" />
+              <folding>
+                <element signature="e#35#43#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/webapp/frontend/modules/v1/controllers/AnimalController.php">
+        <entry file="file://$PROJECT_DIR$/webapp/backend/views/treatment/create.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-102" />
+            <state relative-caret-position="153">
+              <caret line="13" column="18" lean-forward="true" selection-start-line="13" selection-start-column="18" selection-end-line="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webapp/console/migrations/m190121_234637_fix_timestamp.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="47" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webapp/common/models/Message.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-197">
+              <caret line="21" column="3" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
+              <folding>
+                <element signature="e#33#41#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webapp/common/models/KennelAnimal.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="67" column="7" selection-start-line="67" selection-start-column="7" selection-end-line="67" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webapp/frontend/views/user/login.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="41" selection-start-line="41" selection-end-line="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webapp/backend/models/AnimalForm.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="803">
+              <caret line="72" selection-start-line="72" selection-end-line="72" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webapp/common/models/Adoption.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="33" column="27" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
+              <folding>
+                <element signature="e#33#41#0#PHP" expanded="true" />
+              </folding>
+            </state>
           </provider>
         </entry>
       </file>
@@ -144,6 +185,7 @@
       <find>app-&gt;name</find>
       <find>where</find>
       <find>webapp/</find>
+      <find>rand</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -171,15 +213,21 @@
         <option value="$PROJECT_DIR$/webapp/frontend/views/site/error.php" />
         <option value="$PROJECT_DIR$/webapp/frontend/views/site/index.php" />
         <option value="$PROJECT_DIR$/webapp/frontend/web/css/site.css" />
-        <option value="$PROJECT_DIR$/webapp/common/config/main-local.php" />
         <option value="$PROJECT_DIR$/webapp/frontend/web/.htaccess" />
         <option value="$PROJECT_DIR$/webapp/.htaccess" />
         <option value="$PROJECT_DIR$/webapp/frontend/config/main.php" />
         <option value="$PROJECT_DIR$/webapp/frontend/views/layouts/header.php" />
-        <option value="$PROJECT_DIR$/webapp/frontend/controllers/AnimalController.php" />
         <option value="$PROJECT_DIR$/webapp/common/config/bootstrap.php" />
         <option value="$PROJECT_DIR$/webapp/console/migrations/m190107_211744_update_data.php" />
         <option value="$PROJECT_DIR$/webapp/console/migrations/m190108_174604_update_data.php" />
+        <option value="$PROJECT_DIR$/webapp/common/config/main-local.php" />
+        <option value="$PROJECT_DIR$/webapp/backend/models/ImageHandler.php" />
+        <option value="$PROJECT_DIR$/webapp/frontend/views/animal/adopt.php" />
+        <option value="$PROJECT_DIR$/webapp/frontend/controllers/AnimalController.php" />
+        <option value="$PROJECT_DIR$/webapp/common/models/Adoption.php" />
+        <option value="$PROJECT_DIR$/webapp/console/migrations/m190121_234637_fix_timestamp.php" />
+        <option value="$PROJECT_DIR$/webapp/common/models/Message.php" />
+        <option value="$PROJECT_DIR$/webapp/frontend/models/MessageForm.php" />
       </list>
     </option>
   </component>
@@ -192,9 +240,8 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths>
       <path value="$PROJECT_DIR$/#Assets (Raw)/Templates/startbootstrap-sb-admin-2-gh-pages/package.json" />
-      <path value="$PROJECT_DIR$/webapp/backend/web/assets/69b94f0e/package.json" />
-      <path value="$PROJECT_DIR$/webapp/backend/web/assets/706ce021/package.json" />
-      <path value="$PROJECT_DIR$/webapp/vendor/bower-asset/bootstrap4/package.json" />
+      <path value="$PROJECT_DIR$/webapp/backend/web/assets/e815e58b/package.json" />
+      <path value="$PROJECT_DIR$/webapp/vendor/npm-asset/bootstrap/package.json" />
     </packageJsonPaths>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
@@ -285,11 +332,18 @@
       <path value="$PROJECT_DIR$/webapp/vendor/kartik-v/yii2-widget-fileinput" />
       <path value="$PROJECT_DIR$/webapp/vendor/kartik-v/bootstrap-fileinput" />
       <path value="$PROJECT_DIR$/webapp/vendor/symfony/contracts" />
+      <path value="$PROJECT_DIR$/webapp/vendor/perminder-klair/yii2-dropzone" />
+      <path value="$PROJECT_DIR$/webapp/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/webapp/vendor/npm-asset/bootstrap" />
+      <path value="$PROJECT_DIR$/webapp/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/webapp/vendor/kartik-v/yii2-widget-timepicker" />
+      <path value="$PROJECT_DIR$/webapp/vendor/facebook/webdriver" />
+      <path value="$PROJECT_DIR$/webapp/vendor/yiisoft/yii2-bootstrap4" />
+      <path value="$PROJECT_DIR$/webapp/vendor/symfony/process" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="561" />
-    <option name="y" value="-21" />
+    <option name="x" value="953" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
@@ -298,7 +352,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -315,7 +368,56 @@
               <item name="Projeto-Final-PSI" type="b2602c69:ProjectViewProjectNode" />
               <item name="Projeto-Final-PSI" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projeto-Final-PSI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projeto-Final-PSI" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projeto-Final-PSI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projeto-Final-PSI" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="animal" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projeto-Final-PSI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projeto-Final-PSI" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="treatment" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projeto-Final-PSI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projeto-Final-PSI" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projeto-Final-PSI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projeto-Final-PSI" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projeto-Final-PSI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projeto-Final-PSI" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="console" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projeto-Final-PSI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projeto-Final-PSI" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="console" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Projeto-Final-PSI" type="b2602c69:ProjectViewProjectNode" />
@@ -324,10 +426,54 @@
               <item name="console" type="462c0819:PsiDirectoryNode" />
               <item name="migrations" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Projeto-Final-PSI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projeto-Final-PSI" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projeto-Final-PSI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projeto-Final-PSI" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projeto-Final-PSI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projeto-Final-PSI" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projeto-Final-PSI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projeto-Final-PSI" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projeto-Final-PSI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projeto-Final-PSI" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="animal" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projeto-Final-PSI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projeto-Final-PSI" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -381,12 +527,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47819000" />
+    <option name="totallyTimeSpent" value="54449000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4989154" visible="true" weight="0.23081024" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4989154" visible="true" weight="0.11140725" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5010846" side_tool="true" weight="0.14552239" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -407,7 +553,7 @@
       <window_info anchor="right" id="Database" order="3" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4989154" visible="true" weight="0.14712153" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4989154" visible="true" weight="0.11140725" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5010846" side_tool="true" weight="0.14552239" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -446,97 +592,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/webapp/common/models/BreedCoat.php" />
-    <entry file="file://$PROJECT_DIR$/webapp/common/models/BreedEnergy.php" />
-    <entry file="file://$PROJECT_DIR$/webapp/backend/views/animal/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-169" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/backend/views/animal/create.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="51" column="24" selection-start-line="51" selection-start-column="24" selection-end-line="51" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/backend/web/css/login.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/backend/controllers/AnimalController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1394">
-          <caret line="98" column="30" selection-start-line="98" selection-start-column="30" selection-end-line="98" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/backend/views/site/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="24" column="46" selection-start-line="24" selection-start-column="46" selection-end-line="24" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/backend/controllers/SiteController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="986">
-          <caret line="70" column="15" selection-start-line="70" selection-start-column="15" selection-end-line="70" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/frontend/controllers/SiteController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1122">
-          <caret line="72" selection-start-line="72" selection-end-line="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/backend/models/AnimalForm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1139">
-          <caret line="72" selection-start-line="72" selection-end-line="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/frontend/views/site/error.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="13" column="27" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/frontend/views/site/contact.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/console/migrations/m181129_094159_Breed_Energy.php" />
-    <entry file="file://$PROJECT_DIR$/webapp/console/migrations/m181129_094216_Breed_Size.php" />
-    <entry file="file://$PROJECT_DIR$/webapp/frontend/views/site/signupMenu.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/frontend/views/site/signupAdopter.php" />
-    <entry file="file://$PROJECT_DIR$/webapp/frontend/views/site/login.php" />
-    <entry file="file://$PROJECT_DIR$/webapp/common/models/Adopter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="56" column="7" selection-start-line="56" selection-start-column="7" selection-end-line="56" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/common/models/Coat.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webapp/backend/views/site/error.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -561,9 +616,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/frontend/web/css/header.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/frontend/web/css/header.css" />
     <entry file="file://$PROJECT_DIR$/webapp/frontend/assets/AppAsset.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -578,13 +631,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/frontend/web/css/site.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="748" selection-start-line="748" selection-end-line="749" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/frontend/web/css/site.css" />
     <entry file="file://$PROJECT_DIR$/webapp/frontend/web/.htaccess">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -611,38 +658,15 @@
         <state relative-caret-position="-102" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/frontend/controllers/AnimalController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="15" column="35" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webapp/common/config/params.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/common/config/params-local.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/common/config/params-local.php" />
     <entry file="file://$PROJECT_DIR$/webapp/common/config/test.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/common/config/test-local.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/common/config/main.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/common/config/main-local.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/frontend/config/main-local.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/common/config/test-local.php" />
+    <entry file="file://$PROJECT_DIR$/webapp/frontend/config/main-local.php" />
     <entry file="file://$PROJECT_DIR$/webapp/frontend/config/main.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -653,9 +677,7 @@
     <entry file="file://$PROJECT_DIR$/webapp/frontend/config/params.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/frontend/config/params-local.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/frontend/config/params-local.php" />
     <entry file="file://$PROJECT_DIR$/webapp/common/config/bootstrap.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -666,13 +688,6 @@
     <entry file="file://$PROJECT_DIR$/webapp/common/models/AnimalFile.php" />
     <entry file="file://$PROJECT_DIR$/webapp/frontend/config/bootstrap.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/common/models/Animal.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="61" column="34" lean-forward="true" selection-start-line="61" selection-start-column="34" selection-end-line="61" selection-end-column="34" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/webapp/console/migrations/m190107_211744_update_data.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -697,6 +712,176 @@
     <entry file="file://$PROJECT_DIR$/webapp/frontend/modules/v1/controllers/AnimalController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-102" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/console/migrations/m190120_234216_fix_vaccine.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/common/config/main.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/console/migrations/m190121_174156_message.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/common/config/main-local.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/console/migrations/m190120_162721_update_treatment.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/console/migrations/m190120_154751_treatment_update.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="10" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/backend/models/ImageHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-302">
+          <caret line="150" selection-start-line="150" selection-end-line="150" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/common/models/Animal.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="667">
+          <caret line="137" column="58" selection-start-line="137" selection-start-column="58" selection-end-line="137" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/frontend/controllers/SiteController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="56" column="43" selection-start-line="56" selection-start-column="43" selection-end-line="56" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/backend/models/AnimalSearch.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5" selection-start-column="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/backend/views/animal/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="64" column="30" selection-start-line="64" selection-start-column="30" selection-end-line="64" selection-end-column="30" />
+          <folding>
+            <element signature="n#style#0;n#h4#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/frontend/models/ContactForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/backend/views/site/profile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="687">
+          <caret line="250" selection-start-line="250" selection-end-line="251" />
+          <folding>
+            <element signature="e#120#148#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/frontend/views/user/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="41" selection-start-line="41" selection-end-line="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/backend/models/AnimalForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="803">
+          <caret line="72" selection-start-line="72" selection-end-line="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/common/models/KennelAnimal.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="67" column="7" selection-start-line="67" selection-start-column="7" selection-end-line="67" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/common/models/Adoption.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="33" column="27" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
+          <folding>
+            <element signature="e#33#41#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/frontend/controllers/AnimalController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="57" column="10" selection-start-line="57" selection-start-column="10" selection-end-line="57" selection-end-column="10" />
+          <folding>
+            <element signature="e#40#72#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/frontend/views/animal/adopt.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="113" column="19" selection-start-line="113" selection-start-column="19" selection-end-line="113" selection-end-column="19" />
+          <folding>
+            <element signature="e#127#148#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/console/migrations/m190121_234637_fix_timestamp.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="47" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/common/models/Message.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-197">
+          <caret line="21" column="3" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
+          <folding>
+            <element signature="e#33#41#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/frontend/models/MessageForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="619">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
+          <folding>
+            <element signature="e#35#43#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/backend/views/treatment/create.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="13" column="18" lean-forward="true" selection-start-line="13" selection-start-column="18" selection-end-line="14" />
+        </state>
       </provider>
     </entry>
   </component>

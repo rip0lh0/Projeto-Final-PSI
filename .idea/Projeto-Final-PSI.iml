@@ -27,8 +27,11 @@
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/doctrine/lexer" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/egulias/email-validator" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/ezyang/htmlpurifier" />
+      <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/facebook/webdriver" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/fedemotta/yii2-widget-datatables" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/fzaninotto/faker" />
+      <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/guzzlehttp/guzzle" />
+      <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/guzzlehttp/promises" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/guzzlehttp/psr7" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/kartik-v/bootstrap-fileinput" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/kartik-v/bootstrap-popover-x" />
@@ -40,7 +43,10 @@
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/kartik-v/yii2-widget-depdrop" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/kartik-v/yii2-widget-fileinput" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/kartik-v/yii2-widget-select2" />
+      <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/kartik-v/yii2-widget-timepicker" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/myclabs/deep-copy" />
+      <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/npm-asset/bootstrap" />
+      <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/perminder-klair/yii2-dropzone" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/phar-io/manifest" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/phar-io/version" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/phpdocumentor/reflection-common" />
@@ -78,11 +84,13 @@
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/symfony/finder" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/symfony/polyfill-ctype" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/symfony/polyfill-mbstring" />
+      <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/symfony/process" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/symfony/yaml" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/theseer/tokenizer" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/webmozart/assert" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/yiisoft/yii2" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/yiisoft/yii2-bootstrap" />
+      <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/yiisoft/yii2-bootstrap4" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/yiisoft/yii2-composer" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/yiisoft/yii2-debug" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/yiisoft/yii2-faker" />

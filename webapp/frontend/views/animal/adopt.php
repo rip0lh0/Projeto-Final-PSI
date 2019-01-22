@@ -7,7 +7,7 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\helpers\ArrayHelper;
-use kartik\form\ActiveForm;
+use yii\widgets\ActiveForm;
 use kartik\select2\Select2;
 
 $this->title = $animal->name;
@@ -103,6 +103,13 @@ $images = $animal->allImages;
 
 <!-- Modal -->
 <div class="modal fade" id="kennelContactModal" tabindex="-1" role="dialog" aria-labelledby="kennelContactModalLabel" aria-hidden="true">
+
+    <?php $form = ActiveForm::begin(
+        [
+            'id' => 'message-form'
+        ]
+    ); ?>
+
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -112,64 +119,17 @@ $images = $animal->allImages;
                 </button>
             </div>
             <div class="modal-body">
-
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <i class="fas fa-envelope input-group-text" style="line-height: 23px;"></i>
-                    </div>
-                    <input type="text" class="form-control" value="<?= $animal->kennelAnimal->kennel->user->email ?>" disabled>
-                </div>
-
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <i class="fas fa-phone input-group-text" style="line-height: 23px;"></i>
-                    </div>
-                    <input type="text" class="form-control" value="<?= $animal->kennelAnimal->kennel->phone ?>" disabled>
-                </div>
-
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <i class="fas fa-map-marker-alt input-group-text" style="line-height: 23px;"></i>
-                    </div>
-                    <input type="text" class="form-control" value="<?= $animal->kennelAnimal->kennel->phone ?>" disabled>
-                </div>
-
-                <hr>
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">From: </label>
-                            <input type="email" class="form-control" id="exampleInputPassword1" value="<?= Yii::$app->user->identity->email; ?>" disabled>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Name: </label>
-                            <input type="email" class="form-control" id="exampleInputPassword1" value="<?= Yii::$app->user->identity->adopter->name; ?>" disabled>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Animal: </label>
-                        <input type="email" class="form-control" id="exampleInputPassword1" value="<?= $animal->name; ?>" disabled>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Mensagem</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
-                    </div>
-                </div>
+                <?= $form->field($model, 'message')->textInput(['autofocus' => true]) ?>
 
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-outline-danger" data-dismiss="modal"><i class="fas fa-times"></i></button>
-                <button type="button" class="btn btn btn-info"><i class="fas fa-paper-plane"></i></button>
+                <?= Html::submitButton('<i class="fas fa-paper-plane"></i>', ['class' => 'btn btn-info', 'name' => 'submit-button']) ?>
             </div>
         </div>
     </div>
+
+    <?php ActiveForm::end(); ?>
 </div>
 
 <!-- <a class="floatbtn" href="<?= Yii::$app->request->referrer; ?>" style="position: fixed; z-index: 1000;" ><i class="fas fa-angle-left"></i></a> -->

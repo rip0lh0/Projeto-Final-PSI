@@ -88,6 +88,14 @@
       <path value="$PROJECT_DIR$/webapp/vendor/kartik-v/yii2-widget-fileinput" />
       <path value="$PROJECT_DIR$/webapp/vendor/kartik-v/bootstrap-fileinput" />
       <path value="$PROJECT_DIR$/webapp/vendor/symfony/contracts" />
+      <path value="$PROJECT_DIR$/webapp/vendor/perminder-klair/yii2-dropzone" />
+      <path value="$PROJECT_DIR$/webapp/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/webapp/vendor/npm-asset/bootstrap" />
+      <path value="$PROJECT_DIR$/webapp/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/webapp/vendor/kartik-v/yii2-widget-timepicker" />
+      <path value="$PROJECT_DIR$/webapp/vendor/facebook/webdriver" />
+      <path value="$PROJECT_DIR$/webapp/vendor/yiisoft/yii2-bootstrap4" />
+      <path value="$PROJECT_DIR$/webapp/vendor/symfony/process" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="5.4.0" />
