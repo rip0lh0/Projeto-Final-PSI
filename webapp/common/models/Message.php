@@ -13,15 +13,17 @@ use yii\db\ActiveRecord;
  * @property int $id_parent
  * @property int $id_adoption
  * @property string $message
- * @property int $satus
+ * @property int $status
  * @property int $created_at
+ * @property int $id_user
  *
  * @property Adoption $adoption
- * @property Message $parent
- * @property Message[] $messages
+ * @property Animal $parent
+ * @property User $user
  */
 class Message extends ActiveRecord
 {
+    public const STATUS_MESSAGE = 10;
     /**
      * {@inheritdoc}
      */
@@ -36,11 +38,14 @@ class Message extends ActiveRecord
     public function rules()
     {
         return [
-            [['id_parent', 'id_adoption', 'satus'], 'integer'],
-            [['message', 'satus'], 'required'],
+            ['status', 'default', 'value' => self::STATUS_MESSAGE],
+            ['status', 'in', 'range' => [self::STATUS_MESSAGE]],
+            [['id_parent', 'id_adoption', 'id_user'], 'integer'],
+            [['message', 'status', 'id_user'], 'required'],
             [['message'], 'string', 'max' => 255],
             [['id_adoption'], 'exist', 'skipOnError' => true, 'targetClass' => Adoption::className(), 'targetAttribute' => ['id_adoption' => 'id']],
-            [['id_parent'], 'exist', 'skipOnError' => true, 'targetClass' => Message::className(), 'targetAttribute' => ['id_parent' => 'id']],
+            [['id_parent'], 'exist', 'skipOnError' => true, 'targetClass' => Animal::className(), 'targetAttribute' => ['id_parent' => 'id']],
+            [['id_user'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['id_user' => 'id']],
         ];
     }
 
@@ -52,8 +57,6 @@ class Message extends ActiveRecord
                 'attributes' => [
                     ActiveRecord::EVENT_BEFORE_INSERT => ['created_at']
                 ],
-                // if you're using datetime instead of UNIX timestamp:
-                // 'value' => new Expression('NOW()'),
             ],
         ];
     }
@@ -68,8 +71,9 @@ class Message extends ActiveRecord
             'id_parent' => 'Id Parent',
             'id_adoption' => 'Id Adoption',
             'message' => 'Message',
-            'satus' => 'Satus',
+            'status' => 'Status',
             'created_at' => 'Created At',
+            'id_user' => 'Id User',
         ];
     }
 
@@ -86,14 +90,14 @@ class Message extends ActiveRecord
      */
     public function getParent()
     {
-        return $this->hasOne(Message::className(), ['id' => 'id_parent']);
+        return $this->hasOne(Animal::className(), ['id' => 'id_parent']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getMessages()
+    public function getUser()
     {
-        return $this->hasMany(Message::className(), ['id_parent' => 'id']);
+        return $this->hasOne(User::className(), ['id' => 'id_user']);
     }
 }

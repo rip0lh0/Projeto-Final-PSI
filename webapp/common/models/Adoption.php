@@ -4,22 +4,30 @@ namespace common\models;
 
 use Yii;
 use yii\behaviors\TimestampBehavior;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "adoption".
  *
  * @property int $id
  * @property int $id_adopter
- * @property int $id_animal
- * @property string $created_at
- * @property string $updated_at
+ * @property int $id_kennelAnimal
+ * @property int $created_at
+ * @property int $updated_at
  * @property string $description
- * @property int $state
+ * @property int $status
  *
+ * @property Adopter $adopter
+ * @property KennelAnimal $kennelAnimal
  * @property Message[] $messages
  */
-class Adoption extends \yii\db\ActiveRecord
+class Adoption extends ActiveRecord
 {
+    public const STATUS_REFUSED = 0;
+    public const STATUS_PENDENT = 10;
+    public const STATUS_ACCEPTED = 20;
+
+
     /**
      * {@inheritdoc}
      */
@@ -34,17 +42,22 @@ class Adoption extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_adopter', 'id_animal'], 'required'],
-            [['id_adopter', 'id_animal', 'state'], 'integer'],
-            [['created_at', 'updated_at'], 'safe'],
+            ['status', 'default', 'value' => self::STATUS_PENDENT],
+            ['status', 'in', 'range' => [self::STATUS_REFUSED, self::STATUS_PENDENT, self::STATUS_ACCEPTED]],
+            [['id_adopter', 'id_kennelAnimal'], 'required'],
+            [['id_adopter', 'id_kennelAnimal', 'status'], 'integer'],
             [['description'], 'string', 'max' => 255],
+            [['id_adopter'], 'exist', 'skipOnError' => true, 'targetClass' => Adopter::className(), 'targetAttribute' => ['id_adopter' => 'id']],
+            [['id_kennelAnimal'], 'exist', 'skipOnError' => true, 'targetClass' => KennelAnimal::className(), 'targetAttribute' => ['id_kennelAnimal' => 'id']],
         ];
     }
 
     public function behaviors()
     {
         return [
-            TimestampBehavior::className(),
+            [
+                'class' => TimestampBehavior::className(),
+            ],
         ];
     }
 
@@ -56,12 +69,28 @@ class Adoption extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'id_adopter' => 'Id Adopter',
-            'id_animal' => 'Id Animal',
+            'id_kennelAnimal' => 'Id Kennel Animal',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
             'description' => 'Description',
-            'state' => 'State',
+            'status' => 'Status',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getAdopter()
+    {
+        return $this->hasOne(Adopter::className(), ['id' => 'id_adopter']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getKennelAnimal()
+    {
+        return $this->hasOne(KennelAnimal::className(), ['id' => 'id_kennelAnimal']);
     }
 
     /**
@@ -69,6 +98,12 @@ class Adoption extends \yii\db\ActiveRecord
      */
     public function getMessages()
     {
-        return $this->hasMany(Message::className(), ['id_adoption' => 'id']);
+        return $this->hasMany(Message::className(), ['id_adoption' => 'id'])->orderBy('created_at DESC');
+    }
+
+
+    public function getRecentMessage()
+    {
+        return $this->hasOne(Message::className(), ['id_adoption' => 'id'])->orderBy('created_at DESC');
     }
 }

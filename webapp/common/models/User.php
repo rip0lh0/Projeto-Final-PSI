@@ -208,4 +208,10 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return $this->hasOne(Kennel::className(), ['id_user' => 'id']);
     }
+
+    public function getIsKennel()
+    {
+        return Yii::$app->user->can('kennel');
+    }
+
 }

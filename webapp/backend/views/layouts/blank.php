@@ -5,13 +5,10 @@ use common\widgets\Alert;
 
 use backend\assets\AppAsset;
 
-
-
 AppAsset::register($this);
 ?>
-
-
 <?php $this->beginPage() ?>
+
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
     <head>

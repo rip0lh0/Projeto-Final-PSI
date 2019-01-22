@@ -4,6 +4,7 @@ namespace common\models;
 
 use Yii;
 
+
 /**
  * This is the model class for table "kennel".
  *
@@ -94,6 +95,22 @@ class Kennel extends \yii\db\ActiveRecord
     {
         return $this->hasMany(KennelAnimal::className(), ['id_kennel' => 'id']);
     }
+
+    /*
+    SELECT adoption.* FROM adoption
+    INNER JOIN kennel_animal on adoption.id_kennelAnimal = kennel_animal.id AND kennel_animal.id_kennel = $this->id
+     */
+
+    public function getAdoptions()
+    {
+        return Adoption::find()
+            ->join(
+                'INNER JOIN',
+                KennelAnimal::tableName(),
+                Adoption::tableName() . '.id_kennelAnimal = ' . KennelAnimal::tableName() . '.id AND ' . KennelAnimal::tableName() . '.id_kennel = ' . $this->id
+            );
+    }
+
 
     /**
      * @return \yii\db\ActiveQuery

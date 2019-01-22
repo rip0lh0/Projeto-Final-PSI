@@ -41,7 +41,7 @@ $user = Yii::$app->user->identity;
             </div> -->
             <div class="row align-top" style="padding: 25px;">
                 <div class="col">
-                    <a href="#" class="btn btn-outline-primary btn-lg btn-block us-btn" role="button" aria-pressed="true">Profile</a>
+                    <?= Html::a('Mensagens', ['user/messages'], ['class' => 'btn btn-outline-primary btn-lg btn-block us-btn']) ?>
                 </div>
                 <div class="col">
                     <?= Html::a('Sign out', ['user/logout'], ['data-method' => 'post', 'class' => 'btn btn-outline-secondary btn-lg btn-block us-btn']) ?>

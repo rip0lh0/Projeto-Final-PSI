@@ -67,4 +67,5 @@ class Adopter extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Adoption::className(), ['id_adopter' => 'id']);
     }
+
 }

@@ -58,9 +58,9 @@ class AnimalController extends Controller
         //var_dump($adopter);
         $model = new MessageForm();
 
-        if($model->load(Yii::$app->request->post())){
+        if ($model->load(Yii::$app->request->post())) {
             $model->id_adopter = $adopter->id;
-            $model->id_animal = $animal->id;
+            $model->id_animal = $animal->kennelAnimal->id;
 
             $model->saveMessage();
         }
@@ -71,7 +71,7 @@ class AnimalController extends Controller
 
         return $this->render('adopt', [
             'animal' => $animal,
-            'model'=>$model,
+            'model' => $model,
             'energies' => $energies,
             'coats' => $coats,
             'sizes' => $sizes,

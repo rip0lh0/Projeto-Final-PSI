@@ -166,6 +166,21 @@ input {
     padding: 0.375rem 2.75rem;
 }
 
+
+.message-date {
+    font-size: 12px;
+    font-weight: 100;
+    color: #787878;
+    text-align: right;
+    display: block;
+}
+
+.message-text {
+    color: #787878;
+    font-size: 16px;
+    font-weight: 400;
+}
+
 /* The overlay effect (full height and width) - lays on top of the container and over the image */
 /* .overlay {
     position: absolute;

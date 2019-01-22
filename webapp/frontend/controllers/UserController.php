@@ -8,9 +8,12 @@ use yii\filters\AccessControl;
 use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 
+use yii\base\DynamicModel;
+
 /* Models */
 use common\models\LoginForm;
 use common\models\Local;
+use common\models\Message;
 
 use frontend\models\Adopter;
 use frontend\models\Kennel;
@@ -22,6 +25,7 @@ use frontend\models\SignupForm;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
 use common\models\User;
+use common\models\Adoption;
 
 
 class UserController extends Controller
@@ -170,6 +174,42 @@ class UserController extends Controller
 
         return $this->render('resetPassword', [
             'model' => $model,
+        ]);
+    }
+
+
+    public function actionMessages()
+    {
+        $adopter = Yii::$app->user->identity->adopter;
+        $adoptions = $adopter->adoptions;
+
+        return $this->render('messages', [
+            'adoptions' => $adoptions
+        ]);
+    }
+
+    public function actionMessage($id_adoption)
+    {
+        $adoption = Adoption::find()->where(['id' => $id_adoption])->one();
+
+        $messages = $adoption->messages;
+
+        $model = new DynamicModel(['KOMENTAR']);
+        $model->addRule(['KOMENTAR'], 'string', ['max' => 128]);
+
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $msg_answer = new Message();
+
+            $msg_answer->id_adoption = $adoption->id;
+            $msg_answer->message = $model->KOMENTAR;
+            $msg_answer->id_user = Yii::$app->user->id;
+
+            if ($msg_answer->save()) return $this->redirect(['user/messages']);
+        }
+
+        return $this->renderAjax('message', [
+            'messages' => $messages,
+            'model' => $model
         ]);
     }
 

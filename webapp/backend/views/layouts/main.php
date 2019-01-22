@@ -12,10 +12,9 @@ use backend\assets\AppAsset;
 use dmstr\helpers\AdminLteHelper;
 use dmstr\web\AdminLteAsset;
 
+$isKennel = (Yii::$app->user->can('kennel')) ? true : false;
+
 AdminLteAsset::register($this);
-
-$isKennel = (Yii::$app->user->identity != null) ? (Yii::$app->user->identity->kennel != null) ? true : false : false;
-
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -32,29 +31,25 @@ $isKennel = (Yii::$app->user->identity != null) ? (Yii::$app->user->identity->ke
     <body class="<?= AdminLteHelper::skinClass() ?>">
         <?php $this->beginBody() ?>
         <?= ($isKennel) ? '<div class="wrapper" style="height: auto; min-height: 100%;">' : ''; /* Start wrapper */ ?>
-        <?= ($isKennel) ? $this->render("@backend/views/layouts/header") : ''; ?>
-        <?= ($isKennel) ? $this->render("@backend/views/layouts/sidebar") : ''; ?>
-        
-
-        <?= ($isKennel) ? '<div class="content-wrapper" style="min-height: 1170px;">' : '';/* Start content-wrapper */ ?>
-
-        <?php if ($isKennel) { ?>
-            <section class="content-header">
-                <h1><?= $this->title ?></h1>
-            </section>
-            <?php 
-        } ?>
-            <?= Alert::widget() ?>
-            <?= $content ?>
-        <?= ($isKennel) ? '</div>' : ''; /*End Content-wrapper*/ ?>
-        <?= $this->render("@backend/views/layouts/footer"); ?>
+            <?= ($isKennel) ? $this->render("@backend/views/layouts/header") : ''; ?>
+            <?= ($isKennel) ? $this->render("@backend/views/layouts/sidebar") : ''; ?>
+            <?= ($isKennel) ? '<div class="content-wrapper" style="min-height: 1170px;">' : '';/* Start content-wrapper */ ?>
+                <?php if ($isKennel) { ?>
+                    <section class="content-header">
+                        <h1><?= $this->title ?></h1>
+                    </section>
+                    <?php 
+                } ?>
+                    <?= Alert::widget() ?>
+                    <?= $content ?>
+                <?= ($isKennel) ? '</div>' : ''; /*End Content-wrapper*/ ?>
+            <?= $this->render("@backend/views/layouts/footer"); ?>
         <?= ($isKennel) ? '</div>' : '' /* End wrapper */ ?>
         
         <?php $this->endBody() ?>
         <script>
-        Dropzone.autoDiscover = false;
+        Dropzone.autoDiscover = false;// Fix Some Dropzone Errors
         $(function () {
-            
             //bootstrap WYSIHTML5 - text editor
             $('.textarea').wysihtml5()
         })

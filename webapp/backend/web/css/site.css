@@ -265,6 +265,13 @@ a.desc:after {
 }
 
 
+.box-comments {
+    background-color: #FAFAFA;
+    padding: 10px;
+}
+
+
+
 /* :not(:required) hides these rules from IE9 and below */
 /* .loading:not(:required) {
     font: 0/0 a;
