@@ -309,7 +309,9 @@ VALUES
 
 INSERT INTO coat(coat_size)
 VALUES 
-('Curta'),
+('Sem Pelo'),
+('Curto'),
+('Médio),
 ('Comprida');
 
 INSERT INTO size(size)
