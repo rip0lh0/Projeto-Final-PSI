@@ -54,7 +54,7 @@ $itemsPerRow = 3;
                         <div class="col-12 col-sm-6 col-lg-4">
                             <div class="single-product-wrapper">
                                 <!-- Product Image -->
-                                <div class="product-img">
+                                <div id="animalimage-<?php echo $count; ?>" class="product-img">
                                     
                                     <img src="data:image/jpeg;base64, <?= $animal->getImage('0.jpg'); ?>" alt="">
                                     <!-- Hover Thumb -->

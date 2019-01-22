@@ -12,22 +12,22 @@ class m190120_154751_treatment_update extends Migration
      */
     public function up()
     {
-        $this->addColumn('treatment', 'id_animal', $this->integer()->notNull());
+        // $this->addColumn('treatment', 'id_animal', $this->integer()->notNull());
 
-        $this->createIndex(
-            'idx-treatment-id_animal',
-            '{{%treatment}}',
-            'id_animal'
-        );
+        // $this->createIndex(
+        //     'idx-treatment-id_animal',
+        //     '{{%treatment}}',
+        //     'id_animal'
+        // );
 
-        $this->addForeignKey(
-            'fk-treatment-id_animal',
-            '{{%treatment}}',
-            'id_animal',
-            '{{%animal}}',
-            'id',
-            'CASCADE'
-        );
+        // $this->addForeignKey(
+        //     'fk-treatment-id_animal',
+        //     '{{%treatment}}',
+        //     'id_animal',
+        //     '{{%animal}}',
+        //     'id',
+        //     'CASCADE'
+        // );
 
     }
 

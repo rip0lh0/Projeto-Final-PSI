@@ -18,6 +18,7 @@
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/cebe/markdown" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/cebe/yii2-gravatar" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/codeception/base" />
+      <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/codeception/codeception" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/codeception/phpunit-wrapper" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/codeception/stub" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/codeception/verify" />

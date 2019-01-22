@@ -96,6 +96,7 @@
       <path value="$PROJECT_DIR$/webapp/vendor/facebook/webdriver" />
       <path value="$PROJECT_DIR$/webapp/vendor/yiisoft/yii2-bootstrap4" />
       <path value="$PROJECT_DIR$/webapp/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/webapp/vendor/codeception/codeception" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="5.4.0" />
