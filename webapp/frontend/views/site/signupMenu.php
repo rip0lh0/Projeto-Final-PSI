@@ -38,7 +38,7 @@ use common\models\User;
                         <?= Html::a('Pretende adotar um animal?', ['user/registration', 'signupType' => User::TYPE_ADOPTER]); ?>
                         </div>
                         <p>Muitos cães e gatos estão à sua espera, cheios de afetividade para lhe dar.</p>
-                        <?= Html::a('Criar conta <i class="fas fa-angle-right"></i>', ['user/registration', 'signupType' => User::TYPE_ADOPTER], ['class' => 'btn btn-blue btn-large btn-block btn-flat']); ?>
+                        <?= Html::a('Criar conta <i class="fas fa-angle-right"></i>', ['user/registration', 'signupType' => User::TYPE_ADOPTER], ['id'=>'btn-create-user'], ['class' => 'btn btn-blue btn-large btn-block btn-flat']); ?>
                     </div>
                 </div>
             </div>
@@ -46,7 +46,7 @@ use common\models\User;
             <!-- Single Blog Area -->
             <div class="col-12 col-lg-6">
                 <div class="single-blog-area mb-50">
-                    <img src="<?= Url::base(true) ?>/images/bg_3.jpg" alt="">
+                    <img src="<?= Url::base(true) ?>/images/bg_3.jpg" alt="">23
                     <!-- Post Title -->
                     <div class="post-title">
                         <a href="#">Associção</a>
@@ -55,7 +55,7 @@ use common\models\User;
                     <div class="hover-content">
                         <!-- Post Title -->
                         <div class="hover-post-title">
-                            <?= Html::a('Criar conta <i class="fas fa-angle-right"></i>', ['user/registration', 'signupType' => User::TYPE_KENNEL]); ?>
+                            <?= Html::a('Criar conta <i class="fas fa-angle-right"></i>', ['user/registration', 'signupType' => User::TYPE_KENNEL], ['id'=>'btn-create-kenel']); ?>
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim nulla, mollis eu metus in, sagittis fringilla tortor. Phasellus purus dignissim convallis.</p>
                         <?= Html::a('Criar conta <i class="fas fa-angle-right"></i>', ['user/registration', 'signupType' => User::TYPE_KENNEL], ['class' => 'btn btn-orange btn-large btn-block btn-flat']); ?>

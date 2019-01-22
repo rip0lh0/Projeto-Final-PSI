@@ -41,4 +41,10 @@ class LoginCest
         $I->dontSeeLink('Login');
         $I->dontSeeLink('Signup');
     }
+
+    public function tryToLoginBackOffice(FunctionalTester $I){
+        $I->amOnPage('admin/site/login');
+
+    }
+    
 }

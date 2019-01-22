@@ -67,7 +67,7 @@ $menuItems[] = [
                 </div> -->
                 <!-- User Login Info -->
                 <div class="user-login-info">
-                    <?= Html::a('<i class="fas fa-user"></i>', ((Yii::$app->user->isGuest) ? ['user/authentication'] : '#'), ['class' => 'nav-profile-btn', 'style' => 'vertical-align: middle; font-size: 1.6em; color: #787878;', 'id' => 'essenceCartBtn']); ?>
+                    <?= Html::a('<i class="fas fa-user"></i>', ((Yii::$app->user->isGuest) ? ['user/authentication'] : '#'), ['class' => 'nav-profile-btn', 'style' => 'vertical-align: middle; font-size: 1.6em; color: #787878;', 'id' => 'btn-login']); ?>
                     <!-- <a href="#" style="line-height: 103px;"><i class="fa fa-user fa-2x"></i></a> -->
                 </div>
             </div>

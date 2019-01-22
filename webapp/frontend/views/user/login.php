@@ -54,7 +54,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <?= Html::submitButton('Login', ['class' => 'btn btn-primary btn-lg btn-block', 'name' => 'login-button', 'style' => 'font-size: 2em;']) ?>
                             </div>
                             <div class="col-12">
-                                <p>Not Registered! <?= Html::a('Create an Account', ['site/menu']) ?></p>
+                                <p>Not Registered! <?= Html::a('Create an Account', ['site/menu'], ['id' => 'btn-create-account']) ?></p>
                             </div>
 
                             <div class="container">
