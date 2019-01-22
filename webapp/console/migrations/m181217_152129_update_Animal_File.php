@@ -12,10 +12,6 @@ class m181217_152129_update_Animal_File extends Migration
      */
     public function safeUp()
     {
-        $this->dropTable('breed_coat');
-        $this->dropTable('breed_energy');
-        $this->dropTable('breed_size');
-
         $this->addColumn('animal_file', 'id_coat', $this->integer());
         $this->addColumn('animal_file', 'id_energy', $this->integer());
         $this->addColumn('animal_file', 'id_size', $this->integer());

@@ -22,15 +22,15 @@ class m181127_181852_Vaccine extends Migration
         ], $tableOptions);
 
         $this->createIndex(
-            'idx-vaccine-id_tretment',
+            'idx-vaccine-id_treatment',
             '{{%vaccine}}',
-            'id_tretment'
+            'id_treatment'
         );
 
         $this->addForeignKey(
-            'fk-vaccine-id_tretment',
+            'fk-vaccine-id_treatment',
             '{{%vaccine}}',
-            'id_tretment',
+            'id_treatment',
             '{{%treatment}}',
             'id',
             'CASCADE'
@@ -40,12 +40,12 @@ class m181127_181852_Vaccine extends Migration
     public function down()
     {
         $this->dropForeignKey(
-            'fk-vaccine-id_tretment',
+            'fk-vaccine-id_treatment',
             '{{%vaccine}}'
         );
 
         $this->dropIndex(
-            'idx-vaccine-id_tretment',
+            'idx-vaccine-id_treatment',
             '{{%vaccine}}'
         );
 
