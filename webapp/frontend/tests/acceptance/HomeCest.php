@@ -12,7 +12,7 @@ class HomeCest
         $I->see('ADOTAR');
         $I->click('Adotar');
         $I->wait(2);
-        $I->moveMouseOver('.product-img');
+        $I->moveMouseOver('#animalimage-0');
         $I->wait(2);
         $I->see('ADOTAR');
         $I->click('Adotar');
@@ -25,7 +25,7 @@ class HomeCest
         $I->see('Contactar');
         $I->click('Contactar');
         $I->wait(2);
-        $I->fillField(['id'=>'messageform-message'],"QUERO O GORDO");
+        $I->fillField(['id'=>'messageform-message'],"Estou interessado");
         $I->click(['name'=>'submit-button']);
         // $I->see('index');
         // $I->seeLink('index');
