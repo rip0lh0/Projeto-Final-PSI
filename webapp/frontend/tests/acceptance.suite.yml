@@ -1,0 +1,19 @@
+suite_namespace: frontend\tests\acceptance
+actor: AcceptanceTester
+env:
+chrome:
+modules:
+  enabled:
+      - WebDriver:
+          url: http://localhost/
+          browser: chrome
+      - Yii2:
+          part: [orm, fixtures]
+          entryScript: index.php
+          cleanup: false
+extensions:
+  enabled:
+  - Codeception\Extension\RunProcess:
+      0: java -jar selenium-server-standalone-3.141.59.jar
+      1: chromedriver.exe
+      sleep: 5
