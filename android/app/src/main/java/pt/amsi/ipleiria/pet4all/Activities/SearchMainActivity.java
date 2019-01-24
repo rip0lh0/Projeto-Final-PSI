@@ -5,8 +5,14 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkError;
+import com.android.volley.NoConnectionError;
+import com.android.volley.ParseError;
 import com.android.volley.Request;
 import com.android.volley.Response;
+import com.android.volley.ServerError;
+import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
@@ -78,8 +84,19 @@ public class SearchMainActivity extends AppCompatActivity{
                     @Override
                     public void onErrorResponse(VolleyError error) {
 
-                        Toast.makeText(SearchMainActivity.this, "ERROU"+error, Toast.LENGTH_SHORT).show();
-                        loadAnimals();
+                        if (error instanceof TimeoutError ) {
+
+                        } else if(error instanceof NoConnectionError){
+
+                        } else if (error instanceof AuthFailureError) {
+                            //TODO
+                        } else if (error instanceof ServerError) {
+                            //TODO
+                        } else if (error instanceof NetworkError) {
+                            //TODO
+                        } else if (error instanceof ParseError) {
+                            //TODO
+                        }
                     }
                 }
         );
