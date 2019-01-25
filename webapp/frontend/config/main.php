@@ -40,21 +40,18 @@ return [
             'errorAction' => 'site/error',
         ],
         'urlManager' => [
-            'baseUrl' => '/',
+            'baseUrl' => '/v1/',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
                 [
                     'class' => 'yii\rest\UrlRule',
-                    'controller' => 'v1/animal',
+                    'controller' => 'animal',
                     'pluralize' => false
                 ],
                 [
                     'class' => 'yii\rest\UrlRule',
-                    'controller' => 'v1/user',
-                    'tokens' => [
-                        
-                    ],
+                    'controller' => 'user',
                     'pluralize' => false
                 ]
             ]

@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.app.ActivityOptions;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
@@ -34,10 +35,16 @@ import android.widget.Toast;
 
 import com.android.volley.Request;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
 import pt.amsi.ipleiria.pet4all.ConnectionManager;
+import pt.amsi.ipleiria.pet4all.MainActivity;
+import pt.amsi.ipleiria.pet4all.PreferenceManager;
 import pt.amsi.ipleiria.pet4all.R;
 import pt.amsi.ipleiria.pet4all.ResponseManager;
 
@@ -317,22 +324,36 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 Toast.makeText(LoginActivity.this, "No Internet Connection", Toast.LENGTH_LONG).show();
                 return false;
             }
-            ConnectionManager connection = new ConnectionManager(LoginActivity.this);
-            connection.authRequest(Request.Method.GET, "user/profile", mUsername, mPassword, null, new ResponseManager() {
-                @Override
-                public void onResponse(Object response) {
-                    /* LOCAL VARIABLE*/
+            try {
+                ConnectionManager connection = new ConnectionManager(LoginActivity.this);
+                connection.authRequest(Request.Method.GET, "user/profile?username="+ mUsername, mUsername, mPassword, null, new ResponseManager() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        /* LOCAL VARIABLE*/
+                        String authenticated_username = null;
 
-                    /* RETURN RESULT */
-                }
+                        try {
+                            authenticated_username = response.getString("username");
+                        } catch (JSONException e) {
+                            Toast.makeText(LoginActivity.this, "Invalid Data", Toast.LENGTH_LONG).show();
+                            onPostExecute(false);
+                        }
+                        PreferenceManager.setPreferences("KEYCREDENTIALS", authenticated_username, LoginActivity.this, Context.MODE_PRIVATE);
 
-                @Override
-                public void onError(String message) {
-                    /* RETURN RESULT*/
-                    Toast.makeText(LoginActivity.this, message, Toast.LENGTH_LONG).show();
-                }
-            });
-
+                        /* RETURN RESULT */
+                        onPostExecute(true);
+                    }
+                    @Override
+                    public void onError(String message) {
+                        /* RETURN RESULT*/
+                        Toast.makeText(LoginActivity.this, message, Toast.LENGTH_LONG).show();
+                        onPostExecute(false);
+                    }
+                });
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             return false;
         }
 
@@ -342,8 +363,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(false);
 
             if (success) {
-                Intent intent = new Intent(LoginActivity.this,ProfileActivity.class);
-                intent.putExtra("EMAIL", mUsername);
+                Intent intent = new Intent(LoginActivity.this,MainActivity.class);
                 ActivityOptions options = ActivityOptions.makeCustomAnimation(LoginActivity.this,android.R.anim.fade_in,android.R.anim.fade_out);
                 startActivity(intent, options.toBundle());
                 finish();
@@ -359,9 +379,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(false);
         }
 
-        private class ResponseContainer {
-            public boolean result;
-        }
     }
 }
 

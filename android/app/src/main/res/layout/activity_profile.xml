@@ -176,12 +176,6 @@
 
     </LinearLayout>
 
-    <fragment
-        android:id="@id/settingsFragment"
-        android:name="pt.amsi.ipleiria.pet4all.Fragments.SettingsFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="5dp"/>
 
     <fragment
         android:id="@id/navbarFragment"

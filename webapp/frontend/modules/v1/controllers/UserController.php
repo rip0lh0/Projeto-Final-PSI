@@ -46,7 +46,7 @@ class UserController extends ActiveController
     {
         if ($username != Yii::$app->user->identity->username) throw new ForbiddenHttpException();
 
-        $user = User::findByUsername($username)->where(['status' => User::STATUS_ACTIVE]);
+        $user = User::find()->where(['username' => $username, 'status' => User::STATUS_ACTIVE])->one();
 
         if (empty($user)) throw new NotFoundHttpException();
         unset($user['password_hash']);

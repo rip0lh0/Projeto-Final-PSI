@@ -1,6 +1,7 @@
 package pt.amsi.ipleiria.pet4all.Fragments;
 
 import android.app.ActivityOptions;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -16,6 +17,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import pt.amsi.ipleiria.pet4all.Activities.LoginActivity;
+import pt.amsi.ipleiria.pet4all.Activities.ProfileActivity;
+import pt.amsi.ipleiria.pet4all.PreferenceManager;
 import pt.amsi.ipleiria.pet4all.R;
 
 /* Controls All Navbar Actions And Animations */
@@ -53,7 +56,11 @@ public class NavbarFragment extends Fragment {
         btnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent(getActivity(),LoginActivity.class);
+                Intent intent= new Intent(getActivity(), ProfileActivity.class);
+                if(!PreferenceManager.hasKey("KEYCREDENTIALS", getActivity(), Context.MODE_PRIVATE)){
+
+                    intent= new Intent(getActivity(),LoginActivity.class);
+                }
                 ActivityOptions options = ActivityOptions.makeCustomAnimation(getContext(),android.R.anim.fade_in,android.R.anim.fade_out);
                 startActivity(intent, options.toBundle());
             }
