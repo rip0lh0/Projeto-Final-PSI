@@ -15,7 +15,6 @@ import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import pt.amsi.ipleiria.pet4all.Activities.SearchAnimalActivity;
 import pt.amsi.ipleiria.pet4all.Activities.LoginActivity;
 import pt.amsi.ipleiria.pet4all.R;
 
@@ -41,9 +40,9 @@ public class NavbarFragment extends Fragment {
         });
 
         /* Action Buttons */
-        navbarActionBtns = (RelativeLayout) view.findViewById(R.id.navbarActionBtns);
+        navbarActionBtns = (RelativeLayout) view.findViewById(R.id.nb_action_btn);
         /* Button Actions */
-        btnDropDown = (ImageButton)view.findViewById(R.id.btnDropDown);
+        btnDropDown = (ImageButton)view.findViewById(R.id.btn_dropdown);
         btnDropDown.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -59,20 +58,6 @@ public class NavbarFragment extends Fragment {
                 startActivity(intent, options.toBundle());
             }
         });
-
-        btnSearch = (ImageButton)view.findViewById(R.id.btnSearch);
-        btnSearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent= new Intent(getActivity(),SearchAnimalActivity.class);
-                ActivityOptions options = ActivityOptions.makeCustomAnimation(getContext(),android.R.anim.fade_in,android.R.anim.fade_out);
-                startActivity(intent, options.toBundle());
-
-
-            }
-        });
-
-
 
         return view;
     }

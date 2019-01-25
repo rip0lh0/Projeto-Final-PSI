@@ -33,6 +33,12 @@ AppAsset::register($this);
         ];
 
         $menuItems[] = [
+            'url' => ['user/index'],
+            'icon' => 'user',
+            'label' => 'Users',
+        ];
+
+        $menuItems[] = [
             'icon' => ' far fa-building',
             'label' => 'Canil',
             'items' => $animalMenuItems,

@@ -20,58 +20,15 @@ class AnimalController extends ActiveController
 {
     public $modelClass = 'common\models\Animal';
 
-    public function checkAccess($action, $model = null, $params = [])
-    {
-        if ($action === 'create-animal') {
-            if (Yii::$app->user->isGuest && Yii::$app->user->checkAccess('kennel')) {
-                throw new ForbiddenHttpException('Kennels can performe ' . $action);
-            }
-        }
-    }
+    // public function checkAccess($action, $model = null, $params = [])
+    // {
+    //     if ($action === 'create-animal') {
+    //         if (Yii::$app->user->isGuest && Yii::$app->user->checkAccess('kennel')) {
+    //             throw new ForbiddenHttpException('Kennels can performe ' . $action);
+    //         }
+    //     }
+    // }
 
-    /**
-     * Inserts A New Animal And His Medical File
-     *
-     * @return mixed
-     */
-    public function actionCreateAnimal()
-    {
-        $request = Yii::$app->request;
-        if (!$request->isPost) return ["Error" => 'Please check your request method.'];
-
-        $postData = $request->post();
-
-        $animalData = new Animal();
-        $fileData = new AnimalFile();
-
-        /* Post Data To Animal */
-        $animalData->name = $postData["name"];
-        $animalData->description = $postData["description"];
-
-        /* Post Data To Animal File */
-        $fileData->chip = $postData["chip"];
-        $fileData->neutered = $postData["neutered"];
-        $fileData->gender = $postData["gender"];
-        $fileData->weight = $postData["weight"];
-        $fileData->age = $postData["age"];
-
-        /* Validate And Save  */
-        if ($animalData->validate() && $animalData->save()) {
-            $fileData->id_animal = $animalData->id;
-            $fileData->created_at = date('Y-m-d H:i:s');
-            $fileData->updated_at = date('Y-m-d H:i:s');
-
-            if ($fileData->validate() && $fileData->save()) {
-
-                $msgJson = Yii::$app->request->post();
-                return $this->PublishToChannel("NEWANIMAL", Json::encode($msgJson));
-            } else
-                $animalData->delete();
-        }
-
-        return ["Error" => 'Animal already exists'];
-    }
-    
     /* GET Animal, AnimalFile */
     public function actionProfile($id)
     {

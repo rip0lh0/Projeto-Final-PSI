@@ -8,7 +8,7 @@
     android:gravity="top">
 
     <ImageButton
-        android:id="@+id/btnDropDown"
+        android:id="@+id/btn_dropdown"
         android:layout_width="@dimen/navbar_btn_dropdown"
         android:layout_height="40dp"
         android:layout_centerHorizontal="true"
@@ -18,14 +18,14 @@
         app:srcCompat="@drawable/ic_action_drop_down" />
 
     <RelativeLayout
-        android:id="@+id/navbarActionBtns"
+        android:id="@+id/nb_action_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/btnDropDown"
+        android:layout_below="@id/btn_dropdown"
         android:layout_marginTop="@dimen/navbar_btn_margin"
         android:visibility="gone">
 
-        <LinearLayout
+        <!--<LinearLayout
             android:id="@+id/layoutMagazine"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -47,15 +47,16 @@
                 android:layout_height="wrap_content"
                 android:text="@string/navbar_articles"
                 android:textColor="@color/color_Primary_Light_Text" />
-        </LinearLayout>
+        </LinearLayout>-->
 
         <LinearLayout
-            android:id="@+id/layoutSearch"
-            android:layout_width="wrap_content"
+            android:id="@+id/tb_layout_search"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="80dp"
             android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:weightSum="1">
 
             <ImageButton
                 android:id="@+id/btnSearch"
@@ -72,15 +73,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/navbar_search"
-                android:textColor="@color/color_Primary_Light_Text" />
+                android:textColor="@color/color_text_light" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/layoutProfile"
-            android:layout_width="wrap_content"
+            android:id="@+id/tb_layout_profile"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/layoutSearch"
+            android:layout_marginStart="80dp"
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
@@ -97,7 +98,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/navbar_profile"
-                android:textColor="@color/color_Primary_Light_Text" />
+                android:textColor="@color/color_text_light" />
 
         </LinearLayout>
 

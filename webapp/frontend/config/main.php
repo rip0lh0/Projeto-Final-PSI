@@ -47,20 +47,13 @@ return [
                 [
                     'class' => 'yii\rest\UrlRule',
                     'controller' => 'v1/animal',
-                    'extraPatterns' => [
-                        'GET profile/{id}' => 'profile'
-                    ],
                     'pluralize' => false
                 ],
                 [
                     'class' => 'yii\rest\UrlRule',
                     'controller' => 'v1/user',
                     'tokens' => [
-                        '{username}' => '<username:\\w+>',
-                        '{password}' => '<password:\\w+>'
-                    ],
-                    'extraPatterns' => [
-                        'GET profile/{username}' => 'profile'
+                        
                     ],
                     'pluralize' => false
                 ]

@@ -21,10 +21,11 @@ public class ReportFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_report, container, false);
+        /*View view = inflater.inflate(R.layout.fragment_report, container, false);
         view.bringToFront();
 
-        return view;
+        return view;*/
+        return null;
     }
     public void toggleWindow(View view) {
 
