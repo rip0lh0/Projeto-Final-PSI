@@ -76,9 +76,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-
-
-
         // Set up the login form.
         this.mUsernameView = (EditText) findViewById(R.id.username);
         populateAutoComplete();
@@ -316,25 +313,26 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         @Override
         protected Boolean doInBackground(Void... params) {
-            try {
-                ConnectionManager connection = new ConnectionManager(LoginActivity.this);
-
-                connection.authRequest(Request.Method.GET, "user/profile?username=teste", mUsername, mPassword, null, new ResponseManager() {
-                    @Override
-                    public void onResponse(Object response) {
-
-                    }
-
-                    @Override
-                    public void onError(String message) {
-                        Toast.makeText(LoginActivity.this, "ERROR: "+ message, Toast.LENGTH_LONG).show();
-                    }
-                });
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                Log.e("LOGIN_TASK", "ERROR_RESPONSE: \n" + e.toString());
+            if(!ConnectionManager.checkInternetConnection(LoginActivity.this)){
+                Toast.makeText(LoginActivity.this, "No Internet Connection", Toast.LENGTH_LONG).show();
                 return false;
             }
+            ConnectionManager connection = new ConnectionManager(LoginActivity.this);
+            connection.authRequest(Request.Method.GET, "user/profile", mUsername, mPassword, null, new ResponseManager() {
+                @Override
+                public void onResponse(Object response) {
+                    /* LOCAL VARIABLE*/
+
+                    /* RETURN RESULT */
+                }
+
+                @Override
+                public void onError(String message) {
+                    /* RETURN RESULT*/
+                    Toast.makeText(LoginActivity.this, message, Toast.LENGTH_LONG).show();
+                }
+            });
+
             return false;
         }
 
@@ -359,6 +357,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         protected void onCancelled() {
             mAuthTask = null;
             showProgress(false);
+        }
+
+        private class ResponseContainer {
+            public boolean result;
         }
     }
 }
