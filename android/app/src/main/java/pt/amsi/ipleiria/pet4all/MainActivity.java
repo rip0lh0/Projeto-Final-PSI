@@ -11,7 +11,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        PreferenceManager.removePreferences("KEYCREDENTIALS", this, Context.MODE_PRIVATE);
     }
 
 

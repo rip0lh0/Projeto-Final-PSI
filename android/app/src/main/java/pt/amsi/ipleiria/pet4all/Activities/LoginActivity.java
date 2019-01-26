@@ -30,6 +30,8 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -65,7 +67,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      * TODO: remove after connecting to a real authentication system.
      */
     private static final String[] DUMMY_CREDENTIALS = new String[]{
-            "foo@example.com:hello", "bar@example.com:world"
+            "user_teste:teste", "user_teste2:teste"
     };
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
@@ -77,6 +79,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+    private TextView mNoAccountView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,8 +102,17 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             }
         });
 
-        Button mEmailSignInButton = (Button) findViewById(R.id.btn_login);
-        mEmailSignInButton.setOnClickListener(new OnClickListener() {
+        mNoAccountView = findViewById(R.id.no_account);
+        mNoAccountView.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                redirectToRegister();
+            }
+        });
+
+
+        Button mBtnLogin = (Button) findViewById(R.id.btn_login);
+        mBtnLogin.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 attemptLogin();
@@ -110,6 +122,16 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.progressBar);
     }
+
+    public void redirectToRegister() {
+        Intent intent = new Intent(this, RegisterActivity.class);
+        ActivityOptions options = ActivityOptions.makeCustomAnimation(this,android.R.anim.fade_in,android.R.anim.fade_out);
+        startActivity(intent, options.toBundle());
+        finish();
+    }
+
+
+
 
     private void populateAutoComplete() {
         if (!mayRequestContacts()) {
@@ -145,8 +167,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      * Callback received when a permissions request has been completed.
      */
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
-                                           @NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (requestCode == REQUEST_READ_CONTACTS) {
             if (grantResults.length == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 populateAutoComplete();
@@ -287,11 +308,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                         android.R.layout.simple_dropdown_item_1line, emailAddressCollection);
 
         //mEmailView.setAdapter(adapter);
-    }
-
-    public void btnRegisterRedirect(View view) {
-        Intent intent= new Intent(this, RegisterActivity.class);
-        startActivity(intent);
     }
 
     private interface ProfileQuery {

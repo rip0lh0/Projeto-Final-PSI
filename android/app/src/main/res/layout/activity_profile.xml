@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_primary"
     tools:context=".Activities.ProfileActivity">
 
 
@@ -16,7 +15,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/color_secundary"
             android:gravity="center"
             android:orientation="vertical"
             android:paddingTop="60dp">
@@ -26,7 +24,6 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:src="@drawable/profileplaceholder"
-                app:civ_border_color="@color/color_primary"
                 app:civ_border_width="5dp" />
 
             <TextView
@@ -164,8 +161,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:background="@color/color_secundary"
                     android:drawableStart="@drawable/ic_action_send_message"
+                    style="@style/btn_primary"
                     android:padding="@dimen/btn_mg"
                     android:text="@string/button_send_message"
                     android:textColor="@color/btn_text_color_blue" />

@@ -16,6 +16,8 @@
     <string name="lb_username">Username</string>
     <string name="lb_password">Password</string>
     <string name="btn_login">Login</string>
+
+    <!-- Strings related to Sign up -->
     <string name="btn_sign_up">Sign Up</string>
 
 

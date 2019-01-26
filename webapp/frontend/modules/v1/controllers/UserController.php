@@ -54,9 +54,9 @@ class UserController extends ActiveController
         return $user;
     }
 
-    public function actionSignup($username, $password)
+    public function actionSignup()
     {
-
+        if (Yii::$app->user->isGuest) throw new ErrorException("No session available");
     }
 
     public function actionLogout()
