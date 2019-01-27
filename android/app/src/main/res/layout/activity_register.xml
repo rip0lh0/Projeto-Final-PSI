@@ -1,137 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:scaleType="centerCrop"
-    tools:context=".Activities.RegisterUserActivity">
+    tools:context=".Activities.RegisterActivity">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="50dp"
-        android:background="@drawable/roundedcontainer_top"
-        android:orientation="vertical"
-        android:alpha="0.9"
-        android:padding="15dp">
+        android:layout_height="200dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/ic_background_primary"
+            tools:ignore="contentDescription" />
 
         <TextView
-            android:drawableLeft="@drawable/ic_action_user"
-            android:drawablePadding="15sp"
-            android:id="@+id/textViewRegister"
+            android:id="@+id/page_title"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@android:color/white"
-            android:text="@string/txtRegisterStatic" />
-    </LinearLayout>
+            android:layout_height="match_parent"
+            android:background="#55212121"
+            android:gravity="center"
+            android:text="@string/page_title_sign_up"
+            android:textColor="@color/color_text_light"
+            android:textSize="@dimen/font_size_title" />
+    </RelativeLayout>
 
     <LinearLayout
-        android:alpha="0.9"
+        android:id="@+id/linear_form"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="160dp"
         android:layout_marginRight="20dp"
-        android:background="@drawable/roundedcontainer_bottom"
+        android:layout_marginLeft="20dp"
+        android:gravity="center_horizontal"
+        android:elevation="4dp"
+        android:background="@drawable/rectangle"
         android:orientation="vertical">
 
-        <LinearLayout
+        <ScrollView
+            android:id="@+id/login_form"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:orientation="vertical">
+            android:padding="20dp">
 
-            <EditText
-                android:id="@+id/editTextname"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/rounded_input_bar"
-                android:drawableEnd="@drawable/ic_action_person_blue"
-                android:hint="Nome"
-                android:ems="10"
-                android:inputType="textPersonName" />
+                android:orientation="vertical">
 
-        </LinearLayout>
+                <!-- Username Input -->
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/input_mg"
+                    android:layout_marginBottom="@dimen/input_mg">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:orientation="vertical">
-
-            <EditText
-                android:id="@+id/editTextEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/rounded_input_bar"
-                android:drawableEnd="@drawable/ic_action_email_blue"
-                android:ems="10"
-                android:hint="E-mail"
-                android:inputType="textEmailAddress" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="15dp"
-            android:orientation="vertical">
+                    <EditText
+                        android:id="@+id/et_username"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/lb_username"
+                        android:inputType="text" />
+                </android.support.design.widget.TextInputLayout>
+                <!-- End Username Input -->
 
 
-            <EditText
-                android:id="@+id/editTextPassword1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/rounded_input_bar"
-                android:drawableEnd="@drawable/ic_action_lock_blue"
-                android:ems="10"
-                android:hint="Password"
-                android:inputType="textPassword" />
+                <!-- Name Input -->
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/input_mg"
+                    android:layout_marginBottom="@dimen/input_mg">
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="15dp"
-            android:orientation="vertical">
+                    <EditText
+                        android:id="@+id/et_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/lb_password"
+                        android:inputType="text" />
+                </android.support.design.widget.TextInputLayout>
+                <!-- End Name Input -->
 
 
-            <EditText
-                android:id="@+id/editTextPassword2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/rounded_input_bar"
-                android:drawableEnd="@drawable/ic_action_lock_blue"
-                android:ems="10"
-                android:hint="Confirmar Password"
-                android:inputType="textPassword" />
+                <!-- Email Input -->
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/input_mg"
+                    android:layout_marginBottom="@dimen/input_mg">
 
-        </LinearLayout>
+                    <EditText
+                        android:id="@+id/et_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/lb_password"
+                        android:inputType="textEmailAddress" />
+                </android.support.design.widget.TextInputLayout>
+                <!-- End Email Input -->
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="25dp"
-            android:orientation="vertical">
+                <!-- Password Input -->
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/input_mg"
+                    android:layout_marginBottom="@dimen/input_mg">
 
-            <Button
-                android:id="@+id/buttonConfirm"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:text="Confirmar"
-                android:backgroundTintMode="src_atop"
-                android:background="@drawable/btn_send_message_style"
-                android:textColor="@android:color/black" />
-        </LinearLayout>
+                    <EditText
+                        android:id="@+id/et_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/lb_password"
+                        android:inputType="textVisiblePassword" />
+                </android.support.design.widget.TextInputLayout>
+                <!-- End Password Input -->
 
+                <Button
+                    android:id="@+id/btn_login"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/btn_mg"
+                    android:layout_marginBottom="@dimen/btn_mg"
+                    android:padding="12dp"
+                    android:text="@string/btn_sign_up"
+                    style="@style/btn_warning"
+                    android:textSize="@dimen/btn_font_size" />
+
+            </LinearLayout>
+        </ScrollView>
     </LinearLayout>
 
+    <fragment
+        android:id="@id/navbarFragment"
+        android:name="pt.amsi.ipleiria.pet4all.Fragments.NavbarFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
-</LinearLayout>
+</RelativeLayout>

@@ -9,9 +9,6 @@ use Yii;
  */
 class Module extends \yii\base\Module
 {
-    /**
-     * {@inheritdoc}
-     */
     public $controllerNamespace = 'frontend\modules\v1\controllers';
 
     /**

@@ -2,37 +2,34 @@ package pt.amsi.ipleiria.pet4all.Models;
 
 
 public class Animal {
-    private int id;
+    private static int id;
     private String name;
     private String description;
-    private int id_coat;
-    private int id_energy;
-    private int id_size;
+    private int id_coat; // Coat
+    private int id_energy; // Energy
+    private int id_size; // Size
     private String chip;
     private float age;
     private char gender;
     private float weight;
     private int neutered;
-    //private String image;
 
 
     public Animal(int id, String name, String description, int id_coat, int id_energy, int id_size, String chip, float age, char gender, float weight, int neutered){
-    this.id=id;
-    this.name=name;
-    this.description=description;
-    this.id_coat=id_coat;
-    this.id_energy=id_energy;
-    this.id_size=id_size;
-    this.chip=chip;
-    this.age=age;
-    this.gender=gender;
-    this.weight=weight;
-    this.neutered=neutered;
+        Animal.id += 1;
+        this.name=name;
+        this.description=description;
+        this.id_coat=id_coat;
+        this.id_energy=id_energy;
+        this.id_size=id_size;
+        this.chip=chip;
+        this.age=age;
+        this.gender=gender;
+        this.weight=weight;
+        this.neutered=neutered;
     }
 
-    public int getId() {
-        return id;
-    }
+    public static int getId() { return id; }
 
     public String getName() {
         return name;
@@ -73,19 +70,5 @@ public class Animal {
     public int getNeutered() {
         return neutered;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

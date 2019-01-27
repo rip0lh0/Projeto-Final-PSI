@@ -29,7 +29,7 @@ class AnimalController extends Controller
                     [
                         'allow' => true,
                         'actions' => ['adopt'],
-                        'roles' => ['@']
+                        'roles' => ['Adopter']
                     ],
                 ],
             ],
