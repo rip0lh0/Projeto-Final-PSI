@@ -8,7 +8,7 @@ class FunctionalCest
         $I->amOnPage('index');
         $I->click(['id' => 'btn-login']);
         $I->submitForm('form#login-form', ['LoginForm[username]' => 'valter', 'LoginForm[password]' => '123456789']);          
-        $I->amLoggedInAs(7);
+        $I->amLoggedInAs(3);
     }
     public function tryToCreateUser(FunctionalTester $I){
         $I->amOnPage('index');
@@ -31,10 +31,10 @@ class FunctionalCest
 
     public function tryToAdoptAnimal(FunctionalTester $I){
         $I->amOnPage('index'); 
-        $I->amLoggedInAs(7);       
-        $I->click(['id' => 'btn-adotar']);
+        $I->amLoggedInAs(3); 
+        $I->click(['id' => 'menuAdotar']);
         $I->amOnPage('animal/index'); 
-        $I->click(['class' => 'btn essence-btn']);
+        $I->click('Adotar');
     }
 
     
