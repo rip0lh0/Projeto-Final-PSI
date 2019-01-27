@@ -62,8 +62,8 @@ public class ConnectionManager{
             @Override
             public void onResponse(String response) {
                 try {
-                    JSONObject obj = new JSONObject(response);
-                    responseManager.onResponse(obj);
+                    JSONArray arr = new JSONArray(response);
+                    responseManager.onResponse(arr);
                 } catch (JSONException e) {
                     responseManager.onError(e.toString());
                 }
@@ -84,9 +84,8 @@ public class ConnectionManager{
         JsonObjectRequest strRequest = new JsonObjectRequest(method, final_url, params, new Response.Listener<JSONObject>(){
             @Override
             public void onResponse(JSONObject response) {
-                Log.e("CONNECTION_MANAGER_AUTH", "ON_RESPONSE: \n " + response.toString());
-
-                responseManager.onResponse(response);
+                //Log.e("CONNECTION_MANAGER_AUTH", "ON_RESPONSE: \n " + response.toString());
+                responseManager.onAuthResponse(response);
             }
         }, new Response.ErrorListener(){
             @Override

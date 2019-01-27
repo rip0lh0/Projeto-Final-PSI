@@ -172,10 +172,10 @@ class ImageHandler
 
             $img_size = filesize($source_path);
 
-            $img_info['id'] = rand(100000, 999999);
+            //$img_info['id'] = rand(100000, 999999);
             $img_info['name'] = $file_name;
             $img_info['size'] = $img_size;
-            $img_info['url'] = $source_path;
+            //$img_info['url'] = $source_path;
 
             $file_list[] = $img_info;
         }

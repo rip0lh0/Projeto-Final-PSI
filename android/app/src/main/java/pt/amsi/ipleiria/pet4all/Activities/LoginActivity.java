@@ -37,6 +37,7 @@ import android.widget.Toast;
 
 import com.android.volley.Request;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -344,10 +345,14 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 ConnectionManager connection = new ConnectionManager(LoginActivity.this);
                 connection.authRequest(Request.Method.GET, "user/profile?username="+ mUsername, mUsername, mPassword, null, new ResponseManager() {
                     @Override
-                    public void onResponse(JSONObject response) {
+                    public void onResponse(JSONArray response) {
+
+                    }
+
+                    @Override
+                    public void onAuthResponse(JSONObject response) {
                         /* LOCAL VARIABLE*/
                         String authenticated_username = null;
-
                         try {
                             authenticated_username = response.getString("username");
                         } catch (JSONException e) {
@@ -359,6 +364,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                         /* RETURN RESULT */
                         onPostExecute(true);
                     }
+
                     @Override
                     public void onError(String message) {
                         /* RETURN RESULT*/

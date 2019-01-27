@@ -7,18 +7,16 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import pt.amsi.ipleiria.pet4all.Activities.LoginActivity;
 import pt.amsi.ipleiria.pet4all.Activities.ProfileActivity;
+import pt.amsi.ipleiria.pet4all.Activities.AnimalsActivity;
 import pt.amsi.ipleiria.pet4all.MainActivity;
 import pt.amsi.ipleiria.pet4all.PreferenceManager;
 import pt.amsi.ipleiria.pet4all.R;
@@ -27,7 +25,7 @@ import pt.amsi.ipleiria.pet4all.R;
 
 public class NavbarFragment extends Fragment {
     Boolean navbarState = false; // True = Open : False = Close
-    ImageButton btnSignout, btnProfile;
+    ImageButton btnSignout, btnProfile, btnAnimals;
     TextView textViewMagazine,textViewSearch,textViewProfile;
     RelativeLayout navbarActionBtns, navbarFragment;
 
@@ -50,6 +48,14 @@ public class NavbarFragment extends Fragment {
             btnSignout.setVisibility(View.GONE);
         }
 
+        btnAnimals = view.findViewById(R.id.btn_animals);
+        btnAnimals.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                animals();
+            }
+        });
+
         btnProfile = (ImageButton)view.findViewById(R.id.btn_profile);
         btnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +65,13 @@ public class NavbarFragment extends Fragment {
         });
 
         return view;
+    }
+
+    public void animals(){
+        Intent intent= new Intent(getActivity(), AnimalsActivity.class);
+
+        ActivityOptions options = ActivityOptions.makeCustomAnimation(getContext(),android.R.anim.fade_in,android.R.anim.fade_out);
+        startActivity(intent, options.toBundle());
     }
 
 

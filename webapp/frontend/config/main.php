@@ -47,6 +47,7 @@ return [
                 [
                     'class' => 'yii\rest\UrlRule',
                     'controller' => 'v1/animal',
+                    'except' => ['delete', 'create', 'update'],
                     'pluralize' => false
                 ],
                 [

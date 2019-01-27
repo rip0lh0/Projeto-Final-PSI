@@ -19,7 +19,8 @@
 
     <!-- Strings related to Sign up -->
     <string name="btn_sign_up">Sign Up</string>
-
+    <string name="lb_full_name">Name</string>
+    <string name="lb_email">Email</string>
 
 
 
