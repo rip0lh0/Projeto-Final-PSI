@@ -72,12 +72,12 @@ $itemsPerRow = 3;
                                     <span><?= ($animal->age) ? $animal->age . ' Anos.' : ''; ?></span>
 
                                     <!-- Hover Content -->
-                                    <div class="hover-content">
+                                    <!-- <div class="hover-content"> -->
                                         <!-- Add to Cart -->
-                                        <div class="add-to-cart-btn">
-                                            <?= Html::a('Adotar', ['animal/adopt', 'id_animal' => $animal->id], ['class' => 'btn essence-btn']) ?>
-                                        </div>
-                                    </div>
+                                        <!-- <div class="add-to-cart-btn"> -->
+                                            <?= Html::a('Adotar', ['animal/adopt', 'id_animal' => $animal->id], ['id' => 'btn-a'] ,['class' => 'btn essence-btn']) ?>
+                                        <!-- </div> -->
+                                    <!-- </div> -->
                                 </div>
                             </div>
                         </div>

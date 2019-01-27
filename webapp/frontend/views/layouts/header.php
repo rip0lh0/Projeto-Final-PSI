@@ -9,11 +9,12 @@ $menuItems[] = [
     'icon' => ''
 ];
 
-$menuItems[] = [
-    'url' => ['animal/index'],
-    'label' => '<i class="fas fa-paw fa-2x"></i>',
-    'icon' => ''
-];
+// $menuItems[] = [
+//     'url' => ['animal/index'],
+//     'label' => '<i class="fas fa-paw fa-2x"></i>',
+//     'icon' => '',
+//     'id' => 'menuAdotar'
+// ];
 
 ?>
  <header class="header_area">
@@ -35,6 +36,7 @@ $menuItems[] = [
                     <!-- Nav Start -->
                     <div class="classynav">
                         <ul>
+                        <?= Html::a('Adotar', ['animal/index'], ['id'=>'menuAdotar'], ['class' => 'fas fa-paw fa-2x']) ?>
                             <?php foreach ($menuItems as $key => $item) {
                                 if (!array_key_exists('items', $item)) {
                                     echo '<li>' . Html::a($item['label'], $item['url']) . '</li>';
@@ -46,6 +48,8 @@ $menuItems[] = [
                                     echo '</li></ul>';
                                 }
                             } ?>
+
+
                         </ul>
                     </div>
                     <!-- Nav End -->
