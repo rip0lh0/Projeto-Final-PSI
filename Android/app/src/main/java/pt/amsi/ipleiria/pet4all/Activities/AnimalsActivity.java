@@ -50,6 +50,9 @@ public class AnimalsActivity extends AppCompatActivity implements ListListener<A
         listView = findViewById(R.id.listview_animal);
         animalList = new ArrayList<>();
 
+        AnimalSingleton.getInstance(getApplicationContext()).setListListener(this);
+        AnimalSingleton.getInstance(getApplicationContext()).getAllAnimal(getApplicationContext());
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -57,13 +60,10 @@ public class AnimalsActivity extends AppCompatActivity implements ListListener<A
 
                 Intent intent = new Intent(getApplicationContext(), AnimalProfileActivity.class);
 
-                intent.putExtra("ANIMAL", tempAnimal.getId());
+                intent.putExtra("ANIMAL", tempAnimal.getId() + "");
                 startActivity(intent);
             }
         });
-
-        AnimalSingleton.getInstance(getApplicationContext()).setListListener(this);
-        AnimalSingleton.getInstance(getApplicationContext()).getAllAnimal(getApplicationContext());
     }
 
 

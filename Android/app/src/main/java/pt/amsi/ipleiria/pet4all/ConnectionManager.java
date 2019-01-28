@@ -75,9 +75,7 @@ public class ConnectionManager{
             }
         }){
             @Override
-            protected Map<String, String> getParams(){
-                return params;
-            }
+            protected Map<String, String> getParams(){return params;}
         };
 
         requestQueue.add(strRequest);
@@ -122,6 +120,7 @@ public class ConnectionManager{
                 headers.put("Content-Type", "application/x-www-form-urlencoded");
                 headers.put("Authorization", auth);
                 Log.e("MAP_HEADERS", "HEADERS: " + headers.toString());
+
                 return headers;
             }
         };

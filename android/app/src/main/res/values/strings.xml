@@ -26,6 +26,14 @@
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
 
+    <string name="btn_contact">Contactar</string>
+    <string name="lb_name">Nome</string>
+    <string name="lb_weight">Peso</string>
+    <string name="lb_age">Idade</string>
+    <string name="lb_">Contactar</string>
+
+
+
     <string name="title_activity_login_profile">Sign in</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>
@@ -47,83 +55,4 @@
     <string name="textview_email_register_input">Insira o seu e-mail</string>
     <string name="textview_name_register_input">Insira o seu nome</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="txtRegisterStatic">Registar Utilizador</string>
-    <string name="txtRegister1Static">Registar Associação</string>
-    <string name="txtRegisterUserDesc1">Placeholder text</string>
-    <string name="txtRegisterUserDesc2">Placeholder text</string>
-    <string name="txtRegisterUserDesc3">Placeholder text</string>
-    <string name="txtRegisterKennelDesc1">Placeholder text</string>
-    <string name="txtRegisterKennelDesc2">Placeholder text</string>
-    <string name="txtRegisterKennelDesc3">Placeholder text</string>
-    <string name="txtReportFragmentStaticTop">Denunciar</string>
-    <string name="reportSpinnerPromptDesc">Descrição</string>
-    <string name="reportSpinnerPromptDesc1">Descrição da Denuncia</string>
-    <string name="reportSpinnerPromptSubmit">Submeter</string>
-    <string name="searchMenuTopbartxt">Procurar animal</string>
-    <string name="reportSpinnerPrompt">Razão da Denuncia</string>
-    <string name="txtGenderStatic">Género</string>
-    <string name="txtDistanceStatic">Distância</string>
-    <string name="txtAgeStatic">Idade</string>
-    <string name="txtTypeStatic">Tipo do Animal</string>
-    <string name="btnSearchtext">Procurar</string>
-    <string name="btnShowAll">Mostrar Todos</string>
-    <string-array name="genderDropdown">
-        <item>Mostrar tudo</item>
-        <item>Macho</item>
-        <item>Fêmea</item>
-    </string-array>
-    <string-array name="genderaddDropdown">
-        <item>Macho</item>
-        <item>Fêmea</item>
-    </string-array>
-    <string-array name="neuteredDropdown">
-        <item>Não</item>
-        <item>Sim</item>
-    </string-array>
-    <string-array name="typeDropdown">
-        <item>Todos</item>
-        <item>Cão</item>
-        <item>Gato</item>
-    </string-array>
-    <string-array name="sizeDropdown">
-        <item>Muito Pequeno</item>
-        <item>Pequeno</item>
-        <item>Médio</item>
-        <item>Grande</item>
-        <item>Muito Grande</item>
-    </string-array>
-    <string-array name="energyDropdown">
-        <item>Baixa</item>
-        <item>Média</item>
-        <item>Alta</item>
-    </string-array>
-    <string-array name="coatDropdown">
-        <item>Curta</item>
-        <item>Comprida</item>
-        <item>Sem</item>
-    </string-array>
-    <string-array name="ageDropdown">
-        <item>Todos</item>
-        <item>Até 1 ano</item>
-        <item>Até 3 anos</item>
-        <item>Até 5 anos</item>
-        <item>Até 7 anos</item>
-        <item>Até 9 anos</item>
-    </string-array>
-    <string-array name="distanceDropdown">
-        <item>Todos</item>
-        <item>Até 10 kms</item>
-        <item>Até 30 kms</item>
-        <item>Até 50 kms</item>
-        <item>Até 70 kms</item>
-        <item>Até 90 kms</item>
-    </string-array>
-    <string-array name="reportDropdown">
-        <item>Todos</item>
-        <item>Imagem Inapropriada</item>
-        <item>Perfil Inapropriado</item>
-        <item>Abuso da Plataforma</item>
-    </string-array>
 </resources>
