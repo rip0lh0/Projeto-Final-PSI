@@ -85,6 +85,14 @@ class AnimalController extends ActiveController
         return ["success" => $animals];
     }
 
+    // public function findAnimal($create_at)
+    // {
+    //     $animal = Animal::find()->where(["created_at" => $create_at])->one();
+
+    //     if ($animal == null) return ["error" => "Animal Not Found"];
+    //     else return ["success" => $animal];
+    // }
+
     public function actionDownloadImage($source_path)
     {
         $full_path = Yii::getAlias('@common') . '/uploads/animals/' . $source_path;
