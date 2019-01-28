@@ -5,6 +5,8 @@ namespace common\models;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
+// use yii\common\User;
+use common\models\User;
 
 /**
  * This is the model class for table "adoption".
@@ -21,6 +23,7 @@ use yii\db\ActiveRecord;
  * @property KennelAnimal $kennelAnimal
  * @property Message[] $messages
  */
+
 class Adoption extends ActiveRecord
 {
     public const STATUS_REFUSED = 0;
@@ -47,7 +50,7 @@ class Adoption extends ActiveRecord
             [['id_adopter', 'id_kennelAnimal'], 'required'],
             [['id_adopter', 'id_kennelAnimal', 'status'], 'integer'],
             [['description'], 'string', 'max' => 255],
-            [['id_adopter'], 'exist', 'skipOnError' => true, 'targetClass' => Adopter::className(), 'targetAttribute' => ['id_adopter' => 'id']],
+            [['id_adopter'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['id_adopter' => 'id']],
             [['id_kennelAnimal'], 'exist', 'skipOnError' => true, 'targetClass' => KennelAnimal::className(), 'targetAttribute' => ['id_kennelAnimal' => 'id']],
         ];
     }

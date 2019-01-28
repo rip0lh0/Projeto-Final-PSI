@@ -22,6 +22,8 @@ use common\models\User;
 use common\models\Coat;
 use common\models\Energy;
 use common\models\Size;
+use common\models\Adoption;
+use common\models\Message;
 use backend\models\ImageHandler;
 
 class AnimalController extends ActiveController
@@ -85,14 +87,6 @@ class AnimalController extends ActiveController
         return ["success" => $animals];
     }
 
-    // public function findAnimal($create_at)
-    // {
-    //     $animal = Animal::find()->where(["created_at" => $create_at])->one();
-
-    //     if ($animal == null) return ["error" => "Animal Not Found"];
-    //     else return ["success" => $animal];
-    // }
-
     public function actionDownloadImage($source_path)
     {
         $full_path = Yii::getAlias('@common') . '/uploads/animals/' . $source_path;
@@ -102,46 +96,40 @@ class AnimalController extends ActiveController
             return ["error" => "Faild to load image"];
         }
     }
-    // public function checkAccess($action, $model = null, $params = [])
-    // {
-    //     if ($action === 'create-animal') {
-    //         if (Yii::$app->user->isGuest && Yii::$app->user->checkAccess('kennel')) {
-    //             throw new ForbiddenHttpException('Kennels can performe ' . $action);
-    //         }
-    //     }
-    // }
-
-    /* GET Animal, AnimalFile */
-    // public function actionProfile($id)
-    // {
-    //     $animal = Animal::find()->where(['id' => $id])->one();
-
-    //     if (empty($animal)) return ['Error' => 'Animal Not Found'];
-
-    //     $animalFile = AnimalFile::find()->where(['id_animal' => $animal['id']])->one();
-
-    //     //unset($animalFile['id_animal']);
-
-    //     $profile = [];
-    //     $profile['animal'] = $animal;
-    //     $profile['animal_file'] = $animalFile;
-
-    //     return $profile;
-    // }
 
 
-    // public function PublishToChannel($channelName, $jsonData)
-    // {
-    //     $publisherID = "phpMQTT-Yii2_PUB";
+    public function actionPublishMessage()
+    {
+        $username = Yii::$app->request->post("username");
+        $message_text = Yii::$app->request->post("message");
 
-    //     $mqtt = new phpMQTT(ServerProperties::_SERVER, ServerProperties::_PORT, $publisherID);
+        $user = User::findByUsername($username);
+        $user_role = Yii::$app->authManager->getRolesByUser($user->id);
 
-    //     if (!$mqtt->connect(true, null, "yii2_pub", null)) return "Output Time out";
+        if (key_exists("kennel", $user_role)) return ["error" => "Faild To Save Message"];
 
-    //     /* Set Retain to True */
-    //     $mqtt->publish($channelName, $jsonData, 0, true);
+        $kennelAnimal = KennelAnimal::find()->where(["created_at" => Yii::$app->request->post("created_at")])->one();
 
-    //     $mqtt->close();
-    //     return ['Success' => 'Data has been Publish to (' . $channelName . ')', 'Data' => Json::decode($jsonData)];
-    // }
+        if ($kennelAnimal == null) return ["error" => "Faild To Save Message"];
+
+        $adoption = new Adoption();
+        $message = new Message();
+
+        $adoption->id_adopter = $user->id;
+        $adoption->id_kennelAnimal = $kennelAnimal->id;
+
+        if (!$adoption->save()) return ["error" => "Faild To Save Adoption"];
+
+        $message->id_user = $user->id;
+        $message->id_adoption = $adoption->id;
+        $message->message = $message_text;
+
+        if (!$message->save()) {
+            $adoption->delete();
+            return ["error" => "Faild To Save Adoption"];
+        }
+
+        return ["success" => $message];
+    }
+
 }
