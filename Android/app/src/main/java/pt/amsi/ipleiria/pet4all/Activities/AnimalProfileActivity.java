@@ -97,4 +97,5 @@ public class AnimalProfileActivity extends AppCompatActivity {
         tvCoat_size.setText("Pelo: " + ((animal.getCoat() != null) ? animal.getCoat() : ""));
         tvAge.setText("Idade: " + ((animal.getAge() != 0) ? animal.getAge()+"" : "-"));
     }
+
 }
