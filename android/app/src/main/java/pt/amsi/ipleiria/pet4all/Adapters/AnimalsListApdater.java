@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -18,12 +17,10 @@ import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import pt.amsi.ipleiria.pet4all.ConnectionManager;
 import pt.amsi.ipleiria.pet4all.Models.Animal;
 import pt.amsi.ipleiria.pet4all.R;
-import pt.amsi.ipleiria.pet4all.Singletons.AnimalSingleton;
 
 public class AnimalsListApdater extends BaseAdapter {
     private Context context;
@@ -41,13 +38,13 @@ public class AnimalsListApdater extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int i) {
-        return null;
+    public Animal getItem(int i) {
+        return animalList.get(i);
     }
 
     @Override
     public long getItemId(int i) {
-        return 0;
+        return animalList.get(i).getId();
     }
 
     @Override
@@ -95,17 +92,21 @@ public class AnimalsListApdater extends BaseAdapter {
         public void update(Animal animal){
             this.tvName.setText(animal.getName()+"");
             this.tvGender.setText(animal.getGender()+"");
+            if(animal.getGender().charAt(0) == 'F') this.tvGender.setBackgroundResource(R.color.color_female);
+            else this.tvGender.setBackgroundResource(R.color.color_male);
+
             this.tvAge.setText(animal.getAge()+"");
+            Log.e("ANIMAL_AGE", animal.getAge()+"");
+            if(animal.getAge() == 0) this.tvAge.setText("-");
+            if(animal.getGender().charAt(0) == 'F') this.tvAge.setBackgroundResource(R.color.color_female);
+            else this.tvAge.setBackgroundResource(R.color.color_male);
+
             this.tvWeight.setText(animal.getWeight()+"");
+            if(animal.getWeight() == 0) this.tvWeight.setText("-");
+            if(animal.getGender().charAt(0) == 'F') this.tvWeight.setBackgroundResource(R.color.color_female);
+            else this.tvWeight.setBackgroundResource(R.color.color_male);
+
             this.tvDescription.setText(animal.getDescription()+"");
-
-            /*
-            byte[] decodedString = Base64.decode(person_object.getPhoto(),Base64.NO_WRAP);
-            InputStream inputStream  = new ByteArrayInputStream(decodedString);
-            Bitmap bitmap  = BitmapFactory.decodeStream(inputStream);
-            user_image.setImageBitmap(bitmap);
-            */
-
 
             if(ConnectionManager.checkInternetConnection(context)) {
                 String source_folder = "";
@@ -120,24 +121,24 @@ public class AnimalsListApdater extends BaseAdapter {
 
                 progressBar.setVisibility(View.VISIBLE);
                 Glide.with(context)
-                        .load(source_path)
-                        .fitCenter()
-                        .listener(new RequestListener<String, GlideDrawable>() {
-                            @Override
-                            public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
-                                progressBar.setVisibility(View.GONE);
-                                return false;
-                            }
+                    .load(source_path)
+                    .fitCenter()
+                    .listener(new RequestListener<String, GlideDrawable>() {
+                        @Override
+                        public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
+                            progressBar.setVisibility(View.GONE);
+                            return false;
+                        }
 
-                            @Override
-                            public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
-                                progressBar.setVisibility(View.GONE);
-                                return false;
-                            }
-                        })
-                        .error(R.drawable.ic_no_image)
-                        .diskCacheStrategy(DiskCacheStrategy.ALL)
-                        .into(image);
+                        @Override
+                        public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+                            progressBar.setVisibility(View.GONE);
+                            return false;
+                        }
+                    })
+                    .error(R.drawable.ic_no_image)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .into(image);
             }else{
                 Glide.with(context)
                     .load(R.drawable.ic_no_image)

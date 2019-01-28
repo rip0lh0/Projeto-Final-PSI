@@ -121,7 +121,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         });
 
         mLoginFormView = findViewById(R.id.login_form);
-        mProgressView = findViewById(R.id.progressBar);
+        mProgressView = findViewById(R.id.progressBar_login);
     }
 
     public void redirectToRegister() {
@@ -345,29 +345,32 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 ConnectionManager connection = new ConnectionManager(LoginActivity.this);
                 connection.authRequest(Request.Method.GET, "user/profile?username="+ mUsername, mUsername, mPassword, null, new ResponseManager() {
                     @Override
-                    public void onResponse(JSONArray response) {
-
-                    }
-
-                    @Override
-                    public void onAuthResponse(JSONObject response) {
+                    public void onResponse(JSONObject response) {
                         /* LOCAL VARIABLE*/
-                        String authenticated_username = null;
-                        try {
-                            authenticated_username = response.getString("username");
-                        } catch (JSONException e) {
-                            Toast.makeText(LoginActivity.this, "Invalid Data", Toast.LENGTH_LONG).show();
+                        if(response.has("success")) {
+                            Log.e("LOGIN_RESPONSE", response.toString());
+                            String authenticated_username = null;
+                            try {
+                                JSONObject responseObj = response.getJSONObject("success");
+                                authenticated_username = responseObj.getString("username");
+
+                                PreferenceManager.setPreferences("KEYCREDENTIALS", authenticated_username, LoginActivity.this, Context.MODE_PRIVATE);
+                                /* RETURN RESULT */
+                                onPostExecute(true);
+                            } catch (JSONException e) {
+                                Toast.makeText(LoginActivity.this, "Invalid Data", Toast.LENGTH_LONG).show();
+                                onPostExecute(false);
+                            }
+
+                        }else{
                             onPostExecute(false);
                         }
-                        PreferenceManager.setPreferences("KEYCREDENTIALS", authenticated_username, LoginActivity.this, Context.MODE_PRIVATE);
-
-                        /* RETURN RESULT */
-                        onPostExecute(true);
                     }
 
                     @Override
                     public void onError(String message) {
                         /* RETURN RESULT*/
+
                         Toast.makeText(LoginActivity.this, message, Toast.LENGTH_LONG).show();
                         onPostExecute(false);
                     }

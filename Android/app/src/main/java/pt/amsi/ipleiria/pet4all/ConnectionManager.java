@@ -54,15 +54,16 @@ public class ConnectionManager{
         return networkInfo != null && networkInfo.isConnected();
     }
 
-    public void makeRequest(int method, String url, final ResponseManager responseManager){
+    public void makeRequest(int method, String url, final Map<String, String> params, final ResponseManager responseManager){
         String final_url = PREFIX_URL + url;
 
         StringRequest strRequest = new StringRequest(method, final_url, new Response.Listener<String>(){
             @Override
             public void onResponse(String response) {
                 try {
-                    JSONArray arr = new JSONArray(response);
-                    responseManager.onResponse(arr);
+                    JSONObject obj = new JSONObject(response);
+                    if(obj.has("error"))responseManager.onError(obj.getString("error"));
+                    else responseManager.onResponse(obj);
                 } catch (JSONException e) {
                     responseManager.onError(e.toString());
                 }
@@ -72,7 +73,12 @@ public class ConnectionManager{
             public void onErrorResponse(VolleyError error) {
                 responseManager.onError(error.toString());
             }
-        });
+        }){
+            @Override
+            protected Map<String, String> getParams(){
+                return params;
+            }
+        };
 
         requestQueue.add(strRequest);
     }
@@ -84,7 +90,7 @@ public class ConnectionManager{
             @Override
             public void onResponse(JSONObject response) {
                 Log.e("CONNECTION_MANAGER_AUTH", "ON_RESPONSE: \n " + response.toString());
-                responseManager.onAuthResponse(response);
+                responseManager.onResponse(response);
             }
         }, new Response.ErrorListener(){
             @Override

@@ -15,6 +15,7 @@ use yii\web\NotFoundHttpException;
 /* Models */
 use common\models\User;
 use common\models\LoginForm;
+use common\models\Adopter;
 use frontend\modules\v1\models\AuthClient;
 
 class UserController extends ActiveController
@@ -51,12 +52,46 @@ class UserController extends ActiveController
         if (empty($user)) throw new NotFoundHttpException();
         unset($user['password_hash']);
 
-        return $user;
+        return ["success" => $user];
     }
 
     public function actionSignup()
     {
-        if (Yii::$app->user->isGuest) throw new ErrorException("No session available");
+        if (!Yii::$app->user->isGuest) throw new ErrorException("No session available");
+
+        $username = Yii::$app->request->post("username");
+        $name = Yii::$app->request->post("name");
+        $email = Yii::$app->request->post("email");
+        $password = Yii::$app->request->post("password");
+
+        $user = new User();
+        $adopter = new Adopter();
+
+        $user->username = $username;
+        $user->email = $email;
+        $user->setPassword($password);
+        $user->generateAuthKey();
+
+        if (!$user->validate() && !$user->save()) {
+            return ["error" => "Server Error: User"];
+        }
+
+        $adopter->id_user = $user->id;
+        $adopter->name = $name;
+        $adopter->cellphone = null;
+
+        if (!$adopter->validate() && !$adopter->save()) {
+            $user->delete();
+            return ["error" => "Server Error: Adopter"];
+        }
+
+        /* Creates Adopters */
+        $auth = \Yii::$app->authManager;
+        $role = $auth->getRole('adopter');
+        $auth->assign($role, $user->getId());
+
+        return ["success" => "Account created with success"];
+
     }
 
     public function actionLogout()
