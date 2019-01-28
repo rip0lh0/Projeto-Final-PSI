@@ -57,7 +57,6 @@ public class AnimalSingleton implements ListListener<Animal> {
     }
 
     public void addAnimalsDB(ArrayList<Animal> animalList){
-
         for(Animal animal : animalList){
             addAnimalDB(animal);
         }
@@ -103,7 +102,7 @@ public class AnimalSingleton implements ListListener<Animal> {
     public void getAllAnimal(final Context context){
         if(!ConnectionManager.checkInternetConnection(context)) {
             animalList = animalsDBHelper.getAllAnimalsDB();
-            Toast.makeText(context, animalList.toString(), Toast.LENGTH_LONG).show();
+            //Toast.makeText(context, animalList.toString(), Toast.LENGTH_LONG).show();
 
             if (listListener != null) {
                 listListener.onRefreshList(animalList);

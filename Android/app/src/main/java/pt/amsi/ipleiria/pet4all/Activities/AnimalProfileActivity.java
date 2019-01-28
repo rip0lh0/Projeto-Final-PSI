@@ -5,11 +5,11 @@ import android.os.Bundle;
 
 import pt.amsi.ipleiria.pet4all.R;
 
-public class ProfileActivity extends AppCompatActivity {
+public class AnimalProfileActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile_kennel);
+        setContentView(R.layout.activity_animal_profile);
     }
 }

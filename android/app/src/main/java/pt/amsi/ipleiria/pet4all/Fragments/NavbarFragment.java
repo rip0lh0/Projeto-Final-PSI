@@ -14,6 +14,7 @@ import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import pt.amsi.ipleiria.pet4all.Activities.AnimalProfileActivity;
 import pt.amsi.ipleiria.pet4all.Activities.LoginActivity;
 import pt.amsi.ipleiria.pet4all.Activities.ProfileActivity;
 import pt.amsi.ipleiria.pet4all.Activities.AnimalsActivity;
@@ -68,7 +69,7 @@ public class NavbarFragment extends Fragment {
     }
 
     public void animals(){
-        Intent intent= new Intent(getActivity(), AnimalsActivity.class);
+        Intent intent= new Intent(getActivity(), AnimalProfileActivity.class);
 
         ActivityOptions options = ActivityOptions.makeCustomAnimation(getContext(),android.R.anim.fade_in,android.R.anim.fade_out);
         startActivity(intent, options.toBundle());

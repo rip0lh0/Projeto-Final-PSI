@@ -10,7 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:background="#ECEFF1"
         android:text="Animal Name"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
         android:textStyle="bold" />
@@ -90,6 +89,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
+            android:background="#ECEFF1"
             android:lines="2"
             android:maxLines="6"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />

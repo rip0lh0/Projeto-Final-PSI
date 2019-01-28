@@ -41,8 +41,7 @@ public class ConnectionManager{
         return instance;
     }
 
-    public static synchronized ConnectionManager getInstance()
-    {
+    public static synchronized ConnectionManager getInstance() {
         if (null == instance) throw new IllegalStateException(ConnectionManager.class.getSimpleName() +" is not initialized");
         return instance;
     }
@@ -84,7 +83,7 @@ public class ConnectionManager{
         JsonObjectRequest strRequest = new JsonObjectRequest(method, final_url, params, new Response.Listener<JSONObject>(){
             @Override
             public void onResponse(JSONObject response) {
-                //Log.e("CONNECTION_MANAGER_AUTH", "ON_RESPONSE: \n " + response.toString());
+                Log.e("CONNECTION_MANAGER_AUTH", "ON_RESPONSE: \n " + response.toString());
                 responseManager.onAuthResponse(response);
             }
         }, new Response.ErrorListener(){
