@@ -20,11 +20,7 @@
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.AppTheme.Light.NoActionBar.Pet4All">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".Activities.LoginActivity"
@@ -38,7 +34,16 @@
         <activity
             android:name=".Activities.AnimalsActivity"
             android:theme="@style/Theme.AppTheme.Light.NoActionBar.Pet4All" />
-        <activity android:name=".Activities.AnimalProfileActivity"></activity>
+        <activity android:name=".Activities.AnimalProfileActivity" />
+        <activity android:name=".Activities.MessageActivity"
+            android:theme="@style/Theme.AppTheme.Light.NoActionBar.Pet4All"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

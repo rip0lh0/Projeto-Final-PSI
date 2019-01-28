@@ -31,20 +31,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25453758-da68-47c3-a982-0f6b87a1b550" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/AnimalProfileActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/layout/activity_animal_profile.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/layout/activity_profile_kennel.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/MessageActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/layout/activity_message.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/ConnectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/ConnectionManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Singletons/AnimalSingleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Singletons/AnimalSingleton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/item_animal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/item_animal.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/AnimalProfileActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/AnimalProfileActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_animal_profile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_animal_profile.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/LoginActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/ProfileActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/ProfileActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Fragments/NavbarFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Fragments/NavbarFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_profile.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/values/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/values/dimens.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/values/styles.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -61,7 +58,12 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
-        <projects_view />
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
       </state>
     </system>
   </component>
@@ -70,36 +72,44 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="activity_animal_profile.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="activity_animal_profile.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_animal_profile.xml">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="-429">
-              <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
-            </state>
-          </provider>
           <provider selected="true" editor-type-id="android-designer2">
             <state />
+          </provider>
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="595">
+              <caret line="38" column="44" selection-start-line="38" selection-start-column="44" selection-end-line="38" selection-end-column="44" />
+            </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="AnimalProfileActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/AnimalProfileActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+            <state relative-caret-position="170">
+              <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NavbarFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Fragments/NavbarFragment.java">
+      <file leaf-file-name="activity_message.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_message.xml">
+          <provider selected="true" editor-type-id="android-designer2">
+            <state />
+          </provider>
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" selection-start-line="13" selection-end-line="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MessageActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/MessageActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="71" column="70" selection-start-line="71" selection-start-column="70" selection-end-line="71" selection-end-column="70" />
-              <folding>
-                <element signature="method#onCreateView#0;class#NavbarFragment#0" />
-                <element signature="method#profile#0;class#NavbarFragment#0" />
-              </folding>
+            <state relative-caret-position="289">
+              <caret line="23" column="48" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -134,7 +144,7 @@
   <component name="GradleLocalSettings">
     <option name="myGradleHomes">
       <map>
-        <entry key="$PROJECT_DIR$" value="C:\Users\franl\.gradle\wrapper\dists\gradle-4.6-all\bcst21l2brirad8k2ben1letg\gradle-4.6" />
+        <entry key="$PROJECT_DIR$" value="C:\Users\Valter Pacheco\.gradle\wrapper\dists\gradle-4.6-all\bcst21l2brirad8k2ben1letg\gradle-4.6" />
       </map>
     </option>
     <option name="myGradleVersions">
@@ -974,14 +984,6 @@
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/.." />
-                <option name="name" value="transformNativeLibsWithStripDebugSymbolForDebug" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/.." />
-                <option name="name" value="transformNativeLibsWithStripDebugSymbolForRelease" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/.." />
                 <option name="name" value="transformResourcesWithMergeJavaResForDebug" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
@@ -1083,10 +1085,6 @@
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="processDebugResources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="transformNativeLibsWithStripDebugSymbolForRelease" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Runs lint on all variants." />
@@ -1770,10 +1768,6 @@
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="transformNativeLibsWithStripDebugSymbolForDebug" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="compileDebugNdk" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
@@ -2421,7 +2415,6 @@
         <option value="$PROJECT_DIR$/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_login.xml" />
-        <option value="$PROJECT_DIR$/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_register.xml" />
         <option value="$PROJECT_DIR$/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/RegisterActivity.java" />
@@ -2445,26 +2438,50 @@
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_profile.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_profile_kennel.xml" />
         <option value="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Fragments/NavbarFragment.java" />
+        <option value="$PROJECT_DIR$/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_animal_profile.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/AnimalProfileActivity.java" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/activity_message.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/MessageActivity.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-7" />
-    <option name="width" value="974" />
-    <option name="height" value="1057" />
+    <option name="x" value="75" />
+    <option name="y" value="20" />
+    <option name="width" value="1750" />
+    <option name="height" value="970" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="app" type="58d84e3e:PackageViewProjectNode" />
+              <item name="app" type="616d4139:PackageViewModuleNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
           <expand>
             <path>
               <item name="app" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
+            </path>
+            <path>
+              <item name="app" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="manifests" type="f94875db:AndroidManifestsGroupNode" />
             </path>
             <path>
               <item name="app" type="1abcf292:AndroidViewProjectNode" />
@@ -2500,26 +2517,11 @@
               <item name="app" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="drawable" type="ddeffd01:AndroidResFolderTypeNode" />
+              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
             </path>
             <path>
               <item name="app" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="ProjectPane" />
-      <pane id="Scope" />
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="app" type="58d84e3e:PackageViewProjectNode" />
-              <item name="app" type="616d4139:PackageViewModuleNode" />
+              <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
             </path>
           </expand>
           <select />
@@ -2529,13 +2531,17 @@
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="device.picker.selection" value="4c671b09" />
-    <property name="last_opened_file_path" value="$USER_HOME$/OneDrive/Área de Trabalho/Ficha09_Books 05" />
+    <property name="device.picker.selection" value="Nexus_5X_API_28" />
+    <property name="last_opened_file_path" value="D:/AndroidApps/Ficha09_Books 05/Ficha09_Books 05" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="android.template.packageName">
+      <recent name="pt.amsi.ipleiria.pet4all.Activities" />
       <recent name="pt.amsi.ipleiria.pet4all" />
+    </key>
+    <key name="android.template.parentActivityClass">
+      <recent name="" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -2673,42 +2679,66 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info anchor="bottom" id="Android Profiler" order="12" sideWeight="0.49947917" weight="0.3299389" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32179227" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info id="Image Layers" order="7" />
-      <window_info id="Build Variants" order="3" sideWeight="0.50071126" side_tool="true" weight="0.15831557" />
+      <window_info anchor="bottom" id="Android Profiler" order="20" show_stripe_button="false" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3295099" />
+      <window_info anchor="right" id="Palette&#9;" order="15" />
+      <window_info id="Image Layers" order="14" />
+      <window_info id="Build Variants" order="4" sideWeight="0.50071126" side_tool="true" weight="0.15831557" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.54322916" side_tool="true" weight="0.25967413" />
-      <window_info anchor="right" id="Preview" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3299389" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3295099" />
-      <window_info anchor="bottom" id="Logcat" order="10" sideWeight="0.45677084" weight="0.25967413" />
-      <window_info id="Captures" order="4" weight="0.25" />
-      <window_info id="Capture Tool" order="6" />
-      <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49928877" visible="true" weight="0.15260416" />
-      <window_info anchor="bottom" id="Build" order="7" visible="true" weight="0.3197556" />
-      <window_info anchor="right" id="Gradle" order="5" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32892057" />
+      <window_info anchor="right" id="Preview" order="8" weight="0.18791947" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Terminal" order="13" weight="0.32905984" />
+      <window_info anchor="bottom" id="Logcat" order="11" weight="0.26680243" />
+      <window_info id="Captures" order="6" weight="0.25" />
+      <window_info id="Capture Tool" order="8" />
+      <window_info id="Designer" order="3" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49928877" weight="0.16778524" />
+      <window_info anchor="right" id="Assistant" order="4" weight="0.3295302" />
+      <window_info anchor="bottom" id="Build" order="7" weight="0.32051283" />
+      <window_info anchor="right" id="Gradle" order="6" />
       <window_info id="Structure" order="1" sideWeight="0.50071126" side_tool="true" weight="0.15831557" />
+      <window_info anchor="right" id="Device File Explorer" order="5" side_tool="true" />
+      <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="right" id="Device File Explorer" order="4" side_tool="true" />
-      <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info id="Favorites" order="5" sideWeight="0.50071126" side_tool="true" weight="0.15831557" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info id="Designer" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="16" sideWeight="0.54322916" side_tool="true" weight="0.25967413" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.49928877" visible="true" weight="0.15260416" />
+      <window_info anchor="right" id="Preview" order="13" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="Build Variants" order="10" sideWeight="0.50071126" side_tool="true" weight="0.15831557" />
+      <window_info id="Structure" order="7" sideWeight="0.50071126" side_tool="true" weight="0.15831557" />
+      <window_info anchor="bottom" id="Logcat" order="18" sideWeight="0.45677084" weight="0.25967413" />
+      <window_info anchor="right" id="Palette&#9;" order="14" />
+      <window_info anchor="right" id="Device File Explorer" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="5" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info id="Image Layers" order="15" />
+      <window_info anchor="right" id="Theme Preview" order="12" />
+      <window_info anchor="bottom" id="Android Profiler" order="21" sideWeight="0.49947917" weight="0.3299389" />
+      <window_info id="Capture Tool" order="13" />
+      <window_info anchor="bottom" id="Version Control" order="17" />
+      <window_info anchor="right" id="Capture Analysis" order="9" />
+      <window_info anchor="bottom" id="TODO" order="14" weight="0.32179227" />
+      <window_info id="Favorites" order="12" sideWeight="0.50071126" side_tool="true" weight="0.15831557" />
+      <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3299389" />
+      <window_info anchor="bottom" id="Run" order="4" weight="0.3299389" />
+      <window_info anchor="bottom" id="Build" order="15" visible="true" weight="0.3197556" />
+      <window_info anchor="bottom" id="Terminal" order="19" weight="0.3295099" />
+      <window_info id="Captures" order="11" weight="0.25" />
+      <window_info anchor="right" id="Gradle" order="11" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
     </layout>
     <layout-to-restore>
-      <window_info anchor="bottom" id="Build" order="7" weight="0.32012513" />
+      <window_info anchor="bottom" id="Build" order="7" visible="true" weight="0.3197556" />
       <window_info id="Designer" order="2" />
       <window_info id="Build Variants" order="3" sideWeight="0.50071126" side_tool="true" weight="0.15831557" />
       <window_info id="Image Layers" order="7" />
@@ -2719,24 +2749,25 @@
       <window_info id="Favorites" order="5" sideWeight="0.50071126" side_tool="true" weight="0.15831557" />
       <window_info id="Captures" order="4" weight="0.25" />
       <window_info id="Capture Tool" order="6" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5005208" side_tool="true" weight="0.26680243" />
-      <window_info anchor="right" id="Preview" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.54322916" side_tool="true" weight="0.25967413" />
+      <window_info anchor="right" id="Preview" order="8" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Device File Explorer" order="4" side_tool="true" />
-      <window_info anchor="bottom" id="Logcat" order="10" sideWeight="0.42239583" visible="true" weight="0.26068822" />
-      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3299389" />
+      <window_info anchor="right" id="Device File Explorer" order="5" side_tool="true" />
+      <window_info anchor="right" id="Assistant" order="3" weight="0.3295302" />
+      <window_info anchor="bottom" id="Logcat" order="10" sideWeight="0.45677084" weight="0.25967413" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.3295099" />
-      <window_info anchor="right" id="Gradle" order="5" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49928877" visible="true" weight="0.15618336" />
+      <window_info anchor="right" id="Gradle" order="6" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49928877" visible="true" weight="0.15260416" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3295099" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info anchor="right" id="Theme Preview" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32179227" />
+      <window_info anchor="right" id="Palette&#9;" order="9" />
+      <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info id="Structure" order="1" sideWeight="0.50071126" side_tool="true" weight="0.15831557" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3299389" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
     </layout-to-restore>
   </component>
@@ -2749,22 +2780,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/res/drawable-xxhdpi/btn_circle_profile_options.xml" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/RegisterUserActivity.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Fragments/SettingsFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-680">
-          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Fragments/ReportFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/values/dimens.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
@@ -2772,20 +2787,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-28/android.jar!/android/widget/TextView.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="818" column="7" selection-start-line="818" selection-start-column="7" selection-end-line="818" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-28/android.jar!/android/net/NetworkInfo.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="45" column="44" lean-forward="true" selection-start-line="45" selection-start-column="44" selection-end-line="45" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-28/android.jar!/android/widget/TextView.class" />
+    <entry file="jar://$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-28/android.jar!/android/net/NetworkInfo.class" />
     <entry file="file://$PROJECT_DIR$/src/main/res/drawable-hdpi/ic_stat_name.png" />
     <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/PreferenceManager.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -2815,20 +2818,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/drawable/btn_primary.xml" />
     <entry file="file://$PROJECT_DIR$/src/main/res/drawable/rectangle.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
     </entry>
-    <entry file="android-dummy://D:/Projects/School/Projeto-Final-PSI/Android/app//Theme Editor">
-      <provider selected="true" editor-type-id="themeEditor">
-        <state theme-name="Theme.AppTheme.Light.NoActionBar.Pet4All" module-name="app" proportion="0.59334564" />
-      </provider>
-    </entry>
+    <entry file="android-dummy://D:/Projects/School/Projeto-Final-PSI/Android/app//Theme Editor" />
     <entry file="file://$PROJECT_DIR$/src/main/res/values/styles.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="697">
@@ -2851,13 +2850,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_register.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
           <caret line="99" column="54" selection-start-line="99" selection-start-column="54" selection-end-line="99" selection-end-column="54" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/RegisterActivity.java">
@@ -2865,16 +2864,6 @@
         <state relative-caret-position="153">
           <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="40" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-manifest">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/values/colors.xml">
@@ -2909,23 +2898,23 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_settings.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="986">
           <caret line="58" column="43" selection-start-line="58" selection-start-column="43" selection-end-line="58" selection-end-column="43" />
         </state>
       </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/layout/navbar_fragment.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="16" selection-end-column="36" />
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/ImageLoader.java" />
@@ -2941,43 +2930,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Helpers/AnimalsDBHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="922">
-          <caret line="86" column="14" selection-start-line="86" selection-start-column="13" selection-end-line="86" selection-end-column="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="623">
-          <caret line="372" column="21" lean-forward="true" selection-start-line="372" selection-start-column="21" selection-end-line="372" selection-end-column="21" />
-          <folding>
-            <element signature="method#populateAutoComplete#0;class#LoginActivity#0" />
-            <element signature="method#mayRequestContacts#0;class#LoginActivity#0" />
-            <element signature="method#onRequestPermissionsResult#0;class#LoginActivity#0" />
-            <element signature="method#attemptLogin#0;class#LoginActivity#0" />
-            <element signature="method#isPasswordValid#0;class#LoginActivity#0" />
-            <element signature="method#showProgress#0;class#LoginActivity#0" />
-            <element signature="method#onCreateLoader#0;class#LoginActivity#0" />
-            <element signature="method#onLoadFinished#0;class#LoginActivity#0" />
-            <element signature="method#onLoaderReset#0;class#LoginActivity#0" />
-            <element signature="class#ProfileQuery#0;class#LoginActivity#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/layout/item_animal.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="463">
           <caret line="91" column="39" selection-start-line="91" selection-start-column="33" selection-end-line="91" selection-end-column="39" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/ConnectionManager.java">
@@ -3006,15 +2966,60 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/drawable/profileplaceholder.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/drawable/btn_send_message_style.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="35" lean-forward="true" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_profile_kennel.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="1598">
+          <caret line="94" column="17" selection-start-line="94" selection-start-column="17" selection-end-line="94" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/content_animal_message.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/AnimalMessageActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_main.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Singletons/AnimalSingleton.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="116" column="21" selection-start-line="116" selection-start-column="21" selection-end-line="116" selection-end-column="21" />
+        <state relative-caret-position="1105">
+          <caret line="110" column="38" selection-start-line="110" selection-start-column="38" selection-end-line="110" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#getInstance#0;class#AnimalSingleton#0" />
             <element signature="method#AnimalSingleton#0;class#AnimalSingleton#0" />
-            <element signature="method#getAnimal#0;class#AnimalSingleton#0" />
             <element signature="method#getAnimalBD#0;class#AnimalSingleton#0" />
             <element signature="method#addAnimalsDB#0;class#AnimalSingleton#0" />
             <element signature="method#removeAnimalBD#0;class#AnimalSingleton#0" />
@@ -3026,13 +3031,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/AnimalsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="63" column="9" selection-start-line="57" selection-start-column="8" selection-end-line="63" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/ProfileActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -3040,89 +3038,114 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/drawable/profileplaceholder.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/drawable/btn_send_message_style.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="35" lean-forward="true" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+        <state relative-caret-position="2686">
+          <caret line="372" column="21" lean-forward="true" selection-start-line="372" selection-start-column="21" selection-end-line="372" selection-end-column="21" />
+          <folding>
+            <element signature="method#populateAutoComplete#0;class#LoginActivity#0" />
+            <element signature="method#mayRequestContacts#0;class#LoginActivity#0" />
+            <element signature="method#onRequestPermissionsResult#0;class#LoginActivity#0" />
+            <element signature="method#attemptLogin#0;class#LoginActivity#0" />
+            <element signature="method#isPasswordValid#0;class#LoginActivity#0" />
+            <element signature="method#showProgress#0;class#LoginActivity#0" />
+            <element signature="method#onCreateLoader#0;class#LoginActivity#0" />
+            <element signature="method#onLoadFinished#0;class#LoginActivity#0" />
+            <element signature="method#onLoaderReset#0;class#LoginActivity#0" />
+            <element signature="class#ProfileQuery#0;class#LoginActivity#0" />
+          </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_login.xml">
       <provider editor-type-id="android-designer2">
         <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="86" column="22" selection-start-line="86" selection-start-column="21" selection-end-line="86" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Helpers/AnimalsDBHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="926">
+          <caret line="86" column="14" selection-start-line="86" selection-start-column="13" selection-end-line="86" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/AnimalsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="63" column="9" selection-start-line="57" selection-start-column="8" selection-end-line="63" selection-end-column="9" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Fragments/NavbarFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="71" column="70" selection-start-line="71" selection-start-column="70" selection-end-line="71" selection-end-column="70" />
+        <state relative-caret-position="136">
+          <caret line="28" column="38" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="38" />
           <folding>
             <element signature="method#onCreateView#0;class#NavbarFragment#0" />
-            <element signature="method#profile#0;class#NavbarFragment#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_animals.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="17" lean-forward="true" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="17" column="34" lean-forward="true" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/MessageActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="23" column="48" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/AnimalProfileActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        <state relative-caret-position="170">
+          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_profile_kennel.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="557">
-          <caret line="94" column="17" selection-start-line="94" selection-start-column="17" selection-end-line="94" selection-end-column="17" />
-          <folding>
-            <element signature="e#2663#2686#0" expanded="true" />
-            <element signature="e#3034#3054#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_animals.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="11" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_login.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="48" selection-start-line="15" selection-start-column="48" selection-end-line="16" selection-end-column="42" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state />
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_animal_profile.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="-429">
-          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
-        </state>
-      </provider>
       <provider selected="true" editor-type-id="android-designer2">
         <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="38" column="44" selection-start-line="38" selection-start-column="44" selection-end-line="38" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_message.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
       </provider>
     </entry>
   </component>

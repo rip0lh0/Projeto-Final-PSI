@@ -126,4 +126,5 @@
         <item>Perfil Inapropriado</item>
         <item>Abuso da Plataforma</item>
     </string-array>
+    <string name="title_activity_animal_message">AnimalMessageActivity</string>
 </resources>

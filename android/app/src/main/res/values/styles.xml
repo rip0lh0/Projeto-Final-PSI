@@ -1,6 +1,6 @@
 <resources>
 
-    <style name="Theme.AppTheme.Light.NoActionBar.Pet4All" parent="Theme.AppCompat.Light.NoActionBar" >
+    <style name="Theme.AppTheme.Light.NoActionBar.Pet4All" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/color_primary_light</item>
         <item name="colorPrimaryDark">@color/color_primary_dark</item>
         <item name="colorAccent">@color/color_primary_accent</item>
@@ -41,5 +41,9 @@
         <item name="android:backgroundTint">@color/color_background</item>
         <item name="android:textColorHint">@color/color_text_light</item>
     </style>
+
+    <style name="AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>
