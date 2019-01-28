@@ -31,20 +31,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25453758-da68-47c3-a982-0f6b87a1b550" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/AnimalProfileActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/layout/activity_animal_profile.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/layout/activity_profile_kennel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/AnimalsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/AnimalsActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/ConnectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/ConnectionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/ResponseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/ResponseManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Singletons/AnimalSingleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Singletons/AnimalSingleton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_animal_profile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_animal_profile.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/res/layout/item_animal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/item_animal.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/LoginActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/ProfileActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/ProfileActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/RegisterActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/RegisterActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Adapters/AnimalsListApdater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Adapters/AnimalsListApdater.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Fragments/NavbarFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Fragments/NavbarFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_profile.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Models/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Models/Animal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_register.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_register.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/values/colors.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../webapp/frontend/modules/v1/controllers/AnimalController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../webapp/frontend/modules/v1/controllers/AnimalController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../webapp/frontend/modules/v1/controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../webapp/frontend/modules/v1/controllers/UserController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -70,35 +74,60 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="activity_animal_profile.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_animal_profile.xml">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="-429">
-              <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+      <file leaf-file-name="Animal.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Models/Animal.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="223">
+              <caret line="107" column="29" selection-start-line="107" selection-start-column="29" selection-end-line="107" selection-end-column="29" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#3089#3090#0" expanded="true" />
+                <element signature="e#3115#3116#0" expanded="true" />
+                <element signature="e#3213#3214#0" expanded="true" />
+                <element signature="e#3242#3243#0" expanded="true" />
+                <element signature="e#3340#3341#0" expanded="true" />
+                <element signature="e#3412#3413#0" expanded="true" />
+              </folding>
             </state>
-          </provider>
-          <provider selected="true" editor-type-id="android-designer2">
-            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="AnimalProfileActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/AnimalProfileActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+            <state relative-caret-position="153">
+              <caret line="12" column="57" selection-start-line="12" selection-start-column="57" selection-end-line="12" selection-end-column="57" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NavbarFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Fragments/NavbarFragment.java">
+      <file leaf-file-name="AnimalsActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/AnimalsActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="71" column="70" selection-start-line="71" selection-start-column="70" selection-end-line="71" selection-end-column="70" />
+            <state relative-caret-position="340">
+              <caret line="55" column="78" selection-start-line="55" selection-start-column="70" selection-end-line="55" selection-end-column="78" />
               <folding>
-                <element signature="method#onCreateView#0;class#NavbarFragment#0" />
-                <element signature="method#profile#0;class#NavbarFragment#0" />
+                <element signature="e#1748#2203#0" expanded="true" />
+                <element signature="e#2202#2203#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AnimalsListApdater.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Adapters/AnimalsListApdater.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="394">
+              <caret line="46" column="40" selection-start-line="46" selection-start-column="40" selection-end-line="46" selection-end-column="40" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#AnimalsListApdater#0;class#AnimalsListApdater#0" />
+                <element signature="e#1237#1238#0" expanded="true" />
+                <element signature="e#1255#1256#0" expanded="true" />
+                <element signature="e#1314#1315#0" expanded="true" />
+                <element signature="e#1338#1339#0" expanded="true" />
+                <element signature="method#getView#0;class#AnimalsListApdater#0" />
+                <element signature="method#refresh#0;class#AnimalsListApdater#0" />
               </folding>
             </state>
           </provider>
@@ -126,6 +155,8 @@
       <find>textviewA</find>
       <find>Error</find>
       <find>Toast</find>
+      <find>mAuthTask</find>
+      <find>isEmailValid</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -2419,33 +2450,33 @@
         <option value="$PROJECT_DIR$/src/main/res/layout/navbar_fragment.xml" />
         <option value="$PROJECT_DIR$/src/main/res/drawable/rectangle.xml" />
         <option value="$PROJECT_DIR$/src/main/res/values/styles.xml" />
-        <option value="$PROJECT_DIR$/src/main/res/values/colors.xml" />
-        <option value="$PROJECT_DIR$/src/main/res/layout/activity_login.xml" />
         <option value="$PROJECT_DIR$/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/src/main/res/layout/activity_register.xml" />
-        <option value="$PROJECT_DIR$/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/RegisterActivity.java" />
         <option value="$PROJECT_DIR$/src/main/res/layout/animal_list.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/animal_panel.xml" />
         <option value="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Interfaces/AnimalListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Interfaces/ListListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Models/Coat.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/ResponseManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/ImageLoader.java" />
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_animals.xml" />
         <option value="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Helpers/AnimalsBDHelper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/AnimalsActivity.java" />
         <option value="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Helpers/AnimalsDBHelper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Adapters/AnimalsListApdater.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Models/Animal.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/ConnectionManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Singletons/AnimalSingleton.java" />
-        <option value="$PROJECT_DIR$/src/main/res/layout/item_animal.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/LoginActivity.java" />
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_profile.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_profile_kennel.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Fragments/NavbarFragment.java" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/activity_register.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/activity_login.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/ResponseManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/ConnectionManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/RegisterActivity.java" />
+        <option value="$PROJECT_DIR$/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/LoginActivity.java" />
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_animal_profile.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Fragments/NavbarFragment.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Singletons/AnimalSingleton.java" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/item_animal.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/values/colors.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Models/Animal.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/AnimalsActivity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Adapters/AnimalsListApdater.java" />
       </list>
     </option>
   </component>
@@ -2489,24 +2520,59 @@
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="pet4all" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="Adapters" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="app" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="pet4all" type="cbb59c9e:AndroidPsiDirectoryNode" />
               <item name="Fragments" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="app" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="pet4all" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="Helpers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="app" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="pet4all" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="Interfaces" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="app" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="pet4all" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="Models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="app" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="pet4all" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="Singletons" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="app" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="drawable" type="ddeffd01:AndroidResFolderTypeNode" />
             </path>
             <path>
               <item name="app" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="res" type="d4f16f75:AndroidResFolderNode" />
               <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
+            <path>
+              <item name="app" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="values" type="ddeffd01:AndroidResFolderTypeNode" />
             </path>
           </expand>
           <select />
@@ -2692,7 +2758,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="2" />
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49928877" visible="true" weight="0.15260416" />
-      <window_info anchor="bottom" id="Build" order="7" visible="true" weight="0.3197556" />
+      <window_info anchor="bottom" id="Build" order="7" weight="0.3197556" />
       <window_info anchor="right" id="Gradle" order="5" />
       <window_info id="Structure" order="1" sideWeight="0.50071126" side_tool="true" weight="0.15831557" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
@@ -2745,7 +2811,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="25" />
+      <option name="time" value="28" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -2836,34 +2902,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_register.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="99" column="54" selection-start-line="99" selection-start-column="54" selection-end-line="99" selection-end-column="54" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/RegisterActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -2875,13 +2917,6 @@
       </provider>
       <provider editor-type-id="android-manifest">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/values/colors.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Models/Coat.java" />
@@ -2898,13 +2933,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/ResponseManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -2929,117 +2957,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/ImageLoader.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Models/Animal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1530">
-          <caret line="154" column="29" selection-start-line="154" selection-start-column="29" selection-end-line="154" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3340#3341#0" expanded="true" />
-            <element signature="e#3412#3413#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Helpers/AnimalsDBHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="922">
-          <caret line="86" column="14" selection-start-line="86" selection-start-column="13" selection-end-line="86" selection-end-column="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="623">
-          <caret line="372" column="21" lean-forward="true" selection-start-line="372" selection-start-column="21" selection-end-line="372" selection-end-column="21" />
-          <folding>
-            <element signature="method#populateAutoComplete#0;class#LoginActivity#0" />
-            <element signature="method#mayRequestContacts#0;class#LoginActivity#0" />
-            <element signature="method#onRequestPermissionsResult#0;class#LoginActivity#0" />
-            <element signature="method#attemptLogin#0;class#LoginActivity#0" />
-            <element signature="method#isPasswordValid#0;class#LoginActivity#0" />
-            <element signature="method#showProgress#0;class#LoginActivity#0" />
-            <element signature="method#onCreateLoader#0;class#LoginActivity#0" />
-            <element signature="method#onLoadFinished#0;class#LoginActivity#0" />
-            <element signature="method#onLoaderReset#0;class#LoginActivity#0" />
-            <element signature="class#ProfileQuery#0;class#LoginActivity#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/item_animal.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="91" column="39" selection-start-line="91" selection-start-column="33" selection-end-line="91" selection-end-column="39" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/ConnectionManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="33" selection-start-column="33" selection-end-column="33" />
-          <folding>
-            <element signature="method#getInstance#1;class#ConnectionManager#0" />
-            <element signature="method#makeRequest#0;class#ConnectionManager#0" />
-            <element signature="method#authRequest#0;class#ConnectionManager#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Adapters/AnimalsListApdater.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
-          <caret line="74" column="32" selection-start-line="74" selection-start-column="32" selection-end-line="74" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#AnimalsListApdater#0;class#AnimalsListApdater#0" />
-            <element signature="method#getView#0;class#AnimalsListApdater#0" />
-            <element signature="method#refresh#0;class#AnimalsListApdater#0" />
-            <element signature="class#ViewHolderList#0;class#AnimalsListApdater#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Singletons/AnimalSingleton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="116" column="21" selection-start-line="116" selection-start-column="21" selection-end-line="116" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getInstance#0;class#AnimalSingleton#0" />
-            <element signature="method#AnimalSingleton#0;class#AnimalSingleton#0" />
-            <element signature="method#getAnimal#0;class#AnimalSingleton#0" />
-            <element signature="method#getAnimalBD#0;class#AnimalSingleton#0" />
-            <element signature="method#addAnimalsDB#0;class#AnimalSingleton#0" />
-            <element signature="method#removeAnimalBD#0;class#AnimalSingleton#0" />
-            <element signature="method#editarAnimalDB#0;class#AnimalSingleton#0" />
-            <element signature="method#setListListener#0;class#AnimalSingleton#0" />
-            <element signature="method#onRefreshList#0;class#AnimalSingleton#0" />
-            <element signature="method#onUpdateList#0;class#AnimalSingleton#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/AnimalsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="63" column="9" selection-start-line="57" selection-start-column="8" selection-end-line="63" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/ProfileActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/drawable/profileplaceholder.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -3053,24 +2970,6 @@
       </provider>
       <provider editor-type-id="android-designer2">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Fragments/NavbarFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="71" column="70" selection-start-line="71" selection-start-column="70" selection-end-line="71" selection-end-column="70" />
-          <folding>
-            <element signature="method#onCreateView#0;class#NavbarFragment#0" />
-            <element signature="method#profile#0;class#NavbarFragment#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/AnimalProfileActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_profile_kennel.xml">
@@ -3097,16 +2996,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_login.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="48" selection-start-line="15" selection-start-column="48" selection-end-line="16" selection-end-column="42" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_main.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state />
@@ -3115,14 +3004,223 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_animal_profile.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/ProfileActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_register.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="143" column="41" selection-start-line="143" selection-start-column="41" selection-end-line="143" selection-end-column="41" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_login.xml">
       <provider editor-type-id="text-editor">
-        <state relative-caret-position="-429">
-          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+        <state relative-caret-position="531">
+          <caret line="118" column="41" selection-start-line="118" selection-start-column="41" selection-end-line="118" selection-end-column="41" />
         </state>
       </provider>
       <provider selected="true" editor-type-id="android-designer2">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/ConnectionManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="91" column="46" selection-start-line="91" selection-start-column="23" selection-end-line="91" selection-end-column="46" />
+          <folding>
+            <element signature="method#getInstance#1;class#ConnectionManager#0" />
+            <element signature="e#2788#2789#0" expanded="true" />
+            <element signature="e#2833#2834#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/ResponseManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="32" column="56" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/RegisterActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="424">
+          <caret line="287" column="35" selection-start-line="287" selection-start-column="35" selection-end-line="287" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2293#2671#0" expanded="true" />
+            <element signature="e#2670#2671#0" expanded="true" />
+            <element signature="e#2712#2864#0" expanded="true" />
+            <element signature="e#2863#2864#0" expanded="true" />
+            <element signature="e#3913#3955#0" expanded="true" />
+            <element signature="e#4156#4196#0" expanded="true" />
+            <element signature="method#showProgress#0;class#RegisterActivity#0" />
+            <element signature="e#6028#6266#0" expanded="true" />
+            <element signature="e#6265#6266#0" expanded="true" />
+            <element signature="e#6460#6696#0" expanded="true" />
+            <element signature="e#6695#6696#0" expanded="true" />
+            <element signature="method#onCreateLoader#0;class#RegisterActivity#0" />
+            <element signature="method#addEmailsToAutoComplete#0;class#RegisterActivity#0" />
+            <element signature="method#onLoadFinished#0;class#RegisterActivity#0" />
+            <element signature="method#onLoaderReset#0;class#RegisterActivity#0" />
+            <element signature="class#ProfileQuery#0;class#RegisterActivity#0" />
+            <element signature="e#9552#9568#0" expanded="true" />
+            <element signature="e#11409#11453#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_animal_profile.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="44" column="16" selection-start-line="44" selection-start-column="16" selection-end-line="44" selection-end-column="16" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="335" column="9" selection-start-line="335" selection-start-column="9" selection-end-line="335" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#redirectToRegister#0;class#LoginActivity#0" />
+            <element signature="method#populateAutoComplete#0;class#LoginActivity#0" />
+            <element signature="method#mayRequestContacts#0;class#LoginActivity#0" />
+            <element signature="method#onRequestPermissionsResult#0;class#LoginActivity#0" />
+            <element signature="method#attemptLogin#0;class#LoginActivity#0" />
+            <element signature="method#isPasswordValid#0;class#LoginActivity#0" />
+            <element signature="method#showProgress#0;class#LoginActivity#0" />
+            <element signature="method#onCreateLoader#0;class#LoginActivity#0" />
+            <element signature="method#onLoadFinished#0;class#LoginActivity#0" />
+            <element signature="method#onLoaderReset#0;class#LoginActivity#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Fragments/NavbarFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="88" lean-forward="true" selection-start-line="88" selection-end-line="88" />
+          <folding>
+            <element signature="method#onCreateView#0;class#NavbarFragment#0" />
+            <element signature="method#profile#0;class#NavbarFragment#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Singletons/AnimalSingleton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="883">
+          <caret line="125" lean-forward="true" selection-start-line="125" selection-end-line="125" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getInstance#0;class#AnimalSingleton#0" />
+            <element signature="method#getAnimal#0;class#AnimalSingleton#0" />
+            <element signature="method#getAnimalBD#0;class#AnimalSingleton#0" />
+            <element signature="method#addAnimalsDB#0;class#AnimalSingleton#0" />
+            <element signature="method#removeAnimalBD#0;class#AnimalSingleton#0" />
+            <element signature="method#editarAnimalDB#0;class#AnimalSingleton#0" />
+            <element signature="method#setListListener#0;class#AnimalSingleton#0" />
+            <element signature="method#onRefreshList#0;class#AnimalSingleton#0" />
+            <element signature="method#onUpdateList#0;class#AnimalSingleton#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/item_animal.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="650">
+          <caret line="74" column="62" selection-start-line="74" selection-start-column="62" selection-end-line="74" selection-end-column="62" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Helpers/AnimalsDBHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-477">
+          <caret line="86" column="14" selection-start-line="86" selection-start-column="13" selection-end-line="86" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/values/colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="37" column="36" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Models/Animal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="107" column="29" selection-start-line="107" selection-start-column="29" selection-end-line="107" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3089#3090#0" expanded="true" />
+            <element signature="e#3115#3116#0" expanded="true" />
+            <element signature="e#3213#3214#0" expanded="true" />
+            <element signature="e#3242#3243#0" expanded="true" />
+            <element signature="e#3340#3341#0" expanded="true" />
+            <element signature="e#3412#3413#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/AnimalProfileActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="12" column="57" selection-start-line="12" selection-start-column="57" selection-end-line="12" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Activities/AnimalsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="55" column="78" selection-start-line="55" selection-start-column="70" selection-end-line="55" selection-end-column="78" />
+          <folding>
+            <element signature="e#1748#2203#0" expanded="true" />
+            <element signature="e#2202#2203#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pt/amsi/ipleiria/pet4all/Adapters/AnimalsListApdater.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="46" column="40" selection-start-line="46" selection-start-column="40" selection-end-line="46" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#AnimalsListApdater#0;class#AnimalsListApdater#0" />
+            <element signature="e#1237#1238#0" expanded="true" />
+            <element signature="e#1255#1256#0" expanded="true" />
+            <element signature="e#1314#1315#0" expanded="true" />
+            <element signature="e#1338#1339#0" expanded="true" />
+            <element signature="method#getView#0;class#AnimalsListApdater#0" />
+            <element signature="method#refresh#0;class#AnimalsListApdater#0" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>

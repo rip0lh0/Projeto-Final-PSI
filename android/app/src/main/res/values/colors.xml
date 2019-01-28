@@ -32,4 +32,8 @@
     <color name="color_secondary_text_dark">#77263238</color>
     <color name="color_secondary_text_light">#CCECEFF1</color>
     <color name="color_text_highlight">#EE2BB3B3</color>
+
+
+    <color name="color_female">#EC407A</color>
+    <color name="color_male">#42A5F5</color>
 </resources>

@@ -7,6 +7,7 @@ import android.widget.Toast;
 import com.android.volley.Request;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -97,38 +98,35 @@ public class AnimalSingleton implements ListListener<Animal> {
             System.out.println("Animal adicionado");
     }
 
-
     /* Retrieve All Animal Form API */
     public void getAllAnimal(final Context context){
-        if(!ConnectionManager.checkInternetConnection(context)) {
-            animalList = animalsDBHelper.getAllAnimalsDB();
-            //Toast.makeText(context, animalList.toString(), Toast.LENGTH_LONG).show();
-
-            if (listListener != null) {
-                listListener.onRefreshList(animalList);
-            }
-        }else {
-            connectionMng.makeRequest(Request.Method.GET, this.URL, new ResponseManager() {
+        animalList = animalsDBHelper.getAllAnimalsDB();
+        if (listListener != null) {
+            listListener.onRefreshList(animalList);
+        }
+        if(ConnectionManager.checkInternetConnection(context)) {
+            connectionMng.makeRequest(Request.Method.GET, this.URL, null, new ResponseManager() {
                 @Override
-                public void onResponse(JSONArray response) {
-                    //Log.e("ANIMAL_RESPONSE", response.toString());
+                public void onResponse(JSONObject response) {
+                    try {
+                        JSONArray arrAnimals = response.getJSONArray("success");
+                        Log.e("ANIMAL_RESPONSE", arrAnimals.toString());
 
-                    animalList = Animal.parseJSONAnimals(response, context);
-                    removerAnimalsDB();
-                    addAnimalsDB(animalList);
+                        animalList = Animal.parseJSONAnimals(arrAnimals, context);
+                        removerAnimalsDB();
+                        addAnimalsDB(animalList);
+                    } catch (JSONException e) {
+                        Log.e("ANIMAL_RESPONSE_ERROR", e.toString());
+                    }
+
                     if (listListener != null) {
                         listListener.onRefreshList(animalList);
                     }
                 }
 
                 @Override
-                public void onAuthResponse(JSONObject response) {
-
-                }
-
-                @Override
                 public void onError(String message) {
-                    Log.e("ANIMAL_RESPONSE_ERROR", message.toString());
+                    if (listListener != null) listListener.onRefreshList(animalList);
                 }
             });
         }

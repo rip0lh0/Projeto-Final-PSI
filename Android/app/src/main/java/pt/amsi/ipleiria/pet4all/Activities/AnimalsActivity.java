@@ -1,9 +1,12 @@
 package pt.amsi.ipleiria.pet4all.Activities;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -47,6 +50,17 @@ public class AnimalsActivity extends AppCompatActivity implements ListListener<A
         listView = findViewById(R.id.listview_animal);
         animalList = new ArrayList<>();
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Animal tempAnimal = (Animal) parent.getItemAtPosition(position);
+
+                Intent intent = new Intent(getApplicationContext(), AnimalProfileActivity.class);
+
+                intent.putExtra("ANIMAL", tempAnimal.getId());
+                startActivity(intent);
+            }
+        });
 
         AnimalSingleton.getInstance(getApplicationContext()).setListListener(this);
         AnimalSingleton.getInstance(getApplicationContext()).getAllAnimal(getApplicationContext());

@@ -69,7 +69,7 @@ public class NavbarFragment extends Fragment {
     }
 
     public void animals(){
-        Intent intent= new Intent(getActivity(), AnimalProfileActivity.class);
+        Intent intent= new Intent(getActivity(), AnimalsActivity.class);
 
         ActivityOptions options = ActivityOptions.makeCustomAnimation(getContext(),android.R.anim.fade_in,android.R.anim.fade_out);
         startActivity(intent, options.toBundle());

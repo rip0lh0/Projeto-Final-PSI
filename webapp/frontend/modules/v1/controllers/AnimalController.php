@@ -82,7 +82,7 @@ class AnimalController extends ActiveController
             $animals[$key] = $value;
         }
 
-        return $animals;
+        return ["success" => $animals];
     }
 
     public function actionDownloadImage($source_path)
@@ -91,7 +91,7 @@ class AnimalController extends ActiveController
         if (file_exists($full_path)) {
             return Yii::$app->response->sendFile($full_path);
         } else {
-            return "ERROR";
+            return ["error" => "Faild to load image"];
         }
     }
     // public function checkAccess($action, $model = null, $params = [])

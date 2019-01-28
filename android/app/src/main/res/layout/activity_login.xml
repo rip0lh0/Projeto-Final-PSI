@@ -108,15 +108,8 @@
         </ScrollView>
     </LinearLayout>
 
-    <fragment
-        android:id="@id/navbarFragment"
-        android:name="pt.amsi.ipleiria.pet4all.Fragments.NavbarFragment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-
     <ProgressBar
-        android:id="@+id/progressBar"
+        android:id="@+id/progressBar_login"
         style="?android:attr/progressBarStyle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -124,5 +117,14 @@
         android:padding="120dp"
         android:elevation="999dp"
         android:visibility="invisible" />
+
+    <fragment
+        android:id="@id/navbarFragment"
+        android:name="pt.amsi.ipleiria.pet4all.Fragments.NavbarFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+
 
 </RelativeLayout>

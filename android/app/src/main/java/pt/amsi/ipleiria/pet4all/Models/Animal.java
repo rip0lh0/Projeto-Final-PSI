@@ -217,6 +217,12 @@ public class Animal {
             }
 
             try {
+                animal_age = jObjAnimals.getInt("age");
+            }catch (JSONException e){
+                Log.e("JSON_ERROR", e.toString());
+            }
+
+            try {
                 animal_weight = jObjAnimals.getDouble("weight");
             }catch (JSONException e){
                 Log.e("JSON_ERROR", e.toString());
