@@ -68,16 +68,16 @@ $itemsPerRow = 3;
                                 <div class="product-description">
                                     <span><?= $animal->size->size ?></span>
                                     <?= Html::a('<h6>' . $animal->name . '</h6>', ['animal/adopt', 'id_animal' => $animal->id]) ?>
-                                    <span class="badge badge-<?= ($animal->gender == 'M') ? 'blue' : 'pink'; ?>"><?= $animal->animalGender ?></span>
+                                    <span class="badge badge-<?= ($animal->gender == 'M') ? 'blue' : 'pink'; ?>" style="padding: 6px; font-size: 10px;"><?= $animal->animalGender ?></span>
                                     <span><?= ($animal->age) ? $animal->age . ' Anos.' : ''; ?></span>
 
                                     <!-- Hover Content -->
-                                    <!-- <div class="hover-content"> -->
+                                    <div class="hover-content">
                                         <!-- Add to Cart -->
-                                        <!-- <div class="add-to-cart-btn"> -->
-                                            <?= Html::a('Adotar', ['animal/adopt', 'id_animal' => $animal->id], ['id' => 'btn-a'] ,['class' => 'btn essence-btn']) ?>
-                                        <!-- </div> -->
-                                    <!-- </div> -->
+                                        <div class="add-to-cart-btn">
+                                            <?= Html::a('Adotar', ['animal/adopt', 'id_animal' => $animal->id], ['id' => 'btn-a', 'class' => 'btn essence-btn']) ?>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
