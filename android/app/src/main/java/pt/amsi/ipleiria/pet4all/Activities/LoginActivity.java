@@ -343,10 +343,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             }
             try {
                 ConnectionManager connection = new ConnectionManager(LoginActivity.this);
-                connection.authRequest(Request.Method.GET, "user/profile?username="+ mUsername, mUsername, mPassword, null, new ResponseManager() {
+                connection.authRequest(Request.Method.GET, "user/login", mUsername, mPassword, null, new ResponseManager() {
                     @Override
                     public void onResponse(JSONObject response) {
                         /* LOCAL VARIABLE*/
+
                         if(response.has("success")) {
                             Log.e("LOGIN_RESPONSE", response.toString());
                             String authenticated_username = null;
@@ -388,7 +389,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(false);
 
             if (success) {
-                Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                Intent intent = new Intent(LoginActivity.this,AnimalsActivity.class);
                 ActivityOptions options = ActivityOptions.makeCustomAnimation(LoginActivity.this,android.R.anim.fade_in,android.R.anim.fade_out);
                 startActivity(intent, options.toBundle());
                 finish();

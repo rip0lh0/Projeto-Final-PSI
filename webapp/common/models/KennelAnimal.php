@@ -22,10 +22,12 @@ use yii\behaviors\TimestampBehavior;
 class KennelAnimal extends \yii\db\ActiveRecord
 {
     const STATUS_DELETED = 0;
-    //const STATUS_IN_KENNEL = 1;
+    const STATUS_IN_TREATMENT = 1;
     const STATUS_FOR_ADOPTION = 2;
     const STATUS_BAN = 3;
     const STATUS_ADOPTED = 4;
+    const STATUS_IN_KENNEL = 5;
+
     /**
      * {@inheritdoc}
      */
@@ -42,11 +44,11 @@ class KennelAnimal extends \yii\db\ActiveRecord
                     "options" => "danger",
                     "msg" => "Removido",
                 ];
-            // case self::STATUS_IN_KENNEL:
-            //     return [
-            //         "options" => "warning",
-            //         "msg" => "No Canil",
-            //     ];
+            case self::STATUS_IN_TREATMENT:
+                return [
+                    "options" => "warning",
+                    "msg" => "Em Tratamento",
+                ];
             case self::STATUS_FOR_ADOPTION:
                 return [
                     "options" => "warning",
@@ -62,6 +64,11 @@ class KennelAnimal extends \yii\db\ActiveRecord
                     "options" => "success",
                     "msg" => "Adotado",
                 ];
+            case self::STATUS_IN_KENNEL:
+                return [
+                    "options" => "warning",
+                    "msg" => "No Canil",
+                ];
         }
     }
 
@@ -71,10 +78,10 @@ class KennelAnimal extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            ['status', 'default', 'value' => self::STATUS_FOR_ADOPTION],
             ['status', 'in', 'range' => [
                 self::STATUS_DELETED,
-                //self::STATUS_IN_KENNEL,
+                self::STATUS_IN_TREATMENT,
+                self::STATUS_IN_KENNEL,
                 self::STATUS_FOR_ADOPTION,
                 self::STATUS_BAN,
                 self::STATUS_ADOPTED

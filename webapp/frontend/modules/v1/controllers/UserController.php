@@ -37,22 +37,44 @@ class UserController extends ActiveController
         $behaviors = parent::behaviors();
         $behaviors['basicAuth'] = [
             'class' => HttpBasicAuth::className(),
-            'except' => ['signup'],
+            'except' => ['signup', 'profile'],
             'auth' => [AuthClient::class, 'auth'],
         ];
         return $behaviors;
     }
 
-    public function actionProfile($username)
+    public function actionLogin()
     {
-        if ($username != Yii::$app->user->identity->username) throw new ForbiddenHttpException();
+        if (Yii::$app->user->isGuest) ["error" => "Not Found"];
 
-        $user = User::find()->where(['username' => $username, 'status' => User::STATUS_ACTIVE])->one();
+        $user = User::find()->where(['username' => Yii::$app->user->identity->username, 'status' => User::STATUS_ACTIVE])->one();
 
-        if (empty($user)) throw new NotFoundHttpException();
+        if (empty($user)) ["error" => "Not Found"];
         unset($user['password_hash']);
 
         return ["success" => $user];
+    }
+
+    public function actionProfile($username)
+    {
+        
+        //if ($username != Yii::$app->user->identity->username) ["error" => "Not Found"];
+
+        $user = User::find()->where(['username' => $username, 'status' => User::STATUS_ACTIVE])->one();
+
+        if (empty($user)) ["error" => "Not Found"];
+        unset($user['password_hash']);
+
+        $user_profile = [];
+        $user_profile["name"] = $user->adopter->name;
+
+        foreach ($user as $key => $value) {
+            $user_profile[$key] = $user[$key];
+        }
+
+        $user_profile["created_at"] = date("d/m/Y", $user["created_at"]);
+
+        return ["success" => $user_profile];
     }
 
     public function actionSignup()

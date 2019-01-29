@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <!-- Name -->
                         <?= $form->field($animal, 'name')->textInput(['disabled' => true]); ?>
                          <!-- Description -->
-                        <?= $form->field($animal, 'description')->textInput(['disabled' => true]); ?>
+                        <?= $form->field($animal, 'description')->textInput(['rows' => '6', 'disabled' => true]); ?>
                         <!-- Chip Number -->
                         <?= $form->field($animal, 'chip')->textInput(['disabled' => true]); ?>
                     </div>
@@ -32,11 +32,12 @@ $this->params['breadcrumbs'][] = $this->title;
                         <h3 class="box-title">Ficha Do Animal</h3>
                     </div>
                     <div class="box-body">
-                         <?= $form->field($animal->energy, 'energy')->textInput(['disabled' => true]); ?>
+                        <?= $form->field($animal->energy, 'energy')->textInput(['disabled' => true]); ?>
 
                         <?= $form->field($animal->coat, 'coat_size')->textInput(['disabled' => true]); ?>
-
+                        
                         <?= $form->field($animal->size, 'size')->textInput(['disabled' => true]); ?>
+                        
                         <!-- Animal Gender -->
                         <?= $form->field($animal, 'gender')->textInput(['disabled' => true]); ?>
                         <!-- Animal Size -->

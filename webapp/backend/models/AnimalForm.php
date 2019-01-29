@@ -32,6 +32,7 @@ class AnimalForm extends Model
     public $id_energy;
     public $id_size;
     public $id_coat;
+    public $status;
 
     //public $photos;
 
@@ -63,13 +64,35 @@ class AnimalForm extends Model
                 'message' => '{attribute} contem mais de 255 caracteres.'
             ],
             [
-                ['neutered', 'age'],
+                ['neutered', 'age', 'status'],
                 'integer'
             ],
             [
                 ['weight'],
                 'number'
             ],
+        ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ID',
+            'id_kennel' => 'ID Canil',
+            'name' => 'Nome',
+            'description' => 'Descrição',
+            'id_coat' => 'Pelo',
+            'id_energy' => 'Energia',
+            'id_size' => 'Tamanho',
+            'chip' => 'Chip',
+            'age' => 'Idade',
+            'gender' => 'Género',
+            'weight' => 'Peso',
+            'neutered' => 'Castrado',
+            'status' => 'Estado',
         ];
     }
 
@@ -121,9 +144,17 @@ class AnimalForm extends Model
 
         ImageHandler::final_upload($this->id_Kennel, ($this->id_Kennel . '/' . $animal->kennelAnimal->created_at));
 
-        if (!$animal->update()) return ['Error' => 'Fail To Update Animal'];
+        if (!$animal->validate()) return ['Error' => 'Fail To Update Animal'];
 
+        $animal->update();
 
+        $kennel_animal = KennelAnimal::find()->where(['id_animal' => $this->id, 'id_kennel' => $this->id_Kennel])->one();
+
+        //var_dump($kennel_animal);
+        $kennel_animal->status = $this->status;
+
+        if (!$kennel_animal->validate()) return ['Error' => 'Fail To Update Animal'];
+        $kennel_animal->update();
 
         return ['Success' => 'Animal Update with Success'];
     }
@@ -134,6 +165,7 @@ class AnimalForm extends Model
 
         $kennel_Animal->id_animal = $id_animal;
         $kennel_Animal->id_kennel = $id_kennel;
+        $kennel_Animal->status = $this->status;
 
         if ($kennel_Animal->save()) return $kennel_Animal;
         else return false;

@@ -46,9 +46,9 @@ class Adopter extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'id_user' => 'Id User',
-            'name' => 'Name',
-            'cellphone' => 'Cellphone',
+            'id_user' => 'id_user',
+            'name' => 'Nome',
+            'cellphone' => 'Telefone',
         ];
     }
 

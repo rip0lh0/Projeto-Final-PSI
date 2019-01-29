@@ -109,9 +109,9 @@ class AnimalController extends Controller
         // Validate Data
         if ($model->load(Yii::$app->request->post())) {
             $result = $model->createAnimal();
-            if (array_key_exists('Success', $result)) {
-                return $this->redirect(['animal/index']);
-            }
+            // if (array_key_exists('Success', $result)) {
+            //     return $this->redirect(['animal/index']);
+            // }
         }
 
         if (!Yii::$app->request->post()) ImageHandler::delete_directory($model->id_Kennel);
@@ -158,11 +158,12 @@ class AnimalController extends Controller
 
         $kennelAnimal = $this->getKennelAnimal($id_kennelAnimal);
 
-
         if (!Yii::$app->request->post()) ImageHandler::delete_directory($model->id_Kennel);
 
         ImageHandler::copy_to_temp($model->id_Kennel . '/' . $kennelAnimal->created_at, $model->id_Kennel);
         $files = ImageHandler::load_from_temp($model->id_Kennel);
+
+        $model->status = $kennelAnimal->status;
 
         return $this->render('update', [
             // Pre Define Values

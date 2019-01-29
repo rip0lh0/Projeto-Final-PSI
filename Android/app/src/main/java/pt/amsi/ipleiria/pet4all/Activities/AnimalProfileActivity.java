@@ -87,7 +87,7 @@ public class AnimalProfileActivity extends AppCompatActivity {
 
         if(animal == null){
             ConnectionManager connectionMng = new ConnectionManager(this);
-            connectionMng.makeRequest(Request.Method.GET, " /"+id_animal, null, new ResponseManager() {
+            connectionMng.makeRequest(Request.Method.GET, "animal/"+id_animal, null, new ResponseManager() {
                 @Override
                 public void onResponse(JSONObject response) {
                     try {

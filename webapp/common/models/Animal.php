@@ -62,16 +62,16 @@ class Animal extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'description' => 'Description',
-            'id_coat' => 'Id Coat',
-            'id_energy' => 'Id Energy',
-            'id_size' => 'Id Size',
+            'name' => 'Nome',
+            'description' => 'Descrição',
+            'id_coat' => 'Pelo',
+            'id_energy' => 'Energia',
+            'id_size' => 'Tamanho',
             'chip' => 'Chip',
-            'age' => 'Age',
-            'gender' => 'Gender',
-            'weight' => 'Weight',
-            'neutered' => 'Neutered',
+            'age' => 'Idade',
+            'gender' => 'Género',
+            'weight' => 'Peso',
+            'neutered' => 'Castrado',
         ];
     }
 

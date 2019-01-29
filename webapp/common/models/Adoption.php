@@ -71,12 +71,12 @@ class Adoption extends ActiveRecord
     {
         return [
             'id' => 'ID',
-            'id_adopter' => 'Id Adopter',
-            'id_kennelAnimal' => 'Id Kennel Animal',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
-            'description' => 'Description',
-            'status' => 'Status',
+            'id_adopter' => 'Adotante',
+            'id_kennelAnimal' => 'Canil',
+            'created_at' => 'Criado',
+            'updated_at' => 'Atualizado',
+            'description' => 'Descrição',
+            'status' => 'Estado',
         ];
     }
 
