@@ -11,10 +11,6 @@ use kartik\form\ActiveForm;
 
 $this->title = 'Utilizador';
 $this->params['breadcrumbs'][] = $this->title;
-
-// $userName = Yii::$app->user->identity->username;
-// $local = Yii::$app->user->identity->local;
-
 ?>
 
 <div class="breadcumb_area bg-img" style="background-image: url('<?= Url::base(true) ?>/images/bg_2.jpg');">

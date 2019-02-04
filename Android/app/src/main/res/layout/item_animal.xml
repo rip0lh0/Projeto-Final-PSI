@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/rectangle"
     android:orientation="vertical">
 
     <TextView
@@ -85,7 +86,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="5dp"
-            android:background="#ECEFF1"
+            android:background="@drawable/rectangle"
             android:maxLines="6"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 

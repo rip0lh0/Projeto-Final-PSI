@@ -44,11 +44,11 @@ AppAsset::register($this);
             'items' => $animalMenuItems,
         ];
 
-        $menuItems[] = [
-            'url' => ['/site/options'],
-            'icon' => 'cog',
-            'label' => 'Definições',
-        ];
+        // $menuItems[] = [
+        //     'url' => ['/site/options'],
+        //     'icon' => 'cog',
+        //     'label' => 'Definições',
+        // ];
 
         echo Menu::widget(['items' => $menuItems]);
         ?>

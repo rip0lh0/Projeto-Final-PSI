@@ -115,61 +115,22 @@ class SiteController extends Controller
         }
     }
 
-    public function actionProfile()
-    {
-        $user = Yii::$app->user->identity;
-        $profile = $user->kennel;
-        $schedules = $profile->schedules;
+    
 
-        $result = [];
+    // public function actionChangePassword()
+    // {
+    //     $user = Yii::$app->user->identity;
+    //     $loadPost = $user->load(Yii::$app->request->post());
+    //     $valid = $model->validate();
 
-        $model_schedule = new ScheduleForm();
+    //     if ($loadPost && $user->validate()) {
+    //         $user->password = md5($user->new_password);
 
-        foreach ($schedules as $value) {
-            $model_schedule->days_week[] = '' . $value->day;
-            $model_schedule->hours['open'] = $value->open_time;
-            $model_schedule->hours['close'] = $value->close_time;
-            $model_schedule->hours_lunch['open'] = $value->lunch_open;
-            $model_schedule->hours_lunch['close'] = $value->lunch_close;
-            if ($model_schedule->hours_lunch['open']) $model_schedule->has_lunch = 1;
-        }
+    //         if ($user->save()) $this->redirect(['profile']);
+    //         else $this->redirect(['profile']);
+    //     } else $this->redirect(['profile']);
 
-        /* Schedule */
-        if ($model_schedule->load(Yii::$app->request->post())) {
-            $model_schedule->id_kennel = $profile->id;
-            $result = $model_schedule->saveSchedule();
-            if (array_key_exists("success", $result)) {
-                return $this->redirect(['site/profile']);
-            }
-        }
-
-        $nAnimais = count($profile->kennelAnimals);
-        $nAdocoes = 0;
-
-        return $this->render('profile', [
-            'profile' => $profile,
-            'nAnimais' => $nAnimais,
-            'nAdocoes' => $nAdocoes,
-            'schedules' => $schedules,
-            'model_schedule' => $model_schedule,
-            'result' => $result
-        ]);
-    }
-
-    public function actionChangePassword()
-    {
-        $user = Yii::$app->user->identity;
-        $loadPost = $user->load(Yii::$app->request->post());
-        $valid = $model->validate();
-
-        if ($loadPost && $user->validate()) {
-            $user->password = md5($user->new_password);
-
-            if ($user->save()) $this->redirect(['profile']);
-            else $this->redirect(['profile']);
-        } else $this->redirect(['profile']);
-
-    }
+    // }
 
     /**
      * Logout action.

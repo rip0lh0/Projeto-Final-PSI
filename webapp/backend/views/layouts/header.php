@@ -21,7 +21,7 @@ AppAsset::register($this);
                 <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="https://dummyimage.com/160x160/000/fff" class="user-image" alt="User Image"/>
+                        <?= Html::img('@web/img/default-user.png', ['class' => 'user-image']); ?>
                         <span class="hidden-xs">
                             <?= $userName ?>
                         </span>
@@ -29,8 +29,7 @@ AppAsset::register($this);
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
-                            <img src="https://dummyimage.com/160x160/000/fff" class="img-circle"
-                                 alt="User Image"/>
+                            <?= Html::img('@web/img/default-user.png', ['class' => 'profile-user-img img-responsive img-circle']); ?>
                             <p>
                                 <?= $userName ?>
                                 <small><?= ($local != null && $local->parent != null) ? $local->parent->name . ', ' : ''; ?><?= ($local != null) ? $local->name : ''; ?></small>
@@ -39,7 +38,7 @@ AppAsset::register($this);
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <?= Html::a('Perfil', ['site/profile'], ['class' => 'btn btn-primary']) ?>
+                                <?= Html::a('Perfil', ['user/profile'], ['class' => 'btn btn-primary']) ?>
                             </div>
                             <div class="pull-right">
                                 <?= Html::a('Sign out', ['site/logout'], ['data-method' => 'post', 'class' => 'btn btn-default']) ?>

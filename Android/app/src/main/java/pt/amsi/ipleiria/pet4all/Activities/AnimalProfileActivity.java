@@ -8,29 +8,21 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.volley.Request;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import pt.amsi.ipleiria.pet4all.ConnectionManager;
-import pt.amsi.ipleiria.pet4all.Helpers.AnimalsDBHelper;
-import pt.amsi.ipleiria.pet4all.MainActivity;
 import pt.amsi.ipleiria.pet4all.Models.Animal;
+import pt.amsi.ipleiria.pet4all.Models.KennelAnimal;
 import pt.amsi.ipleiria.pet4all.PreferenceManager;
 import pt.amsi.ipleiria.pet4all.R;
-import pt.amsi.ipleiria.pet4all.ResponseManager;
-import pt.amsi.ipleiria.pet4all.Singletons.AnimalSingleton;
+import pt.amsi.ipleiria.pet4all.Singletons.KennelAnimalSingleton;
 
 public class AnimalProfileActivity extends AppCompatActivity {
 
@@ -44,14 +36,14 @@ public class AnimalProfileActivity extends AppCompatActivity {
     private ImageView ivBanner;
     private Button btnMessage;
 
-    private Animal animal = null;
+    private KennelAnimal kennelAnimal = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_animal_profile);
 
-        final long id_animal = Long.parseLong(getIntent().getStringExtra("ANIMAL"));
+        final long id_kenneAnimal = Long.parseLong(getIntent().getStringExtra("ANIMAL"));
 
         tvName = findViewById(R.id.profile_name);
         tvDescription = findViewById(R.id.profile_description);
@@ -62,70 +54,57 @@ public class AnimalProfileActivity extends AppCompatActivity {
         tvAge = findViewById(R.id.profile_age);
         ivBanner = findViewById(R.id.profile_banner);
 
+        kennelAnimal = KennelAnimalSingleton.getInstance(this).getKennelAnimal(id_kenneAnimal);
+
         btnMessage = findViewById(R.id.aprofile_message);
         btnMessage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!PreferenceManager.hasKey("KEYCREDENTIALS", AnimalProfileActivity.this, Context.MODE_PRIVATE)){
-                    Intent intent = new Intent(AnimalProfileActivity.this, LoginActivity.class);
+            if(!PreferenceManager.hasKey("KEYCREDENTIALS", AnimalProfileActivity.this, Context.MODE_PRIVATE)){
+                Intent intent = new Intent(AnimalProfileActivity.this, LoginActivity.class);
 
-                    ActivityOptions options = ActivityOptions.makeCustomAnimation(AnimalProfileActivity.this,android.R.anim.fade_in,android.R.anim.fade_out);
-                    startActivity(intent, options.toBundle());
-                }else {
-                    Intent intent = new Intent(AnimalProfileActivity.this, MessageActivity.class);
-                    ActivityOptions options = ActivityOptions.makeCustomAnimation(AnimalProfileActivity.this, android.R.anim.fade_in, android.R.anim.fade_out);
-                    intent.putExtra("created_at", animal.getCreated_at());
-                    startActivity(intent, options.toBundle());
-                }
+                ActivityOptions options = ActivityOptions.makeCustomAnimation(AnimalProfileActivity.this,android.R.anim.fade_in,android.R.anim.fade_out);
+                startActivity(intent, options.toBundle());
+            }else {
+                Intent intent = new Intent(AnimalProfileActivity.this, MessageActivity.class);
+                ActivityOptions options = ActivityOptions.makeCustomAnimation(AnimalProfileActivity.this, android.R.anim.fade_in, android.R.anim.fade_out);
+
+                intent.putExtra("IDKENNELANIMAL", kennelAnimal.getId() + "");
+                Log.e("MESSAGE", kennelAnimal.getId() + "");
+                startActivity(intent, options.toBundle());
+            }
             }
         });
 
-        Log.e("ANIMAL_RESPONSE_ERROR", id_animal+"");
-
-        animal = AnimalSingleton.getInstance(this).getAnimal(id_animal);
-        Log.e("ANIMAL_RESPONSE_ERROR", animal.getName());
-
-        if(animal == null){
-            ConnectionManager connectionMng = new ConnectionManager(this);
-            connectionMng.makeRequest(Request.Method.GET, "animal/"+id_animal, null, new ResponseManager() {
-                @Override
-                public void onResponse(JSONObject response) {
-                    try {
-                        String arrAnimals = response.getString("success");
-                        animal = Animal.parserJsonAnimal(arrAnimals, AnimalProfileActivity.this);
-
-                        fillFields(animal);
-
-
-                    } catch (JSONException e) {
-                        Log.e("ANIMAL_RESPONSE_ERROR", e.toString());
-                    }
-                }
-
-                @Override
-                public void onError(String message) {
-                    Log.e("ANIMAL_RESPONSE_ERROR", message);
-                }
-            });
-        }else{
-            fillFields(animal);
-        }
+        fillFields(kennelAnimal);
     }
 
-    public void fillFields(Animal animal){
-        tvName.setText("Nome: " + ((animal.getName() != null) ? animal.getName() : ""));
-        tvDescription.setText("Descrição: " + ((animal.getDescription() != null) ? animal.getDescription() : ""));
-        tvWeight.setText("Peso: " + ((animal.getWeight() != 0) ? animal.getWeight()+"" : "-"));
-        tvEnergy.setText("Energia: " + ((animal.getEnergy() != null) ? animal.getEnergy() : ""));
-        tvSize.setText("Tamanho: " + ((animal.getSize() != null) ? animal.getSize() : ""));
-        tvCoat_size.setText("Pelo: " + ((animal.getCoat() != null) ? animal.getCoat() : ""));
-        tvAge.setText("Idade: " + ((animal.getAge() != 0) ? animal.getAge()+"" : "-"));
+    public void fillFields(KennelAnimal kennelAnimal){
+        Animal tempAnimal = kennelAnimal.getAnimal();
 
-        if(ConnectionManager.checkInternetConnection(AnimalProfileActivity.this)) {
+        tvName.setText("Nome: " + ((tempAnimal.getName() != null) ? tempAnimal.getName() : ""));
+        tvDescription.setText("Descrição: " + ((tempAnimal.getDescription() != null) ? tempAnimal.getDescription() : ""));
+        tvWeight.setText("Peso: " + ((tempAnimal.getWeight() != 0) ? tempAnimal.getWeight()+"" : "-"));
+        tvEnergy.setText("Energia: " + ((tempAnimal.getEnergy() != null) ? tempAnimal.getEnergy() : ""));
+        tvSize.setText("Tamanho: " + ((tempAnimal.getSize() != null) ? tempAnimal.getSize() : ""));
+        tvCoat_size.setText("Pelo: " + ((tempAnimal.getCoat() != null) ? tempAnimal.getCoat() : ""));
+        tvAge.setText("Idade: " + ((tempAnimal.getAge() != 0) ? tempAnimal.getAge()+"" : "-"));
+
+        if(!ConnectionManager.checkInternetConnection(this)){
+            Glide.with(AnimalProfileActivity.this)
+                .load(R.drawable.ic_no_image)
+                .placeholder(R.drawable.ic_no_image)
+                .into(ivBanner);
+            return;
+        }else{
             String source_folder = "";
-            source_folder = animal.getImagePath();
-            if(source_folder == null) return;
-            String source_path = "http://192.168.1.198/v1/animal/download-image?source_path=" + source_folder;
+
+            source_folder = kennelAnimal.getKennel().getId() + "/" + kennelAnimal.getCreated_at() + "/0.jpg" ;
+
+            if(source_folder.isEmpty()) return;
+            String source_path = ConnectionManager.PREFIX_URL + "animal/download-image?source_path=" + source_folder;
+
+            Log.e("IMAGES_PATH", source_path);
 
             Glide.with(AnimalProfileActivity.this)
                 .load(source_path)
@@ -145,11 +124,6 @@ public class AnimalProfileActivity extends AppCompatActivity {
                 })
                 .error(R.drawable.ic_no_image)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .into(ivBanner);
-        }else{
-            Glide.with(AnimalProfileActivity.this)
-                .load(R.drawable.ic_no_image)
-                .placeholder(R.drawable.ic_no_image)
                 .into(ivBanner);
         }
     }

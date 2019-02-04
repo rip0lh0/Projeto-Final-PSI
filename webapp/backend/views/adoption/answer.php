@@ -1,6 +1,7 @@
 <?php
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
+use common\models\Message;
 ?>
 
 <div class="col-md-12">
@@ -28,13 +29,17 @@ use yii\helpers\Html;
                         <span class="username" style="margin-left: -40px; margin-bottom: 15px;">
                             <?= ($value->user->kennel) ? 'Você' : $value->user->adopter->name; ?>
                             <span class="text-muted pull-right"><?= date('d-m-Y H:i', $value->created_at); ?></span>
+                            <br>
+                        <?php if ($value->status == Message::STATUS_UNREAD) { ?>
+                            <span class="label label-primary pull-right">New</span> 
+                            <?php 
+                        } ?>
                         </span><!-- /.username -->
                        <?= $value->message ?>
                     </div>
                     <hr>
                     <?php 
                 } ?>
-
             </div>
         </div>
     </div>

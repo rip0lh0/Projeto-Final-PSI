@@ -78,8 +78,6 @@ public class AnimalsDBHelper extends SQLiteOpenHelper {
         values.put(TABLE_ANIMAL_GENDER, animal.getGender());
         values.put(TABLE_ANIMAL_WEIGHT, animal.getWeight());
         values.put(TABLE_ANIMAL_NEUTERED, animal.getNeutered());
-        values.put(TABLE_ANIMAL_ID_KENNEL, animal.getId_kennel());
-        values.put(TABLE_ANIMAL_CREATED_AT, animal.getCreated_at());
 
         long id = this.database.insert(TABLE_NAME, null, values);
 
@@ -104,8 +102,6 @@ public class AnimalsDBHelper extends SQLiteOpenHelper {
         values.put(TABLE_ANIMAL_GENDER, animal.getGender());
         values.put(TABLE_ANIMAL_WEIGHT, animal.getWeight());
         values.put(TABLE_ANIMAL_NEUTERED, animal.getNeutered());
-        values.put(TABLE_ANIMAL_ID_KENNEL, animal.getId_kennel());
-        values.put(TABLE_ANIMAL_CREATED_AT, animal.getCreated_at());
 
         return this.database.update(TABLE_NAME,  values, "id = ?", new String[]{"" + animal.getId()}) > 0;
     }
@@ -141,7 +137,7 @@ public class AnimalsDBHelper extends SQLiteOpenHelper {
 
         if(cursor.moveToFirst()){
             do {
-                Animal auxAnimal = new Animal(
+                /*Animal auxAnimal = new Animal(
                         cursor.getLong(0),
                         cursor.getString(1),
                         cursor.getString(2),
@@ -157,7 +153,7 @@ public class AnimalsDBHelper extends SQLiteOpenHelper {
                         cursor.getString(12),
                         null);
                 auxAnimal.setId(cursor.getLong(0));
-                animals.add(auxAnimal);
+                animals.add(auxAnimal);*/
             }while (cursor.moveToNext());
         }
         return animals;

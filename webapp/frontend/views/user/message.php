@@ -34,7 +34,7 @@ $this->registerJs($script);
                 <?php foreach ($messages as $key => $message) { ?>
                 <div class="media">
                     <div class="media-body">
-                        <h5 class="media-heading"><?= ($message->user->kennel) ? 'Canil: ' . $message->user->kennel->name : 'Voce: '; ?> </h5>
+                        <h5 class="media-heading"><?= ($message->user->kennel) ? $message->user->kennel->name : $message->user->adopter->name; ?> </h5>
                         <span class="message-date"><?= date('d-m-Y H:i', $message->created_at); ?></span>
                         <p class="message-text"><?= $message->message ?></p>
                     </div>

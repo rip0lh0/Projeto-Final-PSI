@@ -20,10 +20,12 @@ use frontend\models\Kennel;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
+use frontend\models\ProfileForm;
 
 /* Exceptions */
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
+
 use common\models\User;
 use common\models\Adoption;
 
@@ -177,11 +179,38 @@ class UserController extends Controller
         ]);
     }
 
+    public function actionProfile()
+    {
+        $user = Yii::$app->user->identity;
+        $adopter = $user->adopter;
+        $model_profile = new ProfileForm();
+
+        /* Load Values */
+        $model_profile->id_user = $user->id;
+        $model_profile->username = $user->username;
+        $model_profile->email = $user->email;
+
+        $model_profile->id_adopter = $adopter->id;
+        $model_profile->name = $adopter->name;
+        $model_profile->phone = $adopter->cellphone;
+
+        if ($model_profile->load(Yii::$app->request->post())) {
+            $result = $model_profile->update();
+            if (array_key_exists("success", $result)) {
+                return $this->redirect(['user/profile']);
+            }
+        }
+
+        return $this->render("profile", [
+            'model_profile' => $model_profile
+        ]);
+    }
+
 
     public function actionMessages()
     {
-        $adopter = Yii::$app->user->identity->adopter;
-        $adoptions = $adopter->adoptions;
+        $user = Yii::$app->user->identity;
+        $adoptions = Adoption::find()->where(['id_adopter' => $user->id])->all();
 
         return $this->render('messages', [
             'adoptions' => $adoptions

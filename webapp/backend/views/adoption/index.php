@@ -4,6 +4,9 @@ use fedemotta\datatables\DataTables;
 
 
 use yii\helpers\Html;
+use common\models\User;
+use common\models\Message;
+
 
 $this->title = 'Adoções';
 $this->params['breadcrumbs'][] = $this->title;
@@ -28,7 +31,19 @@ $this->params['breadcrumbs'][] = $this->title;
                         'columns' => [
                             [
                                 'label' => 'Nome do adotante',
-                                'attribute' => 'adopter.name',
+                                'attribute' => 'adopter',
+                                'format' => 'html',
+                                'value' => function ($data) {
+                                    $htmlData = "";
+                                    $htmlData = User::find()->where(['id' => $data->id_adopter])->one()->adopter->name;
+                                    foreach ($data->messages as $key => $value) {
+                                        if ($value->status == Message::STATUS_UNREAD) {
+                                            $htmlData .= "<span class='label label-primary pull-right'>New</span>";
+                                            break;
+                                        }
+                                    }
+                                    return $htmlData;
+                                },
                             ],
                             [
                                 'label' => 'Animal',

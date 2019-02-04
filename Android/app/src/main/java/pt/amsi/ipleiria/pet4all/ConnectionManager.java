@@ -28,7 +28,7 @@ import java.util.Map;
 
 public class ConnectionManager{
     private static ConnectionManager instance = null;
-    protected static final String PREFIX_URL ="http://192.168.1.198/v1/";
+    public static final String PREFIX_URL ="http://192.168.1.198/v1/";
 
     public RequestQueue requestQueue;
 
@@ -55,7 +55,7 @@ public class ConnectionManager{
     }
 
     public void makeRequest(int method, String url, final Map<String, String> params, final ResponseManager responseManager){
-        String final_url = PREFIX_URL + url;
+        String final_url = ConnectionManager.PREFIX_URL + url;
 
         StringRequest strRequest = new StringRequest(method, final_url, new Response.Listener<String>(){
             @Override
@@ -82,7 +82,7 @@ public class ConnectionManager{
     }
 
     public void authRequest(int method, String url, final String username, final String password, JSONObject params, final ResponseManager responseManager){
-        String final_url = PREFIX_URL + url;
+        String final_url = ConnectionManager.PREFIX_URL + url;
 
         JsonObjectRequest strRequest = new JsonObjectRequest(method, final_url, params, new Response.Listener<JSONObject>(){
             @Override

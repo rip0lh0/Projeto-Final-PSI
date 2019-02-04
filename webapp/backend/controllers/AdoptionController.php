@@ -52,9 +52,14 @@ class AdoptionController extends Controller
 
     public function actionAnswer($id_adoption)
     {
-        $adoption = Adoption::find($id_adoption)->one();
+        $adoption = Adoption::find()->where(["id" => $id_adoption])->one();
 
         $msg = $adoption->messages;
+        foreach ($msg as $key => $value) {
+            $value->status = Message::STATUS_READ;
+
+            $value->update();
+        }
 
         $model = new DynamicModel(['KOMENTAR']);
         $model->addRule(['KOMENTAR'], 'string', ['max' => 254]);
@@ -63,7 +68,7 @@ class AdoptionController extends Controller
 
             $msg_answer->id_adoption = $adoption->id;
             $msg_answer->message = $model->KOMENTAR;
-            $msg_answer->id_user = Yii::$app->user->id;
+            $msg_answer->id_user = Yii::$app->user->identity->id;
 
             if ($msg_answer->save()) return $this->redirect(['adoption/answer', 'id_adoption' => $adoption->id]);
 

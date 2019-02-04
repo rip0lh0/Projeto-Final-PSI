@@ -60,18 +60,15 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/color_primary_accent"
-            android:contentDescription="@string/navbar_profile"
             android:src="@drawable/ic_action_user" />
 
         <ImageButton
-            android:id="@+id/btn_logout"
+            android:id="@+id/btn_messages"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/color_primary_accent"
-            android:contentDescription="@string/navbar_profile"
-            android:visibility="visible"
-            app:srcCompat="@drawable/ic_action_exit" />
+            app:srcCompat="@drawable/ic_action_email_white" />
 
 
     </LinearLayout>

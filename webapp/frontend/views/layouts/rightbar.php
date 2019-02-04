@@ -39,12 +39,15 @@ $user = Yii::$app->user->identity;
                     </div>
                 </div>
             </div> -->
-            <div class="row align-top" style="padding: 25px;">
-                <div class="col">
-                    <?= Html::a('Mensagens', ['user/messages'], ['class' => 'btn btn-outline-primary btn-lg btn-block us-btn']) ?>
+            <div class="row align-top">
+                <div class="col" style="margin-top: 10px;">
+                    <?= Html::a('Mensagens', ['user/messages'], ['class' => 'btn btn-outline-primary btn-lg btn-block']) ?>
                 </div>
-                <div class="col">
-                    <?= Html::a('Sign out', ['user/logout'], ['data-method' => 'post', 'class' => 'btn btn-outline-secondary btn-lg btn-block us-btn']) ?>
+                <div class="col" style="margin-top: 10px;">
+                    <?= Html::a('Perfil', ['user/profile'], ['class' => 'btn btn-outline-secondary btn-lg btn-block']) ?>
+                </div>
+                <div style="position: absolute; bottom: 0; width: 100%;">
+                    <?= Html::a('Sign out', ['user/logout'], ['data-method' => 'post', 'class' => 'btn btn-outline-danger btn-lg btn-block', 'style' => 'border-radius: 0; border-left: none; border-right: none;']) ?>
                 </div>
             </div>
         </div>

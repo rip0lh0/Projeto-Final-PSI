@@ -50,7 +50,7 @@ class AnimalController extends ActiveController
         $behaviors['verbs'] = [
             'class' => \yii\filters\VerbFilter::className(),
             'actions' => [
-                'index' => ['get'],
+                'index' => ['get']
             ],
         ];
 
@@ -59,32 +59,61 @@ class AnimalController extends ActiveController
 
     public function actionIndex()
     {
-        $table_animal = Animal::tableName();
-        $table_kennelAnimal = KennelAnimal::tableName();
-        $table_coat = Coat::tableName();
-        $table_energy = Energy::tableName();
-        $table_size = Size::tableName();
-        $table_kennel = Kennel::tableName();
+        $kennelAnimals = KennelAnimal::find()->where(['status' => KennelAnimal::STATUS_FOR_ADOPTION])->all();
 
+        $data_animals = [];
 
-        $animals = Yii::$app->db->createCommand('
-                SELECT a.id, a.name, a.description, c.coat_size, e.energy, s.size, a.chip, a.age, a.gender, a.weight, a.neutered, ka.id_kennel, ka.created_at
-                FROM animal a
-                INNER JOIN kennel_animal ka ON ka.id_animal = a.id
-                INNER JOIN coat c ON c.id = a.id_coat
-                INNER JOIN size s ON s.id = a.id_size
-                INNER JOIN energy e ON e.id = a.id_energy
-                WHERE KA.status = ' . KennelAnimal::STATUS_FOR_ADOPTION . '
-                ORDER BY KA.created_at DESC
-            ')
-            ->queryAll();
+        foreach ($kennelAnimals as $key => $value) {
+            $data_animals[$key] = $value->attributes;
+            $data_animals[$key]["animal"] = $value->animal->attributes;
+            $data_animals[$key]["animal"]["energy"] = $value->animal->energy->energy;
+            $data_animals[$key]["animal"]["coat"] = $value->animal->coat->coat_size;
+            $data_animals[$key]["animal"]["size"] = $value->animal->size->size;
 
-        foreach ($animals as $key => $value) {
-            $value['images'] = ImageHandler::load_from_final($value['id_kennel'] . '/' . $value['created_at']);
-            $animals[$key] = $value;
+            $data_animals[$key]["kennel"] = $value->kennel->attributes;
+
+            $local = $value->kennel->local;
+            $local_name = ($local != null && $local->parent != null) ? $local->parent->name . ', ' . $local->name : $local->name;
+            $data_animals[$key]["kennel"]["local"] = $local_name;
+
+            unset($data_animals[$key]["kennel"]["id_local"]);
+            unset($data_animals[$key]["animal"]["id_energy"]);
+            unset($data_animals[$key]["animal"]["id_coat"]);
+            unset($data_animals[$key]["animal"]["id_size"]);
+
+            $data_animals[$key]['images'] = ImageHandler::load_from_final($value->id_kennel . '/' . $value->created_at);
         }
 
-        return ["success" => $animals];
+        return ["success" => $data_animals];
+    }
+
+    public function actionProfile($id)
+    {
+        $kennelAnimal = KennelAnimal::find()->where(['id' => $id, 'status' => KennelAnimal::STATUS_FOR_ADOPTION])->one();
+
+        if ($kennelAnimal == null) return ["error" => "Faild to load Animal"];
+
+        $data_animals = $kennelAnimal->attributes;
+        $data_animals = $kennelAnimal->attributes;
+        $data_animals["animal"] = $kennelAnimal->animal->attributes;
+        $data_animals["animal"]["energy"] = $kennelAnimal->animal->energy->energy;
+        $data_animals["animal"]["coat"] = $kennelAnimal->animal->coat->coat_size;
+        $data_animals["animal"]["size"] = $kennelAnimal->animal->size->size;
+        $data_animals["kennel"] = $kennelAnimal->kennel->attributes;
+
+        $local = $kennelAnimal->animal->kennelAnimal->kennel->local;
+        $local_name = ($local != null && $local->parent != null) ? $local->parent->name . ', ' . $local->name : $local->name;
+        $data_animals["kennel"]["local"] = $local_name;
+
+        unset($data_animals["kennel"]["id_local"]);
+        unset($data_animals["animal"]["id_energy"]);
+        unset($data_animals["animal"]["id_coat"]);
+        unset($data_animals["animal"]["id_size"]);
+
+        $data_animals['images'] = ImageHandler::load_from_final($kennelAnimal->animal->kennelAnimal->id_kennel . '/' . $kennelAnimal->animal->kennelAnimal->created_at);
+
+
+        return ["success" => $data_animals];
     }
 
     public function actionDownloadImage($source_path)
@@ -98,27 +127,32 @@ class AnimalController extends ActiveController
     }
 
 
-    public function actionPublishMessage()
+    public function actionPublishMessage($id_kennelAnimal)
     {
         $username = Yii::$app->request->post("username");
         $message_text = Yii::$app->request->post("message");
 
+        if (!$username || !$message_text) return ["error" => "Faild To Save Message"];
+
         $user = User::findByUsername($username);
         $user_role = Yii::$app->authManager->getRolesByUser($user->id);
-
         if (key_exists("kennel", $user_role)) return ["error" => "Faild To Save Message"];
 
-        $kennelAnimal = KennelAnimal::find()->where(["created_at" => Yii::$app->request->post("created_at")])->one();
-
+        $kennelAnimal = KennelAnimal::find()->where(["id" => $id_kennelAnimal])->one();
         if ($kennelAnimal == null) return ["error" => "Faild To Save Message"];
 
-        $adoption = new Adoption();
+        $adoption = Adoption::find()->where(["id_adopter" => $user->id, "id_kennelAnimal" => $kennelAnimal->id])->one();
+
+        if (!$adoption) {
+            $adoption = new Adoption();
+
+            $adoption->id_adopter = $user->id;
+            $adoption->id_kennelAnimal = $kennelAnimal->id;
+
+            if (!$adoption->save()) return ["error" => "Faild To Save Adoption"];
+        }
+
         $message = new Message();
-
-        $adoption->id_adopter = $user->id;
-        $adoption->id_kennelAnimal = $kennelAnimal->id;
-
-        if (!$adoption->save()) return ["error" => "Faild To Save Adoption"];
 
         $message->id_user = $user->id;
         $message->id_adoption = $adoption->id;
@@ -131,5 +165,4 @@ class AnimalController extends ActiveController
 
         return ["success" => $message];
     }
-
 }
