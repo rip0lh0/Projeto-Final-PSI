@@ -2,5 +2,10 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/webapp/vendor/kartik-v/yii2-popover-x" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/webapp/vendor/kartik-v/yii2-widget-activeform" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/webapp/vendor/kartik-v/yii2-widget-timepicker" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/webapp/vendor/perminder-klair/yii2-dropzone" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/webapp/vendor/yiisoft/yii2-bootstrap4" vcs="Git" />
   </component>
 </project>
