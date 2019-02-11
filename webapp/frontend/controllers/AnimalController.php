@@ -53,13 +53,14 @@ class AnimalController extends Controller
     public function actionAdopt($id_animal)
     {
         $animal = Animal::find()->join('JOIN', KennelAnimal::tableName(), 'animal.id = id_animal')->where([(KennelAnimal::tableName() . '.status') => KennelAnimal::STATUS_FOR_ADOPTION, 'animal.id' => $id_animal])->one();
-        $adopter = Yii::$app->user->identity->adopter;
+        $user = Yii::$app->user->identity;
+
         if ($animal == null) throw new NotFoundHttpException();
         //var_dump($adopter);
         $model = new MessageForm();
 
         if ($model->load(Yii::$app->request->post())) {
-            $model->id_adopter = $adopter->id;
+            $model->id_user = $user->id;
             $model->id_animal = $animal->kennelAnimal->id;
 
             $model->saveMessage();

@@ -23,7 +23,8 @@ use yii\db\ActiveRecord;
  */
 class Message extends ActiveRecord
 {
-    public const STATUS_MESSAGE = 10;
+    public const STATUS_UNREAD = 10;
+    public const STATUS_READ = 20;
     /**
      * {@inheritdoc}
      */
@@ -38,8 +39,8 @@ class Message extends ActiveRecord
     public function rules()
     {
         return [
-            ['status', 'default', 'value' => self::STATUS_MESSAGE],
-            ['status', 'in', 'range' => [self::STATUS_MESSAGE]],
+            ['status', 'default', 'value' => self::STATUS_UNREAD],
+            ['status', 'in', 'range' => [self::STATUS_UNREAD, self::STATUS_READ]],
             [['id_parent', 'id_adoption', 'id_user'], 'integer'],
             [['message', 'status', 'id_user'], 'required'],
             [['message'], 'string', 'max' => 255],

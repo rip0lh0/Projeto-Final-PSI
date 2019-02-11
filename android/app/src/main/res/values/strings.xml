@@ -28,10 +28,13 @@
 
     <string name="btn_contact">Contactar</string>
     <string name="lb_name">Nome</string>
+    <string name="lb_phone">Telemovel</string>
     <string name="lb_weight">Peso</string>
     <string name="lb_age">Idade</string>
+    <string name="lb_edit">Editar</string>
+    <string name="lb_save">Salvar</string>
     <string name="lb_logout">Logout</string>
-
+    <string name="lb_message">Mensagens</string>
 
 
     <string name="title_activity_login_profile">Sign in</string>

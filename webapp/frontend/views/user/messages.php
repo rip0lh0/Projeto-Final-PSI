@@ -41,7 +41,7 @@ $this->registerJs($script);
         <div class="row">
             
             <?php foreach ($adoptions as $key => $adoption) { ?>
-
+                
                 <!-- Single Blog Area -->
                 <div class="col-12 col-lg-6">
                     <div class="single-blog-area mb-50">
@@ -52,9 +52,10 @@ $this->registerJs($script);
                         </div>
                         <!-- Hover Content -->
                         <div class="hover-content">
+                            
                             <!-- Post Title -->
                             <div class="hover-post-title">
-                                <a href="#"><?= ($adoption->recentMessage->user->kennel) ? 'Você' : 'Canil: ' . $adoption->recentMessage->user->adopter->name; ?></a>
+                                <a href="#"><?= ($adoption->recentMessage->user->kennel) ? $adoption->recentMessage->user->kennel->name : $adoption->recentMessage->user->adopter->name ?></a>
                             </div>
                             <p><?= $adoption->recentMessage->message ?></p>
                             <a href="#" class="show-details" adoption-id="<?= $adoption->id ?>">Detalhes <i class="fa fa-angle-right"></i></a>
@@ -71,7 +72,6 @@ $this->registerJs($script);
 
 
 <div id="message-modal-container">
-
 
 </div>
 

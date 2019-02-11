@@ -18,21 +18,14 @@ import java.util.ArrayList;
 
 public class Animal {
     private long id;
-    private String name;
-    private String description;
-    private String coat; // Coat
-    private String energy; // Energy
-    private String size; // Size
-    private String chip;
+    private String name, description, chip;
+    private String coat,energy, size;
     private int age;
     private char gender;
     private double weight;
     private int neutered;
-    private int id_kennel;
-    private String created_at;
-    private ArrayList<String> imagesPaths;
 
-    public Animal(long id, String name, String description, String coat, String energy, String size, String chip, int age, char gender, double weight, int neutered, int id_kennel, String created_at, ArrayList<String> imagesPaths){
+    public Animal(long id, String name, String description, String coat, String energy, String size, String chip, int age, char gender, double weight, int neutered){
         this.id = id;
         this.name=name;
         this.description=description;
@@ -44,25 +37,6 @@ public class Animal {
         this.gender=gender;
         this.weight=weight;
         this.neutered=neutered;
-        this.imagesPaths = imagesPaths;
-        this.id_kennel = id_kennel;
-        this.created_at = created_at;
-    }
-
-    public int getId_kennel() {
-        return id_kennel;
-    }
-
-    public void setId_kennel(int id_kennel) {
-        this.id_kennel = id_kennel;
-    }
-
-    public String getCreated_at() {
-        return created_at;
-    }
-
-    public void setCreated_at(String created_at) {
-        this.created_at = created_at;
     }
 
     public void setName(String name) {
@@ -151,21 +125,11 @@ public class Animal {
         return neutered;
     }
 
-    public String getImagePath(){
-        return (imagesPaths != null) ? imagesPaths.get(0) : null;
-    }
-
-    public ArrayList<String> getImagesPaths(){
-        return imagesPaths;
-    }
-
     public static ArrayList<Animal> parseJSONAnimals(JSONArray response, Context context){
         ArrayList<Animal> tempListaLivros = new ArrayList<Animal>();
         try{
             for(int i = 0; i< response.length(); i++){
-
                 String animal = response.get(i).toString();
-
                 Animal tempAnimal = Animal.parserJsonAnimal(animal, context);
 
                 if(tempAnimal == null) continue;
@@ -185,86 +149,79 @@ public class Animal {
         try{
             JSONObject jObjAnimals = new JSONObject(response);
 
-            int animal_id = jObjAnimals.getInt("id");
-            String animal_name = jObjAnimals.getString("name");
-            String animal_descrioption = null;
-            int animal_age = 0;
-            char animal_gender = ((String)jObjAnimals.get("gender")).charAt(0);
-            double animal_weight = 0;
-            int animal_neutered = 0;
-            String animal_chip = (String)jObjAnimals.get("chip");
-            ArrayList<String> animal_imagesPaths = new ArrayList<String>();
+            long id = 0;
+            String name = "", description = "", chip = "";
+            String coat = "",energy = "", size = "";
+            int age = 0;
+            char gender = ' ';
+            double weight = 0;
+            int neutered = -1;
 
-            String prefix_path = jObjAnimals.getString("id_kennel") + "/" + jObjAnimals.getString("created_at");
+            id = jObjAnimals.getLong("id");
+            name = jObjAnimals.getString("name");
+            description = jObjAnimals.getString("description");
 
-            JSONArray jArrImages = jObjAnimals.getJSONArray("images");
-
-            for(int i = 0; i < jArrImages.length(); i++){
-                JSONObject jObjImage = jArrImages.getJSONObject(i);
-
-                String path = prefix_path + "/" + jObjImage.getString("name");
-
-                animal_imagesPaths.add(path);
-            }
-
-            Log.e("IMAGES_ANIMAL", jArrImages.toString());
-
+            coat = jObjAnimals.getString("coat");
+            energy = jObjAnimals.getString("energy");
+            size = jObjAnimals.getString("size");
+            gender = jObjAnimals.getString("gender").charAt(0);
 
             try {
-                animal_descrioption = jObjAnimals.getString("description");
+                chip = jObjAnimals.getString("chip");
             }catch (JSONException e){
                 Log.e("JSON_ERROR", e.toString());
             }
 
             try {
-                animal_age = jObjAnimals.getInt("age");
+                weight = jObjAnimals.getDouble("weight");
             }catch (JSONException e){
                 Log.e("JSON_ERROR", e.toString());
             }
 
             try {
-                animal_weight = jObjAnimals.getDouble("weight");
+                neutered = jObjAnimals.getInt("neutered");
             }catch (JSONException e){
                 Log.e("JSON_ERROR", e.toString());
             }
-
-            try {
-                animal_neutered = jObjAnimals.getInt("neutered");
-            }catch (JSONException e){
-                Log.e("JSON_ERROR", e.toString());
-            }
-
-            String animal_coat = jObjAnimals.getString("coat_size");
-            String animal_energy = jObjAnimals.getString("energy");
-            String animal_size = jObjAnimals.getString("size");
-
-            int animal_id_kennel = jObjAnimals.getInt("id_kennel");
-            String animal_created_at = jObjAnimals.getString("created_at");
-
 
             tempAnimal = new Animal(
-                    animal_id,
-                    animal_name,
-                    animal_descrioption,
-                    animal_coat,
-                    animal_energy,
-                    animal_size,
-                    animal_chip,
-                    animal_age,
-                    animal_gender,
-                    animal_weight,
-                    animal_neutered,
-                    animal_id_kennel,
-                    animal_created_at,
-                    animal_imagesPaths
+                    id,
+                    name,
+                    description,
+                    coat,
+                    energy,
+                    size,
+                    chip,
+                    age,
+                    gender,
+                    weight,
+                    neutered
             );
         }
         catch (JSONException ex){
             ex.printStackTrace();
+            Log.e("JSON_ERROR", ex.toString());
+
             Toast.makeText(context, "Error:" + ex.getMessage(), Toast.LENGTH_SHORT).show();
         }
 
         return tempAnimal;
     }
 
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", coat='" + coat + '\'' +
+                ", energy='" + energy + '\'' +
+                ", size='" + size + '\'' +
+                ", chip='" + chip + '\'' +
+                ", age=" + age +
+                ", gender=" + gender +
+                ", weight=" + weight +
+                ", neutered=" + neutered +
+                '}';
+    }
 }

@@ -58,6 +58,20 @@ class SignupForm extends Model
             ['phone', 'string', 'min' => 9, 'max' => 9],
         ];
     }
+	
+	public function attributeLabels()
+    {
+        return [
+            'id_user' => 'ID User',
+            'id_kennel' => 'ID Canil',
+            'name' => 'Nome',
+            'email' => 'Email',
+            'username' => 'Nome de Utilizador',
+            'phone' => 'Telefone',
+			'id_local' => 'Distrito',
+			'id_sublocal' => 'Concelho'			
+        ];
+    }
 
 
     public function signupAdopter($user)

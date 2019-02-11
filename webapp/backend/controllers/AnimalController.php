@@ -109,9 +109,9 @@ class AnimalController extends Controller
         // Validate Data
         if ($model->load(Yii::$app->request->post())) {
             $result = $model->createAnimal();
-            // if (array_key_exists('Success', $result)) {
-            //     return $this->redirect(['animal/index']);
-            // }
+            if (array_key_exists('Success', $result)) {
+                return $this->redirect(['animal/index']);
+            }
         }
 
         if (!Yii::$app->request->post()) ImageHandler::delete_directory($model->id_Kennel);
@@ -151,7 +151,7 @@ class AnimalController extends Controller
         $result = [];
 
         if ($model->load(Yii::$app->request->post())) {
-            $model->updateAnimal();
+            //$model->updateAnimal();
             if ($model->updateAnimal()) return $this->redirect(['animal/index']);
             else $error = 'Erro ao salvar os Dados';
         }

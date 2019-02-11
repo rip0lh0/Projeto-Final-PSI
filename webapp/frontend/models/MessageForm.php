@@ -13,7 +13,7 @@ use common\models\Adopter;
  */
 class MessageForm extends Model
 {
-    public $id_adopter;
+    public $id_user;
     public $id_animal;
     public $id_adoption;
     public $message;
@@ -34,19 +34,21 @@ class MessageForm extends Model
         $adoption = new Adoption();
         $message = new Message();
 
-        $adoption->id_adopter = $this->id_adopter;
+        $adoption->id_adopter = $this->id_user;
         $adoption->id_kennelAnimal = $this->id_animal;
 
-        $adoption->save();
+        if (!$adoption->save()) return ["error" => "Faild To Save Adoption"];
 
-        $adopter = Adopter::find($this->id_adopter)->one();
-
-        $message->id_user = $adopter->id_user;
+        $message->id_user = $this->id_user;
         $message->id_adoption = $adoption->id;
         $message->message = $this->message;
 
-        $message->save();
+        if (!$message->save()) {
+            $adoption->delete();
+            return ["error" => "Sommeting gone wrong"];
+        }
 
+        return ["success" => $message];
     }
 
 

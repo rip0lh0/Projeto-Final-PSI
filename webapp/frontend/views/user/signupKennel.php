@@ -14,7 +14,7 @@ $this->title = 'Associação';
 $this->params['breadcrumbs'][] = $this->title;
 
 
-$scriptBreed =
+$script_locals =
     '$.post("' . Yii::$app->urlManager->createUrl('user/sub-locals?id_parent=') . '" + $(this).val(), 
         function( data ) {
             $("select#signupform-id_sublocal" ).html( data );
@@ -68,7 +68,7 @@ $scriptBreed =
                             <div class="col-md-6 mb-3">
                                 <?= $form->field($model, 'id_local')->dropDownList($locals, [
                                     'class' => 'w-100',
-                                    'onchange' => $scriptBreed
+                                    'onchange' => $script_locals
                                 ]); ?>
                             </div>
                             <div class="col-md-6 mb-3">

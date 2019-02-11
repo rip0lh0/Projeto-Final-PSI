@@ -181,6 +181,11 @@ input {
     font-weight: 400;
 }
 
+
+.kennel-contacts p {
+    margin-bottom: 3px;
+}
+
 /* The overlay effect (full height and width) - lays on top of the container and over the image */
 /* .overlay {
     position: absolute;

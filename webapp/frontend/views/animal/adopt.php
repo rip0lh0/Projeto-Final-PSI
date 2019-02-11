@@ -10,15 +10,16 @@ use yii\helpers\ArrayHelper;
 use yii\widgets\ActiveForm;
 use kartik\select2\Select2;
 
+use common\models\Schedule;
+
 $this->title = $animal->name;
 $this->params['breadcrumbs'][] = $this->title;
 
 $images = $animal->allImages;
-
+$kennel = $animal->kennelAnimal->kennel;
 ?>
 
 <section class="single_product_details_area d-flex align-items-center">
-
     <!-- Single Product Thumb -->
     <div class="single_product_thumb clearfix">
         <div class="product_thumbnail_slides owl-carousel">
@@ -132,12 +133,84 @@ $images = $animal->allImages;
     <?php ActiveForm::end(); ?>
 </div>
 
-<!-- <a class="floatbtn" href="<?= Yii::$app->request->referrer; ?>" style="position: fixed; z-index: 1000;" ><i class="fas fa-angle-left"></i></a> -->
+
+<div class="row" style="padding: 50px 20px; background-color: #f5f7f9">
+    <div class="container">
+        <div class="col-12">
+            <h2 class="text-center"><?= $kennel->name ?></h2>
+        </div>
+        <div class="row kennel-contacts ">
+            <div class="col text-center">
+                <h4>Contactos</h4>
+                <p><?= $kennel->address ?>, <?= ($kennel->local != null) ? $kennel->local->name : ''; ?><?= ($kennel->local->parent != null) ? ', ' . $kennel->local->parent->name : ''; ?></p>
+                <?php if ($kennel->phone != null) { ?>
+                <p><?= $kennel->phone ?></p>
+                    <?php 
+                } ?>
+                <?php if ($kennel->cell_phone != null) { ?>
+                <p><?= $kennel->cell_phone ?></p>
+                    <?php 
+                } ?>
+                <p><a href="mailto:contact@essence.com" ><?= $kennel->user->email ?></a></p>
+            </div>
+            <div class="col text-center">
+                <h4>Horario</h4>
+                <?php if ($kennel->schedules) { ?>
+                    <div class="row">
+                        <div class="col-md-6 text-right" style="padding-right: 0;">
+                            <?php
+                            foreach (Schedule::DAY_WEEK as $key => $value) {
+                                echo '<p>' . $value . ':</p>';
+                            }
+                            ?>
+                        </div>
+                        <div class="col-md-6 text-left">
+                            <?php
+
+                            foreach (Schedule::DAY_WEEK as $key => $value) {
+                                $hour_open = null;
+                                $hour_close = null;
+                                $hour_lunch_open = null;
+                                $hour_lunch_close = null;
+
+                                foreach ($kennel->schedules as $key_schedule => $schedule) {
+                                    if ($schedule->day == (string)$key) {
+                                        $hour_open = date("H:i", strtotime($schedule->open_time));
+                                        $hour_close = date("H:i", strtotime($schedule->close_time));
+                                        if ($schedule->lunch_open) {
+                                            $hour_lunch_open = date("H:i", strtotime($schedule->lunch_open));
+                                            $hour_lunch_close = date("H:i", strtotime($schedule->lunch_close));
+                                        }
+                                    }
+                                }
+
+                                if ($hour_open) {
+                                    echo '<p>';
+                                    echo $hour_open . '-';
+                                    if ($hour_lunch_open) {
+                                        echo $hour_lunch_open . ' e ';
+                                        echo $hour_lunch_close . '-';
+                                    }
+                                    echo $hour_close;
+
+                                    echo '</p>';
+                                } else {
+                                    echo '<p>Fechado</p>';
+                                }
+                            }
+                            ?>
+                        </div>
+                    </div>
+                    <?php 
+                } ?>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
 <?php 
-
 $scriptCarousel = "
     $(function() {
         var owl = $('.product_thumbnail_slides');

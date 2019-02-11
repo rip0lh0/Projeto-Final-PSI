@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import pt.amsi.ipleiria.pet4all.Activities.AdoptionsActivity;
 import pt.amsi.ipleiria.pet4all.Activities.AnimalProfileActivity;
 import pt.amsi.ipleiria.pet4all.Activities.LoginActivity;
 import pt.amsi.ipleiria.pet4all.Activities.ProfileActivity;
@@ -25,10 +27,8 @@ import pt.amsi.ipleiria.pet4all.R;
 /* Controls All Navbar Actions And Animations */
 
 public class NavbarFragment extends Fragment {
-    Boolean navbarState = false; // True = Open : False = Close
-    ImageButton btnSignout, btnProfile, btnAnimals;
-    TextView textViewMagazine,textViewSearch,textViewProfile;
-    RelativeLayout navbarActionBtns, navbarFragment;
+
+    ImageButton btnMessages, btnProfile, btnAnimals;
 
     @Nullable
     @Override
@@ -36,17 +36,18 @@ public class NavbarFragment extends Fragment {
         View view = inflater.inflate(R.layout.navbar_fragment, container, false);
         view.bringToFront();
 
-        btnSignout = view.findViewById(R.id.btn_logout);
+        btnMessages = view.findViewById(R.id.btn_messages);
+
         if(PreferenceManager.hasKey("KEYCREDENTIALS", getActivity(), Context.MODE_PRIVATE)){
-            btnSignout.setVisibility(View.VISIBLE);
-            btnSignout.setOnClickListener(new View.OnClickListener() {
+            btnMessages.setVisibility(View.VISIBLE);
+            btnMessages.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    signout();
+                    messages();
                 }
             });
         }else{
-            btnSignout.setVisibility(View.GONE);
+            btnMessages.setVisibility(View.GONE);
         }
 
         btnAnimals = view.findViewById(R.id.btn_animals);
@@ -77,7 +78,20 @@ public class NavbarFragment extends Fragment {
 
 
     public void profile(){
-        Intent intent= new Intent(getActivity(), ProfileActivity.class);
+        Log.e("PROFILE", "CLICK");
+        Intent intent = new Intent(getActivity(), ProfileActivity.class);
+
+        /*if(!PreferenceManager.hasKey("KEYCREDENTIALS", getActivity(), Context.MODE_PRIVATE)){
+            intent = new Intent(getActivity(),LoginActivity.class);
+        }*/
+
+        //ActivityOptions options = ActivityOptions.makeCustomAnimation(getContext(),android.R.anim.fade_in,android.R.anim.fade_out);
+        startActivity(intent);
+    }
+
+
+    public void messages(){
+        Intent intent= new Intent(getActivity(), AdoptionsActivity.class);
 
         if(!PreferenceManager.hasKey("KEYCREDENTIALS", getActivity(), Context.MODE_PRIVATE)){
             intent= new Intent(getActivity(),LoginActivity.class);
@@ -85,20 +99,8 @@ public class NavbarFragment extends Fragment {
 
         ActivityOptions options = ActivityOptions.makeCustomAnimation(getContext(),android.R.anim.fade_in,android.R.anim.fade_out);
         startActivity(intent, options.toBundle());
+        getActivity().finish();
     }
 
-
-    public void signout(){
-        if(getActivity().getClass().getName() == ProfileActivity.class.getName()){
-            Intent intent= new Intent(getActivity(), AnimalsActivity.class);
-
-            ActivityOptions options = ActivityOptions.makeCustomAnimation(getContext(),android.R.anim.fade_in,android.R.anim.fade_out);
-            startActivity(intent, options.toBundle());
-        }
-
-        PreferenceManager.removePreferences("KEYCREDENTIALS", getActivity(), Context.MODE_PRIVATE);
-
-        btnSignout.setVisibility(View.GONE);
-    }
 
 }

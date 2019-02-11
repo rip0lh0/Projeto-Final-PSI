@@ -7,21 +7,39 @@
     android:orientation="vertical"
     tools:context=".Activities.MessageActivity">
 
-    <EditText
-        android:id="@+id/edtMessage"
+    <ListView
+        android:id="@+id/listview_messages"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:inputType="textPersonName"
-        android:gravity="top"
-        android:hint="Mensagem" />
+        android:footerDividersEnabled="false"
+        android:headerDividersEnabled="false" />
 
-    <Button
-        android:id="@+id/btnSendMessage"
-        style="@style/btn_warning"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="125dp"
+        android:layout_height="100dp"
         android:layout_weight="1"
-        android:text="Enviar" />
+        android:background="@drawable/rectangle"
+        android:backgroundTint="@color/color_background"
+        android:elevation="5dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/edtMessage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="top"
+            android:hint="Mensagem"
+            android:inputType="textPersonName" />
+
+        <Button
+            android:id="@+id/btnSendMessage"
+            style="@style/btn_warning"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2.5"
+            android:text="Enviar" />
+    </LinearLayout>
 
 </LinearLayout>
